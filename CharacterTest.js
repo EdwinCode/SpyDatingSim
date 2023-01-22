@@ -1,4 +1,4 @@
-/*class Character {
+/*class CharacterTest {
     constructor(game) {
         this.game = game;
 
@@ -101,7 +101,8 @@
     }
 }*/
 
-class Character {
+// Test class
+class CharacterTest {
     constructor(game) {
         this.game = game;
 
