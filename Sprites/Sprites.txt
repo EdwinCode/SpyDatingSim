@@ -1,0 +1,6 @@
+This folder is to store completed sprite sheets.
+Once we meet as a group and confirm sprites, we can push from personal dev branches to main dev branch.
+Personal Branches:
+devC for Chloe
+devM for Maria
+devE for Edwin
