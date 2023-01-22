@@ -13,6 +13,7 @@ ASSET_MANAGER.downloadAll(() => {
 	gameEngine.addEntity(new SpyCharacter(gameEngine));
 	gameEngine.addEntity(new BillionaireCharacter(gameEngine));
 	gameEngine.addEntity(new AlphabetTest(gameEngine));
+	gameEngine.addEntity(new Character(gameEngine));
 
 	gameEngine.init(ctx);
 
