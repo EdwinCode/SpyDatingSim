@@ -1,0 +1,2 @@
+Javascript files for each level of the game will be stored
+in this folder.

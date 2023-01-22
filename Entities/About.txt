@@ -1,0 +1,2 @@
+Game characters and other entity Javascript files will be
+stored in this folder.
