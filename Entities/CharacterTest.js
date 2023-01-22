@@ -128,8 +128,6 @@ class CharacterTest {
     };
 
     update() {
-        //this.x += this.speed*this.game.clockTick;
-        //if (this.x > 1024 / 4) this.x = -220;
 
         // Don't go off screen in positive x direction
         if (this. x >= this.startX + this.gameWindowDimensionX) {
@@ -153,26 +151,29 @@ class CharacterTest {
 
         // Update on player control
 
+
         // walk right
-        if (this.game.keys["d"] || this.game.keys["D"]) {
+        if (this.game.keys["d"]) {
             this.x += this.speed * this.game.clockTick;
             this.index = 3;
         }
         // walk left
-        else if (this.game.keys["a"] || this.game.keys["A"]) {
+        else if (this.game.keys["a"]) {
             this.x -= this.speed * this.game.clockTick;
             this.index = 4;
         }
         // walk up
-        else if (this.game.keys["w"] || this.game.keys["W"]) {
+        else if (this.game.keys["w"]) {
             this.y -= this.speed * this.game.clockTick;
             this.index = 5;
         }
         // walk down
-        else if (this.game.keys["s"] || this.game.keys["S"]) {
+        else if (this.game.keys["s"]) {
             this.y += this.speed * this.game.clockTick;
             this.index = 6;
-        } else {
+        }
+
+        else {
 
             // If the player is not pressing a key
 
