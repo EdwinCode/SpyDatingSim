@@ -84,7 +84,6 @@ class GameEngine {
         });
 
         function keydownListener (e) {
-            that.keyboardActive = true;
             //e.preventDefault();
             switch (e.code) {
                 case "ShiftLeft":
@@ -114,7 +113,6 @@ class GameEngine {
             }
         }
         function keyUpListener (e) {
-            that.keyboardActive = false;
             //e.preventDefault();
             switch (e.code) {
                 case "ShiftLeft":
