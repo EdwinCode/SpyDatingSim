@@ -3,25 +3,15 @@ class SceneManager {
         this.game = game;
         this.game.camera = this;
         this.x = 0;
+        this.y = 0;
 
         this.gameOver = false;
 
-        this.title = true;
-        this.credits = false;
-        this.level = null;
+        //this.spy = new SpyCharacter(this.game);
 
-        this.menuSelect = {
-            play: false,
-            credits: false
-        }
-        this.menuSelect = -10;
-        this.creditsLineIndex = 0;
-        this.menuButtonTimer = 0.15;
-        this.menubuttonCooldown = 0.15;
+        //this.loadLevel(levelOne, 0, 0, true);
 
-        this.spy = new SpyCharacter(this.game);
-
-        this.loadLevel(levelOne, 0, 0, false, true);
+        this.loadLevel(titleScreen);
     };
 
     clearEntities() {
@@ -30,9 +20,9 @@ class SceneManager {
         });
     };
 
-    loadLevel(level, x, y, transition, title) {
+    loadLevel(level) {
+        /*this.level = level;
         this.title = title;
-        this.level = level;
         this.clearEntities();
         this.x = 0;
 
@@ -49,16 +39,24 @@ class SceneManager {
 
         if (!spy) this.game.addEntity(this.spy);
 
-        this.game.camera.paused = false;
+        this.game.camera.paused = false;*/
+
+        this.currentLevel = level;
+
+        if (this.currentLevel === titleScreen) {
+            this.game.addEntity(new TestTitleScreen(this.game));
+        }
 
 
     };
 
     update() {
+       /* this.menuButtonTimer += this.game.clockTick;
+        this.timer += this.game.clockTick;
 
         if (this.title && this.game.click) {
             // if "play"
-            if (this.game.mouse && this.game.mouse.y > 10 && this.game.mouse.y < 11 ? "Grey": "White") {
+            if (this.game.click && this.game.click.y > 100 && this.game.click.y < 200 ? "Grey": "White") {
                 this.title = false;
                 this.spy = new SpyCharacter(this.game);
                 this.loadLevel(levelOne,0, 0, false);
@@ -69,26 +67,78 @@ class SceneManager {
 
         if (this.gameOver) {
             //do nothing right now
-        }
+        }*/
     };
 
     draw(ctx) {
         //HUD?
+        ctx.font = "bold 24px sans-serif";
+        ctx.fillStyle = "White";
+        ctx.fillText("Chloe",500,500);
 
-        // Title Menu
-        if (this.title && !this.credits) {
+        // Title Screen
+        /*if (this.title) {
             let width = 100;
             let height = 100;
             ctx.drawImage(ASSET_MANAGER.getAsset("./Sprites/spy.png"), 0, 0, width, height);
-            ctx.fillStyle = this.game.mouse && this.game.mouse.y > 10 && this.game.mouse.y < 11 ? "Black": "White";
+            ctx.fillStyle = this.game.mouse && this.game.mouse.y > 100 && this.game.mouse.y < 200 ? "Black": "White";
             // if (the line above) then ctx.drawImage of an icon to go with the word "play"
-            ctx.fillText("Play", 10, 10);
+            ctx.fillText("Play", 100, 100);
         }
 
         else if (this.title && this.credits) {
             // do nothing rn
             // overlay a credit textbox
-        }
+        }*/
     };
+}
+
+class TestTitleScreen {
+    constructor(game) {
+        this.game = game;
+
+        this.spritesheet = ASSET_MANAGER.getAsset("./Sprites/spy.png");
+        this.elapsed = 0;
+
+        this.play = false;
+        this.credits = false;
+    }
+
+    update() {
+        this.elapsed += this.game.clockTick;
+        if (this.game.keys["."]) {
+            //this.game.camera.title = false;
+            this.removeFromWorld = true;
+            this.game.camera.loadLevel(this.level, 0, 0, false, false);
+        }
+    }
+
+    draw(ctx) {
+
+        if (!this.play) {
+            this.setBlackStroke(ctx);
+            ctx.lineWidth = 12;
+            ctx.textAlign = "center";
+
+            //title
+            ctx.font = "30px Courier";
+            ctx.fillText("Felon For You", 100, 100);
+
+            //play
+        }
+
+        ctx.fillStyle = "Black";
+        ctx.fillRect(0, 0, 500, 500);
+
+        ctx.font = "30px Courier";
+
+        ctx.fillStyle = "White";
+        ctx.fillText("Test", 210, 260);
+    };
+
+    setBlackStroke(ctx) {
+        ctx.strokeStyle = "Black";
+        ctx.fillStyle = "Black";
+    }
 
 }

@@ -10,3 +10,7 @@ let credits = {
         "Felon For You"
     ]
 };
+
+let titleScreen = {
+    label: "title screen"
+};
