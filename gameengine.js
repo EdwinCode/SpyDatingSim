@@ -160,6 +160,15 @@ class GameEngine {
             }
         }
         setInterval(checkInGameArea, 200);
+
+        // Handle page visibility change:
+        // - If the page is hidden, stop movement
+        document.addEventListener("visibilitychange", () => {
+            if (document.visibilityState === "hidden") {
+                that.inCanvas = false;
+                that.setKeysNotPressed();
+            }
+        });
     };
 
     addEntity(entity) {
