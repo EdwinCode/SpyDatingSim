@@ -149,6 +149,11 @@ class GameEngine {
         this.ctx.canvas.addEventListener("keydown", that.keydown);
         this.ctx.canvas.addEventListener("keyup", that.keyup);
 
+        window.addEventListener('blur', () => {
+            that.inCanvas = false;
+            that.setKeysNotPressed();
+        });
+
         function checkInGameArea() {
             const elem = document.getElementById("gameWorld");
 
@@ -161,14 +166,6 @@ class GameEngine {
         }
         setInterval(checkInGameArea, 200);
 
-        // Handle page visibility change:
-        // - If the page is hidden, stop movement
-        document.addEventListener("visibilitychange", () => {
-            if (document.visibilityState === "hidden") {
-                that.inCanvas = false;
-                that.setKeysNotPressed();
-            }
-        });
     };
 
     addEntity(entity) {
