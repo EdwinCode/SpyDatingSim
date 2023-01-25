@@ -10,6 +10,8 @@ class SpyCharacter {
         this.direction = 0;
         this.state = 0;
 
+        this.updateBB();
+
         this.animations = [];
         this.loadAnimations();
     };
@@ -48,6 +50,16 @@ class SpyCharacter {
 
     };
 
+    updateBB() {
+        this.lastBB = this.BB;
+        if (this.size === 0 || this.size === 3) {
+            this.BB = new BoundingBox(this.x, this.y, 128, 210);
+        }
+        else {
+            this.BB = new BoundingBox(this.x, this.y, 128, 210);
+        }
+    };
+
     update() {
         if (this.game.keys['w'] && !this.game.keys['s']) {
             this.direction = 3; // up
@@ -73,6 +85,9 @@ class SpyCharacter {
             this.state = 0;
         }
 
+        //Update position
+        this.updateBB();
+
         // stay within canvas bounds
         if(this.x > 700) this.x = 0;
         if(this.x < 0) this.x = 700;
@@ -81,5 +96,11 @@ class SpyCharacter {
     };
     draw(ctx) {
         this.animations[this.state][this.direction].drawFrame(this.game.clockTick, ctx, this.x, this.y);
+
+        PARAMS.DEBUG = document.getElementById("debug").checked;
+        if (PARAMS.DEBUG) {
+            ctx.strokeStyle = 'Red';
+            ctx.strokeRect(this.BB.x - this.game.camera.x, this.BB.y, this.BB.width, this.BB.height);
+        }
     };
 };
