@@ -19,6 +19,7 @@ class GameEngine {
         //this.lastKey = {};
         this.setKeysNotPressed();
         this.inCanvas = true; // tells whether in the game area
+        this.lastDirection = 0; // right
 
         // Options and the Details
         this.options = options || {
