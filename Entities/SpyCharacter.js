@@ -10,6 +10,8 @@ class SpyCharacter {
         this.direction = 0;
         this.state = 0;
 
+        this.updateBB();
+
         this.animations = [];
         this.loadAnimations();
     };
@@ -48,30 +50,76 @@ class SpyCharacter {
 
     };
 
+    updateBB() {
+        this.lastBB = this.BB;
+        if (this.size === 0 || this.size === 3) {
+            this.BB = new BoundingBox(this.x, this.y, 128, 210);
+        }
+        else {
+            this.BB = new BoundingBox(this.x, this.y, 128, 210);
+        }
+    };
+
     update() {
-        if (this.game.keys['w'] && !this.game.keys['s']) {
-            this.direction = 3; // up
-            this.state = 1; // walking
-            this.y -= 4;
-        } else if (this.game.keys['s'] && !this.game.keys['w']) {
-            this.direction = 1; // down
-            this.state = 1; // walking
-            this.y += 4;
+        if (!this.game.up && !this.game.down && !this.game.left && !this.game.right) {
+            this.state = 0; // idle
+        } else {
+            if (this.game.right && this.game.left && this.game.up && this.game.down) {
+                this.state = 0; // idle
+            } else if (this.game.up && this.game.run && !this.game.down) {
+                this.direction = 3; // up
+                this.state = 2; // running
+                this.y -= 8;
+            } else if (this.game.up && !this.game.down) {
+                this.direction = 3; // up
+                this.state = 1; // walking
+                this.y -= 4;
+            } else if (this.game.down && this.game.run && !this.game.up) {
+                this.direction = 1; // down
+                this.state = 2; // running
+                this.y += 8;
+            } else if (this.game.down && !this.game.up) {
+                this.direction = 1; // down
+                this.state = 1; // walking
+                this.y += 4;
+            } else if (this.game.up && this.game.down) {
+                this.direction = 3; // up
+                this.state = 0; // idle
+            }
+
+            if (this.game.right && this.game.left && this.game.up && this.game.down) {
+                this.state = 0; // idle
+            } else if (this.game.right && this.game.run && !this.game.left) {
+                this.direction = 0; // right
+                this.state = 2; // running
+                this.x += 8;
+            } else if (this.game.right && !this.game.left) {
+                this.direction = 0; // right
+                this.state = 1; // walking
+                this.x += 4;
+            } else if (this.game.left && this.game.run && !this.game.right) {
+                this.direction = 2; // left
+                this.state = 2; // running
+                this.x -= 8;
+            } else if (this.game.left && !this.game.right) {
+                this.direction = 2; // left
+                this.state = 1; // walking
+                this.x -= 4;
+            } else if (this.game.right && this.game.left && this.game.up) {
+                this.direction = 3; // up
+                this.state = 1; // walking
+            } else if (this.game.right && this.game.left && this.game.down) {
+                this.direction = 1; // down
+                this.state = 1; // walking
+            } else if (this.game.right && this.game.left) {
+                this.direction = 0; // right
+                this.state = 0; // idle
+            }
         }
 
-        if (this.game.keys['d'] && !this.game.keys['a']) {
-            this.direction = 0; // right
-            this.state = 1; // walking
-            this.x += 4;
-        } else if (this.game.keys['a'] && !this.game.keys['d']) {
-            this.direction = 2; // left
-            this.state = 1; // walking
-            this.x -= 4;
-        }
 
-        if (!this.game.keys['w'] && !this.game.keys['s'] && !this.game.keys['d'] && !this.game.keys['a']) {
-            this.state = 0;
-        }
+        //Update position
+        this.updateBB();
 
         // stay within canvas bounds
         if(this.x > 700) this.x = 0;
@@ -81,5 +129,11 @@ class SpyCharacter {
     };
     draw(ctx) {
         this.animations[this.state][this.direction].drawFrame(this.game.clockTick, ctx, this.x, this.y);
+
+        PARAMS.DEBUG = document.getElementById("debug").checked;
+        if (PARAMS.DEBUG) {
+            ctx.strokeStyle = 'Red';
+            ctx.strokeRect(this.BB.x - this.game.camera.x, this.BB.y, this.BB.width, this.BB.height);
+        }
     };
-};
+}

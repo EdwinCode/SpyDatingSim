@@ -1,4 +1,4 @@
-class SceneManager {
+class Scenemanager {
     constructor(game) {
         this.game = game;
         this.game.camera = this;
@@ -47,6 +47,11 @@ class SceneManager {
             this.game.addEntity(new TestTitleScreen(this.game));
         }
 
+        if (this.currentLevel === levelOne) {
+            this.clearEntities();
+            this.game.addEntity(new SpyCharacter(this.game));
+        }
+
 
     };
 
@@ -71,25 +76,7 @@ class SceneManager {
     };
 
     draw(ctx) {
-        //HUD?
-        ctx.font = "bold 24px sans-serif";
-        ctx.fillStyle = "White";
-        ctx.fillText("Chloe",500,500);
 
-        // Title Screen
-        /*if (this.title) {
-            let width = 100;
-            let height = 100;
-            ctx.drawImage(ASSET_MANAGER.getAsset("./Sprites/spy.png"), 0, 0, width, height);
-            ctx.fillStyle = this.game.mouse && this.game.mouse.y > 100 && this.game.mouse.y < 200 ? "Black": "White";
-            // if (the line above) then ctx.drawImage of an icon to go with the word "play"
-            ctx.fillText("Play", 100, 100);
-        }
-
-        else if (this.title && this.credits) {
-            // do nothing rn
-            // overlay a credit textbox
-        }*/
     };
 }
 
@@ -97,22 +84,25 @@ class TestTitleScreen {
     constructor(game) {
         this.game = game;
 
-        this.BB = new BoundingBox(0,0,1,1);
         this.mouseBB = new BoundingBox(0,0,1,1);
-        this.playBB = new BoundingBox((720 / 2) - 50,(720 / 2) - 50,100,100);
-        this.exitBB = new BoundingBox(700,700,100,100);
-
+        this.playBB = new BoundingBox((720 / 2) - 50,(720 / 2) - 45,100,70);
+        this.exitBB = new BoundingBox(700,700,70,70);
 
         this.play = false;
         this.credits = false;
     };
 
     update() {
-        /*if (this.game.click) {
+        if (this.game.click) {
             this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y,1,1);
 
+            if (this.mouseBB.collide(this.playBB)) {
+                this.game.camera.clearEntities();
+                this.game.camera.loadLevel(levelOne);
+            }
+
             this.game.click = null;
-        }*/
+        }
 
         if (this.game.mouse) {
             this.mouseBB = new BoundingBox(this.game.mouse.x, this.game.mouse.y,1,1);
@@ -123,18 +113,20 @@ class TestTitleScreen {
 
         if (!this.play) {
             this.setBlackStroke(ctx);
-            //ctx.lineWidth = 1000;
+            ctx.lineWidth = 6;
             ctx.textAlign = "center";
 
             //title
-            ctx.font = "30px Courier";
+            ctx.font = "Bold 60px Courier";
             ctx.fillText("Felon For You", 720 / 2, 100);
 
             //ctx.textAlign = "left";
 
+            ctx.font = "Bold 35px Courier";
+
             //play
             if (this.mouseBB.collide(this.playBB)) {
-                this.setPinkStroke(ctx);
+                this.setRedStroke(ctx);
             }
             ctx.fillText("PLAY", 720 / 2, 720 / 2);
             ctx.strokeRect(this.playBB.left, this.playBB.top, this.playBB.width, this.playBB.height);
@@ -142,10 +134,10 @@ class TestTitleScreen {
             this.setBlackStroke(ctx);
         }
 
-        else {
+        /*else {
             this.setBlackStroke(ctx);
             if (this.mouseBB.collide(this.exitBB)) {
-                this.setPinkStroke(ctx);
+                this.setRedStroke(ctx);
             }
 
             ctx.lineWidth = 10;
@@ -153,17 +145,16 @@ class TestTitleScreen {
             ctx.fillText("EXIT", 700, 700);
             //ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
 
-        }
+        }*/
     };
 
     setBlackStroke(ctx) {
         ctx.strokeStyle = "Black";
         ctx.fillStyle = "Black";
-    }
+    };
 
-    setPinkStroke(ctx) {
-        ctx.strokeStyle = "Pink";
-        ctx.fillStyle = "Pink";
-    }
-
+    setRedStroke(ctx) {
+        ctx.strokeStyle = "rgb(139,0,0)";
+        ctx.fillStyle = "rgb(139,0,0)";
+    };
 }

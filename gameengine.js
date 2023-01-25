@@ -13,7 +13,15 @@ class GameEngine {
         this.click = null;
         this.mouse = null;
         this.wheel = null;
-        this.keys = {};
+
+        // TODO: maybe use the line below to store the last direction pressed
+        // to make some nice animation features (turn in that direction)
+        //this.lastKey = {};
+        this.up = false;
+        this.down = false;
+        this.right = false;
+        this.left = false;
+        this.run = false;
 
         // Options and the Details
         this.options = options || {
@@ -37,11 +45,14 @@ class GameEngine {
     };
 
     startInput() {
+        // TODO: remove that = this and use the function declaration
+        // show below with the getXandY method
+        var that = this;
         const getXandY = e => ({
             x: e.clientX - this.ctx.canvas.getBoundingClientRect().left,
             y: e.clientY - this.ctx.canvas.getBoundingClientRect().top
         });
-        
+
         this.ctx.canvas.addEventListener("mousemove", e => {
             if (this.options.debugging) {
                 console.log("MOUSE_MOVE", getXandY(e));
@@ -72,8 +83,70 @@ class GameEngine {
             this.rightclick = getXandY(e);
         });
 
-        this.ctx.canvas.addEventListener("keydown", event => this.keys[event.key] = true);
-        this.ctx.canvas.addEventListener("keyup", event => this.keys[event.key] = false);
+        function keydownListener (e) {
+            that.keyboardActive = true;
+            //e.preventDefault();
+            switch (e.code) {
+                case "ShiftLeft":
+                case "ShiftRight":
+                    that.run = true;
+                    break;
+                case "ArrowLeft":
+                case "KeyA":
+                    that.left = true;
+                    that.lastDirection = 2; // left
+                    break;
+                case "ArrowRight":
+                case "KeyD":
+                    that.right = true;
+                    that.lastDirection = 0; // right
+                    break;
+                case "ArrowUp":
+                case "KeyW":
+                    that.up = true;
+                    that.lastDirection = 3; // up
+                    break;
+                case "ArrowDown":
+                case "KeyS":
+                    that.down = true;
+                    that.lastDirection = 1; // down
+                    break;
+            }
+        }
+        function keyUpListener (e) {
+            that.keyboardActive = false;
+            //e.preventDefault();
+            switch (e.code) {
+                case "ShiftLeft":
+                case "ShiftRight":
+                    that.run = false;
+                    break;
+                case "ArrowLeft":
+                case "KeyA":
+                    that.left = false;
+                    break;
+                case "ArrowRight":
+                case "KeyD":
+                    that.right = false;
+                    break;
+                case "ArrowUp":
+                case "KeyW":
+                    that.up = false;
+                    break;
+                case "ArrowDown":
+                case "KeyS":
+                    that.down = false;
+                    break;
+            }
+        }
+
+        that.keydown = keydownListener;
+        that.keyup = keyUpListener;
+
+        this.ctx.canvas.addEventListener("keydown", that.keydown);
+        this.ctx.canvas.addEventListener("keyup", that.keyup);
+
+
     };
 
     addEntity(entity) {
@@ -114,6 +187,6 @@ class GameEngine {
         this.draw();
     };
 
-};
+}
 
 // KV Le was here :)

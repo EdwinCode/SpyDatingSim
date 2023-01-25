@@ -6,7 +6,6 @@ const ASSET_MANAGER = new AssetManager();
 
 //entities
 ASSET_MANAGER.queueDownload("./Sprites/sprite_girl_purple.png");
-ASSET_MANAGER.queueDownload("./Sprites/spy.png");
 
 //ASSET_MANAGER.queueDownload("./Sprites/sprite_boy_brown.png");
 //ASSET_MANAGER.queueDownload("./Sprites/sprite_alphabet_x8.png");
@@ -22,17 +21,9 @@ ASSET_MANAGER.downloadAll(() => {
 
 	ctx.imageSmoothingEnabled = false;
 
-	/*gameEngine.addEntity(new Guard(gameEngine));
-	gameEngine.addEntity(new Date_Candidate_1(gameEngine));
-	gameEngine.addEntity(new Date_Candidate_2(gameEngine));
-	gameEngine.addEntity(new SpyCharacter(gameEngine));
-	gameEngine.addEntity(new BillionaireCharacter(gameEngine));
-	gameEngine.addEntity(new AlphabetTest(gameEngine));
-	gameEngine.addEntity(new CharacterTest(gameEngine));*/
-
 	gameEngine.init(ctx);
 
-	new SceneManager(gameEngine);
+	new Scenemanager(gameEngine);
 
 	gameEngine.start();
 });
