@@ -97,48 +97,73 @@ class TestTitleScreen {
     constructor(game) {
         this.game = game;
 
-        this.spritesheet = ASSET_MANAGER.getAsset("./Sprites/spy.png");
-        this.elapsed = 0;
+        this.BB = new BoundingBox(0,0,1,1);
+        this.mouseBB = new BoundingBox(0,0,1,1);
+        this.playBB = new BoundingBox((720 / 2) - 50,(720 / 2) - 50,100,100);
+        this.exitBB = new BoundingBox(700,700,100,100);
+
 
         this.play = false;
         this.credits = false;
-    }
+    };
 
     update() {
-        this.elapsed += this.game.clockTick;
-        if (this.game.keys["."]) {
-            //this.game.camera.title = false;
-            this.removeFromWorld = true;
-            this.game.camera.loadLevel(this.level, 0, 0, false, false);
+        /*if (this.game.click) {
+            this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y,1,1);
+
+            this.game.click = null;
+        }*/
+
+        if (this.game.mouse) {
+            this.mouseBB = new BoundingBox(this.game.mouse.x, this.game.mouse.y,1,1);
         }
-    }
+    };
 
     draw(ctx) {
 
         if (!this.play) {
             this.setBlackStroke(ctx);
-            ctx.lineWidth = 12;
+            //ctx.lineWidth = 1000;
             ctx.textAlign = "center";
 
             //title
             ctx.font = "30px Courier";
             ctx.fillText("Felon For You", 720 / 2, 100);
 
+            //ctx.textAlign = "left";
+
             //play
+            if (this.mouseBB.collide(this.playBB)) {
+                this.setPinkStroke(ctx);
+            }
+            ctx.fillText("PLAY", 720 / 2, 720 / 2);
+            ctx.strokeRect(this.playBB.left, this.playBB.top, this.playBB.width, this.playBB.height);
+
+            this.setBlackStroke(ctx);
         }
 
-        /*ctx.fillStyle = "Black";
-        ctx.fillRect(0, 0, 500, 500);
+        else {
+            this.setBlackStroke(ctx);
+            if (this.mouseBB.collide(this.exitBB)) {
+                this.setPinkStroke(ctx);
+            }
 
-        ctx.font = "30px Courier";
+            ctx.lineWidth = 10;
+            ctx.font = "30px Courier";
+            ctx.fillText("EXIT", 700, 700);
+            //ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
 
-        ctx.fillStyle = "White";
-        ctx.fillText("Test", 210, 260);*/
+        }
     };
 
     setBlackStroke(ctx) {
         ctx.strokeStyle = "Black";
         ctx.fillStyle = "Black";
+    }
+
+    setPinkStroke(ctx) {
+        ctx.strokeStyle = "Pink";
+        ctx.fillStyle = "Pink";
     }
 
 }
