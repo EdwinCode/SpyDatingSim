@@ -122,18 +122,18 @@ class TestTitleScreen {
 
             //title
             ctx.font = "30px Courier";
-            ctx.fillText("Felon For You", 100, 100);
+            ctx.fillText("Felon For You", 720 / 2, 100);
 
             //play
         }
 
-        ctx.fillStyle = "Black";
+        /*ctx.fillStyle = "Black";
         ctx.fillRect(0, 0, 500, 500);
 
         ctx.font = "30px Courier";
 
         ctx.fillStyle = "White";
-        ctx.fillText("Test", 210, 260);
+        ctx.fillText("Test", 210, 260);*/
     };
 
     setBlackStroke(ctx) {
