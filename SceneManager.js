@@ -55,6 +55,7 @@ class SceneManager {
     };
 
     update() {
+
         if (this.title && this.game.click) {
             // if "play"
             if (this.game.mouse && this.game.mouse.y > 10 && this.game.mouse.y < 11 ? "Grey": "White") {
