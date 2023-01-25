@@ -61,29 +61,62 @@ class SpyCharacter {
     };
 
     update() {
-        if (this.game.keys['w'] && !this.game.keys['s']) {
-            this.direction = 3; // up
-            this.state = 1; // walking
-            this.y -= 4;
-        } else if (this.game.keys['s'] && !this.game.keys['w']) {
-            this.direction = 1; // down
-            this.state = 1; // walking
-            this.y += 4;
+        if (!this.game.up && !this.game.down && !this.game.left && !this.game.right) {
+            this.state = 0; // idle
+        } else {
+            if (this.game.right && this.game.left && this.game.up && this.game.down) {
+                this.state = 0; // idle
+            } else if (this.game.up && this.game.run && !this.game.down) {
+                this.direction = 3; // up
+                this.state = 2; // running
+                this.y -= 8;
+            } else if (this.game.up && !this.game.down) {
+                this.direction = 3; // up
+                this.state = 1; // walking
+                this.y -= 4;
+            } else if (this.game.down && this.game.run && !this.game.up) {
+                this.direction = 1; // down
+                this.state = 2; // running
+                this.y += 8;
+            } else if (this.game.down && !this.game.up) {
+                this.direction = 1; // down
+                this.state = 1; // walking
+                this.y += 4;
+            } else if (this.game.up && this.game.down) {
+                this.direction = 3; // up
+                this.state = 0; // idle
+            }
+
+            if (this.game.right && this.game.left && this.game.up && this.game.down) {
+                this.state = 0; // idle
+            } else if (this.game.right && this.game.run && !this.game.left) {
+                this.direction = 0; // right
+                this.state = 2; // running
+                this.x += 8;
+            } else if (this.game.right && !this.game.left) {
+                this.direction = 0; // right
+                this.state = 1; // walking
+                this.x += 4;
+            } else if (this.game.left && this.game.run && !this.game.right) {
+                this.direction = 2; // left
+                this.state = 2; // running
+                this.x -= 8;
+            } else if (this.game.left && !this.game.right) {
+                this.direction = 2; // left
+                this.state = 1; // walking
+                this.x -= 4;
+            } else if (this.game.right && this.game.left && this.game.up) {
+                this.direction = 3; // up
+                this.state = 1; // walking
+            } else if (this.game.right && this.game.left && this.game.down) {
+                this.direction = 1; // down
+                this.state = 1; // walking
+            } else if (this.game.right && this.game.left) {
+                this.direction = 0; // right
+                this.state = 0; // idle
+            }
         }
 
-        if (this.game.keys['d'] && !this.game.keys['a']) {
-            this.direction = 0; // right
-            this.state = 1; // walking
-            this.x += 4;
-        } else if (this.game.keys['a'] && !this.game.keys['d']) {
-            this.direction = 2; // left
-            this.state = 1; // walking
-            this.x -= 4;
-        }
-
-        if (!this.game.keys['w'] && !this.game.keys['s'] && !this.game.keys['d'] && !this.game.keys['a']) {
-            this.state = 0;
-        }
 
         //Update position
         this.updateBB();
@@ -103,4 +136,4 @@ class SpyCharacter {
             ctx.strokeRect(this.BB.x - this.game.camera.x, this.BB.y, this.BB.width, this.BB.height);
         }
     };
-};
+}
