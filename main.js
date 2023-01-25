@@ -13,6 +13,8 @@ ASSET_MANAGER.queueDownload("./Sprites/spy.png");
 //ASSET_MANAGER.queueDownload("./Sprites/date_candidate_1.png");
 //ASSET_MANAGER.queueDownload("./Sprites/date_candidate_2.png");
 //ASSET_MANAGER.queueDownload("./Sprites/guard.png");
+// ASSET_MANAGER.queueDownload("./Sprites/AlfredScaledx4.png");
+// ASSET_MANAGER.queueDownload("./Sprites/SuitcaseScaledx8.png");
 
 //cutscenes
 
@@ -29,6 +31,8 @@ ASSET_MANAGER.downloadAll(() => {
 	gameEngine.addEntity(new BillionaireCharacter(gameEngine));
 	gameEngine.addEntity(new AlphabetTest(gameEngine));
 	gameEngine.addEntity(new CharacterTest(gameEngine));*/
+	// gameEngine.addEntity(new Alfred(gameEngine));
+	// gameEngine.addEntity(new Suitcase(gameEngine));
 
 	gameEngine.init(ctx);
 
