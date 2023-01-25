@@ -17,17 +17,22 @@ class GameEngine {
         // TODO: maybe use the line below to store the last direction pressed
         // to make some nice animation features (turn in that direction)
         //this.lastKey = {};
-        this.up = false;
-        this.down = false;
-        this.right = false;
-        this.left = false;
-        this.run = false;
+        this.setKeysNotPressed();
+        this.inCanvas = true; // tells whether in the game area
 
         // Options and the Details
         this.options = options || {
             debugging: false,
         };
     };
+
+    setKeysNotPressed() {
+        this.up = false;
+        this.down = false;
+        this.right = false;
+        this.left = false;
+        this.run = false;
+    }
 
     init(ctx) {
         this.ctx = ctx;
@@ -144,7 +149,17 @@ class GameEngine {
         this.ctx.canvas.addEventListener("keydown", that.keydown);
         this.ctx.canvas.addEventListener("keyup", that.keyup);
 
+        function checkInGameArea() {
+            const elem = document.getElementById("gameWorld");
 
+            if (elem === document.activeElement) {
+                that.inCanvas = true;
+            } else {
+                that.inCanvas = false;
+                that.setKeysNotPressed();
+            }
+        }
+        setInterval(checkInGameArea, 200);
     };
 
     addEntity(entity) {
