@@ -49,6 +49,14 @@ window.requestAnimFrame = (() => {
         });
 })();
 
+// add global parameters here
+
+const PARAMS = {
+    DEBUG: true,
+    //SCALE: 3,
+    //BITWIDTH: 16
+};
+
 /**
  * Returns distance from two points
  * @param {Number} p1, p2 Two objects with x and y coordinates
