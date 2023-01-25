@@ -5,6 +5,8 @@ class Scenemanager {
         this.x = 0;
         this.y = 0;
 
+        this.gameOver = false;
+
         this.loadLevel(titleScreen);
     };
 
@@ -44,8 +46,10 @@ class TestTitleScreen {
 
         this.mouseBB = new BoundingBox(0,0,1,1);
         this.playBB = new BoundingBox((720 / 2) - 50,(720 / 2) - 45,100,70);
+        this.creditsBB = new BoundingBox((720 / 2) - 85,(720 / 2) + 155,170,70);
+        this.exitBB = new BoundingBox(600 - 50,650 - 45,100,50);
 
-        this.play = false;
+        this.credits = false;
     };
 
     update() {
@@ -55,6 +59,12 @@ class TestTitleScreen {
             if (this.mouseBB.collide(this.playBB)) {
                 this.game.camera.clearEntities();
                 this.game.camera.loadLevel(levelOne);
+            } else if (this.mouseBB.collide(this.creditsBB)) {
+                this.credits = true;
+            } else {
+                if (this.mouseBB.collide(this.exitBB)) {
+                    this.credits = false;
+                }
             }
 
             this.game.click = null;
@@ -67,7 +77,7 @@ class TestTitleScreen {
 
     draw(ctx) {
 
-        if (!this.play) {
+        if (!this.credits) {
             this.setBlackStroke(ctx);
             ctx.lineWidth = 6;
             ctx.textAlign = "center";
@@ -86,6 +96,42 @@ class TestTitleScreen {
             ctx.strokeRect(this.playBB.left, this.playBB.top, this.playBB.width, this.playBB.height);
 
             this.setBlackStroke(ctx);
+
+            //credits
+            if (this.mouseBB.collide(this.creditsBB)) {
+                this.setRedStroke(ctx);
+            }
+            ctx.fillText("CREDITS", 720 / 2, 720 / 2 + 200);
+            ctx.strokeRect(this.creditsBB.left, this.creditsBB.top, this.creditsBB.width, this.creditsBB.height);
+
+        } else {
+            this.setBlackStroke(ctx);
+            if (this.mouseBB.collide(this.exitBB)) {
+                this.setRedStroke(ctx);
+            }
+
+            ctx.lineWidth = 6;
+            ctx.textAlign = "center";
+            ctx.font = "Bold 35px Courier";
+            ctx.fillText("EXIT", 600, 640);
+            ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
+
+        }
+
+        if (this.credits) {
+            this.setBlackStroke(ctx);
+            ctx.lineWidth = 6;
+            ctx.textAlign = "center";
+            ctx.font = "Bold 60px Courier";
+            ctx.fillText("CREDITS",720 / 2, 100);
+
+            ctx.textAlign = "left";
+            ctx.font = "Bold 35px Courier";
+
+            ctx.fillText("DEVELOPERS:", 40, 200);
+            ctx.fillText("Maria Babko", 40, 240);
+            ctx.fillText("Chloe Duncan", 40, 280);
+            ctx.fillText("Edwin Solis-Bruno", 40, 320);
         }
     };
 
