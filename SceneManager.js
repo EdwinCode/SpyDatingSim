@@ -21,7 +21,7 @@ class SceneManager {
 
         this.spy = new SpyCharacter(this.game);
 
-        //this.loadLevel(levelOne, 0, 0, false, true);
+        this.loadLevel(levelOne, 0, 0, false, true);
     };
 
     clearEntities() {
@@ -36,15 +36,34 @@ class SceneManager {
         this.clearEntities();
         this.x = 0;
 
+        this.spy.x = x;
+        this.spy.y = y;
+        this.spy.removeFromWorld = false;
+
+        let that = this;
+        let spy = false;
+
+        this.game.entities.forEach(function (entity) {
+            if (that.spy === entity) spy = true;
+        });
+
+        if (!spy) this.game.addEntity(this.spy);
+
+        this.game.camera.paused = false;
+
 
     };
 
     update() {
         if (this.title && this.game.click) {
+            // if "play"
             if (this.game.mouse && this.game.mouse.y > 10 && this.game.mouse.y < 11 ? "Grey": "White") {
                 this.title = false;
                 this.spy = new SpyCharacter(this.game);
+                this.loadLevel(levelOne,0, 0, false);
             }
+            // if "about"
+            // if "credits"
         }
 
         if (this.gameOver) {
@@ -61,7 +80,13 @@ class SceneManager {
             let height = 100;
             ctx.drawImage(ASSET_MANAGER.getAsset("./Sprites/spy.png"), 0, 0, width, height);
             ctx.fillStyle = this.game.mouse && this.game.mouse.y > 10 && this.game.mouse.y < 11 ? "Black": "White";
+            // if (the line above) then ctx.drawImage of an icon to go with the word "play"
             ctx.fillText("Play", 10, 10);
+        }
+
+        else if (this.title && this.credits) {
+            // do nothing rn
+            // overlay a credit textbox
         }
     };
 
