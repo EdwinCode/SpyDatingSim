@@ -101,6 +101,12 @@ class TestTitleScreen {
                 this.game.camera.loadLevel(levelOne);
             }
 
+            else {
+                if (this.mouseBB.collide(this.exitBB)) {
+
+                }
+            }
+
             this.game.click = null;
         }
 
