@@ -154,17 +154,10 @@ class GameEngine {
             that.setKeysNotPressed();
         });
 
-        function checkInGameArea() {
-            const elem = document.getElementById("gameWorld");
-
-            if (elem === document.activeElement) {
-                that.inCanvas = true;
-            } else {
-                that.inCanvas = false;
-                that.setKeysNotPressed();
-            }
-        }
-        setInterval(checkInGameArea, 200);
+        document.getElementById("gameWorld").addEventListener('blur', () => {
+            that.inCanvas = false;
+            that.setKeysNotPressed();
+        });
 
     };
 
