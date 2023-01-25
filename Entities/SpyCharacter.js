@@ -1,7 +1,6 @@
 class SpyCharacter {
     constructor(game) {
         this.game = game;
-        this.animator = new Animator(ASSET_MANAGER.getAsset("./Sprites/sprite_girl_purple.png"), 8, 650, 124, 210, 4, 0.2);
 
         this.spritesheet = ASSET_MANAGER.getAsset("./Sprites/sprite_girl_purple.png");
 
@@ -16,7 +15,7 @@ class SpyCharacter {
     };
 
     loadAnimations() {
-        for (let i = 0; i < 5; i++) { // four states
+        for (let i = 0; i < 4; i++) { // three states
             this.animations.push([]);
             for (let j = 0; j < 5; j++) { // four directions
                 this.animations[i].push([]);
@@ -25,31 +24,28 @@ class SpyCharacter {
 
         // state = 0 is the idle animation
         // 0, 1, 2, 3 are right, down, left, up
-        this.animations[0][0] = new Animator(this.spritesheet, 8, 650, 124, 210, 4, 0.2);
-        this.animations[0][1] = new Animator(this.spritesheet, 8, 650, 124, 210, 4, 0.2);
-        this.animations[0][2] = new Animator(this.spritesheet, 8, 650, 124, 210, 4, 0.2);
-        this.animations[0][3] = new Animator(this.spritesheet, 8, 650, 124, 210, 4, 0.2);
+        this.animations[0][0] = new Animator(this.spritesheet, 8, 655, 128, 210, 1, 0.2);
+        this.animations[0][1] = new Animator(this.spritesheet, 8, 8, 136, 210, 1, 0.2);
+        this.animations[0][2] = new Animator(this.spritesheet, 8, 440, 128, 210, 1, 0.2);
+        this.animations[0][3] = new Animator(this.spritesheet, 8, 223, 128, 210, 1, 0.2);
 
         // state = 1 is the walking animation
         // 0, 1, 2, 3 are right, down, left, up
-        this.animations[1][0] = new Animator(this.spritesheet, 8, 650, 124, 210, 4, 0.2);
-        this.animations[1][1] = new Animator(this.spritesheet, 8, 650, 124, 210, 4, 0.2);
-        this.animations[1][2] = new Animator(this.spritesheet, 8, 650, 124, 210, 4, 0.2);
-        this.animations[1][3] = new Animator(this.spritesheet, 8, 650, 124, 210, 4, 0.2);
+        this.animations[1][0] = new Animator(this.spritesheet, 8, 655, 128, 210, 4, 0.2);
+        this.animations[1][1] = new Animator(this.spritesheet, 8, 8, 136, 210, 4, 0.2);
+        this.animations[1][2] = new Animator(this.spritesheet, 8, 440, 128, 210, 4, 0.2);
+        this.animations[1][3] = new Animator(this.spritesheet, 8, 223, 128, 210, 4, 0.2);
+
+
+        // RUN state not implemented yet
 
         // state = 2 is the running animation
         // 0, 1, 2, 3 are right, down, left, up
         this.animations[2][0] = new Animator(this.spritesheet, 8, 650, 124, 210, 4, 0.2);
-        this.animations[2][1] = new Animator(this.spritesheet, 8, 650, 124, 210, 4, 0.2);
-        this.animations[2][2] = new Animator(this.spritesheet, 8, 650, 124, 210, 4, 0.2);
-        this.animations[2][3] = new Animator(this.spritesheet, 8, 650, 124, 210, 4, 0.2);
+        this.animations[2][1] = new Animator(this.spritesheet, 8, 8, 124, 210, 4, 0.2);
+        this.animations[2][2] = new Animator(this.spritesheet, 0, 440, 128, 210, 4, 0.2);
+        this.animations[2][3] = new Animator(this.spritesheet, 8, 223, 124, 210, 4, 0.2);
 
-        // state = 3 is the sitting animation
-        // 0, 1, 2, 3 are right, down, left, up
-        this.animations[3][0] = new Animator(this.spritesheet, 8, 650, 124, 210, 4, 0.2);
-        this.animations[3][1] = new Animator(this.spritesheet, 8, 650, 124, 210, 4, 0.2);
-        this.animations[3][2] = new Animator(this.spritesheet, 8, 650, 124, 210, 4, 0.2);
-        this.animations[3][3] = new Animator(this.spritesheet, 8, 650, 124, 210, 4, 0.2);
     };
 
     update() {
@@ -74,7 +70,7 @@ class SpyCharacter {
         }
 
         if (!this.game.keys['w'] && !this.game.keys['s'] && !this.game.keys['d'] && !this.game.keys['a']) {
-            this.state = 3;
+            this.state = 0;
         }
 
         // stay within canvas bounds
