@@ -28,10 +28,10 @@ class Scenemanager {
             this.game.addEntity(new SpyCharacter(this.game));
             this.game.addEntity(new HUD(this.game));
 
-            /*for (let i = 0; i < level.bigTables.length; i++) {
+            for (let i = 0; i < level.bigTables.length; i++) {
                 let table = level.bigTables[i];
                 this.game.addEntity(new BigTable(this.game, table.x, table.y));
-            }*/
+            }
 
         }
 
