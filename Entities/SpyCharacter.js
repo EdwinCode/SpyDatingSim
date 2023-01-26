@@ -51,10 +51,11 @@ class SpyCharacter {
     updateBB() {
         this.lastBB = this.BB;
         if (this.size === 0 || this.size === 3) {
-            this.BB = new BoundingBox(this.x, this.y, 128, 210);
+            //80 is a magic number
+            this.BB = new BoundingBox(this.x, this.y + 100, 128, 210-100);
         }
         else {
-            this.BB = new BoundingBox(this.x, this.y, 128, 210);
+            this.BB = new BoundingBox(this.x, this.y + 100, 128, 210-100);
         }
     };
 
@@ -124,7 +125,31 @@ class SpyCharacter {
         this.game.entities.forEach(function (entity) {
             if (entity.BB && that.BB.collide(entity.BB)) {
                 if ((entity instanceof BigTable)) {
-                    if (that.BB.collide(entity.leftBB)) {
+                    if (that.BB.collide(entity.leftBB) && that.BB.collide(entity.upBB)) {
+                        if (that.y < entity.y) {
+                            that.y -= 4;
+                        } else {
+                            that.x -= 4;
+                        }
+                    } else if (that.BB.collide(entity.leftBB) && that.BB.collide(entity.downBB)) {
+                        if (that.y > entity.y) {
+                            that.y += 4;
+                        } else {
+                            that.x -= 4;
+                        }
+                    } else if (that.BB.collide(entity.rightBB) && that.BB.collide(entity.upBB)) {
+                        if (that.y < entity.y) {
+                            that.y -= 4;
+                        } else {
+                            that.x += 4;
+                        }
+                    } else if (that.BB.collide(entity.rightBB) && that.BB.collide(entity.downBB)) {
+                        if (that.y > entity.y) {
+                            that.y += 4;
+                        } else {
+                            that.x += 4;
+                        }
+                    } else if (that.BB.collide(entity.leftBB)) {
                         that.x -= 4;
                     } else if (that.BB.collide(entity.rightBB)) {
                         that.x += 4;
