@@ -160,6 +160,7 @@ class SpyCharacter {
                     }
                 }
 
+
             }
             that.updateBB();
         });
