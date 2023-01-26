@@ -5,6 +5,10 @@ const ASSET_MANAGER = new AssetManager();
 //entities
 ASSET_MANAGER.queueDownload("./Sprites/sprite_girl_purple.png");
 
+//furniture
+ASSET_MANAGER.queueDownload("./Sprites/Furniture/House_Tileset.png");
+
+
 ASSET_MANAGER.downloadAll(() => {
 	const canvas = document.getElementById("gameWorld");
 	const ctx = canvas.getContext("2d");

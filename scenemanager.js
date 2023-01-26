@@ -26,6 +26,12 @@ class Scenemanager {
         if (this.currentLevel === levelOne) {
             this.clearEntities();
             this.game.addEntity(new SpyCharacter(this.game));
+
+            for (var i = 0; i < level.bigTables.length; i++) {
+                let table = level.bigTables[i];
+                this.game.addEntity(new BigTable(this.game, table.x, table.y));
+            }
+
         }
 
 

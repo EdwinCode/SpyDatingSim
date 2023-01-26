@@ -59,6 +59,7 @@ class SpyCharacter {
     };
 
     update() {
+        //movement
         if (!this.game.up && !this.game.down && !this.game.left && !this.game.right) {
             this.state = 0; // idle
         } else {
@@ -118,6 +119,26 @@ class SpyCharacter {
 
         //Update position
         this.updateBB();
+
+        var that = this;
+        this.game.entities.forEach(function (entity) {
+            if (entity.BB && that.BB.collide(entity.BB)) {
+                if ((entity instanceof BigTable)) {
+                    if (that.BB.collide(entity.leftBB)) {
+                        that.x -= 4;
+                    } else if (that.BB.collide(entity.rightBB)) {
+                        that.x += 4;
+                    } else if (that.BB.collide(entity.upBB)) {
+                        that.y -= 8;
+                    } else {
+                        that.y += 8;
+                    }
+                }
+
+            }
+            that.updateBB();
+        });
+
 
         // stay within canvas bounds
         if(this.x > 700) this.x = 0;

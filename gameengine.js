@@ -200,6 +200,16 @@ class GameEngine {
         this.draw();
     };
 
+    // this.up = false;
+    // this.down = false;
+    // this.right = false;
+
+    disableLeft() {
+        this.left = false;
+        this.run = false;
+    }
+
+
 }
 
 // KV Le was here :)
