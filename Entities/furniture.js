@@ -16,10 +16,11 @@ class BigTable {
         this.spritesheet = ASSET_MANAGER.getAsset("./Sprites/Furniture/House_Tileset.png")
 
         this.BB = new BoundingBox(this.dX, this.dY, this.dWidth, this.dHeight);
+
         this.leftBB = new BoundingBox(this.dX, this.dY, 0, this.dHeight);
         this.rightBB = new BoundingBox(this.dX + this.dWidth, this.dY, 0, this.dHeight);;
-        this.upBB = new BoundingBox(this.dX, this.dY, this.width, 0);;
-        this.downBB = new BoundingBox(this.dX, this.dY + this.dHeight, this.dWidth, 0);;
+        this.upBB = new BoundingBox(this.dX + 20, this.dY, this.width - 20, 0);;
+        this.downBB = new BoundingBox(this.dX + 20, this.dY + this.dHeight, this.dWidth - 20, 0);;
     };
 
     update() {
