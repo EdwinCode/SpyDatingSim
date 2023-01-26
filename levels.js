@@ -1,7 +1,8 @@
 let levelOne = {
     label: "Phase 1",
     butler: false,
-    guards: false
+    guards: false,
+    bigTables: [{x: 0, y: 11.5}]
 };
 
 let credits = {
