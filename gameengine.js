@@ -150,11 +150,6 @@ class GameEngine {
         this.ctx.canvas.addEventListener("keydown", that.keydown);
         this.ctx.canvas.addEventListener("keyup", that.keyup);
 
-        window.addEventListener('blur', () => {
-            that.inCanvas = false;
-            that.setKeysNotPressed();
-        });
-
         document.getElementById("gameWorld").addEventListener('blur', () => {
             that.inCanvas = false;
             that.setKeysNotPressed();
