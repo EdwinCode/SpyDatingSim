@@ -25,7 +25,7 @@ class Scenemanager {
 
         if (this.currentLevel === levelOne) {
             this.clearEntities();
-            this.game.addEntity(new IntroCutscene(this.game));
+            //this.game.addEntity(new IntroCutscene(this.game));
             this.game.addEntity(new Spy(this.game));
             this.game.addEntity(new HUD(this.game));
 
