@@ -4,9 +4,6 @@ class IntroCutscene {
 
         this.spritesheet = ASSET_MANAGER.getAsset("./Sprites/Cutscenes/levelOne.png");
         this.animation = new Animator(this.spritesheet, 0, 0, 700, 700, 28, 0.2);
-        this.animationStill = new Animator(this.spritesheet, 0, 0, 700, 700, 1, 0.2);
-
-
 
         this.still = false;
 
@@ -32,6 +29,6 @@ class IntroCutscene {
     };
 
     draw(ctx) {
-        this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
+        this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y, PARAMS.SCALE * 2);
     };
 }

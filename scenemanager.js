@@ -33,18 +33,15 @@ class Scenemanager {
                 let table = level.bigTables[i];
                 this.game.addEntity(new BigTable(this.game, table.x, table.y));
             }
-
         }
-
-
     };
 
     update() {
-
+        //
     };
 
     draw(ctx) {
-
+        //
     };
 }
 
