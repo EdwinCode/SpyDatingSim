@@ -1,4 +1,4 @@
-class BillionaireCharacter {
+class Billionaire {
     constructor(game) {
         this.game = game;
         this.animator = new Animator(ASSET_MANAGER.getAsset("./Sprites/sprite_boy_brown.png"), 8, 650, 107, 210, 4, 0.2);
