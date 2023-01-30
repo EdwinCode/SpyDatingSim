@@ -1,4 +1,4 @@
-class SpyCharacter {
+class Spy {
     constructor(game) {
         this.game = game;
 
