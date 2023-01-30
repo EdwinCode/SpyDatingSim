@@ -4,6 +4,9 @@ class SpyCharacter {
 
         this.spritesheet = ASSET_MANAGER.getAsset("./Sprites/sprite_girl_purple.png");
 
+        this.width = 140;
+        this.height = 210;
+
         this.x = 0;
         this.y = 55;
 
@@ -50,13 +53,8 @@ class SpyCharacter {
 
     updateBB() {
         this.lastBB = this.BB;
-        if (this.size === 0 || this.size === 3) {
-            //80 is a magic number
-            this.BB = new BoundingBox(this.x, this.y + 100, 128, 210-100);
-        }
-        else {
-            this.BB = new BoundingBox(this.x, this.y + 100, 128, 210-100);
-        }
+        this.BB = new BoundingBox(this.x, this.y + 40, this.width * PARAMS.SCALE - 12, this.height * PARAMS.SCALE - 40);
+
     };
 
     update() {
@@ -123,40 +121,46 @@ class SpyCharacter {
 
         var that = this;
         this.game.entities.forEach(function (entity) {
+            //if the entity has a bounding box and we collided with it
             if (entity.BB && that.BB.collide(entity.BB)) {
+                // if spy runs into a big table
                 if ((entity instanceof BigTable)) {
-                    if (that.BB.collide(entity.leftBB) && that.BB.collide(entity.upBB)) {
-                        if (that.y < entity.y) {
+                    //left + up
+                    if (that.lastBB.collide(entity.leftBB) && that.lastBB.collide(entity.topBB)) {
+                        if (that.y < entity.y) { // hit corner from above
                             that.y -= 4;
                         } else {
-                            that.x -= 4;
+                            that.x -= 4; // hit corner from the left
                         }
-                    } else if (that.BB.collide(entity.leftBB) && that.BB.collide(entity.downBB)) {
+                        //left + down
+                    } else if (that.lastBB.collide(entity.leftBB) && that.lastBB.collide(entity.bottomBB)) {
+                        if (that.y > entity.y) { // hit corner from below
+                            that.y += 4;
+                        } else {
+                            that.x -= 4; // hit corner from the left
+                        }
+                        //right and up
+                    } else if (that.lastBB.collide(entity.rightBB) && that.lastBB.collide(entity.topBB)) {
+                        if (that.y < entity.y) { // hit corner from above
+                            that.y -= 4;
+                        } else {
+                            that.x += 4; // hit corner from the right
+                        }
+                        //right and down
+                    } else if (that.lastBB.collide(entity.rightBB) && that.lastBB.collide(entity.bottomBB)) {
                         if (that.y > entity.y) {
                             that.y += 4;
                         } else {
-                            that.x -= 4;
-                        }
-                    } else if (that.BB.collide(entity.rightBB) && that.BB.collide(entity.upBB)) {
-                        if (that.y < entity.y) {
-                            that.y -= 4;
-                        } else {
                             that.x += 4;
                         }
-                    } else if (that.BB.collide(entity.rightBB) && that.BB.collide(entity.downBB)) {
-                        if (that.y > entity.y) {
-                            that.y += 4;
-                        } else {
-                            that.x += 4;
-                        }
-                    } else if (that.BB.collide(entity.leftBB)) {
+                    } else if (that.lastBB.collide(entity.leftBB)) {
                         that.x -= 4;
-                    } else if (that.BB.collide(entity.rightBB)) {
+                    } else if (that.lastBB.collide(entity.rightBB)) {
                         that.x += 4;
-                    } else if (that.BB.collide(entity.upBB)) {
-                        that.y -= 8;
+                    } else if (that.lastBB.collide(entity.topBB)) {
+                        that.y -= 4;
                     } else {
-                        that.y += 8;
+                        that.y += 4;
                     }
                 }
 
@@ -173,7 +177,7 @@ class SpyCharacter {
         if(this.y < 0) this.y = 700;
     };
     draw(ctx) {
-        this.animations[this.state][this.direction].drawFrame(this.game.clockTick, ctx, this.x, this.y);
+        this.animations[this.state][this.direction].drawFrame(this.game.clockTick, ctx, this.x, this.y, PARAMS.SCALE);
 
         PARAMS.DEBUG = document.getElementById("debug").checked;
         if (PARAMS.DEBUG) {

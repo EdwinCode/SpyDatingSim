@@ -53,7 +53,7 @@ window.requestAnimFrame = (() => {
 
 const PARAMS = {
     DEBUG: true,
-    //SCALE: 3,
+    SCALE: 0.5
     //BITWIDTH: 16
 };
 
