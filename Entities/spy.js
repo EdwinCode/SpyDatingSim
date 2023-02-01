@@ -166,17 +166,9 @@ class Spy {
             that.updateBB();
         });
 
-
-        // // stay within canvas bounds
-        // if(this.x > 700) this.x = 0;
-        // if(this.x < 0) this.x = 700;
-        // if(this.y > 700) this.y = 0;
-        // if(this.y < 0) this.y = 700;
     };
+
     draw(ctx) {
-        console.log("x: " + this.x);
-        console.log("camera: "+ this.game.camera.x);
-        console.log("x+camera: " + (this.x - this.game.camera.x));
 
         this.animations[this.state][this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE/6);
 
