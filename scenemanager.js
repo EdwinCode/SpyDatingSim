@@ -7,6 +7,8 @@ class Scenemanager {
 
         this.gameOver = false;
 
+        this.spyCharacter = new Spy(this.game, 0, 55);
+
         this.loadLevel(titleScreen);
     };
 
@@ -26,18 +28,25 @@ class Scenemanager {
         if (this.currentLevel === levelOne) {
             this.clearEntities();
             //this.game.addEntity(new IntroCutscene(this.game));
-            this.game.addEntity(new Spy(this.game));
+            this.game.addEntity(this.spyCharacter);
             this.game.addEntity(new HUD(this.game));
 
             for (let i = 0; i < level.bigTables.length; i++) {
                 let table = level.bigTables[i];
                 this.game.addEntity(new BigTable(this.game, table.x, table.y));
             }
+            this.game.camera.paused = false;
         }
+
     };
 
     update() {
-        //
+
+        let midpointX = PARAMS.CANVAS_WIDTH  / 2 - this.spyCharacter.width / 2;
+        this.x = this.spyCharacter.x - midpointX;
+
+        let midpointY = PARAMS.CANVAS_HEIGHT / 2 - this.spyCharacter.height / 2;
+        this.y = this.spyCharacter.y - midpointY;
     };
 
     draw(ctx) {

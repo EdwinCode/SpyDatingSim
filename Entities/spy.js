@@ -1,14 +1,11 @@
 class Spy {
-    constructor(game) {
-        this.game = game;
+    constructor(game, x, y) {
+        Object.assign(this, {game, x, y});
 
         this.spritesheet = ASSET_MANAGER.getAsset("./Sprites/sprite_girl_purple.png");
 
         this.width = 140;
         this.height = 210;
-
-        this.x = 0;
-        this.y = 55;
 
         this.direction = 0;
         this.state = 0;
@@ -53,7 +50,7 @@ class Spy {
 
     updateBB() {
         this.lastBB = this.BB;
-        this.BB = new BoundingBox(this.x, this.y + 40, this.width * PARAMS.SCALE - 12, this.height * PARAMS.SCALE - 40);
+        this.BB = new BoundingBox(this.x, this.y + 40, this.width/2 - 12, this.height/2 - 40);
 
     };
 
@@ -170,19 +167,23 @@ class Spy {
         });
 
 
-        // stay within canvas bounds
-        if(this.x > 700) this.x = 0;
-        if(this.x < 0) this.x = 700;
-        if(this.y > 700) this.y = 0;
-        if(this.y < 0) this.y = 700;
+        // // stay within canvas bounds
+        // if(this.x > 700) this.x = 0;
+        // if(this.x < 0) this.x = 700;
+        // if(this.y > 700) this.y = 0;
+        // if(this.y < 0) this.y = 700;
     };
     draw(ctx) {
-        this.animations[this.state][this.direction].drawFrame(this.game.clockTick, ctx, this.x, this.y, PARAMS.SCALE);
+        console.log("x: " + this.x);
+        console.log("camera: "+ this.game.camera.x);
+        console.log("x+camera: " + (this.x - this.game.camera.x));
+
+        this.animations[this.state][this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE/6);
 
         PARAMS.DEBUG = document.getElementById("debug").checked;
         if (PARAMS.DEBUG) {
             ctx.strokeStyle = 'Red';
-            ctx.strokeRect(this.BB.x - this.game.camera.x, this.BB.y, this.BB.width, this.BB.height);
+            ctx.strokeRect(this.BB.x - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
         }
     };
 }

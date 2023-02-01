@@ -18,6 +18,9 @@ ASSET_MANAGER.downloadAll(() => {
 
 	ctx.imageSmoothingEnabled = false;
 
+	PARAMS.CANVAS_WIDTH = canvas.width;
+	PARAMS.CANVAS_HEIGHT = canvas.height;
+
 	gameEngine.init(ctx);
 
 	new Scenemanager(gameEngine);
