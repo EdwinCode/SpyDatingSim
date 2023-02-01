@@ -3,7 +3,9 @@ class IntroCutscene {
         this.game = game;
 
         this.spritesheet = ASSET_MANAGER.getAsset("./Sprites/Cutscenes/levelOne.png");
-        this.animation = new Animator(this.spritesheet, 0, 0, 700, 700, 28, 0.2);
+        this.animation = new Animator(this.spritesheet, 0, 0, 700, 700, 28, 0.15);
+
+        this.xStart = (this.animation.frameCount * 700) - 700;
 
         this.x = 0;
         this.y = 0;
@@ -16,7 +18,7 @@ class IntroCutscene {
 
         // if on last frame of animator, then display last frame
         if (this.animation.currentFrame() === this.animation.frameCount - 1) {
-            this.animation = new Animator(this.spritesheet, 0, 0, 700, 700, 1, 0.2);
+            this.animation = new Animator(this.spritesheet, this.xStart, 0, 700, 700, 1, 0.2);
         }
 
         // if user clicks on exit button then go to level one
