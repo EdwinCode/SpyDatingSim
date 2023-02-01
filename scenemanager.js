@@ -7,7 +7,7 @@ class Scenemanager {
 
         this.gameOver = false;
 
-        this.spyCharacter = new Spy(this.game, 0, 55);
+        this.spyCharacter = new Spy(this.game, -100, 55);
 
         this.loadLevel(titleScreen);
     };
@@ -32,13 +32,36 @@ class Scenemanager {
 
         if (this.currentLevel === levelOne) {
             this.clearEntities();
-            this.game.addEntity(this.spyCharacter);
             this.game.addEntity(new HUD(this.game));
 
+            //big couch
+            for (let i = 0; i < level.bigCouches.length; i++) {
+                let couch = level.bigCouches[i];
+                this.game.addEntity(new BigCouch(this.game, couch.x, couch.y));
+            }
+
+            //chair right
+            for (let i = 0; i < level.chairRights.length; i++) {
+                let chairRight = level.chairRights[i];
+                this.game.addEntity(new ChairRight(this.game, chairRight.x, chairRight.y));
+            }
+
+            //chair left
+            for (let i = 0; i < level.chairLefts.length; i++) {
+                let chairLeft = level.chairLefts[i];
+                this.game.addEntity(new ChairLeft(this.game, chairLeft.x, chairLeft.y));
+            }
+
+            //big table
             for (let i = 0; i < level.bigTables.length; i++) {
                 let table = level.bigTables[i];
                 this.game.addEntity(new BigTable(this.game, table.x, table.y));
             }
+
+            this.game.addEntity(this.spyCharacter);
+
+
+
             this.game.camera.paused = false;
         }
 

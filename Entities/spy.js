@@ -121,7 +121,7 @@ class Spy {
             //if the entity has a bounding box and we collided with it
             if (entity.BB && that.BB.collide(entity.BB)) {
                 // if spy runs into a big table
-                if ((entity instanceof BigTable)) {
+                if ((entity instanceof BigTable || entity instanceof BigCouch || entity instanceof ChairRight || entity instanceof ChairLeft)) {
                     //left + up
                     if (that.lastBB.collide(entity.leftBB) && that.lastBB.collide(entity.topBB)) {
                         if (that.y < entity.y) { // hit corner from above
