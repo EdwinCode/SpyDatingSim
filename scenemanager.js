@@ -20,12 +20,17 @@ class Scenemanager {
         this.currentLevel = level;
 
         if (this.currentLevel === titleScreen) {
-            this.game.addEntity(new TestTitleScreen(this.game));
+            this.game.addEntity(new TitleScreen(this.game));
+        }
+
+        if (this.currentLevel === introCutscene) {
+            this.clearEntities();
+            this.game.addEntity(new IntroCutscene(this.game));
         }
 
         if (this.currentLevel === levelOne) {
             this.clearEntities();
-            this.game.addEntity(new IntroCutscene(this.game));
+            //this.game.addEntity(new IntroCutscene(this.game));
             this.game.addEntity(new Spy(this.game));
             this.game.addEntity(new HUD(this.game));
 
@@ -113,7 +118,7 @@ class HUD {
     };
 }
 
-class TestTitleScreen {
+class TitleScreen {
     constructor(game) {
         this.game = game;
 
@@ -131,7 +136,8 @@ class TestTitleScreen {
 
             if (this.mouseBB.collide(this.playBB)) {
                 this.game.camera.clearEntities();
-                this.game.camera.loadLevel(levelOne);
+                //this.game.camera.loadLevel(levelOne);
+                this.game.camera.loadLevel(introCutscene);
             } else if (this.mouseBB.collide(this.creditsBB)) {
                 this.credits = true;
             } else {

@@ -15,3 +15,7 @@ let credits = {
 let titleScreen = {
     label: "title screen"
 };
+
+let introCutscene = {
+    label: "intro"
+};
