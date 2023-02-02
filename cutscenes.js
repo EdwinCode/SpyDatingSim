@@ -2,7 +2,7 @@ class IntroCutscene {
     constructor(game) {
         this.game = game;
 
-        this.spritesheet = ASSET_MANAGER.getAsset("./Sprites/Cutscenes/levelOne.png");
+        this.spritesheet = ASSET_MANAGER.getAsset("./Sprites/Cutscenes/Intro.png");
         this.animation = new Animator(this.spritesheet, 0, 0, 700, 700, 28, 0.2);
 
         this.x = 0;

@@ -6,7 +6,7 @@ const ASSET_MANAGER = new AssetManager();
 ASSET_MANAGER.queueDownload("./Sprites/sprite_girl_purple.png");
 
 //cutscene
-ASSET_MANAGER.queueDownload("./Sprites/Cutscenes/levelOne.png");
+ASSET_MANAGER.queueDownload("./Sprites/Cutscenes/Intro.png");
 
 //furniture
 ASSET_MANAGER.queueDownload("./Sprites/Furniture/House_Tileset.png");
