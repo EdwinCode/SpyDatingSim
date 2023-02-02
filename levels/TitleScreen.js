@@ -2,17 +2,17 @@ class TitleScreen {
     constructor(game) {
         this.game = game;
 
-        this.mouseBB = new BoundingBox(0,0,1,1);
-        this.playBB = new BoundingBox((720 / 2) - 50,(720 / 2) - 45,100,70);
-        this.creditsBB = new BoundingBox((720 / 2) - 85,(720 / 2) + 155,170,70);
-        this.exitBB = new BoundingBox(600 - 50,650 - 45,100,50);
+        this.mouseBB = new BoundingBox(0, 0, 1, 1);
+        this.playBB = new BoundingBox((720 / 2) - 50, (720 / 2) - 45, 100, 70);
+        this.creditsBB = new BoundingBox((720 / 2) - 85, (720 / 2) + 155, 170, 70);
+        this.exitBB = new BoundingBox(600 - 50, 650 - 45, 100, 50);
 
         this.credits = false;
     };
 
     update() {
         if (this.game.click) {
-            this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y,1,1);
+            this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y, 1, 1);
 
             if (this.mouseBB.collide(this.playBB)) {
                 this.game.camera.clearEntities();
@@ -29,7 +29,7 @@ class TitleScreen {
         }
 
         if (this.game.mouse) {
-            this.mouseBB = new BoundingBox(this.game.mouse.x, this.game.mouse.y,1,1);
+            this.mouseBB = new BoundingBox(this.game.mouse.x, this.game.mouse.y, 1, 1);
         }
     };
 
@@ -81,7 +81,7 @@ class TitleScreen {
             ctx.lineWidth = 6;
             ctx.textAlign = "center";
             ctx.font = "Bold 60px Courier";
-            ctx.fillText("CREDITS",720 / 2, 100);
+            ctx.fillText("CREDITS", 720 / 2, 100);
 
             ctx.textAlign = "left";
             ctx.font = "Bold 35px Courier";
