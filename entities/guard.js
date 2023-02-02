@@ -2,7 +2,7 @@ class Guard{
 
     constructor(game) {
         this.game = game;
-        this.animator = new Animator(ASSET_MANAGER.getAsset("./Sprites/guard.png"),
+        this.animator = new Animator(ASSET_MANAGER.getAsset("./sprites/guard.png"),
             0, 0, 128, 211, 4, 0.2);
 
         this.x = 360;

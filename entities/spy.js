@@ -2,7 +2,7 @@ class Spy {
     constructor(game, x, y) {
         Object.assign(this, {game, x, y});
 
-        this.spritesheet = ASSET_MANAGER.getAsset("./Sprites/sprite_girl_purple.png");
+        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/sprite_girl_purple.png");
 
         this.width = 140;
         this.height = 210;

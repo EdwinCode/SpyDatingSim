@@ -5,7 +5,7 @@ class BigTable {
         this.dWidth = 236/2;
         this.dHeight = 256/2;
 
-        this.spritesheet = ASSET_MANAGER.getAsset("./Sprites/Furniture/House_Tileset.png")
+        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png")
 
         //Overall bounding box
         // -4 is to make the bounding box fit the bigTable better
@@ -67,7 +67,7 @@ class BigTable {
 class SmallTable {
     constructor(game) {
         this.game = game;
-        this.animator = new Animator(ASSET_MANAGER.getAsset("./Sprites/Furniture/House_Tileset.png"),
+        this.animator = new Animator(ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png"),
             249, 249, 230, 262, 1, 0.5);
 
         this.x = 300;
@@ -90,7 +90,7 @@ class BigCouch {
         this.dWidth = 255/1.5;
         this.dHeight = 107/1.5;
 
-        this.spritesheet = ASSET_MANAGER.getAsset("./Sprites/Furniture/House_Tileset.png")
+        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png")
 
         //Overall bounding box
         // -4 is to make the bounding box fit the bigTable better
@@ -155,7 +155,7 @@ class ChairRight {
         this.dWidth = 114/1.5;
         this.dHeight = 126/1.5;
 
-        this.spritesheet = ASSET_MANAGER.getAsset("./Sprites/Furniture/House_Tileset.png")
+        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png")
 
         //Overall bounding box
         // -4 is to make the bounding box fit the bigTable better
@@ -221,7 +221,7 @@ class ChairLeft {
         this.dWidth = 115/1.5;
         this.dHeight = 126/1.5;
 
-        this.spritesheet = ASSET_MANAGER.getAsset("./Sprites/Furniture/House_Tileset.png")
+        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png")
 
         //Overall bounding box
         // -4 is to make the bounding box fit the bigTable better
@@ -286,7 +286,7 @@ class BigRug {
         this.dWidth = 330/1.5;
         this.dHeight = 194/1.5;
 
-        this.spritesheet = ASSET_MANAGER.getAsset("./Sprites/Furniture/House_Tileset.png")
+        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png")
 
         //Overall bounding box
         // -4 is to make the bounding box fit the bigTable better
@@ -351,7 +351,7 @@ class PlainWall {
         this.dWidth = 240/1.5;
         this.dHeight = 252/1.5;
 
-        this.spritesheet = ASSET_MANAGER.getAsset("./Sprites/Furniture/House_Tileset.png")
+        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png")
 
         //Overall bounding box
         // -4 is to make the bounding box fit the bigTable better
@@ -416,7 +416,7 @@ class SideWallLeft {
         this.dWidth = 40/1.5;
         this.dHeight = 136/1.5;
 
-        this.spritesheet = ASSET_MANAGER.getAsset("./Sprites/Furniture/House_Tileset.png")
+        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png")
 
         //Overall bounding box
         // -4 is to make the bounding box fit the bigTable better
@@ -482,7 +482,7 @@ class SideWallRight {
         this.dWidth = 40/1.5;
         this.dHeight = 136/1.5;
 
-        this.spritesheet = ASSET_MANAGER.getAsset("./Sprites/Furniture/House_Tileset.png")
+        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png")
 
         //Overall bounding box
         // -4 is to make the bounding box fit the bigTable better
@@ -547,7 +547,7 @@ class WallBottom {
         this.dWidth = 40/1.5;
         this.dHeight = 31/1.5;
 
-        this.spritesheet = ASSET_MANAGER.getAsset("./Sprites/Furniture/House_Tileset.png")
+        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png")
 
         //Overall bounding box
         // -4 is to make the bounding box fit the bigTable better

@@ -2,7 +2,7 @@ class Date_Candidate_1 {
 
     constructor(game) {
         this.game = game;
-        this.animator = new Animator(ASSET_MANAGER.getAsset("./Sprites/date_candidate_1.png"),
+        this.animator = new Animator(ASSET_MANAGER.getAsset("./sprites/date_candidate_1.png"),
             0, 0, 146, 211, 4, 0.2);
 
         this.x = 10;
@@ -24,7 +24,7 @@ class Date_Candidate_2 {
 
     constructor(game) {
         this.game = game;
-        this.animator = new Animator(ASSET_MANAGER.getAsset("./Sprites/date_candidate_2.png"),
+        this.animator = new Animator(ASSET_MANAGER.getAsset("./sprites/date_candidate_2.png"),
             0, 0, 128, 211, 4, 0.2);
 
         this.x = 180;
