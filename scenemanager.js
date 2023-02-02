@@ -58,9 +58,39 @@ class Scenemanager {
                 this.game.addEntity(new BigTable(this.game, table.x, table.y));
             }
 
+            //spy
             this.game.addEntity(this.spyCharacter);
 
 
+            //plain wall
+            for (let i = 0; i < level.plainWalls.length; i++) {
+                let plainWall = level.plainWalls[i];
+                this.game.addEntity(new PlainWall(this.game, plainWall.x, plainWall.y));
+            }
+
+            //side wall left
+            for (let i = 0; i < level.sideWallLefts.length; i++) {
+                let sideWallLeft = level.sideWallLefts[i];
+                this.game.addEntity(new SideWallLeft(this.game, sideWallLeft.x, sideWallLeft.y));
+            }
+
+            //side wall right
+            for (let i = 0; i < level.sideWallRights.length; i++) {
+                let sideWallRight = level.sideWallRights[i];
+                this.game.addEntity(new SideWallRight(this.game, sideWallRight.x, sideWallRight.y));
+            }
+
+            //wall bottom
+            for (let i = 0; i < level.wallBottoms.length; i++) {
+                let wallBottom = level.wallBottoms[i];
+                this.game.addEntity(new WallBottom(this.game, wallBottom.x, wallBottom.y));
+            }
+
+            //big rug
+            for (let i = 0; i < level.bigRugs.length; i++) {
+                let rug = level.bigRugs[i];
+                this.game.addEntity(new BigRug(this.game, rug.x, rug.y));
+            }
 
             this.game.camera.paused = false;
         }
