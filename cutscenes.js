@@ -11,7 +11,7 @@ class IntroCutscene {
         this.y = 0;
 
         this.mouseBB = new BoundingBox(0,0,1,1);
-        this.exitBB = new BoundingBox(599 - 49,660 - 45,100,50);
+        this.exitBB = new BoundingBox(602 - 50,660 - 45,100,50);
     };
 
     update() {
@@ -49,11 +49,11 @@ class IntroCutscene {
         ctx.lineWidth = 6;
         ctx.textAlign = "center";
         ctx.font = "Bold 35px Courier";
-        ctx.fillText("NEXT", 601, 650);
+        ctx.fillText("NEXT", 602, 650);
         ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
 
         // cutscene
-        this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y, PARAMS.SCALE * 1.9);
+        this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y, PARAMS.SCALE / 3.15);
     };
 
     setBlackStroke(ctx) {
