@@ -33,8 +33,13 @@ class HUD {
         ctx.textAlign = "center";
         ctx.font = "Bold 20px Courier";
 
+        ctx.fillStyle = 'Gray';
+
         // HUD box
         ctx.strokeRect(0, 0, 680, 45);
+        ctx.fillRect(0,0,680,45);
+
+        this.setBlackStroke(ctx);
 
         // butler
         if (this.mouseBB.collide(this.butlerBB)) {
