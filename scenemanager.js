@@ -61,6 +61,8 @@ class Scenemanager {
             //spy
             this.game.addEntity(this.spyCharacter);
 
+            //guard
+            this.game.addEntity(new Guard(this.game));
 
             //plain wall
             for (let i = 0; i < level.plainWalls.length; i++) {
