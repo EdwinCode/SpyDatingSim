@@ -31,6 +31,7 @@ class BigTable {
         this.rightBB = new BoundingBox(this.x + this.dWidth * PARAMS.SCALE/3.5 - 4, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
         this.topBB = new BoundingBox(this.x + 5, this.y + this.dWidth/5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
         this.bottomBB = new BoundingBox(this.x + 5, this.y + this.dHeight  * PARAMS.SCALE/3.5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+
     };
 
 
@@ -60,6 +61,7 @@ class BigTable {
 
             ctx.strokeStyle = 'Black';
             ctx.strokeRect(this.bottomBB.x  - this.game.camera.x, this.bottomBB.y - this.game.camera.y, this.bottomBB.width, this.bottomBB.height);
+
         }
     };
 }
@@ -413,7 +415,7 @@ class SideWallLeft {
     constructor(game, x, y) {
         Object.assign(this, {game, x, y});
 
-        this.dWidth = 40/1.5;
+        this.dWidth = 120/1.5;
         this.dHeight = 136/1.5;
 
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png")
