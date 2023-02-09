@@ -9,7 +9,7 @@ class BigTable {
 
         //Overall bounding box
         // -4 is to make the bounding box fit the bigTable better
-        this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
+        this.BB = new BoundingBox(this.x,this.y + this.dWidth/5,this.dWidth * PARAMS.SCALE/3.5 - 4,this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
 
         //Very messy rn LOL
         //Smaller bounding boxes on each side
@@ -27,10 +27,10 @@ class BigTable {
                     this.dHeight  * PARAMS.SCALE/3.5                ==>   draw height of the bounding box (with scaling)
         */
 
-        this.leftBB = new BoundingBox(this.x, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
-        this.rightBB = new BoundingBox(this.x + this.dWidth * PARAMS.SCALE/3.5 - 4, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
-        this.topBB = new BoundingBox(this.x + 5, this.y + this.dWidth/5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
-        this.bottomBB = new BoundingBox(this.x + 5, this.y + this.dHeight  * PARAMS.SCALE/3.5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        // this.leftBB = new BoundingBox(this.x, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
+        // this.rightBB = new BoundingBox(this.x + this.dWidth * PARAMS.SCALE/3.5 - 4, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
+        // this.topBB = new BoundingBox(this.x + 5, this.y + this.dWidth/5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        // this.bottomBB = new BoundingBox(this.x + 5, this.y + this.dHeight  * PARAMS.SCALE/3.5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
 
     };
 
@@ -50,17 +50,17 @@ class BigTable {
             ctx.strokeStyle = 'Red';
             ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
 
-            ctx.strokeStyle = 'Blue';
-            ctx.strokeRect(this.leftBB.x  - this.game.camera.x, this.leftBB.y - this.game.camera.y, this.leftBB.width, this.leftBB.height);
-
-            ctx.strokeStyle = 'Green';
-            ctx.strokeRect(this.rightBB.x  - this.game.camera.x, this.rightBB.y - this.game.camera.y, this.rightBB.width, this.rightBB.height);
-
-            ctx.strokeStyle = 'Purple';
-            ctx.strokeRect(this.topBB.x  - this.game.camera.x, this.topBB.y - this.game.camera.y, this.topBB.width, this.topBB.height);
-
-            ctx.strokeStyle = 'Black';
-            ctx.strokeRect(this.bottomBB.x  - this.game.camera.x, this.bottomBB.y - this.game.camera.y, this.bottomBB.width, this.bottomBB.height);
+            // ctx.strokeStyle = 'Blue';
+            // ctx.strokeRect(this.leftBB.x  - this.game.camera.x, this.leftBB.y - this.game.camera.y, this.leftBB.width, this.leftBB.height);
+            //
+            // ctx.strokeStyle = 'Green';
+            // ctx.strokeRect(this.rightBB.x  - this.game.camera.x, this.rightBB.y - this.game.camera.y, this.rightBB.width, this.rightBB.height);
+            //
+            // ctx.strokeStyle = 'Purple';
+            // ctx.strokeRect(this.topBB.x  - this.game.camera.x, this.topBB.y - this.game.camera.y, this.topBB.width, this.topBB.height);
+            //
+            // ctx.strokeStyle = 'Black';
+            // ctx.strokeRect(this.bottomBB.x  - this.game.camera.x, this.bottomBB.y - this.game.camera.y, this.bottomBB.width, this.bottomBB.height);
 
         }
     };
@@ -113,11 +113,12 @@ class BigCouch {
                     0                                                 ==>   draw width of the bounding box
                     this.dHeight  * PARAMS.SCALE/3.5                ==>   draw height of the bounding box (with scaling)
         */
-
-        this.leftBB = new BoundingBox(this.x, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
-        this.rightBB = new BoundingBox(this.x + this.dWidth * PARAMS.SCALE/3.5 - 4, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
-        this.topBB = new BoundingBox(this.x + 5, this.y + this.dWidth/5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
-        this.bottomBB = new BoundingBox(this.x + 5, this.y + this.dHeight  * PARAMS.SCALE/3.5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        //
+        // this.leftBB = new BoundingBox(this.x, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
+        // this.rightBB = new BoundingBox(this.x + this.dWidth * PARAMS.SCALE/3.5 - 4, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
+        // this.topBB = new BoundingBox(this.x + 5, this.y + this.dWidth/5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        // this.bottomBB = new BoundingBox(this.x + 5, this.y + this.dHeight  * PARAMS.SCALE/3.5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        //
     };
 
 
@@ -135,17 +136,18 @@ class BigCouch {
             ctx.strokeStyle = 'Red';
             ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
 
-            ctx.strokeStyle = 'Blue';
-            ctx.strokeRect(this.leftBB.x  - this.game.camera.x, this.leftBB.y - this.game.camera.y, this.leftBB.width, this.leftBB.height);
-
-            ctx.strokeStyle = 'Green';
-            ctx.strokeRect(this.rightBB.x  - this.game.camera.x, this.rightBB.y - this.game.camera.y, this.rightBB.width, this.rightBB.height);
-
-            ctx.strokeStyle = 'Purple';
-            ctx.strokeRect(this.topBB.x  - this.game.camera.x, this.topBB.y - this.game.camera.y, this.topBB.width, this.topBB.height);
-
-            ctx.strokeStyle = 'Black';
-            ctx.strokeRect(this.bottomBB.x  - this.game.camera.x, this.bottomBB.y - this.game.camera.y, this.bottomBB.width, this.bottomBB.height);
+            // ctx.strokeStyle = 'Blue';
+            // ctx.strokeRect(this.leftBB.x  - this.game.camera.x, this.leftBB.y - this.game.camera.y, this.leftBB.width, this.leftBB.height);
+            //
+            // ctx.strokeStyle = 'Green';
+            // ctx.strokeRect(this.rightBB.x  - this.game.camera.x, this.rightBB.y - this.game.camera.y, this.rightBB.width, this.rightBB.height);
+            //
+            // ctx.strokeStyle = 'Purple';
+            // ctx.strokeRect(this.topBB.x  - this.game.camera.x, this.topBB.y - this.game.camera.y, this.topBB.width, this.topBB.height);
+            //
+            // ctx.strokeStyle = 'Black';
+            // ctx.strokeRect(this.bottomBB.x  - this.game.camera.x, this.bottomBB.y - this.game.camera.y, this.bottomBB.width, this.bottomBB.height);
+            //
         }
     };
 }
@@ -179,10 +181,11 @@ class ChairRight {
                     this.dHeight  * PARAMS.SCALE/3.5                ==>   draw height of the bounding box (with scaling)
         */
 
-        this.leftBB = new BoundingBox(this.x, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
-        this.rightBB = new BoundingBox(this.x + this.dWidth * PARAMS.SCALE/3.5 - 4, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
-        this.topBB = new BoundingBox(this.x + 5, this.y + this.dWidth/5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
-        this.bottomBB = new BoundingBox(this.x + 5, this.y + this.dHeight  * PARAMS.SCALE/3.5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        // this.leftBB = new BoundingBox(this.x, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
+        // this.rightBB = new BoundingBox(this.x + this.dWidth * PARAMS.SCALE/3.5 - 4, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
+        // this.topBB = new BoundingBox(this.x + 5, this.y + this.dWidth/5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        // this.bottomBB = new BoundingBox(this.x + 5, this.y + this.dHeight  * PARAMS.SCALE/3.5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        //
     };
 
 
@@ -200,17 +203,18 @@ class ChairRight {
             ctx.strokeStyle = 'Red';
             ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
 
-            ctx.strokeStyle = 'Blue';
-            ctx.strokeRect(this.leftBB.x  - this.game.camera.x, this.leftBB.y - this.game.camera.y, this.leftBB.width, this.leftBB.height);
-
-            ctx.strokeStyle = 'Green';
-            ctx.strokeRect(this.rightBB.x  - this.game.camera.x, this.rightBB.y - this.game.camera.y, this.rightBB.width, this.rightBB.height);
-
-            ctx.strokeStyle = 'Purple';
-            ctx.strokeRect(this.topBB.x  - this.game.camera.x, this.topBB.y - this.game.camera.y, this.topBB.width, this.topBB.height);
-
-            ctx.strokeStyle = 'Black';
-            ctx.strokeRect(this.bottomBB.x  - this.game.camera.x, this.bottomBB.y - this.game.camera.y, this.bottomBB.width, this.bottomBB.height);
+            // ctx.strokeStyle = 'Blue';
+            // ctx.strokeRect(this.leftBB.x  - this.game.camera.x, this.leftBB.y - this.game.camera.y, this.leftBB.width, this.leftBB.height);
+            //
+            // ctx.strokeStyle = 'Green';
+            // ctx.strokeRect(this.rightBB.x  - this.game.camera.x, this.rightBB.y - this.game.camera.y, this.rightBB.width, this.rightBB.height);
+            //
+            // ctx.strokeStyle = 'Purple';
+            // ctx.strokeRect(this.topBB.x  - this.game.camera.x, this.topBB.y - this.game.camera.y, this.topBB.width, this.topBB.height);
+            //
+            // ctx.strokeStyle = 'Black';
+            // ctx.strokeRect(this.bottomBB.x  - this.game.camera.x, this.bottomBB.y - this.game.camera.y, this.bottomBB.width, this.bottomBB.height);
+            //
         }
     };
 }
@@ -245,10 +249,11 @@ class ChairLeft {
                     this.dHeight  * PARAMS.SCALE/3.5                ==>   draw height of the bounding box (with scaling)
         */
 
-        this.leftBB = new BoundingBox(this.x, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
-        this.rightBB = new BoundingBox(this.x + this.dWidth * PARAMS.SCALE/3.5 - 4, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
-        this.topBB = new BoundingBox(this.x + 5, this.y + this.dWidth/5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
-        this.bottomBB = new BoundingBox(this.x + 5, this.y + this.dHeight  * PARAMS.SCALE/3.5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        // this.leftBB = new BoundingBox(this.x, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
+        // this.rightBB = new BoundingBox(this.x + this.dWidth * PARAMS.SCALE/3.5 - 4, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
+        // this.topBB = new BoundingBox(this.x + 5, this.y + this.dWidth/5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        // this.bottomBB = new BoundingBox(this.x + 5, this.y + this.dHeight  * PARAMS.SCALE/3.5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        //
     };
 
 
@@ -266,17 +271,18 @@ class ChairLeft {
             ctx.strokeStyle = 'Red';
             ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
 
-            ctx.strokeStyle = 'Blue';
-            ctx.strokeRect(this.leftBB.x  - this.game.camera.x, this.leftBB.y - this.game.camera.y, this.leftBB.width, this.leftBB.height);
-
-            ctx.strokeStyle = 'Green';
-            ctx.strokeRect(this.rightBB.x  - this.game.camera.x, this.rightBB.y - this.game.camera.y, this.rightBB.width, this.rightBB.height);
-
-            ctx.strokeStyle = 'Purple';
-            ctx.strokeRect(this.topBB.x  - this.game.camera.x, this.topBB.y - this.game.camera.y, this.topBB.width, this.topBB.height);
-
-            ctx.strokeStyle = 'Black';
-            ctx.strokeRect(this.bottomBB.x  - this.game.camera.x, this.bottomBB.y - this.game.camera.y, this.bottomBB.width, this.bottomBB.height);
+            // ctx.strokeStyle = 'Blue';
+            // ctx.strokeRect(this.leftBB.x  - this.game.camera.x, this.leftBB.y - this.game.camera.y, this.leftBB.width, this.leftBB.height);
+            //
+            // ctx.strokeStyle = 'Green';
+            // ctx.strokeRect(this.rightBB.x  - this.game.camera.x, this.rightBB.y - this.game.camera.y, this.rightBB.width, this.rightBB.height);
+            //
+            // ctx.strokeStyle = 'Purple';
+            // ctx.strokeRect(this.topBB.x  - this.game.camera.x, this.topBB.y - this.game.camera.y, this.topBB.width, this.topBB.height);
+            //
+            // ctx.strokeStyle = 'Black';
+            // ctx.strokeRect(this.bottomBB.x  - this.game.camera.x, this.bottomBB.y - this.game.camera.y, this.bottomBB.width, this.bottomBB.height);
+            //
         }
     };
 }
@@ -310,10 +316,11 @@ class BigRug {
                     this.dHeight  * PARAMS.SCALE/3.5                ==>   draw height of the bounding box (with scaling)
         */
 
-        this.leftBB = new BoundingBox(this.x, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
-        this.rightBB = new BoundingBox(this.x + this.dWidth * PARAMS.SCALE/3.5 - 4, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
-        this.topBB = new BoundingBox(this.x + 5, this.y + this.dWidth/5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
-        this.bottomBB = new BoundingBox(this.x + 5, this.y + this.dHeight  * PARAMS.SCALE/3.5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        // this.leftBB = new BoundingBox(this.x, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
+        // this.rightBB = new BoundingBox(this.x + this.dWidth * PARAMS.SCALE/3.5 - 4, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
+        // this.topBB = new BoundingBox(this.x + 5, this.y + this.dWidth/5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        // this.bottomBB = new BoundingBox(this.x + 5, this.y + this.dHeight  * PARAMS.SCALE/3.5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        //
     };
 
 
@@ -331,17 +338,18 @@ class BigRug {
             ctx.strokeStyle = 'Red';
             ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
 
-            ctx.strokeStyle = 'Blue';
-            ctx.strokeRect(this.leftBB.x  - this.game.camera.x, this.leftBB.y - this.game.camera.y, this.leftBB.width, this.leftBB.height);
-
-            ctx.strokeStyle = 'Green';
-            ctx.strokeRect(this.rightBB.x  - this.game.camera.x, this.rightBB.y - this.game.camera.y, this.rightBB.width, this.rightBB.height);
-
-            ctx.strokeStyle = 'Purple';
-            ctx.strokeRect(this.topBB.x  - this.game.camera.x, this.topBB.y - this.game.camera.y, this.topBB.width, this.topBB.height);
-
-            ctx.strokeStyle = 'Black';
-            ctx.strokeRect(this.bottomBB.x  - this.game.camera.x, this.bottomBB.y - this.game.camera.y, this.bottomBB.width, this.bottomBB.height);
+            // ctx.strokeStyle = 'Blue';
+            // ctx.strokeRect(this.leftBB.x  - this.game.camera.x, this.leftBB.y - this.game.camera.y, this.leftBB.width, this.leftBB.height);
+            //
+            // ctx.strokeStyle = 'Green';
+            // ctx.strokeRect(this.rightBB.x  - this.game.camera.x, this.rightBB.y - this.game.camera.y, this.rightBB.width, this.rightBB.height);
+            //
+            // ctx.strokeStyle = 'Purple';
+            // ctx.strokeRect(this.topBB.x  - this.game.camera.x, this.topBB.y - this.game.camera.y, this.topBB.width, this.topBB.height);
+            //
+            // ctx.strokeStyle = 'Black';
+            // ctx.strokeRect(this.bottomBB.x  - this.game.camera.x, this.bottomBB.y - this.game.camera.y, this.bottomBB.width, this.bottomBB.height);
+            //
         }
     };
 }
@@ -357,7 +365,7 @@ class PlainWall {
 
         //Overall bounding box
         // -4 is to make the bounding box fit the bigTable better
-        this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
+        this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5);
 
         //Very messy rn LOL
         //Smaller bounding boxes on each side
@@ -375,10 +383,11 @@ class PlainWall {
                     this.dHeight  * PARAMS.SCALE/3.5                ==>   draw height of the bounding box (with scaling)
         */
 
-        this.leftBB = new BoundingBox(this.x, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
-        this.rightBB = new BoundingBox(this.x + this.dWidth * PARAMS.SCALE/3.5 - 4, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
-        this.topBB = new BoundingBox(this.x + 5, this.y + this.dWidth/5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
-        this.bottomBB = new BoundingBox(this.x + 5, this.y + this.dHeight  * PARAMS.SCALE/3.5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        // this.leftBB = new BoundingBox(this.x, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
+        // this.rightBB = new BoundingBox(this.x + this.dWidth * PARAMS.SCALE/3.5 - 4, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
+        // this.topBB = new BoundingBox(this.x + 5, this.y + this.dWidth/5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        // this.bottomBB = new BoundingBox(this.x + 5, this.y + this.dHeight  * PARAMS.SCALE/3.5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        //
     };
 
 
@@ -396,17 +405,18 @@ class PlainWall {
             ctx.strokeStyle = 'Red';
             ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
 
-            ctx.strokeStyle = 'Blue';
-            ctx.strokeRect(this.leftBB.x  - this.game.camera.x, this.leftBB.y - this.game.camera.y, this.leftBB.width, this.leftBB.height);
-
-            ctx.strokeStyle = 'Green';
-            ctx.strokeRect(this.rightBB.x  - this.game.camera.x, this.rightBB.y - this.game.camera.y, this.rightBB.width, this.rightBB.height);
-
-            ctx.strokeStyle = 'Purple';
-            ctx.strokeRect(this.topBB.x  - this.game.camera.x, this.topBB.y - this.game.camera.y, this.topBB.width, this.topBB.height);
-
-            ctx.strokeStyle = 'Black';
-            ctx.strokeRect(this.bottomBB.x  - this.game.camera.x, this.bottomBB.y - this.game.camera.y, this.bottomBB.width, this.bottomBB.height);
+            // ctx.strokeStyle = 'Blue';
+            // ctx.strokeRect(this.leftBB.x  - this.game.camera.x, this.leftBB.y - this.game.camera.y, this.leftBB.width, this.leftBB.height);
+            //
+            // ctx.strokeStyle = 'Green';
+            // ctx.strokeRect(this.rightBB.x  - this.game.camera.x, this.rightBB.y - this.game.camera.y, this.rightBB.width, this.rightBB.height);
+            //
+            // ctx.strokeStyle = 'Purple';
+            // ctx.strokeRect(this.topBB.x  - this.game.camera.x, this.topBB.y - this.game.camera.y, this.topBB.width, this.topBB.height);
+            //
+            // ctx.strokeStyle = 'Black';
+            // ctx.strokeRect(this.bottomBB.x  - this.game.camera.x, this.bottomBB.y - this.game.camera.y, this.bottomBB.width, this.bottomBB.height);
+            //
         }
     };
 }
@@ -415,14 +425,14 @@ class SideWallLeft {
     constructor(game, x, y) {
         Object.assign(this, {game, x, y});
 
-        this.dWidth = 120/1.5;
+        this.dWidth = 120;
         this.dHeight = 136/1.5;
 
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png")
 
         //Overall bounding box
         // -4 is to make the bounding box fit the bigTable better
-        this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
+        this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5);
 
         //Very messy rn LOL
         //Smaller bounding boxes on each side
@@ -440,10 +450,11 @@ class SideWallLeft {
                     this.dHeight  * PARAMS.SCALE/3.5                ==>   draw height of the bounding box (with scaling)
         */
 
-        this.leftBB = new BoundingBox(this.x, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
-        this.rightBB = new BoundingBox(this.x + this.dWidth * PARAMS.SCALE/3.5 - 4, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
-        this.topBB = new BoundingBox(this.x + 5, this.y + this.dWidth/5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
-        this.bottomBB = new BoundingBox(this.x + 5, this.y + this.dHeight  * PARAMS.SCALE/3.5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        // this.leftBB = new BoundingBox(this.x, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
+        // this.rightBB = new BoundingBox(this.x + this.dWidth * PARAMS.SCALE/3.5 - 4, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
+        // this.topBB = new BoundingBox(this.x + 5, this.y + this.dWidth/5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        // this.bottomBB = new BoundingBox(this.x + 5, this.y + this.dHeight  * PARAMS.SCALE/3.5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        //
     };
 
 
@@ -460,18 +471,19 @@ class SideWallLeft {
         if (PARAMS.DEBUG) {
             ctx.strokeStyle = 'Red';
             ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
-
-            ctx.strokeStyle = 'Blue';
-            ctx.strokeRect(this.leftBB.x  - this.game.camera.x, this.leftBB.y - this.game.camera.y, this.leftBB.width, this.leftBB.height);
-
-            ctx.strokeStyle = 'Green';
-            ctx.strokeRect(this.rightBB.x  - this.game.camera.x, this.rightBB.y - this.game.camera.y, this.rightBB.width, this.rightBB.height);
-
-            ctx.strokeStyle = 'Purple';
-            ctx.strokeRect(this.topBB.x  - this.game.camera.x, this.topBB.y - this.game.camera.y, this.topBB.width, this.topBB.height);
-
-            ctx.strokeStyle = 'Black';
-            ctx.strokeRect(this.bottomBB.x  - this.game.camera.x, this.bottomBB.y - this.game.camera.y, this.bottomBB.width, this.bottomBB.height);
+            //
+            // ctx.strokeStyle = 'Blue';
+            // ctx.strokeRect(this.leftBB.x  - this.game.camera.x, this.leftBB.y - this.game.camera.y, this.leftBB.width, this.leftBB.height);
+            //
+            // ctx.strokeStyle = 'Green';
+            // ctx.strokeRect(this.rightBB.x  - this.game.camera.x, this.rightBB.y - this.game.camera.y, this.rightBB.width, this.rightBB.height);
+            //
+            // ctx.strokeStyle = 'Purple';
+            // ctx.strokeRect(this.topBB.x  - this.game.camera.x, this.topBB.y - this.game.camera.y, this.topBB.width, this.topBB.height);
+            //
+            // ctx.strokeStyle = 'Black';
+            // ctx.strokeRect(this.bottomBB.x  - this.game.camera.x, this.bottomBB.y - this.game.camera.y, this.bottomBB.width, this.bottomBB.height);
+            //
         }
     };
 }
@@ -488,7 +500,7 @@ class SideWallRight {
 
         //Overall bounding box
         // -4 is to make the bounding box fit the bigTable better
-        this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
+        this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5);
 
         //Very messy rn LOL
         //Smaller bounding boxes on each side
@@ -506,10 +518,11 @@ class SideWallRight {
                     this.dHeight  * PARAMS.SCALE/3.5                ==>   draw height of the bounding box (with scaling)
         */
 
-        this.leftBB = new BoundingBox(this.x, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
-        this.rightBB = new BoundingBox(this.x + this.dWidth * PARAMS.SCALE/3.5 - 4, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
-        this.topBB = new BoundingBox(this.x + 5, this.y + this.dWidth/5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
-        this.bottomBB = new BoundingBox(this.x + 5, this.y + this.dHeight  * PARAMS.SCALE/3.5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        // this.leftBB = new BoundingBox(this.x, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
+        // this.rightBB = new BoundingBox(this.x + this.dWidth * PARAMS.SCALE/3.5 - 4, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
+        // this.topBB = new BoundingBox(this.x + 5, this.y + this.dWidth/5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        // this.bottomBB = new BoundingBox(this.x + 5, this.y + this.dHeight  * PARAMS.SCALE/3.5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        //
     };
 
 
@@ -527,17 +540,18 @@ class SideWallRight {
             ctx.strokeStyle = 'Red';
             ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
 
-            ctx.strokeStyle = 'Blue';
-            ctx.strokeRect(this.leftBB.x  - this.game.camera.x, this.leftBB.y - this.game.camera.y, this.leftBB.width, this.leftBB.height);
-
-            ctx.strokeStyle = 'Green';
-            ctx.strokeRect(this.rightBB.x  - this.game.camera.x, this.rightBB.y - this.game.camera.y, this.rightBB.width, this.rightBB.height);
-
-            ctx.strokeStyle = 'Purple';
-            ctx.strokeRect(this.topBB.x  - this.game.camera.x, this.topBB.y - this.game.camera.y, this.topBB.width, this.topBB.height);
-
-            ctx.strokeStyle = 'Black';
-            ctx.strokeRect(this.bottomBB.x  - this.game.camera.x, this.bottomBB.y - this.game.camera.y, this.bottomBB.width, this.bottomBB.height);
+            // ctx.strokeStyle = 'Blue';
+            // ctx.strokeRect(this.leftBB.x  - this.game.camera.x, this.leftBB.y - this.game.camera.y, this.leftBB.width, this.leftBB.height);
+            //
+            // ctx.strokeStyle = 'Green';
+            // ctx.strokeRect(this.rightBB.x  - this.game.camera.x, this.rightBB.y - this.game.camera.y, this.rightBB.width, this.rightBB.height);
+            //
+            // ctx.strokeStyle = 'Purple';
+            // ctx.strokeRect(this.topBB.x  - this.game.camera.x, this.topBB.y - this.game.camera.y, this.topBB.width, this.topBB.height);
+            //
+            // ctx.strokeStyle = 'Black';
+            // ctx.strokeRect(this.bottomBB.x  - this.game.camera.x, this.bottomBB.y - this.game.camera.y, this.bottomBB.width, this.bottomBB.height);
+            //
         }
     };
 }
@@ -546,14 +560,14 @@ class WallBottom {
     constructor(game, x, y) {
         Object.assign(this, {game, x, y});
 
-        this.dWidth = 40/1.5;
-        this.dHeight = 31/1.5;
+        this.dWidth = 256/1.5;
+        this.dHeight = 32/1.5;
 
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png")
 
         //Overall bounding box
         // -4 is to make the bounding box fit the bigTable better
-        this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
+        this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5);
 
         //Very messy rn LOL
         //Smaller bounding boxes on each side
@@ -571,10 +585,11 @@ class WallBottom {
                     this.dHeight  * PARAMS.SCALE/3.5                ==>   draw height of the bounding box (with scaling)
         */
 
-        this.leftBB = new BoundingBox(this.x, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
-        this.rightBB = new BoundingBox(this.x + this.dWidth * PARAMS.SCALE/3.5 - 4, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
-        this.topBB = new BoundingBox(this.x + 5, this.y + this.dWidth/5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
-        this.bottomBB = new BoundingBox(this.x + 5, this.y + this.dHeight  * PARAMS.SCALE/3.5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        // this.leftBB = new BoundingBox(this.x, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
+        // this.rightBB = new BoundingBox(this.x + this.dWidth * PARAMS.SCALE/3.5 - 4, this.y + this.dWidth/5, 0, this.dHeight  * PARAMS.SCALE/3.5 - this.dWidth/5);
+        // this.topBB = new BoundingBox(this.x + 5, this.y + this.dWidth/5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        // this.bottomBB = new BoundingBox(this.x + 5, this.y + this.dHeight  * PARAMS.SCALE/3.5, this.dWidth  * PARAMS.SCALE/3.5 - 15, 0);
+        //
     };
 
 
@@ -584,7 +599,7 @@ class WallBottom {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 904, 0, 40, 31, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
+        ctx.drawImage(this.spritesheet, 256, 0, 256, 32, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
 
         //bounding box
         PARAMS.DEBUG = document.getElementById("debug").checked;
@@ -592,17 +607,18 @@ class WallBottom {
             ctx.strokeStyle = 'Red';
             ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
 
-            ctx.strokeStyle = 'Blue';
-            ctx.strokeRect(this.leftBB.x  - this.game.camera.x, this.leftBB.y - this.game.camera.y, this.leftBB.width, this.leftBB.height);
-
-            ctx.strokeStyle = 'Green';
-            ctx.strokeRect(this.rightBB.x  - this.game.camera.x, this.rightBB.y - this.game.camera.y, this.rightBB.width, this.rightBB.height);
-
-            ctx.strokeStyle = 'Purple';
-            ctx.strokeRect(this.topBB.x  - this.game.camera.x, this.topBB.y - this.game.camera.y, this.topBB.width, this.topBB.height);
-
-            ctx.strokeStyle = 'Black';
-            ctx.strokeRect(this.bottomBB.x  - this.game.camera.x, this.bottomBB.y - this.game.camera.y, this.bottomBB.width, this.bottomBB.height);
+            // ctx.strokeStyle = 'Blue';
+            // ctx.strokeRect(this.leftBB.x  - this.game.camera.x, this.leftBB.y - this.game.camera.y, this.leftBB.width, this.leftBB.height);
+            //
+            // ctx.strokeStyle = 'Green';
+            // ctx.strokeRect(this.rightBB.x  - this.game.camera.x, this.rightBB.y - this.game.camera.y, this.rightBB.width, this.rightBB.height);
+            //
+            // ctx.strokeStyle = 'Purple';
+            // ctx.strokeRect(this.topBB.x  - this.game.camera.x, this.topBB.y - this.game.camera.y, this.topBB.width, this.topBB.height);
+            //
+            // ctx.strokeStyle = 'Black';
+            // ctx.strokeRect(this.bottomBB.x  - this.game.camera.x, this.bottomBB.y - this.game.camera.y, this.bottomBB.width, this.bottomBB.height);
+            //
         }
     };
 }
