@@ -52,12 +52,6 @@ class Spy {
 
     };
 
-    updateBB() {
-        this.lastBB = this.BB;
-        this.BB = new BoundingBox(this.x, this.y + 40, this.width/2 - 12, this.height/2 - 40);
-
-    };
-
     update() {
         //movement
         if (!this.game.up && !this.game.down && !this.game.left && !this.game.right) {
@@ -116,6 +110,27 @@ class Spy {
             }
         }
 
+        //POKEMON CODE
+        // if (this.game.keys["ArrowDown"] || this.game.keys["s"]) {
+        //     this.y += this.velocity*this.game.clockTick;
+        //     this.direction = 1;
+        //     this.state = 1;
+        // } else if (this.game.keys["ArrowRight"] || this.game.keys["d"]) {
+        //     this.x += this.velocity*this.game.clockTick;
+        //     this.direction = 0;
+        //     this.state = 1;
+        // } else if (this.game.keys["ArrowUp"] || this.game.keys["w"]) {
+        //     this.y -= this.velocity*this.game.clockTick;
+        //     this.direction = 3;
+        //     this.state = 1;
+        // } else if (this.game.keys["ArrowLeft"] || this.game.keys["a"]) {
+        //     this.x -= this.velocity*this.game.clockTick;
+        //     this.direction = 2;
+        //     this.state = 1;
+        // } else {
+        //     this.state = 0;
+        // }
+
 
         //Update position
         this.updateBB();
@@ -129,25 +144,30 @@ class Spy {
                 if ((entity instanceof BigTable || entity instanceof BigCouch || entity instanceof ChairRight || entity instanceof ChairLeft || entity instanceof PlainWall || entity instanceof SideWallLeft || entity instanceof SideWallRight || entity instanceof WallBottom)) {
 
                     //debugging help
-                    // console.log("lastBB.bottom: " + that.lastBB.bottom + ", that.lastBB.left: " + that.lastBB.left + ", that.lastBB.right: " + that.lastBB.right + ", that.lastBB.top: " + that.lastBB.top);
-                    // console.log("entity.BB.top: " + entity.BB.top + ", entity.BB.right: " + entity.BB.right + ", entity.BB.left: " + entity.BB.left + ", entity.BB.bottom: " + entity.BB.bottom);
-                    //
-                    //
-                    // if(entity.BB.right <= that.lastBB.left){ // from right
-                    //     that.x = entity.BB.right;
-                    // }
-                    // else if(entity.BB.left >= that.lastBB.right){ // from left
-                    //     that.x = entity.BB.left - that.width * params.SCALE;
-                    // }
-                    // else if(entity.BB.bottom <= that.lastBB.top){ //from above
-                    //     that.y = entity.BB.bottom - 40;
-                    // }
-                    // else if(entity.BB.top >= that.lastBB.bottom){ // from below
-                    //     that.y = entity.BB.top - that.height * params.SCALE;
-                    // } else {
-                    //     console.log("nothing");
-                    // }
-                    // that.updateBB();
+                    console.log("lastBB.bottom: " + (that.lastBB.bottom+20) + ", that.lastBB.left: " + (that.lastBB.left+20) + ", that.lastBB.right: " + (that.lastBB.right+20) + ", that.lastBB.top: " + (that.lastBB.top+20));
+                    console.log("entity.BB.top: " + entity.BB.top + ", entity.BB.right: " + entity.BB.right + ", entity.BB.left: " + entity.BB.left + ", entity.BB.bottom: " + entity.BB.bottom);
+
+
+                    if(entity.BB.right <= (that.lastBB.left+20)){ // from right
+                        console.log("right");
+                        that.x += entity.BB.right - that.lastBB.left;
+                    }
+                    else if(entity.BB.left >= (that.lastBB.right-20)){ // from left
+                        console.log("left");
+                        that.x -= that.lastBB.right - entity.BB.left;
+                        console.log("player x" + that.x);
+                    }
+                    else if(entity.BB.bottom <= (that.lastBB.top+20)){ //from below
+                        console.log("below");
+                        that.y += entity.BB.bottom - that.lastBB.top;
+                    }
+                    else if(entity.BB.top >= (that.lastBB.bottom-20)){ // from above
+                        console.log("above");
+                        that.y -= that.BB.bottom - entity.BB.top;
+                    } else {
+                        console.log("nothing");
+                    }
+                    that.updateBB();
 
 
                     //  if (that.lastBB.left <= entity.BB.right && that.game.left) { //from right
@@ -170,80 +190,80 @@ class Spy {
                     //
                     // running
                     // left + up
-                    if (that.lastBB.collide(entity.leftBB) && that.lastBB.collide(entity.topBB) && that.game.run) {
-                        if (that.y < entity.y) { // hit corner from above
-                            that.y -= that.velocity* 2 * that.game.clockTick;
-                        } else {
-                            that.x -= that.velocity* 2 * that.game.clockTick; // hit corner from the left
-                        }
-                        //left + down
-                    } else if (that.lastBB.collide(entity.leftBB) && that.lastBB.collide(entity.bottomBB) && that.game.run) {
-                        if (that.y > entity.y) { // hit corner from below
-                            that.y += that.velocity* 2 * that.game.clockTick;
-                        } else {
-                            that.x -= that.velocity* 2 * that.game.clockTick; // hit corner from the left
-                        }
-                        //right and up
-                    } else if (that.lastBB.collide(entity.rightBB) && that.lastBB.collide(entity.topBB) && that.game.run) {
-                        if (that.y < entity.y) { // hit corner from above
-                            that.y -= that.velocity* 2 * that.game.clockTick;
-                        } else {
-                            that.x += that.velocity* 2 * that.game.clockTick; // hit corner from the right
-                        }
-                        //right and down
-                    } else if (that.lastBB.collide(entity.rightBB) && that.lastBB.collide(entity.bottomBB) && that.game.run) {
-                        if (that.y > entity.y) {
-                            that.y += that.velocity* 2 * that.game.clockTick;
-                        } else {
-                            that.x += that.velocity* 2 * that.game.clockTick;
-                        }
-                    } else if (that.lastBB.collide(entity.leftBB) && that.game.run) {
-                        that.x -= that.velocity* 2 * that.game.clockTick;
-                    } else if (that.lastBB.collide(entity.rightBB) && that.game.run) {
-                        that.x += that.velocity* 2 * that.game.clockTick;
-                    } else if (that.lastBB.collide(entity.topBB) && that.game.run) {
-                        that.y -= that.velocity* 2 * that.game.clockTick;
-                    } else if (that.lastBB.collide(entity.bottomBB) && that.game.run) {
-                        that.y += that.velocity* 2 * that.game.clockTick;
-                    }
-
-                    //left + up
-                    else if (that.lastBB.collide(entity.leftBB) && that.lastBB.collide(entity.topBB)) {
-                        if (that.y < entity.y) { // hit corner from above
-                            that.y -= that.velocity*that.game.clockTick;
-                        } else {
-                            that.x -= that.velocity*that.game.clockTick; // hit corner from the left
-                        }
-                        //left + down
-                    } else if (that.lastBB.collide(entity.leftBB) && that.lastBB.collide(entity.bottomBB)) {
-                        if (that.y > entity.y) { // hit corner from below
-                            that.y += that.velocity*that.game.clockTick;
-                        } else {
-                            that.x -= that.velocity*that.game.clockTick; // hit corner from the left
-                        }
-                        //right and up
-                    } else if (that.lastBB.collide(entity.rightBB) && that.lastBB.collide(entity.topBB)) {
-                        if (that.y < entity.y) { // hit corner from above
-                            that.y -= that.velocity*that.game.clockTick;
-                        } else {
-                            that.x += that.velocity*that.game.clockTick; // hit corner from the right
-                        }
-                        //right and down
-                    } else if (that.lastBB.collide(entity.rightBB) && that.lastBB.collide(entity.bottomBB)) {
-                        if (that.y > entity.y) {
-                            that.y += that.velocity*that.game.clockTick;
-                        } else {
-                            that.x += that.velocity*that.game.clockTick;
-                        }
-                    } else if (that.lastBB.collide(entity.leftBB)) {
-                        that.x -= that.velocity*that.game.clockTick;
-                    } else if (that.lastBB.collide(entity.rightBB)) {
-                        that.x += that.velocity*that.game.clockTick;
-                    } else if (that.lastBB.collide(entity.topBB)) {
-                        that.y -= that.velocity*that.game.clockTick;
-                    } else {
-                        that.y += that.velocity*that.game.clockTick;
-                    }
+                    // if (that.lastBB.collide(entity.leftBB) && that.lastBB.collide(entity.topBB) && that.game.run) {
+                    //     if (that.y < entity.y) { // hit corner from above
+                    //         that.y -= that.velocity* 2 * that.game.clockTick;
+                    //     } else {
+                    //         that.x -= that.velocity* 2 * that.game.clockTick; // hit corner from the left
+                    //     }
+                    //     //left + down
+                    // } else if (that.lastBB.collide(entity.leftBB) && that.lastBB.collide(entity.bottomBB) && that.game.run) {
+                    //     if (that.y > entity.y) { // hit corner from below
+                    //         that.y += that.velocity* 2 * that.game.clockTick;
+                    //     } else {
+                    //         that.x -= that.velocity* 2 * that.game.clockTick; // hit corner from the left
+                    //     }
+                    //     //right and up
+                    // } else if (that.lastBB.collide(entity.rightBB) && that.lastBB.collide(entity.topBB) && that.game.run) {
+                    //     if (that.y < entity.y) { // hit corner from above
+                    //         that.y -= that.velocity* 2 * that.game.clockTick;
+                    //     } else {
+                    //         that.x += that.velocity* 2 * that.game.clockTick; // hit corner from the right
+                    //     }
+                    //     //right and down
+                    // } else if (that.lastBB.collide(entity.rightBB) && that.lastBB.collide(entity.bottomBB) && that.game.run) {
+                    //     if (that.y > entity.y) {
+                    //         that.y += that.velocity* 2 * that.game.clockTick;
+                    //     } else {
+                    //         that.x += that.velocity* 2 * that.game.clockTick;
+                    //     }
+                    // } else if (that.lastBB.collide(entity.leftBB) && that.game.run) {
+                    //     that.x -= that.velocity* 2 * that.game.clockTick;
+                    // } else if (that.lastBB.collide(entity.rightBB) && that.game.run) {
+                    //     that.x += that.velocity* 2 * that.game.clockTick;
+                    // } else if (that.lastBB.collide(entity.topBB) && that.game.run) {
+                    //     that.y -= that.velocity* 2 * that.game.clockTick;
+                    // } else if (that.lastBB.collide(entity.bottomBB) && that.game.run) {
+                    //     that.y += that.velocity* 2 * that.game.clockTick;
+                    // }
+                    //
+                    // //left + up
+                    // else if (that.lastBB.collide(entity.leftBB) && that.lastBB.collide(entity.topBB)) {
+                    //     if (that.y < entity.y) { // hit corner from above
+                    //         that.y -= that.velocity*that.game.clockTick;
+                    //     } else {
+                    //         that.x -= that.velocity*that.game.clockTick; // hit corner from the left
+                    //     }
+                    //     //left + down
+                    // } else if (that.lastBB.collide(entity.leftBB) && that.lastBB.collide(entity.bottomBB)) {
+                    //     if (that.y > entity.y) { // hit corner from below
+                    //         that.y += that.velocity*that.game.clockTick;
+                    //     } else {
+                    //         that.x -= that.velocity*that.game.clockTick; // hit corner from the left
+                    //     }
+                    //     //right and up
+                    // } else if (that.lastBB.collide(entity.rightBB) && that.lastBB.collide(entity.topBB)) {
+                    //     if (that.y < entity.y) { // hit corner from above
+                    //         that.y -= that.velocity*that.game.clockTick;
+                    //     } else {
+                    //         that.x += that.velocity*that.game.clockTick; // hit corner from the right
+                    //     }
+                    //     //right and down
+                    // } else if (that.lastBB.collide(entity.rightBB) && that.lastBB.collide(entity.bottomBB)) {
+                    //     if (that.y > entity.y) {
+                    //         that.y += that.velocity*that.game.clockTick;
+                    //     } else {
+                    //         that.x += that.velocity*that.game.clockTick;
+                    //     }
+                    // } else if (that.lastBB.collide(entity.leftBB)) {
+                    //     that.x -= that.velocity*that.game.clockTick;
+                    // } else if (that.lastBB.collide(entity.rightBB)) {
+                    //     that.x += that.velocity*that.game.clockTick;
+                    // } else if (that.lastBB.collide(entity.topBB)) {
+                    //     that.y -= that.velocity*that.game.clockTick;
+                    // } else {
+                    //     that.y += that.velocity*that.game.clockTick;
+                    // }
                 }
             }
 
@@ -251,6 +271,12 @@ class Spy {
 
             that.updateBB();
         });
+
+    };
+
+    updateBB() {
+        this.lastBB = this.BB;
+        this.BB = new BoundingBox(this.x,this.y + 40,this.width/2 - 12,this.height/2 - 40);
 
     };
 
