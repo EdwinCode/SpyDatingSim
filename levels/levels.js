@@ -32,7 +32,7 @@ let levelOne = {
     bigRugs: [{x:-470, y: 89}, {x: 230, y: 89}],
 
     //furniture
-    bigTables: [{x: -15, y: 200}],
+    bigTables: [{x: -15, y: 200}, {x: 500, y: 200}],
     bigCouches: [{x: -25, y: 380}],
     chairRights: [{x: -100, y: 210}],
     chairLefts: [{x: 100, y: 210}],
