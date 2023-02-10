@@ -14,8 +14,6 @@ class GameEngine {
         this.mouse = null;
         this.wheel = null;
 
-        //POKEMON CODE
-        this.keys = {};
 
         // TODO: maybe use the line below to store the last direction pressed
         // to make some nice animation features (turn in that direction)
@@ -91,12 +89,6 @@ class GameEngine {
             e.preventDefault(); // Prevent Context Menu
             this.rightclick = getXandY(e);
         });
-
-        //POKEMON CODE
-        // window.addEventListener("keydown", event => this.keys[event.key] = true);
-        // window.addEventListener("keyup", event => this.keys[event.key] = false);
-
-
 
         function keydownListener (e) {
             //e.preventDefault();
@@ -205,16 +197,6 @@ class GameEngine {
         this.update();
         this.draw();
     };
-
-    // this.up = false;
-    // this.down = false;
-    // this.right = false;
-
-    disableLeft() {
-        this.left = false;
-        this.run = false;
-    }
-
 
 }
 
