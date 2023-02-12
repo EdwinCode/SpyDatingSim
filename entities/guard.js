@@ -4,7 +4,7 @@ class Guard{
         this.game = game;
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/guard.png");
 
-        this.guardW = 120;
+        this.guardW = 130;
         this.guardH = 200;
 
         this.x = -355;
@@ -14,7 +14,7 @@ class Guard{
 
         this.updateBB();
 
-        this.wanderBB = new BoundingBox(this.x, this.y, 100,this.guardH / 2);
+        this.wanderBB = new BoundingBox(this.x, this.y, 142,this.guardH / 2);
 
         this.animations = [];
         this.loadAnimations();
@@ -28,8 +28,8 @@ class Guard{
     loadAnimations() {
         // walking animation
         // 0 = right, 1 = left
-        this.animations[0] = new Animator(this.spritesheet, 8, 631, 104, 200, 4, 0.3);
-        this.animations[1] = new Animator(this.spritesheet, 8, 424, 103, 200, 4, 0.3);
+        this.animations[0] = new Animator(this.spritesheet, 8, 631, 108, 200, 4, 0.3);
+        this.animations[1] = new Animator(this.spritesheet, 8, 424, 112, 200, 4, 0.3);
 
     };
 
