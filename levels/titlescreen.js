@@ -7,7 +7,6 @@ class TitleScreen {
 
 
         this.mouseBB = new BoundingBox(0, 0, 1, 1);
-        this.playBB = new BoundingBox((720 / 2) - 50, (720 / 2) - 45, 100, 70);
         this.creditsBB = new BoundingBox((720 / 2) - 85, (720 / 2) + 155, 170, 70);
         this.exitBB = new BoundingBox(600 - 50, 650 - 45, 100, 50);
 
@@ -21,12 +20,23 @@ class TitleScreen {
         if (this.game.click) {
             this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y, 1, 1);
 
-            if (this.mouseBB.collide(this.player1BB) || this.mouseBB.collide(this.player2BB)) {
+            // to be implemented later
+            // send boolean to identify chosen player type
+            if (this.mouseBB.collide(this.player1BB)) {
                 this.game.camera.clearEntities();
                 this.game.camera.loadLevel(introCutscene);
-            } else if (this.mouseBB.collide(this.creditsBB)) {
+            } else if (this.mouseBB.collide(this.player2BB)) {
+                this.game.camera.clearEntities();
+                this.game.camera.loadLevel(introCutscene);
+            }
+
+            // credits
+            else if (this.mouseBB.collide(this.creditsBB)) {
                 this.credits = true;
-            } else {
+            }
+
+            // exit credits screen
+            else {
                 if (this.mouseBB.collide(this.exitBB)) {
                     this.credits = false;
                 }
@@ -35,6 +45,7 @@ class TitleScreen {
             this.game.click = null;
         }
 
+        // update mouse area
         if (this.game.mouse) {
             this.mouseBB = new BoundingBox(this.game.mouse.x, this.game.mouse.y, 1, 1);
         }
