@@ -142,7 +142,7 @@ class Spy {
         // interaction with key 'i'
         if (this.game.up) {
             this.chatbox = new Chatbox(this.game, "Hello");
-            this.game.addEntity(this.chatbox);
+            this.game.addEntityToTop(this.chatbox);
             this.chatbox.setVisible = true;
         }
     };
