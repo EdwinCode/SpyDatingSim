@@ -4,6 +4,9 @@ const ASSET_MANAGER = new AssetManager();
 
 //entities
 ASSET_MANAGER.queueDownload("./sprites/entities/sprite_girl_purple.png");
+ASSET_MANAGER.queueDownload("./sprites/entities/sprite_boy_brown.png");
+ASSET_MANAGER.queueDownload("./sprites/entities/darkness.png");
+ASSET_MANAGER.queueDownload("./sprites/entities/guard.png");
 
 //cutscene
 ASSET_MANAGER.queueDownload("./sprites/cutscenes/Intro.png");

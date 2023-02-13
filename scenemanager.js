@@ -9,6 +9,8 @@ class Scenemanager {
 
         this.spyCharacter = new Spy(this.game, -100, 55);
 
+        this.darkness = new Darkness(this.game, 0, 0);
+
         this.loadLevel(titleScreen);
     };
 
@@ -21,6 +23,7 @@ class Scenemanager {
     loadLevel(level) {
         this.currentLevel = level;
 
+
         if (this.currentLevel === titleScreen) {
             this.game.addEntity(new TitleScreen(this.game));
         }
@@ -32,7 +35,9 @@ class Scenemanager {
 
         if (this.currentLevel === levelOne) {
             this.clearEntities();
+
             this.game.addEntity(new HUD(this.game));
+
 
             //big couch
             for (let i = 0; i < level.bigCouches.length; i++) {
@@ -61,6 +66,8 @@ class Scenemanager {
             //spy
             this.game.addEntity(this.spyCharacter);
 
+            //guard
+            this.game.addEntity(new Guard(this.game));
 
             //plain wall
             for (let i = 0; i < level.plainWalls.length; i++) {
@@ -93,6 +100,7 @@ class Scenemanager {
             }
 
             this.game.camera.paused = false;
+
         }
 
     };
@@ -104,6 +112,14 @@ class Scenemanager {
 
         let midpointY = PARAMS.CANVAS_HEIGHT / 2 - this.spyCharacter.height / 2;
         this.y = this.spyCharacter.y - midpointY;
+
+        //CHANGE THE CHECK TO WHATEVER ACTIVATES THE QUICK TIME EVENT
+        //MIGHT JUST HAVE IT BE A SEPARATE "LEVEL"
+        if(!this.game.entities.includes(this.darkness) && this.spyCharacter.x > 500) {
+            this.game.addEntityToTop(this.darkness);
+            this.game.addEntityToTop(new HUD(this.game));
+            this.game.addEntityToTop(new IngameTimer(this.game));
+        }
     };
 
     draw(ctx) {
