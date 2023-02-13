@@ -16,7 +16,7 @@ class Furniture {
 
 class BigTable extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/House_Tileset.png", 256, 256, 236, 256, x, y, 236/2, 256/2);
+        super(game, "./sprites/furniture/House_Tileset.png", 256, 256, 224, 256, x, y, 224/2, 256/2);
         this.BB = new BoundingBox(this.x,this.y + this.dWidth/5,this.dWidth * PARAMS.SCALE/3.5 - 4,this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
     };
 
@@ -25,14 +25,14 @@ class BigTable extends Furniture {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 256, 256, 236, 256, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
+        ctx.drawImage(this.spritesheet, 256, 256, 224, 256, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
         super.draw(ctx);
     };
 }
 
 class BigCouch extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/House_Tileset.png", 770, 405, 252, 107, x, y, 255/1.5, 107/1.5);
+        super(game, "./sprites/furniture/House_Tileset.png", 768, 408, 256, 104, x, y, 256/1.5, 104/1.5);
         this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
     };
 
@@ -41,14 +41,14 @@ class BigCouch extends Furniture {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 770, 405, 252, 107, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
+        ctx.drawImage(this.spritesheet, 768, 408, 256, 104, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
         super.draw(ctx);
     };
 }
 
 class ChairRight extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/House_Tileset.png", 518, 386, 115, 126, x, y, 114/1.5, 126/1.5);
+        super(game, "./sprites/furniture/House_Tileset.png", 520, 384, 112, 128, x, y, 112/1.5, 128/1.5);
         this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
     };
 
@@ -57,7 +57,7 @@ class ChairRight extends Furniture {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 518, 386, 115, 126, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
+        ctx.drawImage(this.spritesheet, 520, 384, 112, 128, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
         super.draw(ctx);
     };
 }
@@ -65,7 +65,7 @@ class ChairRight extends Furniture {
 
 class ChairLeft extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/House_Tileset.png", 518, 256, 115, 126, x, y, 115/1.5, 126/1.5);
+        super(game, "./sprites/furniture/House_Tileset.png", 520, 256, 112, 128, x, y, 112/1.5, 128/1.5);
         this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
     };
 
@@ -74,14 +74,14 @@ class ChairLeft extends Furniture {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 518, 256, 115, 126, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
+        ctx.drawImage(this.spritesheet, 520, 256, 112, 128, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
         super.draw(ctx);
     };
 }
 
 class BigRug extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/House_Tileset.png", 30, 542, 330, 194, x, y, 330/1.5, 194/1.5);
+        super(game, "./sprites/furniture/House_Tileset.png", 32, 544, 328, 192, x, y, 328/1.5, 192/1.5);
         this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
     };
 
@@ -90,14 +90,14 @@ class BigRug extends Furniture {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 30, 542, 330, 194, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
+        ctx.drawImage(this.spritesheet, 32, 544, 328, 192, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
         super.draw(ctx);
     };
 }
 
 class PlainWall extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/House_Tileset.png", 520, 0, 240, 252, x, y, 252/1.5, 240/1.5);
+        super(game, "./sprites/furniture/House_Tileset.png", 516, 0, 248, 256, x, y, 248/1.5, 256/1.5);
         this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5);
     };
 
@@ -106,14 +106,14 @@ class PlainWall extends Furniture {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 520, 0, 240, 252, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
+        ctx.drawImage(this.spritesheet, 516, 0, 248, 256, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
         super.draw(ctx);
     };
 }
 
 class SideWallLeft extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/House_Tileset.png", 896, 0, 40, 136, x, y, 120/1.5, 136/1.5);
+        super(game, "./sprites/furniture/House_Tileset.png", 900, 0, 36, 128, x, y, 36/1.5, 128/1.5);
         this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5);
     };
 
@@ -122,7 +122,7 @@ class SideWallLeft extends Furniture {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 896, 0, 40, 136, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
+        ctx.drawImage(this.spritesheet, 900, 0, 36, 128, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
         super.draw(ctx);
     };
 }
@@ -130,7 +130,7 @@ class SideWallLeft extends Furniture {
 
 class SideWallRight extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/House_Tileset.png", 984, 128, 40, 136, x, y, 40/1.5, 136/1.5);
+        super(game, "./sprites/furniture/House_Tileset.png", 983, 128, 36, 128, x, y, 36/1.5, 128/1.5);
         this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5);
 
     };
@@ -140,14 +140,14 @@ class SideWallRight extends Furniture {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 984, 128, 40, 136, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
+        ctx.drawImage(this.spritesheet, 983, 128, 36, 128, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
         super.draw(ctx);
     };
 }
 
 class WallBottom extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/House_Tileset.png", 256, 0, 256, 32, x, y, 256/1.5, 32/1.5);
+        super(game, "./sprites/furniture/House_Tileset.png", 256, 0, 248, 32, x, y, 248/1.5, 32/1.5);
         this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5);
 
     };
@@ -157,7 +157,7 @@ class WallBottom extends Furniture {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 256, 0, 256, 32, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
+        ctx.drawImage(this.spritesheet, 256, 0, 248, 32, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
         super.draw(ctx);
     };
 }
