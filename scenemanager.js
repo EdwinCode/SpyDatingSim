@@ -36,7 +36,7 @@ class Scenemanager {
         if (this.currentLevel === levelOne) {
             this.clearEntities();
 
-            this.hud = new HUD(this.game);
+            this.hud = new HUD(this.game, "Phase I Part I");
             this.game.addEntity(this.hud);
 
 
