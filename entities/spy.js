@@ -130,7 +130,7 @@ class Spy {
                         that.y += entity.BB.bottom - that.lastBB.top;
                     }
                     else if(entity.BB.top >= (that.lastBB.bottom-20)){ // from above
-                        that.y -= that.BB.bottom - entity.BB.top;
+                        that.y -= that.lastBB.bottom - entity.BB.top;
                     }
                     that.updateBB();
                 }
