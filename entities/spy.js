@@ -18,6 +18,7 @@ class Spy {
 
         this.animations = [];
         this.loadAnimations();
+        this.hideChat = true;
     };
 
     loadAnimations() {
@@ -139,12 +140,12 @@ class Spy {
             that.updateBB();
         });
 
-        // interaction with key 'i'
-        if (this.game.up) {
+        // interaction with key 'e'
+        if (this.game.interact && this.hideChat) {
+            this.hideChat = false;
             this.chatbox = new Chatbox(this.game, "Hello");
-            // buggy code
-            //this.game.addEntityToTop(this.chatbox);
-            //this.chatbox.setVisible = true;
+            this.game.addEntityToTop(this.chatbox);
+            this.chatbox.setVisible = true;
         }
     };
 
