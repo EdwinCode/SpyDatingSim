@@ -1,4 +1,4 @@
-class ChatBox {
+class Chatbox {
     constructor(game, text) {
         this.game = game;
         this.text = text;
@@ -18,4 +18,9 @@ class ChatBox {
     draw(ctx) {
 
     };
-}
+};
+
+class CasefileChatbox {
+    constructor(game, text) {
+    }
+};
