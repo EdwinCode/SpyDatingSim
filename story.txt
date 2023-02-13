@@ -1,0 +1,70 @@
+Chapter 1:
+    Intro - done
+    Phase I -
+        CaseFile Chatbox:
+        First item in item bag. Refer to it at any time.
+        Show when level first opens and add an 'exit' button.
+        ---------------------------
+        | *-----* CLASSIFIED FILE |
+        | * Img * Agent Spy       |
+        | *-----*                 |
+        | Subject: Mr. Billionaire|
+        | Crime: Arson            |
+        | Overview:               |
+        | Subject burned down the |
+        | headquarters of their   |
+        | business competitor to  |
+        | be rid of them.         |
+        | Objective: Find evidence|
+        ---------------------------
+
+        People:
+        - Mr.Billionaire
+            Intro TEXT: "Welcome to the mansion! I'm so glad you could make it.
+                         I'll be giving a toast soon. Make yourself comfortable."
+            Toast TEXT: "*annoying clinging of silverware on a glass* I'd like to give a toast.
+                         Welcome to my mansion! I know we'll have a great time. Let the sparks ignite."
+        - Stephanie and Richie (right next to each other)
+            Stephanie TEXT: "Hi, I'm Stephanie! Isn't Mr. Billionaire so wonderful?
+                             He's definitely a tall drink of water."
+            Richie    TEXT: "I'm going to live up to my name and win Mr. Billionaire's heart!
+                             Oh, beware of the water here. That stuff I had earlier was nasty.
+                             Then again, maybe it does wonders for the skin..."
+
+        Alfred Button (Hints):
+        1. Talk to Mr. Billionaire
+        2. Talk to Stephanie and Richie
+
+        Trigger: Toast
+        After: timed event to look for clue
+        You have a certain amount of time to look for "water" after those words from Steph and Richie.
+
+        3. Look in the trashcan. (Empty lighter fluid bottle. Hmm...not enough).
+        4. Look at the table surfaces. (Drop of liquid, steers you in right direction in the room.)
+        5. Look in the cabinets near the wet table.
+
+        Find Clue: Find the water and sniff. This is lighter fluid! What is it doing disguised as water?
+
+        Time Runs Out: You were obviously snooping...get out.
+
+    Phase II -
+        People:
+        - Mr. Billionaire:
+            Line to Use: "You light my heart on fire."
+
+    Phase III -
+        People:
+        - Mr. Billionaire:
+            Line to Use: "Nothing could extinguish my feelings for you."
+
+    Outro -
+        Dark and rainy.
+        Spy is on another mission.
+
+        Case file is for the butler...that's odd.
+        He's a sophisticated criminal who is known for targeting
+        wealthy individuals: dawning a new identity and setting their
+        target up for a crime just to go undetected, stealing precious
+        items from their target.
+
+        To Be Continued...*thunder and lightening flash*
