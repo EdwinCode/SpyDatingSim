@@ -48,7 +48,14 @@ Chapter 1:
         Time Runs Out: You were obviously snooping...get out.
 
     Phase II -
+        People:
+        - Mr. Billionaire:
+            Line to Use: "You light my heart on fire."
+
     Phase III -
+        People:
+        - Mr. Billionaire:
+            Line to Use: "Nothing could extinguish my feelings for you."
 
     Outro -
         Dark and rainy.
