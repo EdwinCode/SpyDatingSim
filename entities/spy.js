@@ -10,6 +10,10 @@ class Spy {
         this.direction = 0;
         this.state = 0;
 
+        this.x = x;
+        this.y = y;
+        this.velocity = 300;
+
         this.updateBB();
 
         this.animations = [];
@@ -48,12 +52,6 @@ class Spy {
 
     };
 
-    updateBB() {
-        this.lastBB = this.BB;
-        this.BB = new BoundingBox(this.x, this.y + 40, this.width/2 - 12, this.height/2 - 40);
-
-    };
-
     update() {
         //movement
         if (!this.game.up && !this.game.down && !this.game.left && !this.game.right) {
@@ -64,19 +62,19 @@ class Spy {
             } else if (this.game.up && this.game.run && !this.game.down) {
                 this.direction = 3; // up
                 this.state = 2; // running
-                this.y -= 8;
+                this.y -= this.velocity* 2 *this.game.clockTick;
             } else if (this.game.up && !this.game.down) {
                 this.direction = 3; // up
                 this.state = 1; // walking
-                this.y -= 4;
+                this.y -= this.velocity*this.game.clockTick;
             } else if (this.game.down && this.game.run && !this.game.up) {
                 this.direction = 1; // down
                 this.state = 2; // running
-                this.y += 8;
+                this.y += this.velocity* 2 *this.game.clockTick;
             } else if (this.game.down && !this.game.up) {
                 this.direction = 1; // down
                 this.state = 1; // walking
-                this.y += 4;
+                this.y += this.velocity*this.game.clockTick;
             } else if (this.game.up && this.game.down) {
                 this.direction = 3; // up
                 this.state = 0; // idle
@@ -87,19 +85,19 @@ class Spy {
             } else if (this.game.right && this.game.run && !this.game.left) {
                 this.direction = 0; // right
                 this.state = 2; // running
-                this.x += 8;
+                this.x += this.velocity* 2 *this.game.clockTick;
             } else if (this.game.right && !this.game.left) {
                 this.direction = 0; // right
                 this.state = 1; // walking
-                this.x += 4;
+                this.x += this.velocity*this.game.clockTick;
             } else if (this.game.left && this.game.run && !this.game.right) {
                 this.direction = 2; // left
                 this.state = 2; // running
-                this.x -= 8;
+                this.x -= this.velocity* 2 *this.game.clockTick;
             } else if (this.game.left && !this.game.right) {
                 this.direction = 2; // left
                 this.state = 1; // walking
-                this.x -= 4;
+                this.x -= this.velocity*this.game.clockTick;
             } else if (this.game.right && this.game.left && this.game.up) {
                 this.direction = 3; // up
                 this.state = 1; // walking
@@ -112,57 +110,32 @@ class Spy {
             }
         }
 
-
         //Update position
         this.updateBB();
 
+        //collision
         var that = this;
         this.game.entities.forEach(function (entity) {
             //if the entity has a bounding box and we collided with it
             if (entity.BB && that.BB.collide(entity.BB)) {
-                // if spy runs into a big table
                 if ((entity instanceof BigTable || entity instanceof BigCouch || entity instanceof ChairRight || entity instanceof ChairLeft || entity instanceof PlainWall || entity instanceof SideWallLeft || entity instanceof SideWallRight || entity instanceof WallBottom)) {
-                    //left + up
-                    if (that.lastBB.collide(entity.leftBB) && that.lastBB.collide(entity.topBB)) {
-                        if (that.y < entity.y) { // hit corner from above
-                            that.y -= 4;
-                        } else {
-                            that.x -= 4; // hit corner from the left
-                        }
-                        //left + down
-                    } else if (that.lastBB.collide(entity.leftBB) && that.lastBB.collide(entity.bottomBB)) {
-                        if (that.y > entity.y) { // hit corner from below
-                            that.y += 4;
-                        } else {
-                            that.x -= 4; // hit corner from the left
-                        }
-                        //right and up
-                    } else if (that.lastBB.collide(entity.rightBB) && that.lastBB.collide(entity.topBB)) {
-                        if (that.y < entity.y) { // hit corner from above
-                            that.y -= 4;
-                        } else {
-                            that.x += 4; // hit corner from the right
-                        }
-                        //right and down
-                    } else if (that.lastBB.collide(entity.rightBB) && that.lastBB.collide(entity.bottomBB)) {
-                        if (that.y > entity.y) {
-                            that.y += 4;
-                        } else {
-                            that.x += 4;
-                        }
-                    } else if (that.lastBB.collide(entity.leftBB)) {
-                        that.x -= 4;
-                    } else if (that.lastBB.collide(entity.rightBB)) {
-                        that.x += 4;
-                    } else if (that.lastBB.collide(entity.topBB)) {
-                        that.y -= 4;
-                    } else {
-                        that.y += 4;
+
+                    if(entity.BB.right <= (that.lastBB.left+20)){ // from right
+                        that.x += entity.BB.right - that.lastBB.left;
                     }
+                    else if(entity.BB.left >= (that.lastBB.right-20)){ // from left
+                        that.x -= that.lastBB.right - entity.BB.left;
+                    }
+                    else if(entity.BB.bottom <= (that.lastBB.top+20)){ //from below
+                        that.y += entity.BB.bottom - that.lastBB.top;
+                    }
+                    else if(entity.BB.top >= (that.lastBB.bottom-20)){ // from above
+                        that.y -= that.lastBB.bottom - entity.BB.top;
+                    }
+                    that.updateBB();
                 }
-
-
             }
+
             that.updateBB();
         });
 
@@ -172,6 +145,12 @@ class Spy {
             this.game.addEntity(this.chatbox);
             this.chatbox.setVisible = true;
         }
+    };
+
+    updateBB() {
+        this.lastBB = this.BB;
+        this.BB = new BoundingBox(this.x,this.y + 40,this.width/2 - 12,this.height/2 - 40);
+
     };
 
     draw(ctx) {
