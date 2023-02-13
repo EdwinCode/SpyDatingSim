@@ -1,0 +1,40 @@
+Chapter 1:
+    Intro - done
+    Phase I -
+        CaseFile Chatbox:
+        First item in item bag. Refer to it at any time.
+        Show when level first opens and add an 'exit' button.
+        ---------------------------
+        | *-----* CLASSIFIED FILE |
+        | * Img * Agent Spy       |
+        | *-----*                 |
+        | Subject: Mr. Billionaire|
+        | Crime: Arson            |
+        | Overview:               |
+        | Subject burned down the |
+        | headquarters of their   |
+        | business competitor to  |
+        | be rid of them.         |
+        | Objective: Find evidence|
+        ---------------------------
+
+        Alfred Button (Hints):
+        1. Talk to Mr. Billionaire
+        2. Talk to
+
+
+
+    Phase II -
+    Phase III -
+
+    Outro -
+        Dark and rainy.
+        Spy is on another mission.
+
+        Case file is for the butler...that's odd.
+        He's a sophisticated criminal who is known for targeting
+        wealthy individuals: dawning a new identity and setting their
+        target up for a crime just to go undetected, stealing precious
+        items from their target.
+
+        To Be Continued...*thunder and lightening flash*
