@@ -3,8 +3,8 @@ class HUD {
         this.game = game;
 
         this.mouseBB = new BoundingBox(0,0,1,1);
-        this.butlerBB = new BoundingBox(680 / 3 - 50,8,100,30);
-        this.suitcaseBB = new BoundingBox(680 - (680 / 3) - 60,8,120,30);
+        this.butlerBB = new BoundingBox(545,5,60,54);
+        this.suitcaseBB = new BoundingBox(615,5,60,54);
     };
 
     update() {
@@ -29,33 +29,32 @@ class HUD {
 
     draw(ctx) {
         this.setBlackStroke(ctx);
-        ctx.lineWidth = 4;
+        ctx.lineWidth = 3;
         ctx.textAlign = "center";
         ctx.font = "Bold 20px Courier";
-
-        ctx.fillStyle = 'Gray';
-
-        // HUD box
-        ctx.strokeRect(0, 0, 680, 45);
-        ctx.fillRect(0,0,680,45);
-
-        this.setBlackStroke(ctx);
+        ctx.strokeStyle = 'black';
+        ctx.fillStyle = 'gray';
 
         // butler
         if (this.mouseBB.collide(this.butlerBB)) {
             this.setRedStroke(ctx);
         }
-        ctx.fillText("Butler", 680 / 3, 28);
         ctx.strokeRect(this.butlerBB.left, this.butlerBB.top, this.butlerBB.width, this.butlerBB.height);
+        ctx.fillRect(this.butlerBB.left, this.butlerBB.top, this.butlerBB.width, this.butlerBB.height);
+        this.butlerIcon = ASSET_MANAGER.getAsset("./sprites/alfred.png")
+        ctx.drawImage(this.butlerIcon, 556, 6, PARAMS.SCALE * 13, PARAMS.SCALE * 18);
 
-        this.setBlackStroke(ctx);
+        ctx.strokeStyle = 'black';
+        ctx.fillStyle = 'gray';
 
         // suitcase
         if (this.mouseBB.collide(this.suitcaseBB)) {
             this.setRedStroke(ctx);
         }
-        ctx.fillText("Suitcase", 680 - (680 / 3), 28);
         ctx.strokeRect(this.suitcaseBB.left, this.suitcaseBB.top, this.suitcaseBB.width, this.suitcaseBB.height);
+        ctx.fillRect(this.suitcaseBB.left, this.suitcaseBB.top, this.suitcaseBB.width, this.suitcaseBB.height);
+        this.butlerIcon = ASSET_MANAGER.getAsset("./sprites/suitcase.png")
+        ctx.drawImage(this.butlerIcon, 615, 5, PARAMS.SCALE * 20, PARAMS.SCALE * 18);
 
         this.setBlackStroke(ctx);
     };
