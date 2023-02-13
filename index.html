@@ -1,32 +1,92 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>Felon For You</title>
 
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono">
+    <style>
+        body {
+            font-family: IBM Plex Mono, Serif;
+            font-size: 15px;
+        }
+        canvas {
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            font-size: 20px;
+        }
+        div {
+            text-align: center;
+            padding-bottom: 10px;
+            margin: 0;
+        }
+        #ransomizer {
+            font-size:3em;
+            line-height: normal;
+            word-spacing:0.5em;
+        }
+
+        #ransomizer div {
+            display:inline-block;
+        }
+
+        #ransomizer .rww {
+            white-space: pre;
+            display:inline;
+            margin-left: .2em;
+            margin-right: .2em;
+        }
+
+        #ransomizer .rr {
+            -ms-transform: rotate(1.5deg);
+            -webkit-transform: rotate(1.5deg);
+            transform: rotate(1.5deg);
+        }
+
+        #ransomizer .rl {
+            -ms-transform: rotate(-1.5deg);
+            -webkit-transform: rotate(-1.5deg);
+            transform: rotate(-1.5deg);
+        }
+    </style>
+  
     <script type="text/javascript" src="./assetmanager.js"></script>
     <script type="text/javascript" src="./timer.js"></script>
     <script type="text/javascript" src="./gameengine.js"></script>
     <script type="text/javascript" src="./util.js"></script>
+
     <script type="text/javascript" src="./animator.js"></script>
-    <script type="text/javascript" src="Entities/SpyCharacter.js"></script>
-    <script type="text/javascript" src="Entities/BillionaireCharacter.js"></script>
-    <script type="text/javascript" src="Entities/CharacterTest.js"></script>
-    <script type="text/javascript" src="AlphabetTest.js"></script>
-    <script type="text/javascript" src="./guard.js"></script>
-    <script type="text/javascript" src="./date_candidate.js"></script>
-    <script type="text/javascript" src="./ingame_timer.js"></script>
-    <script type="text/javascript" src="./alfred.js"></script>
-    <script type="text/javascript" src="./suitcase.js"></script>
+    <script type="text/javascript" src="./boundingbox.js"></script>
+
+    <script type="text/javascript" src="entities/spy.js"></script>
+    <script type="text/javascript" src="entities/billionaire.js"></script>
+    <script type="text/javascript" src="entities/guard.js"></script>
+    <script type="text/javascript" src="entities/darkness.js"></script>
+    <script type="text/javascript" src="entities/furniture.js"></script>
+    <script type="text/javascript" src="entities/ingame_timer.js"></script>
+
+    <script type="text/javascript" src="scenemanager.js"></script>
+
+    <script type="text/javascript" src="levels/levels.js"></script>
+    <script type="text/javascript" src="levels/HUD.js"></script>
+    <script type="text/javascript" src="levels/titlescreen.js"></script>
+    <script type="text/javascript" src="levels/cutscenes.js"></script>
 
     <script type="text/javascript" src="./main.js"></script>
 </head>
 
 <body>
-<div style="text-align: center">
-    <canvas id="gameWorld" width="1000" height="1000" style="background: black; border: 1px solid white" tabindex="0" autofocus></canvas>
-</div>
+
+    <div id="ransomizer"><div class="rww"><div style="background-color:#717732;color:#ffffff;font-family:&#039;Tahoma&#039;, Geneva, sans-serif; font-size:90%; font-weight:bold; background-image:url(https://i.imgur.com/ruhP2kd.png) ; background-position: right bottom; font-style:italic; box-shadow:1px -1px 2px #333; text-transform:uppercase; line-height:125%; margin:0.1em; padding:0.1em; vertical-align:-0.1em; ">F</div><div style="background-color:#F8C83C;color:#000000;font-family:&#039;Comic Sans MS&#039;, cursive; font-size:110%; box-shadow:-1px -1px 2px #333; text-transform:lowercase; line-height:75%; text-decoration:underline; margin:0.1em; padding:0.2em; vertical-align:-0.1em; ">e</div><div style="background-color:#CE1126;color:#ffffff;font-family:&#039;Verdana&#039;, Geneva, sans-serif; font-size:90%; font-weight:bolder; background-image:url(https://i.imgur.com/ruhP2kd.png) ; background-position: right center; font-style:italic; box-shadow:-1px -1px 2px #333; text-transform:lowercase; line-height:125%; margin:0.1em; padding:0.2em; vertical-align:-0.1em; ">l</div><div style="background-color:#F9AA51;color:#000000;font-family:&#039;Trebuchet MS&#039;, Helvetica, sans-serif; font-size:110%; font-style:italic; text-transform:uppercase; line-height:75%; margin:0.1em; padding:0.3em; vertical-align:0.1em; ">o</div><div class="rr" style="background-color:#0C8489;color:#fbffff;font-family:&#039;Courier&#039;, monospace; font-size:110%; font-weight:bolder; box-shadow:-1px 1px 2px #333; line-height:75%; margin:0.1em; padding:0.3em; vertical-align:-0.1em; ">n</div></div><div class="rww"><div class="rr" style="background-color:#F15770;color:#000000;font-family:&#039;Tahoma&#039;, Geneva, sans-serif; font-size:90%; font-weight:bolder; background-image:url(https://i.imgur.com/pwrAKPo.png) ; background-position: left bottom; font-style:italic; line-height:100%; margin:0.1em; padding:0.2em; vertical-align:baseline; ">F</div><div class="rl" style="background-color:#006847;color:#ceffef;font-family:&#039;Verdana&#039;, Geneva, sans-serif; font-size:90%; font-weight:bold; background-image:url(https://i.imgur.com/ruhP2kd.png) ; background-position: center bottom; font-style:italic; box-shadow:-1px -1px 2px #333; text-transform:lowercase; line-height:100%; margin:0.1em; padding:0.3em; vertical-align:baseline; ">o</div><div class="rr" style="background-color:#D2A567;color:#000000;font-family:&#039;Verdana&#039;, Geneva, sans-serif; font-size:110%; background-image:url(https://i.imgur.com/ruhP2kd.png) ; background-position: left top; font-style:italic; box-shadow:-1px 1px 2px #333; text-transform:uppercase; line-height:125%; margin:0.1em; padding:0.3em; vertical-align:baseline; ">r</div></div><div class="rww"><div class="rr" style="background-color:#CE1126;color:#ffffff;font-family:&#039;Times New Roman&#039;, Times, serif; font-size:90%; font-weight:bolder; font-style:italic; box-shadow:1px 1px 2px #333; text-transform:lowercase; line-height:125%; margin:0.1em; padding:0.3em; vertical-align:0.1em; ">Y</div><div style="background-color:#F8C83C;color:#000000;font-family:&#039;Tahoma&#039;, Geneva, sans-serif; font-size:100%; background-image:url(https://i.imgur.com/IcV8Q3G.png) ; background-position: left bottom; box-shadow:1px -1px 2px #333; text-transform:lowercase; line-height:75%; text-decoration:underline; margin:0.1em; padding:0.3em; vertical-align:0.1em; ">o</div><div class="rr" style="background-color:#0C8489;color:#fbffff;font-family:&#039;Impact&#039;, Charcoal, sans-serif; font-size:100%; font-weight:lighter; font-style:italic; box-shadow:-1px 1px 2px #333; text-transform:lowercase; line-height:100%; margin:0.1em; padding:0.3em; vertical-align:-0.1em; ">u</div></div></div>
+        <canvas id="gameWorld" width="680" height="680" style="background: gray; border: 1px solid white" tabindex="0" autofocus></canvas>
+    <div>
+        <br />
+        <input type="checkbox" id="debug"> Debug <input type="checkbox" id="mute"> Mute <input type="range" id="volume" min="0" max="1" value="0.1" step="0.05"> Volume
+    </div>
 </body>
 
 </html>

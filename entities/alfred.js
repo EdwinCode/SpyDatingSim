@@ -1,10 +1,10 @@
-class Suitcase {
+class Alfred {
     constructor(game) {
         this.game = game;
-        this.animator = new Animator(ASSET_MANAGER.getAsset("./Sprites/SuitcaseScaledx8.png"), 8, 8, 104, 88, 1, 0.5);
+        this.animator = new Animator(ASSET_MANAGER.getAsset("./sprites/AlfredScaledx4.png"), 4, 4, 96, 148, 1, 0.5);
 
-        this.x = 700;
-        this.y = 550;
+        this.x = 600;
+        this.y = 500;
     };
 
     update() {
