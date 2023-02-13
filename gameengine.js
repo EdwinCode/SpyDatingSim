@@ -159,6 +159,11 @@ class GameEngine {
     };
 
     addEntity(entity) {
+        for (let i = 0; i < this.entities.length; i++) {
+            if (this.entities[i] === entity) {
+                console.log(this.entities.splice(i, 1));
+            }
+        }
         this.entities.push(entity);
     };
 
