@@ -36,7 +36,12 @@ Chapter 1:
         2. Talk to Stephanie and Richie
 
         Trigger: Toast
-        After: timed event to look for clue
+
+        ***PART I DONE***
+
+        ***PART II START***
+        Cutscene - All characters leave room, Spy is left alone to snoop
+        Timed event to look for clue
         You have a certain amount of time to look for "water" after those words from Steph and Richie.
 
         3. Look in the trashcan. (Empty lighter fluid bottle. Hmm...not enough).

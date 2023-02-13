@@ -130,7 +130,7 @@ class Spy {
                         that.y += entity.BB.bottom - that.lastBB.top;
                     }
                     else if(entity.BB.top >= (that.lastBB.bottom-20)){ // from above
-                        that.y -= that.BB.bottom - entity.BB.top;
+                        that.y -= that.lastBB.bottom - entity.BB.top;
                     }
                     that.updateBB();
                 }
@@ -139,6 +139,13 @@ class Spy {
             that.updateBB();
         });
 
+        // interaction with key 'i'
+        if (this.game.up) {
+            this.chatbox = new Chatbox(this.game, "Hello");
+            // buggy code
+            //this.game.addEntityToTop(this.chatbox);
+            //this.chatbox.setVisible = true;
+        }
     };
 
     updateBB() {

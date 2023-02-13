@@ -1,4 +1,4 @@
-class Date_Candidate_1 {
+class Stephanie {
 
     constructor(game) {
         this.game = game;
@@ -20,7 +20,7 @@ class Date_Candidate_1 {
     };
 }
 
-class Date_Candidate_2 {
+class Richie {
 
     constructor(game) {
         this.game = game;

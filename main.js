@@ -7,6 +7,8 @@ ASSET_MANAGER.queueDownload("./sprites/entities/sprite_girl_purple.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/sprite_boy_brown.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/darkness.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/guard.png");
+ASSET_MANAGER.queueDownload("./sprites/alfred.png");
+ASSET_MANAGER.queueDownload("./sprites/suitcase.png");
 
 //cutscene
 ASSET_MANAGER.queueDownload("./sprites/cutscenes/Intro.png");
