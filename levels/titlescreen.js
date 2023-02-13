@@ -7,7 +7,7 @@ class TitleScreen {
 
 
         this.mouseBB = new BoundingBox(0, 0, 1, 1);
-        this.creditsBB = new BoundingBox((720 / 2) - 85, (720 / 2) + 155, 170, 70);
+        this.creditsBB = new BoundingBox(this.game.ctx.canvas.width / 2 - 80, (720 / 2) + 155, 160, 70);
         this.exitBB = new BoundingBox(600 - 50, 650 - 45, 100, 50);
 
         this.player1BB = new BoundingBox((720 / 2) - 210, (720 / 2) - 55, 80, 125);
@@ -60,12 +60,12 @@ class TitleScreen {
 
             //title
             ctx.font = "Bold 60px Courier";
-            ctx.fillText("Felon For You", 720 / 2, 100);
+            ctx.fillText("Felon For You", ctx.canvas.width / 2, 100);
 
             ctx.font = "Bold 35px Courier";
 
             //choose your player
-            ctx.fillText("Choose your Agent Spy:", 720 / 2, 250);
+            ctx.fillText("Choose your Agent Spy:", ctx.canvas.width / 2, 250);
 
             //purple hair girl
             if (this.mouseBB.collide(this.player1BB)) {
@@ -96,7 +96,7 @@ class TitleScreen {
             if (this.mouseBB.collide(this.creditsBB)) {
                 this.setRedStroke(ctx);
             }
-            ctx.fillText("CREDITS", 720 / 2, 720 / 2 + 200);
+            ctx.fillText("CREDITS", ctx.canvas.width / 2, 720 / 2 + 200);
             ctx.strokeRect(this.creditsBB.left, this.creditsBB.top, this.creditsBB.width, this.creditsBB.height);
 
         } else {
