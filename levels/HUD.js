@@ -1,10 +1,11 @@
 class HUD {
-    constructor(game) {
+    constructor(game, levelText) {
         this.game = game;
+        this.levelText = levelText;
 
         this.mouseBB = new BoundingBox(0,0,1,1);
-        this.butlerBB = new BoundingBox(680 / 3 - 50,8,100,30);
-        this.suitcaseBB = new BoundingBox(680 - (680 / 3) - 60,8,120,30);
+        this.butlerBB = new BoundingBox(545,5,60,54);
+        this.suitcaseBB = new BoundingBox(615,5,60,54);
     };
 
     update() {
@@ -29,33 +30,36 @@ class HUD {
 
     draw(ctx) {
         this.setBlackStroke(ctx);
-        ctx.lineWidth = 4;
-        ctx.textAlign = "center";
+        ctx.lineWidth = 3;
+        ctx.textAlign = "left";
         ctx.font = "Bold 20px Courier";
 
-        ctx.fillStyle = 'Gray';
-
-        // HUD box
-        ctx.strokeRect(0, 0, 680, 45);
-        ctx.fillRect(0,0,680,45);
-
         this.setBlackStroke(ctx);
+
+        // level
+        ctx.fillText(this.levelText, 2, 15);
+
+        ctx.fillStyle = 'gray';
 
         // butler
         if (this.mouseBB.collide(this.butlerBB)) {
-            this.setRedStroke(ctx);
+            ctx.fillStyle = "rgb(93,93,93)";
         }
-        ctx.fillText("Butler", 680 / 3, 28);
         ctx.strokeRect(this.butlerBB.left, this.butlerBB.top, this.butlerBB.width, this.butlerBB.height);
+        ctx.fillRect(this.butlerBB.left, this.butlerBB.top, this.butlerBB.width, this.butlerBB.height);
+        this.butlerIcon = ASSET_MANAGER.getAsset("./sprites/alfred.png")
+        ctx.drawImage(this.butlerIcon, 556, 6, PARAMS.SCALE * 13, PARAMS.SCALE * 18);
 
-        this.setBlackStroke(ctx);
+        ctx.fillStyle = 'gray';
 
         // suitcase
         if (this.mouseBB.collide(this.suitcaseBB)) {
-            this.setRedStroke(ctx);
+            ctx.fillStyle = "rgb(93,93,93)";
         }
-        ctx.fillText("Suitcase", 680 - (680 / 3), 28);
         ctx.strokeRect(this.suitcaseBB.left, this.suitcaseBB.top, this.suitcaseBB.width, this.suitcaseBB.height);
+        ctx.fillRect(this.suitcaseBB.left, this.suitcaseBB.top, this.suitcaseBB.width, this.suitcaseBB.height);
+        this.butlerIcon = ASSET_MANAGER.getAsset("./sprites/suitcase.png")
+        ctx.drawImage(this.butlerIcon, 615, 5, PARAMS.SCALE * 20, PARAMS.SCALE * 18);
 
         this.setBlackStroke(ctx);
     };
@@ -65,8 +69,4 @@ class HUD {
         ctx.fillStyle = "Black";
     };
 
-    setRedStroke(ctx) {
-        ctx.strokeStyle = "rgb(139,0,0)";
-        ctx.fillStyle = "rgb(139,0,0)";
-    };
 }
