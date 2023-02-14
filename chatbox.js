@@ -54,3 +54,19 @@ class CasefileChatbox {
         this.chatboxH;
     };
 };
+
+class HintChat {
+    constructor(game) {
+        this.game = game;
+        this.numItems = 0;
+
+    };
+
+    update() {
+
+    };
+
+    draw(ctx) {
+
+    };
+}
