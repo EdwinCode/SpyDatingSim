@@ -36,25 +36,25 @@ class Spy {
 
         // state = 0 is the idle animation
         // 0, 1, 2, 3 are right, down, left, up
-        this.animations[0][0] = new Animator(this.spritesheet, 8, 655, 128, 210, 1, 0.2);
-        this.animations[0][1] = new Animator(this.spritesheet, 8, 8, 136, 210, 1, 0.2);
-        this.animations[0][2] = new Animator(this.spritesheet, 8, 440, 128, 210, 1, 0.2);
-        this.animations[0][3] = new Animator(this.spritesheet, 8, 223, 128, 210, 1, 0.2);
+        this.animations[0][0] = new Animator(this.spritesheet, 0, 648, 120, 208, 1, 0.2);
+        this.animations[0][1] = new Animator(this.spritesheet, 0, 0, 128, 208, 1, 0.2);
+        this.animations[0][2] = new Animator(this.spritesheet, 0, 432, 120, 208, 1, 0.2);
+        this.animations[0][3] = new Animator(this.spritesheet, 0, 216, 120, 208, 1, 0.2);
 
         // state = 1 is the walking animation
         // 0, 1, 2, 3 are right, down, left, up
-        this.animations[1][0] = new Animator(this.spritesheet, 8, 655, 128, 210, 4, 0.2);
-        this.animations[1][1] = new Animator(this.spritesheet, 8, 8, 136, 210, 4, 0.2);
-        this.animations[1][2] = new Animator(this.spritesheet, 8, 440, 128, 210, 4, 0.2);
-        this.animations[1][3] = new Animator(this.spritesheet, 8, 223, 128, 210, 4, 0.2);
+        this.animations[1][0] = new Animator(this.spritesheet, 0, 648, 120, 208, 4, 0.2);
+        this.animations[1][1] = new Animator(this.spritesheet, 0, 0, 128, 208, 4, 0.2);
+        this.animations[1][2] = new Animator(this.spritesheet, 0, 432, 120, 208, 4, 0.2);
+        this.animations[1][3] = new Animator(this.spritesheet, 0, 216, 120, 208, 4, 0.2);
 
 
         // state = 2 is the running animation
         // 0, 1, 2, 3 are right, down, left, up
-        this.animations[2][0] = new Animator(this.spritesheet, 8, 655, 128, 210, 4, 0.2);
-        this.animations[2][1] = new Animator(this.spritesheet, 8, 8, 136, 210, 4, 0.2);
-        this.animations[2][2] = new Animator(this.spritesheet, 8, 440, 128, 210, 4, 0.2);
-        this.animations[2][3] = new Animator(this.spritesheet, 8, 223, 128, 210, 4, 0.2);
+        this.animations[2][0] = new Animator(this.spritesheet, 0, 648, 120, 208, 4, 0.2);
+        this.animations[2][1] = new Animator(this.spritesheet, 0, 0, 128, 208, 4, 0.2);
+        this.animations[2][2] = new Animator(this.spritesheet, 0, 432, 120, 208, 4, 0.2);
+        this.animations[2][3] = new Animator(this.spritesheet, 0, 216, 120, 208, 4, 0.2);
 
     };
 
