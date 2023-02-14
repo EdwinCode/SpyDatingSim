@@ -5,8 +5,6 @@ class Scenemanager {
         this.x = 0;
         this.y = 0;
 
-        this.gameOver = false;
-
         this.spyCharacter = new Spy(this.game, -100, 55);
 
         this.darkness = new Darkness(this.game, 0, 0);
@@ -25,12 +23,19 @@ class Scenemanager {
 
 
         if (this.currentLevel === titleScreen) {
+            console.log("load title screen");
+            this.clearEntities();
             this.game.addEntity(new TitleScreen(this.game));
         }
 
         if (this.currentLevel === introCutscene) {
             this.clearEntities();
             this.game.addEntity(new IntroCutscene(this.game));
+        }
+
+        if (this.currentLevel === loseScreen) {
+            this.clearEntities();
+            this.game.addEntity(new LoseScreen(this.game));
         }
 
         if (this.currentLevel === levelOne) {
@@ -120,6 +125,10 @@ class Scenemanager {
             this.game.addEntityToTop(this.darkness);
             this.game.addEntityToTop(this.hud);
             this.game.addEntityToTop(new IngameTimer(this.game));
+        }
+
+        if (this.spyCharacter.gameOver) {
+            this.loadLevel(loseScreen);
         }
     };
 

@@ -14,6 +14,8 @@ class Spy {
         this.y = y;
         this.velocity = 300;
 
+        this.gameOver = false;
+
         this.updateBB();
 
         this.animations = [];
@@ -133,6 +135,8 @@ class Spy {
                         that.y -= that.lastBB.bottom - entity.BB.top;
                     }
                     that.updateBB();
+                } else if (entity instanceof Guard) {
+                    that.gameOver = true;
                 }
             }
 

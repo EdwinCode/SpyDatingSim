@@ -57,3 +57,7 @@ let titleScreen = {
 let introCutscene = {
     label: "intro"
 };
+
+let loseScreen = {
+    label: "lose screen"
+}

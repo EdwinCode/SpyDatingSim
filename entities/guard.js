@@ -7,22 +7,24 @@ class Guard{
         this.guardW = 130;
         this.guardH = 200;
 
-        this.x = -355;
+        this.x = -200;
         this.y = -30;
+
+        this.velocity = 50;
 
         this.direction = 0;
 
         this.updateBB();
 
-        this.wanderBB = new BoundingBox(this.x, this.y, 142,this.guardH / 2);
+        this.wanderBB = new BoundingBox(this.x, this.y, 250,this.guardH / 2);
 
         this.animations = [];
         this.loadAnimations();
     };
 
     updateBB() {
-        this.lastBB = this.guardBB;
-        this.guardBB = new BoundingBox(this.x, this.y + 40, this.guardW / 2 - 12, this.guardH / 2 - 40);
+        this.lastBB = this.BB;
+        this.BB = new BoundingBox(this.x, this.y + 40, this.guardW / 2 - 12, this.guardH / 2 - 40);
     }
 
     loadAnimations() {
@@ -37,22 +39,22 @@ class Guard{
 
         this.updateBB();
 
-        if (this.lastBB.x + this.lastBB.width === this.wanderBB.x + this.wanderBB.width) {
+        if (this.lastBB.x + this.lastBB.width >= this.wanderBB.x + this.wanderBB.width) {
             this.direction = 1;
-            this.x -= 0.5;
+            this.x -= this.velocity*this.game.clockTick;
         }
 
-        if (this.lastBB.x === this.wanderBB.x) {
+        if (this.lastBB.x <= this.wanderBB.x) {
             this.direction = 0;
-            this.x += 0.5;
+            this.x += this.velocity*this.game.clockTick;
         }
 
          else if (this.direction === 0) {
-            this.x += 0.5;
+            this.x += this.velocity*this.game.clockTick;
         }
 
          else {
-             this.x -= 0.5;
+             this.x -= this.velocity*this.game.clockTick;
         }
     };
 
@@ -62,7 +64,7 @@ class Guard{
         PARAMS.DEBUG = document.getElementById("debug").checked;
         if (PARAMS.DEBUG) {
             ctx.strokeStyle = 'Red';
-            ctx.strokeRect(this.guardBB.x - this.game.camera.x, this.guardBB.y - this.game.camera.y, this.guardBB.width, this.guardBB.height);
+            ctx.strokeRect(this.BB.x - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
 
             ctx.strokeStyle = 'blue';
             ctx.strokeRect(this.wanderBB.x - this.game.camera.x, this.wanderBB.y - this.game.camera.y, this.wanderBB.width, this.wanderBB.height);
