@@ -86,11 +86,11 @@ class Level1Part1 {
     };
 
     update() {
-
+        // method not used but declaration is necessary for game engine
     };
 
     draw(ctx) {
-
+        // method not used but declaration is necessary for game engine
     };
 
 };
