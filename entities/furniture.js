@@ -17,7 +17,7 @@ class Furniture {
 class BigTable extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/House_Tileset.png", 256, 256, 224, 256, x, y, 224/2, 256/2);
-        this.BB = new BoundingBox(this.x,this.y + this.dWidth/5,this.dWidth * PARAMS.SCALE/3.5 - 4,this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
+        this.BB = new BoundingBox(this.x,this.y + this.dWidth/5,this.dWidth * PARAMS.SCALE/3.5,this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
     };
 
     update() {
@@ -33,7 +33,7 @@ class BigTable extends Furniture {
 class BigCouch extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/House_Tileset.png", 768, 408, 256, 104, x, y, 256/1.5, 104/1.5);
-        this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
+        this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
     };
 
     update() {
@@ -49,7 +49,7 @@ class BigCouch extends Furniture {
 class ChairRight extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/House_Tileset.png", 520, 384, 112, 128, x, y, 112/1.5, 128/1.5);
-        this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
+        this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
     };
 
     update() {
@@ -66,7 +66,7 @@ class ChairRight extends Furniture {
 class ChairLeft extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/House_Tileset.png", 520, 256, 112, 128, x, y, 112/1.5, 128/1.5);
-        this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
+        this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
     };
 
     update() {
@@ -82,7 +82,7 @@ class ChairLeft extends Furniture {
 class BigRug extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/House_Tileset.png", 32, 544, 328, 192, x, y, 328/1.5, 192/1.5);
-        this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
+        this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
     };
 
     update() {
@@ -98,7 +98,7 @@ class BigRug extends Furniture {
 class PlainWall extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/House_Tileset.png", 516, 0, 248, 256, x, y, 248/1.5, 256/1.5);
-        this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5);
+        this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
     };
 
     update() {
@@ -114,7 +114,7 @@ class PlainWall extends Furniture {
 class SideWallLeft extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/House_Tileset.png", 900, 0, 36, 128, x, y, 36/1.5, 128/1.5);
-        this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5);
+        this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
     };
 
     update() {
@@ -131,7 +131,7 @@ class SideWallLeft extends Furniture {
 class SideWallRight extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/House_Tileset.png", 983, 128, 36, 128, x, y, 36/1.5, 128/1.5);
-        this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5);
+        this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
 
     };
 
@@ -148,7 +148,7 @@ class SideWallRight extends Furniture {
 class WallBottom extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/House_Tileset.png", 256, 0, 248, 32, x, y, 248/1.5, 32/1.5);
-        this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5);
+        this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
 
     };
 

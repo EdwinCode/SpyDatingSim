@@ -65,6 +65,7 @@ class Scenemanager {
             }
 
             //spy
+            this.spyCharacter = new Spy(this.game, -100, 55);
             this.game.addEntity(this.spyCharacter);
 
             //guard
