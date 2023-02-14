@@ -17,6 +17,7 @@ class LoseScreen {
                 //console.log("collided")
                 this.game.camera.clearEntities();
                 this.game.camera.loadLevel(titleScreen);
+                this.game.male = false;
             }
             // reset user click
             this.game.click = null;

@@ -21,7 +21,7 @@ class TitleScreen {
             this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y, 1, 1);
 
             if (this.mouseBB.collide(this.player1BB)) {
-                this.game.camera.clearEntities();
+                //this.game.camera.clearEntities();
                 this.game.camera.loadLevel(introCutscene);
             } else if (this.mouseBB.collide(this.player2BB)) {
                 //this.game.camera.clearEntities();
