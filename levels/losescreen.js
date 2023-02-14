@@ -36,8 +36,8 @@ class LoseScreen {
 
         //title
         ctx.font = "Bold 60px Courier";
-        ctx.fillText("You Have Been", 720 / 2, 100);
-        ctx.fillText("Caught!", 720 / 2, 160);
+        ctx.fillText("You Have Been", PARAMS.CANVAS_WIDTH / 2, 100);
+        ctx.fillText("Caught!", PARAMS.CANVAS_WIDTH / 2, 160);
 
         ctx.font = "Bold 35px Courier";
 
@@ -48,7 +48,7 @@ class LoseScreen {
             console.log("red stroke set");
             this.setRedStroke(ctx);
         }
-        ctx.fillText("RESTART", 720 / 2, 720 / 2);
+        ctx.fillText("RESTART", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2);
         ctx.strokeRect(this.restartBB.left, this.restartBB.top, this.restartBB.width, this.restartBB.height);
 
 
