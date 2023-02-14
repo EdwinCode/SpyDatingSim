@@ -3,6 +3,11 @@ class Spy {
         Object.assign(this, {game, x, y});
 
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/sprite_girl_purple.png");
+        if (this.game.male) {
+            // currently, the sprites differ in width, so might need to change them to match
+            // because the sprite_boy_brown is not animating properly
+            this.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/sprite_boy_brown.png");
+        }
 
         this.width = 140;
         this.height = 210;
