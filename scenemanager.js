@@ -22,6 +22,13 @@ class Scenemanager {
 
     loadLevel(level) {
         this.currentLevel = level;
+        this.clearEntities();
+
+        // lose screen
+        if (this.currentLevel === loseScreen) {
+            this.clearEntities();
+            this.game.addEntity(new LoseScreen(this.game));
+        }
 
         // title screen
         if (this.currentLevel === titleScreen) {
@@ -133,6 +140,10 @@ class Scenemanager {
             this.game.addEntityToTop(this.darkness);
             this.game.addEntityToTop(this.hud);
             this.game.addEntityToTop(new IngameTimer(this.game));
+        }
+
+        if (this.spyCharacter.gameOver) {
+            this.loadLevel(loseScreen);
         }
     };
 
