@@ -1,7 +1,8 @@
 class Level1Part1 {
-    constructor(game, level) {
+    constructor(game, level, spyCharacter) {
         this.game = game;
         this.level = level;
+        this.spyCharacter = spyCharacter;
 
         this.setUpLevel();
     };
@@ -36,7 +37,7 @@ class Level1Part1 {
         }
 
         //spy
-        this.spyCharacter = new Spy(this.game, -100, 55);
+        // this.spyCharacter = new Spy(this.game, -100, 55);
         this.game.addEntity(this.spyCharacter);
 
         // guard
