@@ -146,7 +146,7 @@ class Spy {
                 // LOSE GAME if collide with Guard
                 else if (entity instanceof Guard) {
                     //that.gameOver = true;
-                    this.game.camera.loadLevel(loseScreen);
+                    that.game.camera.loadLevel(loseScreen);
                 }
             }
 
