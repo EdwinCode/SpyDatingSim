@@ -41,7 +41,9 @@ class Scenemanager {
         // level one part 1
         if (this.currentLevel === levelOne) {
 
-            this.game.addEntity(new Level1Part1(this.game, this.currentLevel));
+            this.spyCharacter = new Spy(this.game, -100, 55);
+            this.game.addEntity(new Level1Part1(this.game, this.currentLevel, this.spyCharacter));
+
 
             //this.clearEntities();
 
