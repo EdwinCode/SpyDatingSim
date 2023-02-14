@@ -23,22 +23,24 @@ class Scenemanager {
     loadLevel(level) {
         this.currentLevel = level;
 
-
+        // title screen
         if (this.currentLevel === titleScreen) {
             this.game.addEntity(new TitleScreen(this.game));
         }
 
+        // level one cutscene
         if (this.currentLevel === introCutscene) {
             this.clearEntities();
             this.game.addEntity(new IntroCutscene(this.game));
         }
 
+        // level one
         if (this.currentLevel === levelOne) {
             this.clearEntities();
 
+            // HUD
             this.hud = new HUD(this.game, "Phase I Part I");
             this.game.addEntity(this.hud);
-
 
             //big couch
             for (let i = 0; i < level.bigCouches.length; i++) {
@@ -64,12 +66,22 @@ class Scenemanager {
                 this.game.addEntity(new BigTable(this.game, table.x, table.y));
             }
 
-            //spy
+            // spy
             this.game.addEntity(this.spyCharacter);
 
-            //guard
+            // guard
             this.game.addEntity(new Guard(this.game));
 
+            // Richie
+            /*this.richieText = ["I'm going to be Richie Rich and win Mr. Billionaire's heart!",
+                               "Oh, beware of the water here. That stuff I had earlier was nasty." +
+                               "Then again, maybe it does wonders for the skin..."];
+            this.game.add(new Richie(this.game));
+
+            // Stephanie
+            this.stephText = ["Isn't Mr.Billionaire so dreamy...",
+                              "He's definitely a tall drink of water."];
+*/
             //plain wall
             for (let i = 0; i < level.plainWalls.length; i++) {
                 let plainWall = level.plainWalls[i];
