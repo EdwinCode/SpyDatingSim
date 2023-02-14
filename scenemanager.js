@@ -5,8 +5,6 @@ class Scenemanager {
         this.x = 0;
         this.y = 0;
 
-        this.gameOver = false;
-
         this.spyCharacter = new Spy(this.game, -100, 55);
 
         this.darkness = new Darkness(this.game, 0, 0);
@@ -26,7 +24,6 @@ class Scenemanager {
 
         // lose screen
         if (this.currentLevel === loseScreen) {
-            this.clearEntities();
             this.game.addEntity(new LoseScreen(this.game));
         }
 
@@ -37,16 +34,19 @@ class Scenemanager {
 
         // level one cutscene
         if (this.currentLevel === introCutscene) {
-            this.clearEntities();
+            //this.clearEntities();
             this.game.addEntity(new IntroCutscene(this.game));
         }
 
-        // level one
+        // level one part 1
         if (this.currentLevel === levelOne) {
-            this.clearEntities();
+
+            this.game.addEntity(new Level1Part1(this.game, this.currentLevel));
+
+            //this.clearEntities();
 
             // HUD
-            this.hud = new HUD(this.game, "Phase I Part I");
+            /*this.hud = new HUD(this.game, "Phase I Part I");
             this.game.addEntity(this.hud);
 
             //big couch
@@ -81,7 +81,7 @@ class Scenemanager {
             this.game.addEntity(new Guard(this.game));
 
             // Richie
-            /*this.richieText = ["I'm going to be Richie Rich and win Mr. Billionaire's heart!",
+            /!*this.richieText = ["I'm going to be Richie Rich and win Mr. Billionaire's heart!",
                                "Oh, beware of the water here. That stuff I had earlier was nasty." +
                                "Then again, maybe it does wonders for the skin..."];
             this.game.add(new Richie(this.game));
@@ -89,7 +89,7 @@ class Scenemanager {
             // Stephanie
             this.stephText = ["Isn't Mr.Billionaire so dreamy...",
                               "He's definitely a tall drink of water."];
-*/
+*!/
             //plain wall
             for (let i = 0; i < level.plainWalls.length; i++) {
                 let plainWall = level.plainWalls[i];
@@ -120,9 +120,12 @@ class Scenemanager {
                 this.game.addEntity(new BigRug(this.game, rug.x, rug.y));
             }
 
-            this.game.camera.paused = false;
+            this.game.camera.paused = false;*/
 
         }
+
+        // TO BE ADDED
+        // level one, part 2
 
     };
 

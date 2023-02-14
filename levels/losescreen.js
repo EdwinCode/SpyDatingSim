@@ -4,22 +4,25 @@ class LoseScreen {
 
         this.mouseBB = new BoundingBox(0, 0, 1, 1);
         this.restartBB = new BoundingBox((720 / 2) - 95, (720 / 2) - 45, 190, 70);
-
     };
 
     update() {
+        // update if user clicked
         if (this.game.click) {
+            // update mouse location
             this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y, 1, 1);
 
+            // restart game
             if (this.mouseBB.collide(this.restartBB)) {
-                console.log("collided")
+                //console.log("collided")
                 this.game.camera.clearEntities();
                 this.game.camera.loadLevel(titleScreen);
             }
-
+            // reset user click
             this.game.click = null;
         }
 
+        // update mouse movement
         if (this.game.mouse) {
             this.mouseBB = new BoundingBox(this.game.mouse.x, this.game.mouse.y, 1, 1);
         }

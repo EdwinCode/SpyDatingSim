@@ -68,4 +68,4 @@ let introCutscene = {
 
 let loseScreen = {
     label: "lose screen"
-}
+};

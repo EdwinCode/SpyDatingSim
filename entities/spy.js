@@ -19,7 +19,7 @@ class Spy {
         this.y = y;
         this.velocity = 300;
 
-        this.gameOver = false;
+        //this.gameOver = false;
 
         this.updateBB();
 
@@ -141,8 +141,12 @@ class Spy {
                         that.y -= that.lastBB.bottom - entity.BB.top;
                     }
                     that.updateBB();
-                } else if (entity instanceof Guard) {
-                    that.gameOver = true;
+                }
+
+                // LOSE GAME if collide with Guard
+                else if (entity instanceof Guard) {
+                    //that.gameOver = true;
+                    this.game.camera.loadLevel(loseScreen);
                 }
             }
 

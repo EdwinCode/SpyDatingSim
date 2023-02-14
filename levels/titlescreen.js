@@ -24,7 +24,7 @@ class TitleScreen {
                 this.game.camera.clearEntities();
                 this.game.camera.loadLevel(introCutscene);
             } else if (this.mouseBB.collide(this.player2BB)) {
-                this.game.camera.clearEntities();
+                //this.game.camera.clearEntities();
                 this.game.camera.loadLevel(introCutscene);
                 this.game.male = true;
             }
