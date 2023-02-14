@@ -1,14 +1,23 @@
-class BigTable {
+class Furniture {
+    constructor(game, spritesheet, sx, sy, sw, sh, x, y, dWidth, dHeight) {
+        Object.assign(this, {game, x, y, dWidth, dHeight});
+        this.spritesheet = ASSET_MANAGER.getAsset(spritesheet);
+    }
+
+    draw(ctx) {
+        //bounding box
+        PARAMS.DEBUG = document.getElementById("debug").checked;
+        if (PARAMS.DEBUG) {
+            ctx.strokeStyle = 'Red';
+            ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
+        }
+    }
+}
+
+class BigTable extends Furniture {
     constructor(game, x, y) {
-        Object.assign(this, {game, x, y});
-
-        this.dWidth = 236/2;
-        this.dHeight = 256/2;
-
-        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png");
-
+        super(game, "./sprites/furniture/House_Tileset.png", 256, 256, 224, 256, x, y, 224/2, 256/2);
         this.BB = new BoundingBox(this.x,this.y + this.dWidth/5,this.dWidth * PARAMS.SCALE/3.5 - 4,this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
-
     };
 
     update() {
@@ -16,45 +25,14 @@ class BigTable {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 256, 256, 236, 256, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
-
-        //bounding box
-        PARAMS.DEBUG = document.getElementById("debug").checked;
-        if (PARAMS.DEBUG) {
-            ctx.strokeStyle = 'Red';
-            ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
-        }
+        ctx.drawImage(this.spritesheet, 256, 256, 224, 256, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
+        super.draw(ctx);
     };
 }
 
-class SmallTable {
-    constructor(game) {
-        this.game = game;
-        this.animator = new Animator(ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png"),
-            249, 249, 230, 262, 1, 0.5);
-
-        this.x = 300;
-        this.y = 300;
-    };
-
-    update() {
-
-    };
-
-    draw(ctx) {
-        this.animator.drawFrame(this.game.clockTick, ctx, this.x, this.y);
-    };
-}
-
-class BigCouch {
+class BigCouch extends Furniture {
     constructor(game, x, y) {
-        Object.assign(this, {game, x, y});
-
-        this.dWidth = 255/1.5;
-        this.dHeight = 107/1.5;
-
-        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png")
-
+        super(game, "./sprites/furniture/House_Tileset.png", 768, 408, 256, 104, x, y, 256/1.5, 104/1.5);
         this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
     };
 
@@ -63,26 +41,14 @@ class BigCouch {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 770, 405, 252, 107, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
-
-        PARAMS.DEBUG = document.getElementById("debug").checked;
-        if (PARAMS.DEBUG) {
-            ctx.strokeStyle = 'Red';
-            ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
-
-        }
+        ctx.drawImage(this.spritesheet, 768, 408, 256, 104, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
+        super.draw(ctx);
     };
 }
 
-class ChairRight {
+class ChairRight extends Furniture {
     constructor(game, x, y) {
-        Object.assign(this, {game, x, y});
-
-        this.dWidth = 114/1.5;
-        this.dHeight = 126/1.5;
-
-        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png")
-
+        super(game, "./sprites/furniture/House_Tileset.png", 520, 384, 112, 128, x, y, 112/1.5, 128/1.5);
         this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
     };
 
@@ -91,27 +57,15 @@ class ChairRight {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 518, 386, 115, 126, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
-
-        //bounding box
-        PARAMS.DEBUG = document.getElementById("debug").checked;
-        if (PARAMS.DEBUG) {
-            ctx.strokeStyle = 'Red';
-            ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
-        }
+        ctx.drawImage(this.spritesheet, 520, 384, 112, 128, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
+        super.draw(ctx);
     };
 }
 
 
-class ChairLeft {
+class ChairLeft extends Furniture {
     constructor(game, x, y) {
-        Object.assign(this, {game, x, y});
-
-        this.dWidth = 115/1.5;
-        this.dHeight = 126/1.5;
-
-        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png")
-
+        super(game, "./sprites/furniture/House_Tileset.png", 520, 256, 112, 128, x, y, 112/1.5, 128/1.5);
         this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
     };
 
@@ -120,29 +74,15 @@ class ChairLeft {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 518, 256, 115, 126, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
-
-        //bounding box
-        PARAMS.DEBUG = document.getElementById("debug").checked;
-        if (PARAMS.DEBUG) {
-            ctx.strokeStyle = 'Red';
-            ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
-
-        }
+        ctx.drawImage(this.spritesheet, 520, 256, 112, 128, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
+        super.draw(ctx);
     };
 }
 
-class BigRug {
+class BigRug extends Furniture {
     constructor(game, x, y) {
-        Object.assign(this, {game, x, y});
-
-        this.dWidth = 330/1.5;
-        this.dHeight = 194/1.5;
-
-        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png")
-
+        super(game, "./sprites/furniture/House_Tileset.png", 32, 544, 328, 192, x, y, 328/1.5, 192/1.5);
         this.BB = new BoundingBox(this.x, this.y + this.dWidth/5, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
-
     };
 
     update() {
@@ -150,27 +90,47 @@ class BigRug {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 30, 542, 330, 194, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
-
-        //bounding box
-        PARAMS.DEBUG = document.getElementById("debug").checked;
-        if (PARAMS.DEBUG) {
-            ctx.strokeStyle = 'Red';
-            ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
-
-        }
+        ctx.drawImage(this.spritesheet, 32, 544, 328, 192, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
+        super.draw(ctx);
     };
 }
 
-class PlainWall {
+class PlainWall extends Furniture {
     constructor(game, x, y) {
-        Object.assign(this, {game, x, y});
+        super(game, "./sprites/furniture/House_Tileset.png", 516, 0, 248, 256, x, y, 248/1.5, 256/1.5);
+        this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5);
+    };
 
-        this.dWidth = 240/1.5;
-        this.dHeight = 252/1.5;
+    update() {
 
-        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png")
+    };
 
+    draw(ctx) {
+        ctx.drawImage(this.spritesheet, 516, 0, 248, 256, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
+        super.draw(ctx);
+    };
+}
+
+class SideWallLeft extends Furniture {
+    constructor(game, x, y) {
+        super(game, "./sprites/furniture/House_Tileset.png", 900, 0, 36, 128, x, y, 36/1.5, 128/1.5);
+        this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5);
+    };
+
+    update() {
+
+    };
+
+    draw(ctx) {
+        ctx.drawImage(this.spritesheet, 900, 0, 36, 128, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
+        super.draw(ctx);
+    };
+}
+
+
+class SideWallRight extends Furniture {
+    constructor(game, x, y) {
+        super(game, "./sprites/furniture/House_Tileset.png", 983, 128, 36, 128, x, y, 36/1.5, 128/1.5);
         this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5);
 
     };
@@ -180,56 +140,14 @@ class PlainWall {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 520, 0, 240, 252, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
-
-        //bounding box
-        PARAMS.DEBUG = document.getElementById("debug").checked;
-        if (PARAMS.DEBUG) {
-            ctx.strokeStyle = 'Red';
-            ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
-
-        }
+        ctx.drawImage(this.spritesheet, 983, 128, 36, 128, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
+        super.draw(ctx);
     };
 }
 
-class SideWallLeft {
+class WallBottom extends Furniture {
     constructor(game, x, y) {
-        Object.assign(this, {game, x, y});
-
-        this.dWidth = 120;
-        this.dHeight = 136/1.5;
-
-        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png")
-
-        this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5);
-    };
-
-    update() {
-
-    };
-
-    draw(ctx) {
-        ctx.drawImage(this.spritesheet, 896, 0, 40, 136, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
-
-        //bounding box
-        PARAMS.DEBUG = document.getElementById("debug").checked;
-        if (PARAMS.DEBUG) {
-            ctx.strokeStyle = 'Red';
-            ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
-        }
-    };
-}
-
-
-class SideWallRight {
-    constructor(game, x, y) {
-        Object.assign(this, {game, x, y});
-
-        this.dWidth = 40/1.5;
-        this.dHeight = 136/1.5;
-
-        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png")
-
+        super(game, "./sprites/furniture/House_Tileset.png", 256, 0, 248, 32, x, y, 248/1.5, 32/1.5);
         this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5);
 
     };
@@ -239,44 +157,8 @@ class SideWallRight {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 984, 128, 40, 136, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
-
-        //bounding box
-        PARAMS.DEBUG = document.getElementById("debug").checked;
-        if (PARAMS.DEBUG) {
-            ctx.strokeStyle = 'Red';
-            ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
-
-        }
-    };
-}
-
-class WallBottom {
-    constructor(game, x, y) {
-        Object.assign(this, {game, x, y});
-
-        this.dWidth = 256/1.5;
-        this.dHeight = 32/1.5;
-
-        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/furniture/House_Tileset.png")
-
-        this.BB = new BoundingBox(this.x, this.y, this.dWidth * PARAMS.SCALE/3.5 - 4, this.dHeight * PARAMS.SCALE/3.5);
-
-    };
-
-    update() {
-
-    };
-
-    draw(ctx) {
-        ctx.drawImage(this.spritesheet, 256, 0, 256, 32, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
-
-        //bounding box
-        PARAMS.DEBUG = document.getElementById("debug").checked;
-        if (PARAMS.DEBUG) {
-            ctx.strokeStyle = 'Red';
-            ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
-        }
+        ctx.drawImage(this.spritesheet, 256, 0, 248, 32, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
+        super.draw(ctx);
     };
 }
 

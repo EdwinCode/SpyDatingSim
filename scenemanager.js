@@ -36,7 +36,8 @@ class Scenemanager {
         if (this.currentLevel === levelOne) {
             this.clearEntities();
 
-            this.game.addEntity(new HUD(this.game, "Phase I Part I"));
+            this.hud = new HUD(this.game, "Phase I Part I");
+            this.game.addEntity(this.hud);
 
 
             //big couch
@@ -117,7 +118,7 @@ class Scenemanager {
         //MIGHT JUST HAVE IT BE A SEPARATE "LEVEL"
         if(!this.game.entities.includes(this.darkness) && this.spyCharacter.x > 500) {
             this.game.addEntityToTop(this.darkness);
-            this.game.addEntityToTop(new HUD(this.game));
+            this.game.addEntityToTop(this.hud);
             this.game.addEntityToTop(new IngameTimer(this.game));
         }
     };

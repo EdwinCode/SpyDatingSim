@@ -93,6 +93,10 @@ class GameEngine {
         function keydownListener (e) {
             //e.preventDefault();
             switch (e.code) {
+                case "KeyE":
+                case "Slash":
+                    that.interact = true;
+                    break;
                 case "ShiftLeft":
                 case "ShiftRight":
                     that.run = true;
@@ -122,6 +126,10 @@ class GameEngine {
         function keyUpListener (e) {
             //e.preventDefault();
             switch (e.code) {
+                case "KeyE":
+                case "Slash":
+                    that.interact = false;
+                    break;
                 case "ShiftLeft":
                 case "ShiftRight":
                     that.run = false;
@@ -159,6 +167,11 @@ class GameEngine {
     };
 
     addEntity(entity) {
+        for (let i = 0; i < this.entities.length; i++) {
+            if (this.entities[i] === entity) {
+                console.log(this.entities.splice(i, 1));
+            }
+        }
         this.entities.push(entity);
     };
 
