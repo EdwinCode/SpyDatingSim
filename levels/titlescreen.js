@@ -2,8 +2,8 @@ class TitleScreen {
     constructor(game) {
         this.game = game;
 
-        this.animationPlayer1 = new Animator(ASSET_MANAGER.getAsset("./sprites/entities/sprite_girl_purple.png"), 8, 8, 136, 210, 1, 0.2);
-        this.animationPlayer2 = new Animator(ASSET_MANAGER.getAsset("./sprites/entities/sprite_boy_brown.png"), 8, 8, 120, 208, 1, 0.2);
+        this.animationPlayer1 = ASSET_MANAGER.getAsset("./sprites/entities/sprite_girl_purple.png");
+        this.animationPlayer2 = ASSET_MANAGER.getAsset("./sprites/entities/sprite_boy_brown.png");
 
 
         this.mouseBB = new BoundingBox(0, 0, 1, 1);
@@ -70,7 +70,9 @@ class TitleScreen {
             if (this.mouseBB.collide(this.player1BB)) {
                 this.setRedStroke(ctx);
             }
-            this.animationPlayer1.drawFrame(this.game.clockTick, ctx,(720 / 2) - 200, (720 / 2) - 45,PARAMS.SCALE/6);
+            ctx.drawImage(this.animationPlayer1, 0, 0, 128, 208, (720 / 2) - 200, (720 / 2) - 45, 128 / 2, 208 / 2);
+
+            //this.animationPlayer1.drawFrame(this.game.clockTick, ctx,(720 / 2) - 200, (720 / 2) - 45,PARAMS.SCALE/6);
             ctx.strokeRect(this.player1BB.left, this.player1BB.top, this.player1BB.width, this.player1BB.height);
 
             this.setBlackStroke(ctx);
@@ -79,7 +81,8 @@ class TitleScreen {
             if (this.mouseBB.collide(this.player2BB)) {
                 this.setRedStroke(ctx);
             }
-            this.animationPlayer2.drawFrame(this.game.clockTick, ctx,(720 / 2) + 100, (720 / 2) - 45,PARAMS.SCALE/6);
+            ctx.drawImage(this.animationPlayer2, 0, 0, 128, 208, (720 / 2) + 100, (720 / 2) - 45, 128 / 2, 208 / 2);
+            //this.animationPlayer2.drawFrame(this.game.clockTick, ctx,(720 / 2) + 100, (720 / 2) - 45,PARAMS.SCALE/6);
             ctx.strokeRect(this.player2BB.left, this.player2BB.top, this.player2BB.width, this.player2BB.height);
 
             //play
