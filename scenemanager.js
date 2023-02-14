@@ -5,8 +5,8 @@ class Scenemanager {
         this.x = 0;
         this.y = 0;
 
+        // declare these here for game camera tracking
         this.spyCharacter = new Spy(this.game, -100, 55);
-
         this.darkness = new Darkness(this.game, 0, 0);
 
         this.loadLevel(titleScreen);
