@@ -20,14 +20,13 @@ class TitleScreen {
         if (this.game.click) {
             this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y, 1, 1);
 
-            // to be implemented later
-            // send boolean to identify chosen player type
             if (this.mouseBB.collide(this.player1BB)) {
                 this.game.camera.clearEntities();
                 this.game.camera.loadLevel(introCutscene);
             } else if (this.mouseBB.collide(this.player2BB)) {
                 this.game.camera.clearEntities();
                 this.game.camera.loadLevel(introCutscene);
+                this.game.male = true;
             }
 
             // credits

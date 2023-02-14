@@ -7,7 +7,7 @@ class Darkness {
 
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/darkness.png")
 
-        this.BB = new BoundingBox(this.x,this.y + this.dWidth/5,this.dWidth * PARAMS.SCALE/3.5 - 4,this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
+        this.BB = new BoundingBox(this.x,this.y + this.dWidth/5,this.dWidth * PARAMS.SCALE/3.5,this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
 
     };
 
