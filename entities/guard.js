@@ -1,5 +1,7 @@
 class Guard{
 
+    // add variables to set x, y and walk left<->right or up<->down
+    // or make setter methods
     constructor(game) {
         this.game = game;
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/guard.png");
