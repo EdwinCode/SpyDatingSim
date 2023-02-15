@@ -8,15 +8,17 @@ class Guard{
         this.guardH = 200;
 
         this.x = -200;
-        this.y = -30;
+        this.y = -20;
 
-        this.velocity = 50;
+        this.velocity = 70;
 
         this.direction = 0;
 
-        this.updateBB();
 
-        this.wanderBB = new BoundingBox(this.x, this.y, 250,this.guardH / 2);
+        this.wanderBB = new BoundingBox(this.x, this.y, 400,this.guardH / 2);
+
+        this.updateBB();
+        this.updateSightBB();
 
         this.animations = [];
         this.loadAnimations();
@@ -25,6 +27,21 @@ class Guard{
     updateBB() {
         this.lastBB = this.BB;
         this.BB = new BoundingBox(this.x, this.y + 40, this.guardW / 2 - 12, this.guardH / 2 - 40);
+    }
+
+    updateSightBB() {
+        // this.lastSightBB = this.sightBB;
+        if (this.direction === 0) {
+            this.sightBB = new BoundingBox(this.x, this.y + 40, this.wanderBB.width - (this.x - this.wanderBB.x), this.guardH / 2 - 40);
+
+        } else {
+            this.sightBB = new BoundingBox(this.wanderBB.x, this.y + 40, this.x - (this.wanderBB.x - this.guardW/2.45), this.guardH / 2 - 40);
+        }
+
+    }
+
+    spottedSpy() {
+        this.velocity = 200;
     }
 
     loadAnimations() {
@@ -38,6 +55,7 @@ class Guard{
     update() {
 
         this.updateBB();
+        this.updateSightBB();
 
         if (this.lastBB.x + this.lastBB.width >= this.wanderBB.x + this.wanderBB.width) {
             this.direction = 1;
@@ -63,8 +81,13 @@ class Guard{
 
         PARAMS.DEBUG = document.getElementById("debug").checked;
         if (PARAMS.DEBUG) {
+            ctx.lineWidth = 4;
             ctx.strokeStyle = 'Red';
             ctx.strokeRect(this.BB.x - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
+
+            ctx.strokeStyle = 'green';
+            ctx.strokeRect(this.sightBB.x - this.game.camera.x, this.sightBB.y - this.game.camera.y, this.sightBB.width, this.sightBB.height);
+
 
             ctx.strokeStyle = 'blue';
             ctx.strokeRect(this.wanderBB.x - this.game.camera.x, this.wanderBB.y - this.game.camera.y, this.wanderBB.width, this.wanderBB.height);
