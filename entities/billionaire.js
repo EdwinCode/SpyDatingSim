@@ -6,12 +6,12 @@ class Billionaire {
 
         this.billionaireH = 232;
 
-        this.x = -320;
-        this.y = 270;
+        this.x = -250;
+        this.y = 320;
 
         this.velocity = 70;
         this.direction = 0;
-        this.directionDuration = 150;
+        this.directionDuration = 400;
 
         this.wanderBB = new BoundingBox(-350, 295, 300, 180);
 
@@ -24,7 +24,7 @@ class Billionaire {
 
     loadAnimations() {
         // walking animation
-        // 0 = up, 1 = down, 2 = left, 3 = right
+        // 0 = down, 1 = up, 2 = left, 3 = right
         this.animations[0] = new Animator(this.spritesheet, 0, 0, 120, this.billionaireH, 4, 0.3);
         this.animations[1] = new Animator(this.spritesheet, 0, 240, 128, this.billionaireH, 4, 0.3);
         this.animations[2] = new Animator(this.spritesheet, 0, 480, 120, this.billionaireH, 4, 0.3);
@@ -47,8 +47,9 @@ class Billionaire {
 
         // choose a random direction after a # of rounds
         if (this.directionDuration === 0) {
+            console.log("zero");
             this.direction = this.chooseRandDirection();
-            this.directionDuration = 150;
+            this.directionDuration = 400;
             while (this.collides(this.direction)) {
                 this.direction = this.chooseRandDirection();
             }
@@ -59,12 +60,12 @@ class Billionaire {
 
             // no collision
             if (!this.collides(this.direction)) {
-                // up
+                // down
                 if (this.direction === 0) {
                     this.y += this.velocity * this.game.clockTick;
                 }
 
-                // down
+                // up
                 else if (this.direction === 1) {
                     this.y -= this.velocity * this.game.clockTick;
                 }
@@ -81,8 +82,7 @@ class Billionaire {
 
                 this.directionDuration -= 1;
             } else {
-                this.direction = this.chooseRandDirection();
-                this.directionDuration = 150;
+                this.directionDuration = 0;
             }
         }
     };
@@ -95,16 +95,17 @@ class Billionaire {
     };
 
     collides(direction) {
-        // up
-        if (direction === 1) {
-            // return true if going up and there is an up collision
-            return this.lastBB.y <= this.wanderBB.y;
+        // down
+        if (direction === 0) {
+            // return true if going down and there is a down collision
+            //console.log(this.lastBB.y + this.lastBB.height >= this.wanderBB.y + this.wanderBB.height);
+            return this.lastBB.y + this.wanderBB.height >= this.wanderBB.y + this.wanderBB.height;
         }
 
-        // down
-        else if (direction === 0) {
-            // return true if going down and there is a down collision
-            return this.lastBB.y + this.wanderBB.height >= this.wanderBB.y + this.wanderBB.height;
+        // up
+        else if (direction === 1) {
+            // return true if going up and there is an up collision
+            return this.lastBB.y <= this.wanderBB.y;
         }
 
         // left
