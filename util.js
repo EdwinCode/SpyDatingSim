@@ -54,7 +54,7 @@ window.requestAnimFrame = (() => {
 const PARAMS = {
     DEBUG: true,
     // Changing the scale breaks things, which means we aren't using it correctly.
-    SCALE: 3,
+    SCALE: 1,
     /*
     Since our sprites are almost entirely multiples of 8 for width and height, we should use
     a bitwidth of 8. This will let us change the scale and not break the world layout.

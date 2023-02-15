@@ -5,16 +5,11 @@ let levelOne = {
 
     //background
     plainWalls: [
-        {x:-370, y: -200}, {x:-235, y: -200}, {x:-100, y: -200}, {x:35, y: -200}, {x:170, y: -200},
-        {x:-370, y: 487}, {x:-235, y: 487}, {x:-100, y: 487}, {x:35, y: 487}, {x:170, y: 487}
+        //{x: -400, y: -200, count: 5}, {x: -400, y: 500, count: 5}
     ],
 
     sideWallLefts: [
-        //upper side wall left
-        {x:-391, y: -200}, {x:-391, y: -128}, {x:-391, y: -56}, {x:-391, y: 16},
-        //lower side wall left
-        {x:-391, y: 200}, {x:-391, y: 272}, {x:-391, y: 344}, {x:-391, y: 416},
-        {x:-391, y: 488}, {x:-391, y: 560}
+        {x: 0, y: 0, count: 5}
     ],
 
     sideWallRights: [
@@ -29,12 +24,12 @@ let levelOne = {
     ],
 
     bigRugs: [
-        {x:-470, y: 89}, {x: 230, y: 89}
+        //{x:-470, y: 89}, {x: 230, y: 89}
     ],
 
     //furniture
     bigTables: [
-        {x: -15, y: 200}, {x: 500, y: 200}
+        //{x: -15, y: 200}, {x: 500, y: 200}
     ],
 
     bigCouches: [
@@ -42,11 +37,11 @@ let levelOne = {
     ],
 
     chairRights: [
-        {x: -100, y: 210}
+        //{x: -100, y: 210}
     ],
 
     chairLefts: [
-        {x: 100, y: 210}
+        //{x: 100, y: 210}
     ],
 
 };
