@@ -11,7 +11,7 @@ class Billionaire {
 
         this.velocity = 70;
         this.direction = 0;
-        this.directionDuration = 50;
+        this.directionDuration = 150;
 
         this.wanderBB = new BoundingBox(-350, 295, 300, 180);
 
@@ -48,7 +48,7 @@ class Billionaire {
         // choose a random direction after a # of rounds
         if (this.directionDuration === 0) {
             this.direction = this.chooseRandDirection();
-            this.directionDuration = 50;
+            this.directionDuration = 150;
             while (this.collides(this.direction)) {
                 this.direction = this.chooseRandDirection();
             }
@@ -82,41 +82,40 @@ class Billionaire {
                 this.directionDuration -= 1;
             } else {
                 this.direction = this.chooseRandDirection();
+                this.directionDuration = 150;
             }
         }
     };
 
     // returns 0, 1, 2, 3
     chooseRandDirection() {
-        return Math.floor(Math.random() * 4);
+        this.dir = Math.floor(Math.random() * 4);
+        console.log(this.dir);
+        return this.dir;
     };
 
     collides(direction) {
         // up
-        if (direction === 0) {
+        if (direction === 1) {
             // return true if going up and there is an up collision
-            console.log(this.lastBB.y <= this.wanderBB.y);
             return this.lastBB.y <= this.wanderBB.y;
         }
 
         // down
-        else if (direction === 1) {
+        else if (direction === 0) {
             // return true if going down and there is a down collision
-            console.log(this.lastBB.y + this.wanderBB.height >= this.wanderBB.y + this.wanderBB.height);
             return this.lastBB.y + this.wanderBB.height >= this.wanderBB.y + this.wanderBB.height;
         }
 
         // left
         else if (direction === 2) {
             // return true if going left and there is a left collision
-            console.log(this.lastBB.x <= this.wanderBB.x);
             return this.lastBB.x <= this.wanderBB.x;
         }
 
         // right
         else {
             // return true if going right and there is a right collision
-            console.log(this.lastBB.x + this.lastBB.width >= this.wanderBB.x + this.wanderBB.width);
             return this.lastBB.x + this.lastBB.width >= this.wanderBB.x + this.wanderBB.width;
         }
     };
