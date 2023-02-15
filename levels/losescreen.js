@@ -3,7 +3,7 @@ class LoseScreen {
         this.game = game;
 
         this.mouseBB = new BoundingBox(0, 0, 1, 1);
-        this.restartBB = new BoundingBox((720 / 2) - 95, (720 / 2) - 45, 190, 70);
+        this.restartBB = new BoundingBox((720 / 2) - 115, (720 / 2) - 65, 190, 70);
     };
 
     update() {
@@ -46,7 +46,6 @@ class LoseScreen {
 
         //restart
         if (this.mouseBB.collide(this.restartBB)) {
-            console.log("red stroke set");
             this.setRedStroke(ctx);
         }
         ctx.fillText("RESTART", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2);

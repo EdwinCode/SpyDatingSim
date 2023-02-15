@@ -8,6 +8,7 @@ class Furniture {
         //bounding box
         PARAMS.DEBUG = document.getElementById("debug").checked;
         if (PARAMS.DEBUG) {
+            ctx.lineWidth = 4;
             ctx.strokeStyle = 'Red';
             ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
         }
