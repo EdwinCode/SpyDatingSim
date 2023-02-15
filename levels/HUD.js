@@ -1,12 +1,22 @@
 class HUD {
-    constructor(game, levelText) {
+    constructor(game) {
         this.game = game;
-        this.levelText = levelText;
+        this.levelText = "";
+        this.textColor = "";
 
         this.mouseBB = new BoundingBox(0,0,1,1);
         this.butlerBB = new BoundingBox(545,5,60,54);
         this.suitcaseBB = new BoundingBox(615,5,60,54);
     };
+
+    setText(text) {
+        this.levelText = text;
+    };
+
+    setTextColor(color) {
+        this.textColor = color;
+    };
+
 
     update() {
         if (this.game.click) {
@@ -34,7 +44,9 @@ class HUD {
         ctx.textAlign = "left";
         ctx.font = "Bold 20px Courier";
 
-        this.setBlackStroke(ctx);
+        //this.setBlackStroke(ctx);
+        ctx.strokeStyle = this.textColor;
+        ctx.fillStyle = this.textColor;
 
         // level
         ctx.fillText(this.levelText, 2, 15);

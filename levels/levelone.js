@@ -1,6 +1,8 @@
 class Level1Part1 {
-    constructor(game, level, spyCharacter) {
+    constructor(game, hud, darkness, level, spyCharacter) {
         this.game = game;
+        this.hud = hud;
+        this.darkness = darkness;
         this.level = level;
         this.spyCharacter = spyCharacter;
 
@@ -9,8 +11,8 @@ class Level1Part1 {
 
     setUpLevel() {
         // HUD
-        this.hud = new HUD(this.game, "Phase I Part I");
         this.game.addEntity(this.hud);
+        this.hud.setText("Phase 1 - 1", "white");
 
         //big couch
         for (let i = 0; i < this.level.bigCouches.length; i++) {
@@ -88,6 +90,12 @@ class Level1Part1 {
 
     update() {
         // method not used but declaration is necessary for game engine
+        if(!this.game.entities.includes(this.darkness) && this.spyCharacter.x > 500) {
+            this.game.addEntityToTop(this.darkness);
+            this.hud.setTextColor("white");
+            this.game.addEntityToTop(this.hud);
+            this.game.addEntityToTop(new IngameTimer(this.game));
+        }
     };
 
     draw(ctx) {

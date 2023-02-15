@@ -6,6 +6,7 @@ class Scenemanager {
         this.y = 0;
 
         // declare these here for game camera tracking
+        this.hud = new HUD(this.game);
         this.spyCharacter = new Spy(this.game, -100, 55);
         this.darkness = new Darkness(this.game, 0, 0);
 
@@ -40,9 +41,9 @@ class Scenemanager {
 
         // level one part 1
         if (this.currentLevel === levelOne) {
-
             this.spyCharacter = new Spy(this.game, -100, 55);
-            this.game.addEntity(new Level1Part1(this.game, this.currentLevel, this.spyCharacter));
+            this.hud.setTextColor("black");
+            this.game.addEntity(new Level1Part1(this.game, this.hud, this.darkness, this.currentLevel, this.spyCharacter));
 
 
             //this.clearEntities();
@@ -141,15 +142,11 @@ class Scenemanager {
 
         //CHANGE THE CHECK TO WHATEVER ACTIVATES THE QUICK TIME EVENT
         //MIGHT JUST HAVE IT BE A SEPARATE "LEVEL"
-        if(!this.game.entities.includes(this.darkness) && this.spyCharacter.x > 500) {
+        /*if(!this.game.entities.includes(this.darkness) && this.spyCharacter.x > 500) {
             this.game.addEntityToTop(this.darkness);
             this.game.addEntityToTop(this.hud);
             this.game.addEntityToTop(new IngameTimer(this.game));
-        }
-
-        if (this.spyCharacter.gameOver) {
-            this.loadLevel(loseScreen);
-        }
+        }*/
     };
 
     draw(ctx) {
