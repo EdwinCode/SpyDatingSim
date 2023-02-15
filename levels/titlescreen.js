@@ -2,8 +2,8 @@ class TitleScreen {
     constructor(game) {
         this.game = game;
 
-        this.animationPlayer1 = ASSET_MANAGER.getAsset("./sprites/entities/sprite_girl_purple.png");
-        this.animationPlayer2 = ASSET_MANAGER.getAsset("./sprites/entities/sprite_boy_brown.png");
+        this.animationPlayer1 = ASSET_MANAGER.getAsset("./sprites/entities/girluser.png");
+        this.animationPlayer2 = ASSET_MANAGER.getAsset("./sprites/entities/boyuser.png");
 
 
         this.mouseBB = new BoundingBox(0, 0, 1, 1);

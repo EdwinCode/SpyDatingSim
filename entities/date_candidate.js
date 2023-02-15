@@ -2,7 +2,7 @@ class Stephanie {
 
     constructor(game) {
         this.game = game;
-        this.animator = new Animator(ASSET_MANAGER.getAsset("./sprites/Stephanie.png"),
+        this.animator = new Animator(ASSET_MANAGER.getAsset("./sprites/stephanie.png"),
             0, 0, 146, 211, 4, 0.2);
 
         this.x = 10;
@@ -24,7 +24,7 @@ class Richie {
 
     constructor(game) {
         this.game = game;
-        this.animator = new Animator(ASSET_MANAGER.getAsset("./sprites/Richie.png"),
+        this.animator = new Animator(ASSET_MANAGER.getAsset("./sprites/richie.png"),
             0, 0, 128, 211, 4, 0.2);
 
         this.x = 180;
