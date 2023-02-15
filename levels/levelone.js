@@ -45,6 +45,9 @@ class Level1Part1 {
         // guard
         this.game.addEntity(new Guard(this.game));
 
+        // billionaire
+        this.game.addEntity(new Billionaire(this.game));
+
         // Richie
         /*this.richieText = ["I'm going to be Richie Rich and win Mr. Billionaire's heart!",
                            "Oh, beware of the water here. That stuff I had earlier was nasty." +
