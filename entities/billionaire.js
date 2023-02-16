@@ -9,14 +9,14 @@ class Billionaire {
         this.billionaireH = 29 * PARAMS.BLOCKWIDTH;
 
         // character placement
-        this.x = -30 * PARAMS.BLOCKWIDTH;
-        this.y = 40 * PARAMS.BLOCKWIDTH;
+        this.x = 150 * PARAMS.BLOCKWIDTH;
+        this.y = 352 * PARAMS.BLOCKWIDTH;
 
         this.velocity = 70;
         this.direction = 0;
         this.directionDuration = 500;
 
-        this.wanderBB = new BoundingBox(-96 * PARAMS.BLOCKWIDTH, 32 * PARAMS.BLOCKWIDTH, 104 * PARAMS.BLOCKWIDTH, 64 * PARAMS.BLOCKWIDTH);
+        this.wanderBB = new BoundingBox(this.x, this.y, 200 * PARAMS.BLOCKWIDTH, 104 * PARAMS.BLOCKWIDTH);
 
         this.updateBB();
         this.updateInteractionBB();
