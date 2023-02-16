@@ -60,7 +60,7 @@ class HUD {
         ctx.strokeRect(this.butlerBB.left, this.butlerBB.top, this.butlerBB.width, this.butlerBB.height);
         ctx.fillRect(this.butlerBB.left, this.butlerBB.top, this.butlerBB.width, this.butlerBB.height);
         this.butlerIcon = ASSET_MANAGER.getAsset("./sprites/alfred.png")
-        ctx.drawImage(this.butlerIcon, 556, 6, PARAMS.SCALE * 13, PARAMS.SCALE * 18);
+        ctx.drawImage(this.butlerIcon, 556, 6, 3 * 13, 3 * 18);
 
         ctx.fillStyle = 'gray';
 
@@ -71,7 +71,7 @@ class HUD {
         ctx.strokeRect(this.suitcaseBB.left, this.suitcaseBB.top, this.suitcaseBB.width, this.suitcaseBB.height);
         ctx.fillRect(this.suitcaseBB.left, this.suitcaseBB.top, this.suitcaseBB.width, this.suitcaseBB.height);
         this.butlerIcon = ASSET_MANAGER.getAsset("./sprites/suitcase.png")
-        ctx.drawImage(this.butlerIcon, 615, 5, PARAMS.SCALE * 20, PARAMS.SCALE * 18);
+        ctx.drawImage(this.butlerIcon, 615, 5, 3 * 20, 3 * 18);
 
         this.setBlackStroke(ctx);
     };
