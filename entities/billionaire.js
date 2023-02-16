@@ -13,7 +13,7 @@ class Billionaire {
 
         this.velocity = 70;
         this.direction = 0;
-        this.directionDuration = 1000;
+        this.directionDuration = 500;
 
         this.wanderBB = new BoundingBox(-350, 295, 300, 180);
 
@@ -63,7 +63,7 @@ class Billionaire {
 
             this.direction = this.chooseRandDirection();
             // random duration to keep animator the same for
-            this.directionDuration = 1000;
+            this.directionDuration = 500;
 
             // keep choosing new direction if there is collision detected
             while (this.collides(this.direction)) {
@@ -72,9 +72,8 @@ class Billionaire {
         }
 
         // else still duration
-
         // no collision
-        if (!this.collides(this.direction)) {
+        if (this.collides(this.direction) === false) {
             // down
             if (this.direction === 0) {
                 this.y += this.velocity * this.game.clockTick;
@@ -102,23 +101,23 @@ class Billionaire {
         else {
 
             // set duration to 0 so it chooses a new direction next time
-            this.directionDuration = 0;
+            //this.directionDuration = 0;
+            while (this.collides(this.direction)) {
+                this.direction = this.chooseRandDirection();
+            }
         }
     };
 
     // returns 0, 1, 2, 3
     chooseRandDirection() {
-        this.dir = Math.floor(Math.random() * 4);
-        console.log(this.dir);
-        return this.dir;
+        return Math.floor(Math.random() * 4);
     };
 
     collides(direction) {
         // down
         if (direction === 0) {
             // return true if going down and there is a down collision
-            //console.log(this.lastBB.y + this.lastBB.height >= this.wanderBB.y + this.wanderBB.height);
-            return this.lastBB.y + this.wanderBB.height >= this.wanderBB.y + this.wanderBB.height;
+            return this.lastBB.y + this.lastBB.height >= this.wanderBB.y + this.wanderBB.height;
         }
 
         // up
