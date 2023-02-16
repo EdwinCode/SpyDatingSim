@@ -9,8 +9,8 @@ class Billionaire {
         this.billionaireH = 29 * PARAMS.BLOCKWIDTH;
 
         // character placement
-        this.x = 150 * PARAMS.BLOCKWIDTH;
-        this.y = 352 * PARAMS.BLOCKWIDTH;
+        this.x = 80 * PARAMS.BLOCKWIDTH;
+        this.y = 192 * PARAMS.BLOCKWIDTH;
 
         this.velocity = 70;
         this.direction = 0;
