@@ -4,8 +4,10 @@ class Billionaire {
 
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/billionaire.png");
 
+        // pulled out repeated number to a variable
         this.billionaireH = 232;
 
+        // character placement
         this.x = -250;
         this.y = 320;
 
@@ -57,9 +59,13 @@ class Billionaire {
 
         // choose a random direction after a # of rounds
         if (this.directionDuration === 0) {
-            console.log("zero");
+            console.log("zero");  // debug
+
             this.direction = this.chooseRandDirection();
+            // random duration to keep animator the same for
             this.directionDuration = 1000;
+
+            // keep choosing new direction if there is collision detected
             while (this.collides(this.direction)) {
                 this.direction = this.chooseRandDirection();
             }
@@ -90,7 +96,12 @@ class Billionaire {
             }
 
             this.directionDuration -= 1;
-        } else {
+        }
+
+        // collision
+        else {
+
+            // set duration to 0 so it chooses a new direction next time
             this.directionDuration = 0;
         }
     };
