@@ -5,20 +5,16 @@ let levelOne = {
 
     //background
     plainWalls: [
-        //{x: -400, y: -200, count: 5}, {x: -400, y: 500, count: 5}
+        {x: 4.5, y: 0, count: 5}, {x: 4.5, y: 128, count: 5}
     ],
 
     sideWallLefts: [
-        {x: 0, y: 0, count: 5}
+        {x: 0, y: 0, count: 10}
     ],
 
     sideWallRights: [
-        //upper side wall right
-        {x:312, y: -200}, {x:312, y: -128}, {x:312, y: -56}, {x:312, y: 16},
-        //lower side wall right
-        {x:312, y: 200}, {x:312, y: 272}, {x:312, y: 344}, {x:312, y: 416},
-        {x:312, y: 488}, {x:312, y: 560}
-        ],
+        {x:159.5, y: 0, count: 10}
+    ],
 
     wallBottoms: [
     ],

@@ -100,7 +100,7 @@ class PlainWall extends Furniture {
     constructor(game, x, y, count) {
         super(game, "./sprites/furniture/House_Tileset.png", 516, 0, 248, 256, x, y, 248, 256);
         Object.assign(this, {count});
-        this.BB = new BoundingBox(this.x, this.y, 31 * PARAMS.BLOCKWIDTH * this.count, 32 * PARAMS.BLOCKWIDTH);
+        this.BB = new BoundingBox(this.x, this.y, this.count * (31 * PARAMS.BLOCKWIDTH), 32 * PARAMS.BLOCKWIDTH);
     };
 
     update() {
@@ -109,7 +109,7 @@ class PlainWall extends Furniture {
 
     draw(ctx) {
         for (let i = 0; i < this.count; i++) {
-            ctx.drawImage(this.spritesheet, 516, 0, 248, 256, this.x + i * 31 * PARAMS.BLOCKWIDTH - this.game.camera.x, this.y - this.game.camera.y, 31 * PARAMS.BLOCKWIDTH, 32 * PARAMS.BLOCKWIDTH);
+            ctx.drawImage(this.spritesheet, 516, 0, 248, 256, this.x + i * (31 * PARAMS.BLOCKWIDTH) - this.game.camera.x, this.y - this.game.camera.y, 31 * PARAMS.BLOCKWIDTH, 32 * PARAMS.BLOCKWIDTH);
         }
         super.draw(ctx);
     };
@@ -127,7 +127,6 @@ class SideWallLeft extends Furniture {
     };
 
     draw(ctx) {
-        let wallCount = this.count / PARAMS.BLOCKWIDTH;
         for (let i = 0; i < this.count; i++) {
             ctx.drawImage(this.spritesheet, 900, 0, 36, 128, this.x - this.game.camera.x, this.y + i * (16 * PARAMS.BLOCKWIDTH) - this.game.camera.y, 4.5 * PARAMS.BLOCKWIDTH, 16 * PARAMS.BLOCKWIDTH);
         }
@@ -137,9 +136,10 @@ class SideWallLeft extends Furniture {
 
 
 class SideWallRight extends Furniture {
-    constructor(game, x, y) {
+    constructor(game, x, y, count) {
         super(game, "./sprites/furniture/House_Tileset.png", 983, 128, 36, 128, x, y, 36, 128);
-        this.BB = new BoundingBox(this.x, this.y, 4.5 * PARAMS.BLOCKWIDTH, 16 * PARAMS.BLOCKWIDTH);
+        Object.assign(this, {count})
+        this.BB = new BoundingBox(this.x, this.y, (4.5 * PARAMS.BLOCKWIDTH), this.count * (16 * PARAMS.BLOCKWIDTH));
 
     };
 
@@ -148,7 +148,9 @@ class SideWallRight extends Furniture {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 983, 128, 36, 128, this.x - this.game.camera.x, this.y - this.game.camera.y, 4.5 * PARAMS.BLOCKWIDTH, 16 * PARAMS.BLOCKWIDTH);
+        for (let i = 0; i < this.count; i++) {
+            ctx.drawImage(this.spritesheet, 983, 128, 36, 128, this.x - this.game.camera.x, this.y + i * (16 * PARAMS.BLOCKWIDTH) - this.game.camera.y, 4.5 * PARAMS.BLOCKWIDTH, 16 * PARAMS.BLOCKWIDTH);
+        }
         super.draw(ctx);
     };
 }

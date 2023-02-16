@@ -58,19 +58,19 @@ class Level1Part1 {
         //plain wall
         for (let i = 0; i < this.level.plainWalls.length; i++) {
             let plainWall = this.level.plainWalls[i];
-            this.game.addEntity(new PlainWall(this.game, plainWall.x, plainWall.y, plainWall.count));
+            this.game.addEntity(new PlainWall(this.game, plainWall.x * PARAMS.BLOCKWIDTH, plainWall.y * PARAMS.BLOCKWIDTH, plainWall.count));
         }
 
         //side wall left
         for (let i = 0; i < this.level.sideWallLefts.length; i++) {
             let sideWallLeft = this.level.sideWallLefts[i];
-            this.game.addEntity(new SideWallLeft(this.game, sideWallLeft.x * PARAMS.BLOCKWIDTH, sideWallLeft.y * PARAMS.BLOCKWIDTH, sideWallLeft.count * PARAMS.BLOCKWIDTH));
+            this.game.addEntity(new SideWallLeft(this.game, sideWallLeft.x * PARAMS.BLOCKWIDTH, sideWallLeft.y * PARAMS.BLOCKWIDTH, sideWallLeft.count));
         }
 
         //side wall right
         for (let i = 0; i < this.level.sideWallRights.length; i++) {
             let sideWallRight = this.level.sideWallRights[i];
-            this.game.addEntity(new SideWallRight(this.game, sideWallRight.x, sideWallRight.y));
+            this.game.addEntity(new SideWallRight(this.game, sideWallRight.x * PARAMS.BLOCKWIDTH, sideWallRight.y * PARAMS.BLOCKWIDTH, sideWallRight.count));
         }
 
         //wall bottom
