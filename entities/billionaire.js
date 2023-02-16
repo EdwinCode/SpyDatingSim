@@ -15,7 +15,10 @@ class Billionaire {
         this.direction = 0;
         this.directionDuration = 500;
 
-        this.wanderBB = new BoundingBox(-350, 295, 300, 180);
+        // wander BB
+        this.wanderX = -350;
+        this.wanderY = 295;
+        this.wanderBB = new BoundingBox(this.wanderX, this.wanderY, 300, 180);
 
         this.updateBB();
         this.updateInteractionBB();
