@@ -17,7 +17,7 @@ class Level1Part1 {
         //big couch
         for (let i = 0; i < this.level.bigCouches.length; i++) {
             let couch = this.level.bigCouches[i];
-            this.game.addEntity(new BigCouch(this.game, couch.x, couch.y));
+            this.game.addEntity(new BigCouch(this.game, couch.x * PARAMS.BLOCKWIDTH, couch.y * PARAMS.BLOCKWIDTH));
         }
 
         //chair right
