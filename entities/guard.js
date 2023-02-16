@@ -9,8 +9,8 @@ class Guard{
         this.guardW = 14 * PARAMS.BLOCKWIDTH;
         this.guardH = 25 * PARAMS.BLOCKWIDTH;
 
-        this.x = -100 * PARAMS.BLOCKWIDTH;
-        this.y = -80 * PARAMS.BLOCKWIDTH;
+        this.x = 200 * PARAMS.BLOCKWIDTH;
+        this.y = 80 * PARAMS.BLOCKWIDTH;
 
         this.velocity = 70;
 
