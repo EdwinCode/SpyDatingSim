@@ -9,8 +9,8 @@ class Spy {
             this.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/boyuser.png");
         }
 
-        this.width = 140;
-        this.height = 210;
+        this.width = 16 * PARAMS.BLOCKWIDTH;
+        this.height = 26 * PARAMS.BLOCKWIDTH;
 
         this.direction = 0;
         this.state = 0;
@@ -134,7 +134,8 @@ class Spy {
         this.game.entities.forEach(function (entity) {
             //if the entity has a bounding box and we collided with it
             if (entity.BB && that.BB.collide(entity.BB)) {
-                if ((entity instanceof BigTable || entity instanceof BigCouch || entity instanceof ChairRight || entity instanceof ChairLeft || entity instanceof PlainWall || entity instanceof SideWallLeft || entity instanceof SideWallRight || entity instanceof WallBottom)) {
+                if (entity instanceof  Furniture) {
+                //if ((entity instanceof BigTable || entity instanceof BigCouch || entity instanceof ChairRight || entity instanceof ChairLeft || entity instanceof PlainWall || entity instanceof SideWallLeft || entity instanceof SideWallRight || entity instanceof WallBottom)) {
 
                     if(entity.BB.right <= (that.lastBB.left+20)){ // from right
                         that.x += entity.BB.right - that.lastBB.left;
@@ -194,13 +195,13 @@ class Spy {
 
     updateBB() {
         this.lastBB = this.BB;
-        this.BB = new BoundingBox(this.x,this.y + 40,this.width/2 - 12,this.height/2 - 40);
+        this.BB = new BoundingBox(this.x, this.y, this.width, this.height);
 
     };
 
     draw(ctx) {
 
-        this.animations[this.state][this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE/6);
+        this.animations[this.state][this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
 
         // interact message
         if (this.canInteract) {
