@@ -90,7 +90,7 @@ class TitleScreen {
             ctx.strokeRect(this.creditsBB.left, this.creditsBB.top, this.creditsBB.width, this.creditsBB.height);
 
         } else {
-            this.setBlackStroke(ctx);
+            setBlackStroke(ctx);
             if (this.mouseBB.collide(this.exitBB)) {
                 setRedStroke(ctx);
             }
