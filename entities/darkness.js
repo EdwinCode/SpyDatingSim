@@ -14,6 +14,6 @@ class Darkness {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 0, 0, 1000, 1000, this.x - this.dWidth * 47/64, this.y - this.dHeight * 12/64, this.dWidth, this.dHeight);
+        ctx.drawImage(this.spritesheet, 0, 0, 1000, 1000, this.x, this.y, this.dWidth, this.dHeight);
     };
 }
