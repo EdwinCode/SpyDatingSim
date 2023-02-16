@@ -300,7 +300,7 @@ class Spy {
         // stephanie
         if (entity === "stephanie") {
             console.log("steph");
-            console.log("steph state " + level.stephanie[this.state].stateIncr);
+            console.log("steph state " + level.stephanie[chatState].stateIncr);
             if (level.stephanie[chatState].stateIncr === "true") {
                 return chatState + 1;
             } else {
