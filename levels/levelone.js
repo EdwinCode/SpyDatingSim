@@ -87,7 +87,7 @@ class Level1Part1 {
 
     update() {
         // method not used but declaration is necessary for game engine
-        if(!this.game.entities.includes(this.darkness) && this.spyCharacter.x > 500) {
+        if(!this.game.entities.includes(this.darkness) && this.spyCharacter.x > 640 * PARAMS.BLOCKWIDTH) {
             this.game.addEntityToTop(this.darkness);
             this.hud.setTextColor("white");
             this.game.addEntityToTop(this.hud);
