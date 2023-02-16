@@ -11,7 +11,7 @@ class Billionaire {
 
         this.velocity = 70;
         this.direction = 0;
-        this.directionDuration = 400;
+        this.directionDuration = 1000;
 
         this.wanderBB = new BoundingBox(-350, 295, 300, 180);
 
@@ -21,6 +21,16 @@ class Billionaire {
         this.animations = [];
         this.loadAnimations();
     };
+
+    setBillionairePlacement(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    setWanderBBPlacement(x, y) {
+        this.wanderX = x;
+        this.wanderY = y;
+    }
 
     loadAnimations() {
         // walking animation
@@ -49,41 +59,39 @@ class Billionaire {
         if (this.directionDuration === 0) {
             console.log("zero");
             this.direction = this.chooseRandDirection();
-            this.directionDuration = 400;
+            this.directionDuration = 1000;
             while (this.collides(this.direction)) {
                 this.direction = this.chooseRandDirection();
             }
         }
 
         // else still duration
-        else {
 
-            // no collision
-            if (!this.collides(this.direction)) {
-                // down
-                if (this.direction === 0) {
-                    this.y += this.velocity * this.game.clockTick;
-                }
-
-                // up
-                else if (this.direction === 1) {
-                    this.y -= this.velocity * this.game.clockTick;
-                }
-
-                // left
-                else if (this.direction === 3) {
-                    this.x += this.velocity * this.game.clockTick;
-                }
-
-                // right
-                else {
-                    this.x -= this.velocity * this.game.clockTick;
-                }
-
-                this.directionDuration -= 1;
-            } else {
-                this.directionDuration = 0;
+        // no collision
+        if (!this.collides(this.direction)) {
+            // down
+            if (this.direction === 0) {
+                this.y += this.velocity * this.game.clockTick;
             }
+
+            // up
+            else if (this.direction === 1) {
+                this.y -= this.velocity * this.game.clockTick;
+            }
+
+            // left
+            else if (this.direction === 2) {
+                this.x -= this.velocity * this.game.clockTick;
+            }
+
+            // right
+            else {
+                this.x += this.velocity * this.game.clockTick;
+            }
+
+            this.directionDuration -= 1;
+        } else {
+            this.directionDuration = 0;
         }
     };
 
