@@ -38,10 +38,10 @@ class Stephanie {
     loadAnimations() {
         // walking animation
         // 0 = down, 1 = up, 2 = left, 3 = right
-        this.animations[0] = new Animator(this.spritesheet, 0, 0, 120, 232, 4, 0.3);
-        this.animations[1] = new Animator(this.spritesheet, 0, 240, 128, 232, 4, 0.3);
-        this.animations[2] = new Animator(this.spritesheet, 0, 480, 120, 232, 4, 0.3);
-        this.animations[3] = new Animator(this.spritesheet, 0, 720, 120, 232, 4, 0.3);
+        this.animations[0] = new Animator(this.spritesheet, 8, 8, 144, 208, 4, 0.3);
+        this.animations[1] = new Animator(this.spritesheet, 8, 215, 150, 208, 4, 0.3);
+        this.animations[2] = new Animator(this.spritesheet, 8, 420, 144, 208, 4, 0.3);
+        this.animations[3] = new Animator(this.spritesheet, 8, 628, 144, 208, 4, 0.3);
 
     };
 
