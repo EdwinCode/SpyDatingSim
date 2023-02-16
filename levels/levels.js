@@ -3,16 +3,30 @@ let levelOne = {
     butler: false,
     guards: false,
 
+    // THE UNITS OF MEASUREMENT FOR THE BELOW CODE ARE IN BLOCKWIDTHS!
+
     //background
     plainWalls: [
-        {x: 4.5, y: 0, count: 5}, {x: 4.5, y: 128, count: 5}
+        // Room 1 top walls
+        // Start at x = 4.5 because the Room 1 left wall starts at 0 and a left wall takes up 4.5 BLOCKWIDTHS so 0 + 4.5 = 4.5.
+        {x: 4.5, y: 0, count: 5}, // A plain wall piece has a width of 31 BLOCKWIDTHS. Thus, this ends at x = 4.5 + 5 * 31 = 159.5
+        // Room 1 bottom walls
+        /* Start at y = 128 because of the following math to line up the bottom edge:
+        The Room 1 left walls start at 0, have a height of 16, count of 10.
+        A plain wall piece has a height of 32 BLOCKWIDTHS.
+        0 + (16 * 10) - 32 = 128
+         */
+        {x: 4.5, y: 128, count: 5}
     ],
 
     sideWallLefts: [
+        // Room 1 left walls
         {x: 0, y: 0, count: 10}
     ],
 
     sideWallRights: [
+        // Room 1 right walls
+        // The Room 1 plain walls end at x = 159.5, so we start there. Line it up to the left wall with y = 0.
         {x:159.5, y: 0, count: 10}
     ],
 
@@ -29,7 +43,7 @@ let levelOne = {
     ],
 
     bigCouches: [
-        {x: -25, y: 380}
+        //{x: , y: }
     ],
 
     chairRights: [
