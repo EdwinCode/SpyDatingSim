@@ -8,47 +8,41 @@ let levelOne = {
     //background
     sideWallLefts: [ // count makes them grow downwards
         // Room 1 left walls
-        {x: 0, y: 0, count: 15},
-        {x: 0, y: 288, count: 15}
+        {x: 0, y: 0, count: 23},
     ],
 
     plainWalls: [
         // Room 1 top walls
         // Start at x = 4.5 because the Room 1 left wall starts at 0 and a left wall takes up 4.5 BLOCKWIDTHS so 0 + 4.5 = 4.5.
-        {x: 4.5, y: 0, count: 15}, // A plain wall piece has a width of 31 BLOCKWIDTHS. Thus, this ends at x = 4.5 + 15 * 31 = 469.5
+        {x: 4.5, y: 0, count: 10}, // A plain wall piece has a width of 31 BLOCKWIDTHS. Thus, this ends at x = 4.5 + 10 * 31 = 314.5
         // Room 1 bottom walls
-        /* Start at y = 496 because of the following math to line up the bottom edge:
-        The Room 1 left walls start at 0, have a height of 16, count of 15.
-        A plain wall piece has a height of 32 BLOCKWIDTHS. A big rug has a height of 24.
-        We have 15 walls, then space for two big rugs, then 15 more walls.
-        0 + (16 * 15) + (24 * 2) + (16 * 15) - 32 = 472
+        /* Start at y = 336 because of the following math to line up the bottom edge:
+        The Room 1 left walls start at 0, have a height of 16, count of 23.
+        A plain wall piece has a height of 32 BLOCKWIDTHS.
+        We have 23 walls on the left side.
+        0 + (16 * 23) - 32 = 336
          */
-        {x: 4.5, y: 496, count: 15}
+        {x: 4.5, y: 336, count: 10}
     ],
 
     sideWallRights: [
         // Room 1 right walls
-        // The Room 1 plain walls end at x = 159.5, so we start there. Line it up to the left wall with y = 0.
-        {x: 469.5, y: 0, count: 15},
-        {x: 469.5, y: 288, count: 15}
+        // The Room 1 plain walls end at x = 314.5, so we start there. Line it up to the left wall with y = 0.
+        {x: 314.5, y: 0, count: 10},
+        // We have 10 walls (height 16), then 2 big rugs (height 24) before we start these walls so:
+        // y = 0 + (16 * 10) + (24 * 2) = 208
+        {x: 314.5, y: 208, count: 10}
     ],
 
     bigRugs: [
         // We want half the rug in and out of the rooms.
         /*
-        Room 1 left rug:
-        x = (left wall start + half wall width - half rug width) = (0 + (4.5 / 2) - (41 / 2))
-        x = -18.25
-        y = 0 + 15 * 16 = 240
+        Room 1 right rugs:
+        For top rug, y = 0 + (16 * 10) = 160
+        For bottom rug y = top rug + 24 = 160 + 24 = 184
          */
-
-        {x: -18.25, y: 240},
-        {x: -18.25, y: 264},
-        /*
-        Room 1 right rug:
-         */
-        {x: 451.25, y: 240},
-        {x: 451.25, y: 264}
+        {x: 296.25, y: 160},
+        {x: 296.25, y: 184}
     ],
 
     //furniture
