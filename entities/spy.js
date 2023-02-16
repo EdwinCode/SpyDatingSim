@@ -208,15 +208,18 @@ class Spy {
                 }
 
                 // interact with Richie
-                /*if (entity instanceof Richie && that.game.interact && that.hideChat) {
+                if (entity instanceof Richie && that.game.interact && that.hideChat) {
                     that.game.interact = false;
                     that.hideChat = false;
-                    that.loadText(levelOne, "richie");
-                    console.log(that.text);
+
+                    that.loadText(levelOne, "richie", that.chatState);
+
+                    that.chatState = that.updateState(levelOne, "richie", that.chatState);
+
                     that.chatbox = new Chatbox(that.game, that.text);
                     that.game.addEntityToTop(that.chatbox);
                     that.chatbox.setVisible = true;
-                }*/
+                }
 
                 // interact with Stephanie
                 if (entity instanceof Stephanie && that.game.interact && that.hideChat) {
@@ -299,8 +302,6 @@ class Spy {
     updateState(level, entity, chatState) {
         // stephanie
         if (entity === "stephanie") {
-            console.log("steph");
-            console.log("steph state " + level.stephanie[chatState].stateIncr);
             if (level.stephanie[chatState].stateIncr === "true") {
                 return chatState + 1;
             } else {

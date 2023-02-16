@@ -113,16 +113,16 @@ let levelOne = {
     richie: [
         { message: "Talk to Mr.Billionaire.",
             state: 0,
-            stateIncr: false},
+            stateIncr: "false"},
         { message: "I'm going to live up to my name and win Mr. Billionaire's heart!",
             state: 1,
-            stateIncr: false},
+            stateIncr: "false"},
         { message: "Oh, beware of the water here. That stuff I had earlier was nasty.",
             state: 2,
-            stateIncr: true},
+            stateIncr: "true"},
         { message: "Then again, maybe that water does wonders for the skin...",
             state: 3,
-            stateIncr: false}
+            stateIncr: "false"}
     ],
 
     billionaire: [

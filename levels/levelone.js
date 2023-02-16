@@ -54,18 +54,8 @@ class Level1Part1 {
         this.game.addEntity(new Stephanie(this.game));
 
         // richie
-        //this.game.addEntity(new Richie(this.game));
+        this.game.addEntity(new Richie(this.game));
 
-        // Richie
-        /*this.richieText = ["I'm going to be Richie Rich and win Mr. Billionaire's heart!",
-                           "Oh, beware of the water here. That stuff I had earlier was nasty." +
-                           "Then again, maybe it does wonders for the skin..."];
-        this.game.add(new Richie(this.game));
-
-        // Stephanie
-        this.stephText = ["Isn't Mr.Billionaire so dreamy...",
-                          "He's definitely a tall drink of water."];
-*/
         //plain wall
         for (let i = 0; i < this.level.plainWalls.length; i++) {
             let plainWall = this.level.plainWalls[i];
