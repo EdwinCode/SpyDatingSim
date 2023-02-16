@@ -75,3 +75,22 @@ const PARAMS = {
 const getDistance = (p1, p2) => {
     return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
 };
+
+//
+// TEXT
+//
+
+function setBlackStroke(ctx) {
+    ctx.strokeStyle = "black";
+    ctx.fillStyle = "black";
+};
+
+function setRedStroke(ctx) {
+    ctx.strokeStyle = "rgb(139,0,0)";
+    ctx.fillStyle = "rgb(139,0,0)";
+};
+
+function setWhiteStroke(ctx) {
+    ctx.strokeStyle = "white";
+    ctx.fillStyle = "white";
+};
