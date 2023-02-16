@@ -51,7 +51,7 @@ class Billionaire {
     };
 
     updateInteractionBB() {
-        this.interactBB = new BoundingBox(this.x, this.y, this.billionaireW, this.billionaireH);
+        this.interactBB = new BoundingBox(this.x - this.billionaireW / 2, this.y - this.billionaireH / 2, this.billionaireW * 2, this.billionaireH * 2);
     };
 
     update() {
