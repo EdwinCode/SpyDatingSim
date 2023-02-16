@@ -2,12 +2,10 @@ class Darkness {
     constructor(game, x, y) {
         Object.assign(this, {game, x, y});
 
-        this.dWidth = 1000/1.25;
-        this.dHeight = 1000/1.25;
+        this.dWidth = PARAMS.CANVAS_WIDTH;
+        this.dHeight = PARAMS.CANVAS_HEIGHT;
 
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/darkness.png")
-
-        this.BB = new BoundingBox(this.x,this.y + this.dWidth/5,this.dWidth * PARAMS.SCALE/3.5 - 4,this.dHeight * PARAMS.SCALE/3.5 - this.dWidth/5);
 
     };
 
@@ -16,13 +14,6 @@ class Darkness {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 0, 0, 1000, 1000, this.x, this.y, this.dWidth * PARAMS.SCALE/3.5, this.dHeight * PARAMS.SCALE/3.5);
-
-        //bounding box
-        PARAMS.DEBUG = document.getElementById("debug").checked;
-        if (PARAMS.DEBUG) {
-            ctx.strokeStyle = 'Red';
-            ctx.strokeRect(this.BB.x  - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
-        }
+        ctx.drawImage(this.spritesheet, 0, 0, 1000, 1000, this.x-(25*PARAMS.BLOCKWIDTH), this.y-(62*PARAMS.BLOCKWIDTH), this.dWidth, this.dHeight);
     };
 }

@@ -20,7 +20,7 @@ class IngameTimer {
     };
 
     draw(ctx) {
-        this.setBlackStroke(ctx);
+        setBlackStroke(ctx);
         ctx.lineWidth = 4;
         ctx.textAlign = "center";
 
@@ -32,7 +32,7 @@ class IngameTimer {
         ctx.fill();
         ctx.stroke();
 
-        this.setBlackStroke(ctx);
+        setBlackStroke(ctx);
 
         // Timer
         ctx.font = "Bold 30px Courier";
@@ -42,10 +42,4 @@ class IngameTimer {
         ctx.fillText(this.time, 100, 605);
 
     };
-
-    setBlackStroke(ctx) {
-        ctx.strokeStyle = "Black";
-        ctx.fillStyle = "Black";
-    };
-
-}
+};

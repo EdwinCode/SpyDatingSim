@@ -1,68 +1,144 @@
 class Guard{
 
-    constructor(game) {
-        this.game = game;
+    constructor(game, x, y, isUpDown) {
+        Object.assign(this, {game, x, y, isUpDown});
+        // add variables to set x, y and walk left<->right or up<->down
+        // or make setter methods
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/guard.png");
 
-        this.guardW = 130;
-        this.guardH = 200;
+        this.guardW = 14 * PARAMS.BLOCKWIDTH;
+        this.guardH = 25 * PARAMS.BLOCKWIDTH;
 
-        this.x = -355;
-        this.y = -30;
+        this.x = x * PARAMS.BLOCKWIDTH;
+        this.y = y * PARAMS.BLOCKWIDTH;
 
-        this.direction = 0;
+        this.velocity = 70;
+
+        //direction
+        if (isUpDown) {
+            this.direction = 0;
+
+        } else {
+            this.direction = 2;
+        }
+
+        //wanderBB
+        if (isUpDown) {
+            this.wanderBB = new BoundingBox(this.x, this.y, this.guardW * 3,this.guardH * 5);
+
+        } else {
+            this.wanderBB = new BoundingBox(this.x, this.y, this.guardW * 10,this.guardH * 2);
+        }
 
         this.updateBB();
-
-        this.wanderBB = new BoundingBox(this.x, this.y, 142,this.guardH / 2);
+        this.updateSightBB();
 
         this.animations = [];
         this.loadAnimations();
     };
 
     updateBB() {
-        this.lastBB = this.guardBB;
-        this.guardBB = new BoundingBox(this.x, this.y + 40, this.guardW / 2 - 12, this.guardH / 2 - 40);
+        this.lastBB = this.BB;
+        this.BB = new BoundingBox(this.x, this.y, this.guardW, this.guardH);
+    }
+
+    updateSightBB() {
+        // this.lastSightBB = this.sightBB;
+        //if going up and down
+        if (this.isUpDown) {
+            if (this.direction === 0) {
+                this.sightBB = new BoundingBox(this.x, this.y, this.guardW, this.wanderBB.height - (this.y - this.wanderBB.y));
+
+            } else {
+                this.sightBB = new BoundingBox(this.x, this.wanderBB.y, this.guardW, this.y - (this.wanderBB.y - this.guardH));
+            }
+        }
+        //if going left and right
+        else {
+            if (this.direction === 2) {
+                this.sightBB = new BoundingBox(this.x, this.y, this.wanderBB.width - (this.x - this.wanderBB.x), this.guardH);
+
+            } else {
+                this.sightBB = new BoundingBox(this.wanderBB.x, this.y, this.x - (this.wanderBB.x - this.guardW), this.guardH);
+            }
+        }
+
+    }
+
+    spottedSpy() {
+        this.velocity = 200;
     }
 
     loadAnimations() {
         // walking animation
-        // 0 = right, 1 = left
-        this.animations[0] = new Animator(this.spritesheet, 8, 631, 108, 200, 4, 0.3);
-        this.animations[1] = new Animator(this.spritesheet, 8, 424, 112, 200, 4, 0.3);
+        // 0 = down, 1 = up, 2 = left, 3 = right
+        this.animations[0] = new Animator(this.spritesheet, 8, 8, 128, 200, 4, 0.3);
+        this.animations[1] = new Animator(this.spritesheet, 8, 215, 128, 200, 4, 0.3);
+        this.animations[2] = new Animator(this.spritesheet, 8, 631, 108, 200, 4, 0.3);
+        this.animations[3] = new Animator(this.spritesheet, 8, 424, 112, 200, 4, 0.3);
 
     };
 
     update() {
 
         this.updateBB();
+        this.updateSightBB();
 
-        if (this.lastBB.x + this.lastBB.width === this.wanderBB.x + this.wanderBB.width) {
-            this.direction = 1;
-            this.x -= 0.5;
+        //if going up and down
+        if (this.isUpDown) {
+            if (this.lastBB.y + this.lastBB.height >= this.wanderBB.y + this.wanderBB.height) {
+                this.direction = 1;
+                this.y -= this.velocity*this.game.clockTick;
+            }
+
+            if (this.lastBB.y <= this.wanderBB.y) {
+                this.direction = 0;
+                this.y += this.velocity*this.game.clockTick;
+            }
+
+            else if (this.direction === 0) {
+                this.y += this.velocity*this.game.clockTick;
+            }
+
+            else {
+                this.y -= this.velocity*this.game.clockTick;
+            }
+        }
+        //if going left and right
+        else {
+            if (this.lastBB.x + this.lastBB.width >= this.wanderBB.x + this.wanderBB.width) {
+                this.direction = 3;
+                this.x -= this.velocity*this.game.clockTick;
+            }
+
+            if (this.lastBB.x <= this.wanderBB.x) {
+                this.direction = 2;
+                this.x += this.velocity*this.game.clockTick;
+            }
+
+            else if (this.direction === 2) {
+                this.x += this.velocity*this.game.clockTick;
+            }
+
+            else {
+                this.x -= this.velocity*this.game.clockTick;
+            }
         }
 
-        if (this.lastBB.x === this.wanderBB.x) {
-            this.direction = 0;
-            this.x += 0.5;
-        }
-
-         else if (this.direction === 0) {
-            this.x += 0.5;
-        }
-
-         else {
-             this.x -= 0.5;
-        }
     };
 
     draw(ctx) {
-        this.animations[this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE / 6);
+        this.animations[this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
 
         PARAMS.DEBUG = document.getElementById("debug").checked;
         if (PARAMS.DEBUG) {
-            ctx.strokeStyle = 'Red';
-            ctx.strokeRect(this.guardBB.x - this.game.camera.x, this.guardBB.y - this.game.camera.y, this.guardBB.width, this.guardBB.height);
+            ctx.lineWidth = 4;
+            ctx.strokeStyle = 'red';
+            ctx.strokeRect(this.BB.x - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
+
+            ctx.strokeStyle = 'green';
+            ctx.strokeRect(this.sightBB.x - this.game.camera.x, this.sightBB.y - this.game.camera.y, this.sightBB.width, this.sightBB.height);
+
 
             ctx.strokeStyle = 'blue';
             ctx.strokeRect(this.wanderBB.x - this.game.camera.x, this.wanderBB.y - this.game.camera.y, this.wanderBB.width, this.wanderBB.height);
@@ -70,52 +146,3 @@ class Guard{
         }
     };
 }
-
-/*
-class Wally extends NPC {
-    constructor(game, x, y, width, height) {
-        super(game, x, y, width, height);
-        this.battleDone = false;
-        this.animations = [];
-        this.sprite = ASSET_MANAGER.getAsset("./res/img/wally.png");
-        if(this.game.camera.tutorial) {
-            this.chatbox.text = ["In Battle either Attack, Defend, or Charge for x2.5 Damage!", "I also gave you starting items to start catching some Pokemon.",
-                "If all your Pokemon faint then take them to the Medic in Town.", "Buy Items from the Merchant in Town as well.", "You can grab anything lying around the Lab.",
-                "Anyways, Good luck!"];
-        } else {
-            this.chatbox.text = ["Hey, you're finally here!", "Today's the day you finally become a Trainer!", "Come pick your starter!"];
-        }
-
-        this.loadAnimations();
-
-        this.wanderBB = new BoundingBox(this.game, 440, 500, 380, 400);
-    };
-
-    loadAnimations() {
-        // Animator(this.sprite, x, y, width, height, framesCount, duration, padding, reverse, loop));
-
-        for (let i = 0; i < 4; i++) { // four directions
-            this.animations.push([]);
-            for (let j = 0; j < 2; j++) { // two states
-                this.animations[i].push([]);
-            }
-        }
-
-        // forward
-        this.animations[0][0] = new Animator(this.sprite, 1, 52, this.width, this.height, 1, 0.15, 0, false, true); // idle
-        this.animations[0][1] = new Animator(this.sprite, 1, 52, this.width, this.height, 4, 0.15, 0, false, true); // walking
-
-        // left
-        this.animations[1][0] = new Animator(this.sprite, 1, 92, this.width, this.height, 1, 0.15, 0, false, true); // idle
-        this.animations[1][1] = new Animator(this.sprite, 1, 92, this.width, this.height, 4, 0.15, 0, false, true); // walking
-
-        // backwards
-        this.animations[2][0] = new Animator(this.sprite, 1, 72, this.width, this.height, 1, 0.15, 0, false, true); // idle
-        this.animations[2][1] = new Animator(this.sprite, 1, 72, this.width, this.height, 4, 0.15, 0, false, true); // walking
-
-        // right
-        this.animations[3][0] = new Animator(this.sprite, 1, 112, this.width, this.height, 1, 0.15, 0, false, true); // idle
-        this.animations[3][1] = new Animator(this.sprite, 1, 112, this.width, this.height, 4, 0.15, 0, false, true); // walking
-
-    };
-}*/
