@@ -5,17 +5,18 @@ class Billionaire {
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/billionaire.png");
 
         // pulled out repeated number to a variable
-        this.billionaireH = 232;
+        this.billionaireW = 16 * PARAMS.BLOCKWIDTH;
+        this.billionaireH = 29 * PARAMS.BLOCKWIDTH;
 
         // character placement
-        this.x = -250;
-        this.y = 320;
+        this.x = -30 * PARAMS.BLOCKWIDTH;
+        this.y = 40 * PARAMS.BLOCKWIDTH;
 
         this.velocity = 70;
         this.direction = 0;
         this.directionDuration = 500;
 
-        this.wanderBB = new BoundingBox(-350, 295, 300, 180);
+        this.wanderBB = new BoundingBox(-96 * PARAMS.BLOCKWIDTH, 32 * PARAMS.BLOCKWIDTH, 104 * PARAMS.BLOCKWIDTH, 64 * PARAMS.BLOCKWIDTH);
 
         this.updateBB();
         this.updateInteractionBB();
@@ -37,20 +38,20 @@ class Billionaire {
     loadAnimations() {
         // walking animation
         // 0 = down, 1 = up, 2 = left, 3 = right
-        this.animations[0] = new Animator(this.spritesheet, 0, 0, 120, this.billionaireH, 4, 0.3);
-        this.animations[1] = new Animator(this.spritesheet, 0, 240, 128, this.billionaireH, 4, 0.3);
-        this.animations[2] = new Animator(this.spritesheet, 0, 480, 120, this.billionaireH, 4, 0.3);
-        this.animations[3] = new Animator(this.spritesheet, 0, 720, 120, this.billionaireH, 4, 0.3);
+        this.animations[0] = new Animator(this.spritesheet, 0, 0, 120, 232, 4, 0.3);
+        this.animations[1] = new Animator(this.spritesheet, 0, 240, 128, 232, 4, 0.3);
+        this.animations[2] = new Animator(this.spritesheet, 0, 480, 120, 232, 4, 0.3);
+        this.animations[3] = new Animator(this.spritesheet, 0, 720, 120, 232, 4, 0.3);
 
     };
 
     updateBB() {
         this.lastBB = this.BB;
-        this.BB = new BoundingBox(this.x, this.y + 40, 128 / 2 - 12, this.billionaireH / 2 - 40);
+        this.BB = new BoundingBox(this.x, this.y, this.billionaireW, this.billionaireH);
     };
 
     updateInteractionBB() {
-        this.interactBB = new BoundingBox(this.x - 40, this.y - 30, 128, this.billionaireH - 40);
+        this.interactBB = new BoundingBox(this.x, this.y, this.billionaireW, this.billionaireH);
     };
 
     update() {
@@ -138,7 +139,7 @@ class Billionaire {
     };
 
     draw(ctx) {
-        this.animations[this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE / 6);
+        this.animations[this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
 
         // debug
         PARAMS.DEBUG = document.getElementById("debug").checked;
