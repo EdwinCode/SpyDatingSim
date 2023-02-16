@@ -10,7 +10,7 @@ class Chatbox {
         this.setVisible = false;
 
         this.mouseBB = new BoundingBox(0, 0, 1, 1);
-        this.exitBB = new BoundingBox(600 - 50, 650 - 45, 100, 50);
+        this.exitBB = new BoundingBox(612, 615, 50, 50);
     };
 
     update() {
@@ -52,8 +52,16 @@ class Chatbox {
             if (this.mouseBB.collide(this.exitBB)) {
                 setRedStroke(ctx);
             }
-            ctx.fillText("EXIT", 600, 640);
+            // draw triangle
+            ctx.beginPath();
+            ctx.moveTo(650, 640);
+            ctx.lineTo(630, 630);
+            ctx.lineTo(630, 650);
+            ctx.fill();
+            // draw exit BB
             ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
+
+            setWhiteStroke(ctx);
 
             // npc text
             ctx.fillText(this.text, this.chatboxX + 10, this.chatboxY + 20);
