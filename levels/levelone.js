@@ -17,25 +17,25 @@ class Level1Part1 {
         //big couch
         for (let i = 0; i < this.level.bigCouches.length; i++) {
             let couch = this.level.bigCouches[i];
-            this.game.addEntity(new BigCouch(this.game, couch.x, couch.y));
+            this.game.addEntity(new BigCouch(this.game, couch.x * PARAMS.BLOCKWIDTH, couch.y * PARAMS.BLOCKWIDTH));
         }
 
         //chair right
         for (let i = 0; i < this.level.chairRights.length; i++) {
             let chairRight = this.level.chairRights[i];
-            this.game.addEntity(new ChairRight(this.game, chairRight.x, chairRight.y));
+            this.game.addEntity(new ChairRight(this.game, chairRight.x * PARAMS.BLOCKWIDTH, chairRight.y * PARAMS.BLOCKWIDTH));
         }
 
         //chair left
         for (let i = 0; i < this.level.chairLefts.length; i++) {
             let chairLeft = this.level.chairLefts[i];
-            this.game.addEntity(new ChairLeft(this.game, chairLeft.x, chairLeft.y));
+            this.game.addEntity(new ChairLeft(this.game, chairLeft.x * PARAMS.BLOCKWIDTH, chairLeft.y * PARAMS.BLOCKWIDTH));
         }
 
         //big table
         for (let i = 0; i < this.level.bigTables.length; i++) {
             let table = this.level.bigTables[i];
-            this.game.addEntity(new BigTable(this.game, table.x, table.y));
+            this.game.addEntity(new BigTable(this.game, table.x * PARAMS.BLOCKWIDTH, table.y * PARAMS.BLOCKWIDTH));
         }
 
         //spy
@@ -61,19 +61,19 @@ class Level1Part1 {
         //plain wall
         for (let i = 0; i < this.level.plainWalls.length; i++) {
             let plainWall = this.level.plainWalls[i];
-            this.game.addEntity(new PlainWall(this.game, plainWall.x, plainWall.y));
+            this.game.addEntity(new PlainWall(this.game, plainWall.x * PARAMS.BLOCKWIDTH, plainWall.y * PARAMS.BLOCKWIDTH, plainWall.count));
         }
 
         //side wall left
         for (let i = 0; i < this.level.sideWallLefts.length; i++) {
             let sideWallLeft = this.level.sideWallLefts[i];
-            this.game.addEntity(new SideWallLeft(this.game, sideWallLeft.x, sideWallLeft.y));
+            this.game.addEntity(new SideWallLeft(this.game, sideWallLeft.x * PARAMS.BLOCKWIDTH, sideWallLeft.y * PARAMS.BLOCKWIDTH, sideWallLeft.count));
         }
 
         //side wall right
         for (let i = 0; i < this.level.sideWallRights.length; i++) {
             let sideWallRight = this.level.sideWallRights[i];
-            this.game.addEntity(new SideWallRight(this.game, sideWallRight.x, sideWallRight.y));
+            this.game.addEntity(new SideWallRight(this.game, sideWallRight.x * PARAMS.BLOCKWIDTH, sideWallRight.y * PARAMS.BLOCKWIDTH, sideWallRight.count));
         }
 
         //wall bottom
@@ -85,7 +85,7 @@ class Level1Part1 {
         //big rug
         for (let i = 0; i < this.level.bigRugs.length; i++) {
             let rug = this.level.bigRugs[i];
-            this.game.addEntity(new BigRug(this.game, rug.x, rug.y));
+            this.game.addEntity(new BigRug(this.game, rug.x * PARAMS.BLOCKWIDTH, rug.y * PARAMS.BLOCKWIDTH));
         }
 
         this.game.camera.paused = false;
