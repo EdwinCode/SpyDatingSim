@@ -34,7 +34,17 @@ let levelOne = {
     ],
 
     bigRugs: [
-        //{x:-470, y: 89}, {x: 230, y: 89}
+        // We want half the rug in and out of the room.
+        /*
+        Room 1 left rug:
+        x = (left wall start - )
+         */
+        // these are estimates for now
+        {x: -18.5, y: 70},
+        /*
+        Room 1 right rug:
+         */
+        {x: 139.5, y: 70}
     ],
 
     //furniture
