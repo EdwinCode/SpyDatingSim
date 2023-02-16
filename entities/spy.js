@@ -171,11 +171,18 @@ class Spy {
             // INTERACTIONS
             //
 
+            // reset variable
+            that.hideChat = true;
+
             // collide with billionaire interaction bounding box
             if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+
+                // display "can interact" text for user
                 that.canInteract = true;
-                console.log("interact")
+
+                // interact with Billionaire
                 if (entity instanceof Billionaire && that.game.interact && that.hideChat) {
+                    that.game.interact = false;
                     that.hideChat = false;
                     that.chatbox = new Chatbox(that.game, "hi");
                     that.game.addEntityToTop(that.chatbox);
@@ -183,8 +190,8 @@ class Spy {
                 }
             }
 
+            // don't display "can interact" text
             else if (entity.interactBB && !that.BB.collide(entity.interactBB)) {
-                console.log("no")
                 that.canInteract = false;
             }
 

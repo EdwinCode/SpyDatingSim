@@ -6,16 +6,30 @@ class Chatbox {
 
         this.chatboxX = 0;
         this.chatboxY = 500;
-        this.chatboxW;
-        this.chatboxH;
 
         this.setVisible = false;
 
+        this.mouseBB = new BoundingBox(0, 0, 1, 1);
         this.exitBB = new BoundingBox(600 - 50, 650 - 45, 100, 50);
     };
 
     update() {
+        if (this.game.click) {
+            this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y, 1, 1);
 
+            // exit chat box
+           if (this.mouseBB.collide(this.exitBB)) {
+               this.removeFromWorld = true;
+               console.log("removed chat");
+            }
+
+            this.game.click = null;
+        }
+
+        // update mouse area
+        if (this.game.mouse) {
+            this.mouseBB = new BoundingBox(this.game.mouse.x, this.game.mouse.y, 1, 1);
+        }
     };
 
     draw(ctx) {
@@ -35,6 +49,9 @@ class Chatbox {
             setWhiteStroke(ctx);
 
             // exit button
+            if (this.mouseBB.collide(this.exitBB)) {
+                setRedStroke(ctx);
+            }
             ctx.fillText("EXIT", 600, 640);
             ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
 
