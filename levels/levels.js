@@ -122,49 +122,49 @@ let levelOne = {
     stephanie: [
         { message: "Talk to Mr.Billionaire.",
             state: 0,
-            stateIncr: false},
+            stateIncr: "false"},
         { message: "Hi, I'm Stephanie! Isn't Mr. Billionaire so wonderful? " +
                 "He's definitely a tall drink of water.",
             state: 1,
-            stateIncr: true},
+            stateIncr: "true"},
         { message: "*is suddenly thirsty*",
             state: 2,
-            stateIncr: false},
+            stateIncr: "false"},
         { message: "*is suddenly thirsty*",
             state: 3,
-            stateIncr: false}
+            stateIncr: "true"}
     ],
 
     richie: [
         { message: "Talk to Mr.Billionaire.",
             state: 0,
-            stateIncr: false},
+            stateIncr: "false"},
         { message: "I'm going to live up to my name and win Mr. Billionaire's heart!",
             state: 1,
-            stateIncr: false},
+            stateIncr: "false"},
         { message: "Oh, beware of the water here. That stuff I had earlier was nasty.",
             state: 2,
-            stateIncr: true},
+            stateIncr: "true"},
         { message: "Then again, maybe that water does wonders for the skin...",
             state: 3,
-            stateIncr: false}
+            stateIncr: "false"}
     ],
 
     billionaire: [
         { message: "Welcome to the mansion! I'm so glad you could make it. " +
                 "I'll be giving a toast soon. Make yourself comfortable.",
             state: 0,
-            stateIncr: true},
+            stateIncr: "true"},
         { message: "You should get familiar with the other contestants.",
             state: 1,
-            stateIncr: false},
+            stateIncr: "false"},
         { message: "You should get familiar with the other contestants.",
             state: 2,
-            stateIncr: false},
+            stateIncr: "false"},
         { message: "*annoying clinging of silverware on a glass* I'd like to give a toast." +
                 "Welcome to my mansion! I know we'll have a great time. Let the sparks ignite.",
             state: 3,
-            stateIncr: true}
+            stateIncr: "true"}
     ]
 };
 

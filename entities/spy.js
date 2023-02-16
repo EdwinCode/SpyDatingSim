@@ -194,24 +194,28 @@ class Spy {
                     that.game.interact = false;
                     that.hideChat = false;
 
+                    console.log("chat state before billionaire " + that.chatState);
+
                     that.loadText(levelOne, "billionaire", that.chatState);
                     console.log(that.text);
 
-                    //console.log("that state " + that.state);
                     that.chatState = that.updateState(levelOne, "billionaire", that.chatState);
-                    //console.log("update state " + that.state);
+                    console.log("chat state after billionaire " + that.chatState);
 
                     that.chatbox = new Chatbox(that.game, that.text);
                     that.game.addEntityToTop(that.chatbox);
                     that.chatbox.setVisible = true;
                 }
 
-                /*!// interact with Richie
+                // interact with Richie
                 if (entity instanceof Richie && that.game.interact && that.hideChat) {
                     that.game.interact = false;
                     that.hideChat = false;
-                    that.loadText(levelOne, "richie");
-                    console.log(that.text);
+
+                    that.loadText(levelOne, "richie", that.chatState);
+
+                    that.chatState = that.updateState(levelOne, "richie", that.chatState);
+
                     that.chatbox = new Chatbox(that.game, that.text);
                     that.game.addEntityToTop(that.chatbox);
                     that.chatbox.setVisible = true;
@@ -221,12 +225,20 @@ class Spy {
                 if (entity instanceof Stephanie && that.game.interact && that.hideChat) {
                     that.game.interact = false;
                     that.hideChat = false;
-                    that.loadText(levelOne, "stephanie");
+
+                    console.log("chat state before steph " + that.chatState);
+
+                    that.loadText(levelOne, "stephanie", that.chatState);
                     console.log(that.text);
+
+                    that.chatState = that.updateState(levelOne, "stephanie", that.chatState);
+
+                    console.log("chat state after steph " + that.chatState);
+
                     that.chatbox = new Chatbox(that.game, that.text);
                     that.game.addEntityToTop(that.chatbox);
                     that.chatbox.setVisible = true;
-                }*/
+                }
             }
 
             // don't display "can interact" text
@@ -290,23 +302,30 @@ class Spy {
     updateState(level, entity, chatState) {
         // stephanie
         if (entity === "stephanie") {
-            if (level.stephanie[this.state].stateIncr) {
+            if (level.stephanie[chatState].stateIncr === "true") {
                 return chatState + 1;
+            } else {
+                return chatState;
             }
         }
 
         // richie
         else if (entity === "richie") {
-            if (level.richie[this.state].stateIncr) {
+            if (level.richie[chatState].stateIncr === "true") {
                 return chatState + 1;
+            } else {
+                return chatState;
             }
+
         }
 
         // billionaire
         else if (entity === "billionaire") {
             console.log("billionaire");
-            if (level.billionaire[this.state].stateIncr === true) {
+            if (level.billionaire[chatState].stateIncr === "true") {
                 return chatState + 1;
+            } else {
+                return chatState;
             }
         }
     }

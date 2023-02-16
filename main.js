@@ -6,6 +6,8 @@ const ASSET_MANAGER = new AssetManager();
 ASSET_MANAGER.queueDownload("./sprites/entities/girluser.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/boyuser.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/billionaire.png");
+ASSET_MANAGER.queueDownload("./sprites/entities/stephanie.png");
+ASSET_MANAGER.queueDownload("./sprites/entities/richie.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/darkness.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/guard.png");
 ASSET_MANAGER.queueDownload("./sprites/alfred.png");
