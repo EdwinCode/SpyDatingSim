@@ -22,7 +22,10 @@ class Spy {
         this.spotted = false;
         this.canInteract = false;
 
-        //this.gameOver = false;
+        // use for decision tree
+        this.chatState = 0;
+        this.currLevel = this.game.level;
+        this.text = "";
 
         this.updateBB();
 
@@ -60,6 +63,12 @@ class Spy {
         this.animations[2][1] = new Animator(this.spritesheet, 0, 0, 128, 208, 4, 0.2);
         this.animations[2][2] = new Animator(this.spritesheet, 0, 432, 120, 208, 4, 0.2);
         this.animations[2][3] = new Animator(this.spritesheet, 0, 216, 120, 208, 4, 0.2);
+
+    };
+
+    updateBB() {
+        this.lastBB = this.BB;
+        this.BB = new BoundingBox(this.x, this.y, this.width, this.height);
 
     };
 
@@ -184,7 +193,46 @@ class Spy {
                 if (entity instanceof Billionaire && that.game.interact && that.hideChat) {
                     that.game.interact = false;
                     that.hideChat = false;
-                    that.chatbox = new Chatbox(that.game, "hi");
+
+                    console.log("chat state before billionaire " + that.chatState);
+
+                    that.loadText(levelOne, "billionaire", that.chatState);
+                    console.log(that.text);
+
+                    that.chatState = that.updateState(levelOne, "billionaire", that.chatState);
+                    console.log("chat state after billionaire " + that.chatState);
+
+                    that.chatbox = new Chatbox(that.game, that.text);
+                    that.game.addEntityToTop(that.chatbox);
+                    that.chatbox.setVisible = true;
+                }
+
+                // interact with Richie
+                /*if (entity instanceof Richie && that.game.interact && that.hideChat) {
+                    that.game.interact = false;
+                    that.hideChat = false;
+                    that.loadText(levelOne, "richie");
+                    console.log(that.text);
+                    that.chatbox = new Chatbox(that.game, that.text);
+                    that.game.addEntityToTop(that.chatbox);
+                    that.chatbox.setVisible = true;
+                }*/
+
+                // interact with Stephanie
+                if (entity instanceof Stephanie && that.game.interact && that.hideChat) {
+                    that.game.interact = false;
+                    that.hideChat = false;
+
+                    console.log("chat state before steph " + that.chatState);
+
+                    that.loadText(levelOne, "stephanie", that.chatState);
+                    console.log(that.text);
+
+                    that.chatState = that.updateState(levelOne, "stephanie", that.chatState);
+
+                    console.log("chat state after steph " + that.chatState);
+
+                    that.chatbox = new Chatbox(that.game, that.text);
                     that.game.addEntityToTop(that.chatbox);
                     that.chatbox.setVisible = true;
                 }
@@ -199,11 +247,6 @@ class Spy {
         });
     };
 
-    updateBB() {
-        this.lastBB = this.BB;
-        this.BB = new BoundingBox(this.x, this.y, this.width, this.height);
-
-    };
 
     draw(ctx) {
 
@@ -230,4 +273,59 @@ class Spy {
             ctx.strokeRect(this.BB.x - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
         }
     };
-}
+
+    loadText(level, entity, chatState) {
+        // stephanie
+        if (entity === "stephanie") {
+            this.text = level.stephanie[chatState].message;
+        }
+
+        // richie
+        else if (entity === "richie") {
+            this.text = level.richie[chatState].message;
+        }
+
+        // billionaire
+        else if (entity === "billionaire") {
+            this.text = level.billionaire[chatState].message;
+        }
+
+        // butler
+        else {
+            this.text = level.butler[chatState].message;
+        }
+    };
+
+    updateState(level, entity, chatState) {
+        // stephanie
+        if (entity === "stephanie") {
+            console.log("steph");
+            console.log(level.stephanie[this.state].stateIncr === "true");
+            if (level.stephanie[this.state].stateIncr === "true") {
+                return chatState + 1;
+            } else {
+                return chatState;
+            }
+        }
+
+        // richie
+        else if (entity === "richie") {
+            if (level.richie[this.state].stateIncr === "true") {
+                return chatState + 1;
+            } else {
+                return chatState;
+            }
+
+        }
+
+        // billionaire
+        else if (entity === "billionaire") {
+            console.log("billionaire");
+            if (level.billionaire[this.state].stateIncr === "true") {
+                return chatState + 1;
+            } else {
+                return chatState;
+            }
+        }
+    }
+};

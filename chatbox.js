@@ -64,9 +64,37 @@ class Chatbox {
             setWhiteStroke(ctx);
 
             // npc text
-            ctx.fillText(this.text, this.chatboxX + 10, this.chatboxY + 20);
+            this.wrapText(ctx, this.text);
+            //ctx.fillText(this.text, this.chatboxX + 10, this.chatboxY + 20);
         }
     };
+
+    wrapText(ctx, text) {
+        let textLocationX = this.chatboxX + 10;
+        let textLocationY = this.chatboxY + 20;
+
+        let maxWidth = 700;
+        let lineHeight = 20;
+
+        let words = text.split(' ');
+        let line = '';
+
+        for(let i = 0; i < words.length; i++) {
+            let testLine = line + words[i] + ' ';
+            let metrics = ctx.measureText(testLine);
+            let testWidth = metrics.width;
+
+            if (testWidth > maxWidth && i > 0) {
+                ctx.fillText(line, textLocationX, textLocationY);
+                line = words[i] + ' ';
+                textLocationY += lineHeight;
+            }
+            else {
+                line = testLine;
+            }
+        }
+        ctx.fillText(line, textLocationX, textLocationY);
+    }
 };
 
 class CasefileChatbox {
@@ -129,4 +157,5 @@ class HintChat {
     draw(ctx) {
 
     };
+
 };
