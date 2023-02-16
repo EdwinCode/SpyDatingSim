@@ -83,7 +83,6 @@ class ChairLeft extends Furniture {
 class BigRug extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/House_Tileset.png", 32, 544, 328, 192, x, y, 328, 192);
-        this.BB = new BoundingBox(this.x, this.y, 41 * PARAMS.BLOCKWIDTH, 24 * PARAMS.BLOCKWIDTH);
     };
 
     update() {
@@ -92,7 +91,6 @@ class BigRug extends Furniture {
 
     draw(ctx) {
         ctx.drawImage(this.spritesheet, 32, 544, 328, 192, this.x - this.game.camera.x, this.y - this.game.camera.y, 41 * PARAMS.BLOCKWIDTH, 24 * PARAMS.BLOCKWIDTH);
-        super.draw(ctx);
     };
 }
 
