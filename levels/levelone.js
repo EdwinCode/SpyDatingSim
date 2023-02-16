@@ -45,7 +45,7 @@ class Level1Part1 {
         // guard
         this.game.addEntity(new Guard(this.game, 88, 216, false));
 
-        this.game.addEntity(new Guard(this.game, 300, 125, true));
+        this.game.addEntity(new Guard(this.game, 295, 125, true));
 
         // billionaire
         this.game.addEntity(new Billionaire(this.game));
