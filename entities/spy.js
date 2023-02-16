@@ -9,8 +9,8 @@ class Spy {
             this.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/sprite_boy_brown.png");
         }
 
-        this.width = 140;
-        this.height = 210;
+        this.width = 16 * PARAMS.BLOCKWIDTH;
+        this.height = 26 * PARAMS.BLOCKWIDTH;
 
         this.direction = 0;
         this.state = 0;
@@ -178,13 +178,13 @@ class Spy {
 
     updateBB() {
         this.lastBB = this.BB;
-        this.BB = new BoundingBox(this.x,this.y + 40,this.width/2 - 12,this.height/2 - 40);
+        this.BB = new BoundingBox(this.x, this.y, this.width, this.height);
 
     };
 
     draw(ctx) {
 
-        this.animations[this.state][this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE/6);
+        this.animations[this.state][this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
 
         PARAMS.DEBUG = document.getElementById("debug").checked;
         if (PARAMS.DEBUG) {
