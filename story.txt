@@ -1,5 +1,32 @@
+Missing from the fire is a patent
+
+Billionaire stole patent and committed arson to cover up this crime
+
+
+
+
+
+
 Chapter 1:
-    Intro - done
+    Intro -
+        "Hello, Agent Spy.
+        You have a new mission.
+        Months ago, you infiltrated the inner ring of a mysterious billionaire under the guise of love.
+        Now, you have been invited to the mansion to compete for love.
+        This wacky spin-off of the Bachelor is the perfect cover to roam the mansion and to search for clues.
+        Prove the billionaire has committed a crime to complete this mission.
+        Good luck, Agent Spy, and look out for those pesky guards!"
+
+        REVISED:
+        "Hello, Agent Spy.
+        You have a new mission.
+        Months ago, you secured a spot to date the eccentric Mr.Billionaire, The Bachelor style.
+        After his sudden stroke of genius with a patent idea, he is the lead suspect in the
+        arson relating to his business competitor. They claim he stole the patent, but there is no proof.
+        This wacky spin-off of The Bachelor is the perfect cover to roam the mansion, searching for clues.
+        Prove the billionaire committed this crime to complete the mission.
+        Good luck, Agent Spy, and look out for those pesky guards!"
+
     Phase I -
         CaseFile Chatbox:
         First item in item bag. Refer to it at any time.
@@ -12,11 +39,11 @@ Chapter 1:
         | Crime: Arson            |
         | Overview:               |
         | Subject burned down the |
-        | headquarters of their   |
+        | headquarters of his     |
         | business competitor to  |
-        | be rid of them.         |
-        | Objective: Find evidence|
-        ---------------------------
+        | cover up his true crime.|
+        | Objective: Find the original patent.|
+        --------------------------------------|
 
         People:
         - Mr.Billionaire
@@ -24,7 +51,7 @@ Chapter 1:
                          I'll be giving a toast soon. Make yourself comfortable."
             Toast TEXT: "*annoying clinging of silverware on a glass* I'd like to give a toast.
                          Welcome to my mansion! I know we'll have a great time. Let the sparks ignite."
-        - Stephanie and Richie (right next to each other)
+        - Stephanie and Richie
             Stephanie TEXT: "Hi, I'm Stephanie! Isn't Mr. Billionaire so wonderful?
                              He's definitely a tall drink of water."
             Richie    TEXT: "I'm going to live up to my name and win Mr. Billionaire's heart!
@@ -73,3 +100,6 @@ Chapter 1:
         items from their target.
 
         To Be Continued...*thunder and lightening flash*
+
+        REVISED:
+        Mr.Billionaire actually did commit the crime.
