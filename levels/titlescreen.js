@@ -21,10 +21,8 @@ class TitleScreen {
             this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y, 1, 1);
 
             if (this.mouseBB.collide(this.player1BB)) {
-                //this.game.camera.clearEntities();
                 this.game.camera.loadLevel(introCutscene);
             } else if (this.mouseBB.collide(this.player2BB)) {
-                //this.game.camera.clearEntities();
                 this.game.camera.loadLevel(introCutscene);
                 this.game.male = true;
             }
@@ -53,7 +51,7 @@ class TitleScreen {
     draw(ctx) {
 
         if (!this.credits) {
-            this.setBlackStroke(ctx);
+            setBlackStroke(ctx);
             ctx.lineWidth = 6;
             ctx.textAlign = "center";
 
@@ -68,43 +66,33 @@ class TitleScreen {
 
             //purple hair girl
             if (this.mouseBB.collide(this.player1BB)) {
-                this.setRedStroke(ctx);
+                setRedStroke(ctx);
             }
             ctx.drawImage(this.animationPlayer1, 0, 0, 128, 208, (720 / 2) - 200, (720 / 2) - 45, 128 / 2, 208 / 2);
-
-            //this.animationPlayer1.drawFrame(this.game.clockTick, ctx,(720 / 2) - 200, (720 / 2) - 45,PARAMS.SCALE/6);
             ctx.strokeRect(this.player1BB.left, this.player1BB.top, this.player1BB.width, this.player1BB.height);
 
-            this.setBlackStroke(ctx);
+            setBlackStroke(ctx);
 
             //brown hair boy
             if (this.mouseBB.collide(this.player2BB)) {
-                this.setRedStroke(ctx);
+                setRedStroke(ctx);
             }
             ctx.drawImage(this.animationPlayer2, 0, 0, 128, 208, (720 / 2) + 100, (720 / 2) - 45, 128 / 2, 208 / 2);
-            //this.animationPlayer2.drawFrame(this.game.clockTick, ctx,(720 / 2) + 100, (720 / 2) - 45,PARAMS.SCALE/6);
             ctx.strokeRect(this.player2BB.left, this.player2BB.top, this.player2BB.width, this.player2BB.height);
 
-            //play
-            /*if (this.mouseBB.collide(this.playBB)) {
-                this.setRedStroke(ctx);
-            }
-            ctx.fillText("PLAY", 720 / 2, 720 / 2);
-            ctx.strokeRect(this.playBB.left, this.playBB.top, this.playBB.width, this.playBB.height);*/
-
-            this.setBlackStroke(ctx);
+            setBlackStroke(ctx);
 
             //credits
             if (this.mouseBB.collide(this.creditsBB)) {
-                this.setRedStroke(ctx);
+                setRedStroke(ctx);
             }
             ctx.fillText("CREDITS", ctx.canvas.width / 2, 720 / 2 + 200);
             ctx.strokeRect(this.creditsBB.left, this.creditsBB.top, this.creditsBB.width, this.creditsBB.height);
 
         } else {
-            this.setBlackStroke(ctx);
+            setBlackStroke(ctx);
             if (this.mouseBB.collide(this.exitBB)) {
-                this.setRedStroke(ctx);
+                setRedStroke(ctx);
             }
 
             ctx.lineWidth = 6;
@@ -116,7 +104,7 @@ class TitleScreen {
         }
 
         if (this.credits) {
-            this.setBlackStroke(ctx);
+            setBlackStroke(ctx);
             ctx.lineWidth = 6;
             ctx.textAlign = "center";
             ctx.font = "Bold 60px Courier";
@@ -131,14 +119,4 @@ class TitleScreen {
             ctx.fillText("Edwin Solis-Bruno", 40, 320);
         }
     };
-
-    setBlackStroke(ctx) {
-        ctx.strokeStyle = "Black";
-        ctx.fillStyle = "Black";
-    };
-
-    setRedStroke(ctx) {
-        ctx.strokeStyle = "rgb(139,0,0)";
-        ctx.fillStyle = "rgb(139,0,0)";
-    };
-}
+};

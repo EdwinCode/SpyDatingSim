@@ -2,15 +2,16 @@ class Chatbox {
     constructor(game, text) {
         this.game = game;
         this.text = text;
+        this.textLength = text.length;
 
         this.chatboxX = 0;
         this.chatboxY = 500;
         this.chatboxW;
         this.chatboxH;
 
-
         this.setVisible = false;
 
+        this.exitBB = new BoundingBox(600 - 50, 650 - 45, 100, 50);
     };
 
     update() {
@@ -21,19 +22,23 @@ class Chatbox {
         // rectangle at bottom of screen, black background, white text
         // get text from constructor
         if (this.setVisible) {
-            ctx.strokeStyle = "Black";
-            ctx.fillStyle = "Black";
             ctx.lineWidth = 4;
             ctx.textAlign = "left";
             ctx.font = "Bold 20px Courier";
 
-            // HUD box
+            setBlackStroke(ctx);
+
+            // chat box
             ctx.strokeRect(this.chatboxX, this.chatboxY, 700, 200);
             ctx.fillRect(this.chatboxX, this.chatboxY, 700, 200);
 
-            //ctx.strokeStyle = "White";
-            ctx.fillStyle = "White";
+            setWhiteStroke(ctx);
 
+            // exit button
+            ctx.fillText("EXIT", 600, 640);
+            ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
+
+            // npc text
             ctx.fillText(this.text, this.chatboxX + 10, this.chatboxY + 20);
         }
     };
@@ -99,4 +104,4 @@ class HintChat {
     draw(ctx) {
 
     };
-}
+};

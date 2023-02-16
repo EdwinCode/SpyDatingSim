@@ -31,7 +31,7 @@ class LoseScreen {
 
     draw(ctx) {
 
-        this.setBlackStroke(ctx);
+        setBlackStroke(ctx);
         ctx.lineWidth = 6;
         ctx.textAlign = "center";
 
@@ -42,11 +42,11 @@ class LoseScreen {
 
         ctx.font = "Bold 35px Courier";
 
-        this.setBlackStroke(ctx);
+        setBlackStroke(ctx);
 
         //restart
         if (this.mouseBB.collide(this.restartBB)) {
-            this.setRedStroke(ctx);
+            setRedStroke(ctx);
         }
         ctx.fillText("RESTART", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2);
         ctx.strokeRect(this.restartBB.left, this.restartBB.top, this.restartBB.width, this.restartBB.height);
@@ -54,14 +54,4 @@ class LoseScreen {
 
 
     };
-
-    setBlackStroke(ctx) {
-        ctx.strokeStyle = "Black";
-        ctx.fillStyle = "Black";
-    };
-
-    setRedStroke(ctx) {
-        ctx.strokeStyle = "rgb(139,0,0)";
-        ctx.fillStyle = "rgb(139,0,0)";
-    };
-}
+};

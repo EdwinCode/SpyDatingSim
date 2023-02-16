@@ -41,9 +41,9 @@ class IntroCutscene {
 
     draw(ctx) {
         // exit button
-        this.setBlackStroke(ctx);
+        setBlackStroke(ctx);
         if (this.mouseBB.collide(this.exitBB)) {
-            this.setRedStroke(ctx);
+            setRedStroke(ctx);
         }
 
         ctx.lineWidth = 6;
@@ -55,14 +55,4 @@ class IntroCutscene {
         // cutscene
         this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y, 0.95);
     };
-
-    setBlackStroke(ctx) {
-        ctx.strokeStyle = "Black";
-        ctx.fillStyle = "Black";
-    };
-
-    setRedStroke(ctx) {
-        ctx.strokeStyle = "rgb(139,0,0)";
-        ctx.fillStyle = "rgb(139,0,0)";
-    };
-}
+};

@@ -39,12 +39,11 @@ class HUD {
     };
 
     draw(ctx) {
-        this.setBlackStroke(ctx);
+        setBlackStroke(ctx);
         ctx.lineWidth = 3;
         ctx.textAlign = "left";
         ctx.font = "Bold 20px Courier";
 
-        //this.setBlackStroke(ctx);
         ctx.strokeStyle = this.textColor;
         ctx.fillStyle = this.textColor;
 
@@ -73,12 +72,6 @@ class HUD {
         this.butlerIcon = ASSET_MANAGER.getAsset("./sprites/suitcase.png")
         ctx.drawImage(this.butlerIcon, 615, 5, 3 * 20, 3 * 18);
 
-        this.setBlackStroke(ctx);
+        setBlackStroke(ctx);
     };
-
-    setBlackStroke(ctx) {
-        ctx.strokeStyle = "Black";
-        ctx.fillStyle = "Black";
-    };
-
 }
