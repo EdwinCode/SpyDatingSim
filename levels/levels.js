@@ -39,7 +39,11 @@ let levelOne = {
 
     //furniture
     bigTables: [
-        //{x: -15, y: 200}, {x: 500, y: 200}
+        // Room 1 big table at the center of the room (from big couch calculation, center of room is (164 - 0) /2).
+        // x = (center of room - [width of big table / 2]) = (82 - (28 / 2)) = 68
+        // y = (height of room / 2) - (big table height / 2) = [(Room end of bottom wall - beginning of top wall) / 2] - [table height / 2]
+        // y = ((160 - 0) / 2) - (32 / 2) = 64
+        {x: 68, y: 64}
     ],
 
     bigCouches: [
@@ -47,17 +51,24 @@ let levelOne = {
         Room 1 couch, place at the center bottom of room.
         x = (Width of room / 2) - (couch width / 2) = [(Room end of right wall - beginning of left wall) / 2] - [couch width / 2]
         x = ((164 - 0) / 2) - (32/2) = 66
-        y = [(Room top of bottom wall) - (couch height)] = 128 - 13
+        y = [(Room top of bottom wall) - (couch height)] = 128 - 13 = 115
          */
         {x: 66, y: 115}
     ],
 
     chairRights: [
-        //{x: -100, y: 210}
+        // Room 1 chair, place directly next to the table (x) and center it relative to table which is centered in the room (y).
+        // x = (table start - chair width) = (68 - 14) = 54
+        // From Room 1 big table calculation, center of room in y is 80.
+        // y = (center of room - [chair height / 2]) = (80 - (16 / 2)) = 72
+        {x: 54, y: 72}
     ],
 
     chairLefts: [
-        //{x: 100, y: 210}
+        // Room 1 chair, place directly next to the table (x) and center it relative to table which centered in the room (y).
+        // x = (table start + table width) = (68 + 28) = 96
+        // y is same as Room 1 chair left.
+        {x: 96, y: 72}
     ],
 
 };
