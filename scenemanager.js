@@ -43,7 +43,7 @@ class Scenemanager {
         if (this.currentLevel === levelOne) {
             this.hud = new HUD(this.game);
             this.spyCharacter = new Spy(this.game, 25 * PARAMS.BLOCKWIDTH, 62 * PARAMS.BLOCKWIDTH);
-            this.darkness = new Darkness(this.game, 0, 0);
+            this.darkness = new Darkness(this.game, this.spyCharacter.x, this.spyCharacter.y);
             this.hud.setTextColor("black");
             this.game.addEntity(new Level1Part1(this.game, this.hud, this.darkness, this.currentLevel, this.spyCharacter));
 
