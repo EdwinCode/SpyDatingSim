@@ -20,6 +20,7 @@ class Spy {
         this.velocity = 300;
 
         this.spotted = false;
+        this.canInteract = false;
 
         //this.gameOver = false;
 
@@ -155,7 +156,10 @@ class Spy {
                     //that.gameOver = true;
                     that.game.camera.loadLevel(loseScreen);
                 }
-            } else if (entity.sightBB && that.BB.collide(entity.sightBB)) {
+            }
+
+            // collide with guard sight
+            else if (entity.sightBB && that.BB.collide(entity.sightBB)) {
                 if (entity instanceof Guard) {
                     entity.spottedSpy();
                     that.state = 0; // idle
@@ -163,16 +167,29 @@ class Spy {
                 }
             }
 
+            //
+            // INTERACTIONS
+            //
+
+            // collide with billionaire interaction bounding box
+            if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                that.canInteract = true;
+                console.log("interact")
+                if (entity instanceof Billionaire && that.game.interact && that.hideChat) {
+                    that.hideChat = false;
+                    that.chatbox = new Chatbox(that.game, "hi");
+                    that.game.addEntityToTop(that.chatbox);
+                    that.chatbox.setVisible = true;
+                }
+            }
+
+            else if (entity.interactBB && !that.BB.collide(entity.interactBB)) {
+                console.log("no")
+                that.canInteract = false;
+            }
+
             that.updateBB();
         });
-
-        // interaction with key 'e'
-        if (this.game.interact && this.hideChat) {
-            this.hideChat = false;
-            this.chatbox = new Chatbox(this.game, "Hello");
-            this.game.addEntityToTop(this.chatbox);
-            this.chatbox.setVisible = true;
-        }
     };
 
     updateBB() {
@@ -185,10 +202,24 @@ class Spy {
 
         this.animations[this.state][this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE/6);
 
+        // interact message
+        if (this.canInteract) {
+            ctx.strokeStyle = 'black';
+            ctx.fillStyle = 'black';
+            ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
+            ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
+
+            ctx.textAlign = "center";
+            ctx.strokeStyle = 'white';
+            ctx.fillStyle = 'white';
+            ctx.fillText("Can Interact", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 30);
+        }
+
+        // debug
         PARAMS.DEBUG = document.getElementById("debug").checked;
         if (PARAMS.DEBUG) {
             ctx.lineWidth = 4;
-            ctx.strokeStyle = 'Red';
+            ctx.strokeStyle = 'red';
             ctx.strokeRect(this.BB.x - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
         }
     };
