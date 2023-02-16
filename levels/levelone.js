@@ -76,12 +76,6 @@ class Level1Part1 {
             this.game.addEntity(new SideWallRight(this.game, sideWallRight.x * PARAMS.BLOCKWIDTH, sideWallRight.y * PARAMS.BLOCKWIDTH, sideWallRight.count));
         }
 
-        //wall bottom
-        for (let i = 0; i < this.level.wallBottoms.length; i++) {
-            let wallBottom = this.level.wallBottoms[i];
-            this.game.addEntity(new WallBottom(this.game, wallBottom.x, wallBottom.y));
-        }
-
         //big rug
         for (let i = 0; i < this.level.bigRugs.length; i++) {
             let rug = this.level.bigRugs[i];

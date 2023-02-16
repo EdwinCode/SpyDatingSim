@@ -6,6 +6,11 @@ let levelOne = {
     // THE UNITS OF MEASUREMENT FOR THE BELOW CODE ARE IN BLOCKWIDTHS!
 
     //background
+    sideWallLefts: [ // count makes them grow downwards
+        // Room 1 left walls
+        {x: 0, y: 0, count: 10}
+    ],
+
     plainWalls: [
         // Room 1 top walls
         // Start at x = 4.5 because the Room 1 left wall starts at 0 and a left wall takes up 4.5 BLOCKWIDTHS so 0 + 4.5 = 4.5.
@@ -19,18 +24,10 @@ let levelOne = {
         {x: 4.5, y: 128, count: 5}
     ],
 
-    sideWallLefts: [
-        // Room 1 left walls
-        {x: 0, y: 0, count: 10}
-    ],
-
     sideWallRights: [
         // Room 1 right walls
         // The Room 1 plain walls end at x = 159.5, so we start there. Line it up to the left wall with y = 0.
         {x:159.5, y: 0, count: 10}
-    ],
-
-    wallBottoms: [
     ],
 
     bigRugs: [

@@ -154,19 +154,3 @@ class SideWallRight extends Furniture {
         super.draw(ctx);
     };
 }
-
-class WallBottom extends Furniture {
-    constructor(game, x, y) {
-        super(game, "./sprites/furniture/House_Tileset.png", 256, 0, 248, 32, x, y, 248, 32);
-        this.BB = new BoundingBox(this.x, this.y, 31 * PARAMS.BLOCKWIDTH, 4 * PARAMS.BLOCKWIDTH);
-    };
-
-    update() {
-
-    };
-
-    draw(ctx) {
-        ctx.drawImage(this.spritesheet, 256, 0, 248, 32, this.x - this.game.camera.x, this.y - this.game.camera.y, 31 * PARAMS.BLOCKWIDTH, 4 * PARAMS.BLOCKWIDTH);
-        super.draw(ctx);
-    };
-}
