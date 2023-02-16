@@ -35,7 +35,7 @@ class Guard{
             this.sightBB = new BoundingBox(this.x, this.y, this.wanderBB.width - (this.x - this.wanderBB.x), this.guardH);
 
         } else {
-            this.sightBB = new BoundingBox(this.wanderBB.x, this.y, this.x - (this.wanderBB.x - this.guardW / 2), this.guardH / 2);
+            this.sightBB = new BoundingBox(this.wanderBB.x, this.y, this.x - (this.wanderBB.x - this.guardW), this.guardH);
         }
 
     }
