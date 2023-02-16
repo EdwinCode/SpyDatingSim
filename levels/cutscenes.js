@@ -53,7 +53,7 @@ class IntroCutscene {
         ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
 
         // cutscene
-        this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y, PARAMS.SCALE / 3.15);
+        this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y, 0.95);
     };
 
     setBlackStroke(ctx) {
