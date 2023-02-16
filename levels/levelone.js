@@ -101,6 +101,8 @@ class Level1Part1 {
         // method not used but declaration is necessary for game engine
     };
 
+
+
 };
 
 class Level1Part2 {
