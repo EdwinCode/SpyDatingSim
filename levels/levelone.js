@@ -38,6 +38,11 @@ class Level1Part1 {
             this.game.addEntity(new BigTable(this.game, table.x * PARAMS.BLOCKWIDTH, table.y * PARAMS.BLOCKWIDTH));
         }
 
+        for (let i = 0; i < this.level.beds.length; i++) {
+            let bed = this.level.beds[i];
+            this.game.addEntity(new Bed(this.game, bed.x * PARAMS.BLOCKWIDTH, bed.y * PARAMS.BLOCKWIDTH));
+        }
+
         //spy
         // this.spyCharacter = new Spy(this.game, -100, 55);
         this.game.addEntity(this.spyCharacter);

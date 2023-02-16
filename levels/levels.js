@@ -100,6 +100,10 @@ let levelOne = {
         {x: 270, y: 72}
     ],
 
+    beds: [
+        {x: 500, y: -150}
+    ],
+
     butler: [
         {message: "Talk to Mr.Billionaire.",
             state: 0,
