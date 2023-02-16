@@ -143,7 +143,7 @@ class Spy {
         this.game.entities.forEach(function (entity) {
             //if the entity has a bounding box and we collided with it
             if (entity.BB && that.BB.collide(entity.BB)) {
-                if (entity instanceof  Furniture) {
+                if (entity instanceof  Furniture || entity instanceof Billionaire || entity instanceof Stephanie || entity instanceof Richie) {
 
                     if(entity.BB.right <= (that.lastBB.left+20)){ // from right
                         that.x += entity.BB.right - that.lastBB.left;
