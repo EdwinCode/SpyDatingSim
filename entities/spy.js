@@ -22,7 +22,10 @@ class Spy {
         this.spotted = false;
         this.canInteract = false;
 
-        //this.gameOver = false;
+        // use for decision tree
+        this.chatState = 0;
+        this.currLevel = this.game.level;
+        this.text = "";
 
         this.updateBB();
 
@@ -60,6 +63,12 @@ class Spy {
         this.animations[2][1] = new Animator(this.spritesheet, 0, 0, 128, 208, 4, 0.2);
         this.animations[2][2] = new Animator(this.spritesheet, 0, 432, 120, 208, 4, 0.2);
         this.animations[2][3] = new Animator(this.spritesheet, 0, 216, 120, 208, 4, 0.2);
+
+    };
+
+    updateBB() {
+        this.lastBB = this.BB;
+        this.BB = new BoundingBox(this.x, this.y, this.width, this.height);
 
     };
 
@@ -184,7 +193,9 @@ class Spy {
                 if (entity instanceof Billionaire && that.game.interact && that.hideChat) {
                     that.game.interact = false;
                     that.hideChat = false;
-                    that.chatbox = new Chatbox(that.game, "hi");
+                    that.loadText(levelOne, "billionaire");
+                    console.log(that.text);
+                    that.chatbox = new Chatbox(that.game, that.text);
                     that.game.addEntityToTop(that.chatbox);
                     that.chatbox.setVisible = true;
                 }
@@ -197,12 +208,6 @@ class Spy {
 
             that.updateBB();
         });
-    };
-
-    updateBB() {
-        this.lastBB = this.BB;
-        this.BB = new BoundingBox(this.x, this.y, this.width, this.height);
-
     };
 
     draw(ctx) {
@@ -230,4 +235,26 @@ class Spy {
             ctx.strokeRect(this.BB.x - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
         }
     };
-}
+
+    loadText(level, entity) {
+        // stephanie
+        if (entity === "stephanie") {
+            this.text = level.stephanie[this.state].message;
+        }
+
+        // richie
+        else if (entity === "richie") {
+            this.text = level.richie[this.state].message;
+        }
+
+        // billionaire
+        else if (entity === "billionaire") {
+            this.text = level.billionaire[this.state].message;
+        }
+
+        // butler
+        else {
+            this.text = level.butler[this.state].message;
+        }
+    };
+};
