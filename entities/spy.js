@@ -133,7 +133,8 @@ class Spy {
         this.game.entities.forEach(function (entity) {
             //if the entity has a bounding box and we collided with it
             if (entity.BB && that.BB.collide(entity.BB)) {
-                if ((entity instanceof BigTable || entity instanceof BigCouch || entity instanceof ChairRight || entity instanceof ChairLeft || entity instanceof PlainWall || entity instanceof SideWallLeft || entity instanceof SideWallRight || entity instanceof WallBottom)) {
+                if (entity instanceof  Furniture) {
+                //if ((entity instanceof BigTable || entity instanceof BigCouch || entity instanceof ChairRight || entity instanceof ChairLeft || entity instanceof PlainWall || entity instanceof SideWallLeft || entity instanceof SideWallRight || entity instanceof WallBottom)) {
 
                     if(entity.BB.right <= (that.lastBB.left+20)){ // from right
                         that.x += entity.BB.right - that.lastBB.left;
