@@ -99,9 +99,7 @@ class Billionaire {
 
         // collision
         else {
-
-            // set duration to 0 so it chooses a new direction next time
-            //this.directionDuration = 0;
+            // choose new direction but keep duration same
             while (this.collides(this.direction)) {
                 this.direction = this.chooseRandDirection();
             }
