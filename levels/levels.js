@@ -45,8 +45,8 @@ let levelOne = {
     bigCouches: [
         /*
         Room 1 couch, place at the center bottom of room.
-        x = [(Room beginning of right wall - end of left wall) / 2] - [couch width / 2]
-        x = ((159.5 - 4.5) / 2) - (32/2) = 61.5
+        x = (Width of room / 2) - (couch width / 2) = [(Room end of right wall - beginning of left wall) / 2] - [couch width / 2]
+        x = ((164 - 0) / 2) - (32/2) = 66
         y = [(Room top of bottom wall) - (couch height)] = 128 - 13
          */
         {x: 66, y: 115}
