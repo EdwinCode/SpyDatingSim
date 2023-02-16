@@ -300,8 +300,8 @@ class Spy {
         // stephanie
         if (entity === "stephanie") {
             console.log("steph");
-            console.log(level.stephanie[this.state].stateIncr === "true");
-            if (level.stephanie[this.state].stateIncr === "true") {
+            console.log("steph state " + level.stephanie[this.state].stateIncr);
+            if (level.stephanie[chatState].stateIncr === "true") {
                 return chatState + 1;
             } else {
                 return chatState;
@@ -310,7 +310,7 @@ class Spy {
 
         // richie
         else if (entity === "richie") {
-            if (level.richie[this.state].stateIncr === "true") {
+            if (level.richie[chatState].stateIncr === "true") {
                 return chatState + 1;
             } else {
                 return chatState;
@@ -321,7 +321,7 @@ class Spy {
         // billionaire
         else if (entity === "billionaire") {
             console.log("billionaire");
-            if (level.billionaire[this.state].stateIncr === "true") {
+            if (level.billionaire[chatState].stateIncr === "true") {
                 return chatState + 1;
             } else {
                 return chatState;
