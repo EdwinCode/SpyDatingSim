@@ -163,16 +163,30 @@ class Spy {
                 }
             }
 
+            that.booleannn = that.BB.collide(entity.interactBB);
+
+           // console.log(that.booleannn);
+
+            else if (entity instanceof Billionaire) {
+                if (that.BB.collide(entity.interactBB) && that.game.interactBB && that.hideChat) {
+                    that.hideChat = false;
+                    that.chatbox = new Chatbox(that.game, "hi");
+                    that.game.addEntityToTop(that.chatbox);
+                    that.chatbox.setVisible = true;
+                }
+
+            }
+
             that.updateBB();
         });
 
         // interaction with key 'e'
-        if (this.game.interact && this.hideChat) {
+        /*if (this.game.interact && this.hideChat) {
             this.hideChat = false;
             this.chatbox = new Chatbox(this.game, "Hello");
             this.game.addEntityToTop(this.chatbox);
             this.chatbox.setVisible = true;
-        }
+        }*/
     };
 
     updateBB() {
