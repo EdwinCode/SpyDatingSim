@@ -193,12 +193,40 @@ class Spy {
                 if (entity instanceof Billionaire && that.game.interact && that.hideChat) {
                     that.game.interact = false;
                     that.hideChat = false;
-                    that.loadText(levelOne, "billionaire");
+
+                    that.loadText(levelOne, "billionaire", that.chatState);
+                    console.log(that.text);
+
+                    //console.log("that state " + that.state);
+                    that.chatState = that.updateState(levelOne, "billionaire", that.chatState);
+                    //console.log("update state " + that.state);
+
+                    that.chatbox = new Chatbox(that.game, that.text);
+                    that.game.addEntityToTop(that.chatbox);
+                    that.chatbox.setVisible = true;
+                }
+
+                /*!// interact with Richie
+                if (entity instanceof Richie && that.game.interact && that.hideChat) {
+                    that.game.interact = false;
+                    that.hideChat = false;
+                    that.loadText(levelOne, "richie");
                     console.log(that.text);
                     that.chatbox = new Chatbox(that.game, that.text);
                     that.game.addEntityToTop(that.chatbox);
                     that.chatbox.setVisible = true;
                 }
+
+                // interact with Stephanie
+                if (entity instanceof Stephanie && that.game.interact && that.hideChat) {
+                    that.game.interact = false;
+                    that.hideChat = false;
+                    that.loadText(levelOne, "stephanie");
+                    console.log(that.text);
+                    that.chatbox = new Chatbox(that.game, that.text);
+                    that.game.addEntityToTop(that.chatbox);
+                    that.chatbox.setVisible = true;
+                }*/
             }
 
             // don't display "can interact" text
@@ -209,6 +237,7 @@ class Spy {
             that.updateBB();
         });
     };
+
 
     draw(ctx) {
 
@@ -236,25 +265,49 @@ class Spy {
         }
     };
 
-    loadText(level, entity) {
+    loadText(level, entity, chatState) {
         // stephanie
         if (entity === "stephanie") {
-            this.text = level.stephanie[this.state].message;
+            this.text = level.stephanie[chatState].message;
         }
 
         // richie
         else if (entity === "richie") {
-            this.text = level.richie[this.state].message;
+            this.text = level.richie[chatState].message;
         }
 
         // billionaire
         else if (entity === "billionaire") {
-            this.text = level.billionaire[this.state].message;
+            this.text = level.billionaire[chatState].message;
         }
 
         // butler
         else {
-            this.text = level.butler[this.state].message;
+            this.text = level.butler[chatState].message;
         }
     };
+
+    updateState(level, entity, chatState) {
+        // stephanie
+        if (entity === "stephanie") {
+            if (level.stephanie[this.state].stateIncr) {
+                return chatState + 1;
+            }
+        }
+
+        // richie
+        else if (entity === "richie") {
+            if (level.richie[this.state].stateIncr) {
+                return chatState + 1;
+            }
+        }
+
+        // billionaire
+        else if (entity === "billionaire") {
+            console.log("billionaire");
+            if (level.billionaire[this.state].stateIncr === true) {
+                return chatState + 1;
+            }
+        }
+    }
 };
