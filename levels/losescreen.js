@@ -14,7 +14,6 @@ class LoseScreen {
 
             // restart game
             if (this.mouseBB.collide(this.restartBB)) {
-                //console.log("collided")
                 this.game.camera.clearEntities();
                 this.game.camera.loadLevel(titleScreen);
                 this.game.male = false;

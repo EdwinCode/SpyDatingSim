@@ -21,6 +21,7 @@ class Scenemanager {
 
     loadLevel(level) {
         this.currentLevel = level;
+        this.game.currLvl = level;
         this.clearEntities();
 
         // lose screen
@@ -40,7 +41,7 @@ class Scenemanager {
         }
 
         // level one part 1
-        if (this.currentLevel === levelOne) {
+        if (this.currentLevel === levelOne1) {
             this.hud = new HUD(this.game);
             this.spyCharacter = new Spy(this.game, 25 * PARAMS.BLOCKWIDTH, 62 * PARAMS.BLOCKWIDTH);
             this.darkness = new Darkness(this.game, this.spyCharacter.x, this.spyCharacter.y);
@@ -50,6 +51,13 @@ class Scenemanager {
 
         // TO BE ADDED
         // level one, part 2
+        if (this.currentLevel === levelOne2) {
+            this.hud = new HUD(this.game);
+            this.spyCharacter = new Spy(this.game, 25 * PARAMS.BLOCKWIDTH, 62 * PARAMS.BLOCKWIDTH);
+            this.darkness = new Darkness(this.game, this.spyCharacter.x, this.spyCharacter.y);
+            this.hud.setTextColor("black");
+            this.game.addEntity(new Level1Part2(this.game, this.hud, this.darkness, this.currentLevel, this.spyCharacter));
+        }
 
     };
 

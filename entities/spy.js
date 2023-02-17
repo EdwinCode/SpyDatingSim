@@ -180,12 +180,18 @@ class Spy {
             // INTERACTIONS
             //
 
+            // trigger cutscene
+            if (that.game.currLvl.label === "Phase 1" && that.chatState === 4 && that.chatbox.setVisible === false) {
+                console.log("NEW");
+                that.game.camera.clearEntities();
+                that.game.camera.loadLevel(levelOne2);
+            }
+
             // reset variable
             that.hideChat = true;
 
             // collide with billionaire interaction bounding box
             if (entity.interactBB && that.BB.collide(entity.interactBB)) {
-
                 // display "can interact" text for user
                 that.canInteract = true;
 
@@ -194,13 +200,12 @@ class Spy {
                     that.game.interact = false;
                     that.hideChat = false;
 
-                    console.log("chat state before billionaire " + that.chatState);
+                    console.log("B state before " + that.chatState);
 
-                    that.loadText(levelOne, "billionaire", that.chatState);
-                    console.log(that.text);
+                    that.loadText(levelOne1, "billionaire", that.chatState);
+                    that.chatState = that.updateState(levelOne1, "billionaire", that.chatState);
 
-                    that.chatState = that.updateState(levelOne, "billionaire", that.chatState);
-                    console.log("chat state after billionaire " + that.chatState);
+                    console.log("B state after " + that.chatState);
 
                     that.chatbox = new Chatbox(that.game, that.text);
                     that.game.addEntityToTop(that.chatbox);
@@ -212,9 +217,12 @@ class Spy {
                     that.game.interact = false;
                     that.hideChat = false;
 
-                    that.loadText(levelOne, "richie", that.chatState);
+                    console.log("R state before " + that.chatState);
 
-                    that.chatState = that.updateState(levelOne, "richie", that.chatState);
+                    that.loadText(levelOne1, "richie", that.chatState);
+                    that.chatState = that.updateState(levelOne1, "richie", that.chatState);
+
+                    console.log("R state after " + that.chatState);
 
                     that.chatbox = new Chatbox(that.game, that.text);
                     that.game.addEntityToTop(that.chatbox);
@@ -226,14 +234,12 @@ class Spy {
                     that.game.interact = false;
                     that.hideChat = false;
 
-                    console.log("chat state before steph " + that.chatState);
+                    console.log("S state before " + that.chatState);
 
-                    that.loadText(levelOne, "stephanie", that.chatState);
-                    console.log(that.text);
+                    that.loadText(levelOne1, "stephanie", that.chatState);
+                    that.chatState = that.updateState(levelOne1, "stephanie", that.chatState);
 
-                    that.chatState = that.updateState(levelOne, "stephanie", that.chatState);
-
-                    console.log("chat state after steph " + that.chatState);
+                    console.log("S state after " + that.chatState);
 
                     that.chatbox = new Chatbox(that.game, that.text);
                     that.game.addEntityToTop(that.chatbox);
@@ -252,19 +258,16 @@ class Spy {
 
 
     draw(ctx) {
-
         this.animations[this.state][this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
 
         // interact message
         if (this.canInteract) {
-            ctx.strokeStyle = 'black';
-            ctx.fillStyle = 'black';
+            setBlackStroke(ctx);
             ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
             ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
 
             ctx.textAlign = "center";
-            ctx.strokeStyle = 'white';
-            ctx.fillStyle = 'white';
+            setWhiteStroke(ctx);
             ctx.fillText("Can Interact", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 30);
         }
 
@@ -277,6 +280,7 @@ class Spy {
         }
     };
 
+    // for character interaction decision tree
     loadText(level, entity, chatState) {
         // stephanie
         if (entity === "stephanie") {
@@ -328,5 +332,5 @@ class Spy {
                 return chatState;
             }
         }
-    }
+    };
 };

@@ -27,7 +27,7 @@ class IntroCutscene {
 
             if (this.mouseBB.collide(this.exitBB)) {
                 this.game.camera.clearEntities();
-                this.game.camera.loadLevel(levelOne);
+                this.game.camera.loadLevel(levelOne1);
             }
 
             this.game.click = null;

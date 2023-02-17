@@ -19,6 +19,7 @@ class Chatbox {
 
             // exit chat box
            if (this.mouseBB.collide(this.exitBB)) {
+               this.setVisible = false;
                this.removeFromWorld = true;
                console.log("removed chat");
             }
