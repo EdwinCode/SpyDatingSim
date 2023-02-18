@@ -334,6 +334,12 @@ class Spy {
         // debug
         PARAMS.DEBUG = document.getElementById("debug").checked;
         if (PARAMS.DEBUG) {
+            ctx.font = "Bold 20px Courier";
+            ctx.textAlign = "left";
+            ctx.fillText("x: " + this.x / PARAMS.BLOCKWIDTH, this.BB.x - this.game.camera.x, (this.BB.y - 25) - this.game.camera.y);
+            ctx.fillText("y: " + this.y / PARAMS.BLOCKWIDTH, this.BB.x - this.game.camera.x, (this.BB.y - 10) - this.game.camera.y);
+
+
             ctx.lineWidth = 4;
             ctx.strokeStyle = 'red';
             ctx.strokeRect(this.BB.x - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);

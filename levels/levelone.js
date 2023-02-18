@@ -93,12 +93,12 @@ class Level1Part1 {
 
     update() {
         // method not used but declaration is necessary for game engine
-        if(!this.game.entities.includes(this.darkness) && this.spyCharacter.x > 320 * PARAMS.BLOCKWIDTH) {
-            this.game.addEntityToTop(this.darkness);
-            this.hud.setTextColor("white");
-            this.game.addEntityToTop(this.hud);
-            this.game.addEntityToTop(new IngameTimer(this.game));
-        }
+        // if(!this.game.entities.includes(this.darkness) && this.spyCharacter.x > 320 * PARAMS.BLOCKWIDTH) {
+        //     this.game.addEntityToTop(this.darkness);
+        //     this.hud.setTextColor("white");
+        //     this.game.addEntityToTop(this.hud);
+        //     this.game.addEntityToTop(new IngameTimer(this.game));
+        // }
     };
 
     draw(ctx) {
@@ -114,10 +114,17 @@ class Level1Part2 {
         this.level = level;
         this.spyCharacter = spyCharacter;
 
+        this.timerWasZero = false;
+
         this.setUpLevel();
     };
 
     setUpLevel() {
+
+        this.ingameTimer = new IngameTimer(this.game);
+        this.game.addEntity(this.ingameTimer);
+        this.game.addEntity(this.darkness);
+
         // HUD
         this.game.addEntity(this.hud);
         this.hud.setText("Phase 1 - 2", "white");
@@ -201,11 +208,12 @@ class Level1Part2 {
 
     update() {
         // method not used but declaration is necessary for game engine
-        if(!this.game.entities.includes(this.darkness) && this.spyCharacter.x > 320 * PARAMS.BLOCKWIDTH) {
-            this.game.addEntityToTop(this.darkness);
-            this.hud.setTextColor("white");
-            this.game.addEntityToTop(this.hud);
-            this.game.addEntityToTop(new IngameTimer(this.game));
+
+        if (this.ingameTimer.timeIsZero === true && this.timerWasZero === false) {
+            this.ingameTimer.removeFromWorld = true;
+            this.timerWasZero = true;
+            this.game.addEntity(new Guard(this.game, (this.spyCharacter.x - 400) / PARAMS.BLOCKWIDTH, this.spyCharacter.y / PARAMS.BLOCKWIDTH, false));
+
         }
     };
 
