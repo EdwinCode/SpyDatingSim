@@ -56,13 +56,13 @@ class Level1Part1 {
         this.game.addEntity(new Guard(this.game, 550, 125, true));
 
         // billionaire
-        this.game.addEntity(new Billionaire(this.game));
+        this.game.addEntity(new Billionaire(this.game, 80 * PARAMS.BLOCKWIDTH, 192 * PARAMS.BLOCKWIDTH));
 
         // stephanie
-        this.game.addEntity(new Stephanie(this.game));
+        this.game.addEntity(new Stephanie(this.game, 100 * PARAMS.BLOCKWIDTH, 100 * PARAMS.BLOCKWIDTH));
 
         // richie
-        this.game.addEntity(new Richie(this.game));
+        this.game.addEntity(new Richie(this.game, 150 * PARAMS.BLOCKWIDTH, 100 * PARAMS.BLOCKWIDTH));
 
         //plain wall
         for (let i = 0; i < this.level.plainWalls.length; i++) {
