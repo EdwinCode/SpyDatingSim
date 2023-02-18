@@ -13,8 +13,6 @@ class NPC {
         this.updateInteractionBB();
 
         this.animations = [];
-
-        this.npcInteract = false;
     }
 
     updateBB() {
