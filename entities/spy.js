@@ -193,39 +193,82 @@ class Spy {
             // reset variable
             that.hideChat = true;
 
-            // collide with billionaire interaction bounding box
-            if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+            if (entity instanceof Billionaire) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                    console.log("B collision!!");
+                    that.canInteract = true;
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
+
+                        that.loadText(levelOne1, "billionaire", that.chatState);
+                        that.chatState = that.updateState(levelOne1, "billionaire", that.chatState);
+
+                        that.chatbox = new Chatbox(that.game, that.text);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
+                    }
+                } else {
+                    that.canInteract = false;
+                }
+            }
+
+            if (entity instanceof Stephanie) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                    console.log("S collision!!");
+                    that.canInteract = true;
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
+
+                        that.loadText(levelOne1, "stephanie", that.chatState);
+                        that.chatState = that.updateState(levelOne1, "stephanie", that.chatState);
+
+                        that.chatbox = new Chatbox(that.game, that.text);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
+                    }
+                } else {
+                    that.canInteract = false;
+                }
+            }
+
+            if (entity instanceof Richie) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                    console.log("R collision!!");
+                    that.canInteract = true;
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
+
+                        that.loadText(levelOne1, "richie", that.chatState);
+                        that.chatState = that.updateState(levelOne1, "richie", that.chatState);
+
+                        that.chatbox = new Chatbox(that.game, that.text);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
+                    }
+                } else {
+                    that.canInteract = false;
+                }
+            }
+
+            //console.log(that.canInteract);
+
+
+            /*if (entity.interactBB && that.BB.collide(entity.interactBB)) {
                 // display "can interact" text for user
                 that.canInteract = true;
+
+                console.log(entity);
 
                 // interact with Billionaire
                 if (entity instanceof Billionaire && that.game.interact && that.hideChat) {
                     that.game.interact = false;
                     that.hideChat = false;
 
-                    console.log("B state before " + that.chatState);
-
                     that.loadText(levelOne1, "billionaire", that.chatState);
                     that.chatState = that.updateState(levelOne1, "billionaire", that.chatState);
-
-                    console.log("B state after " + that.chatState);
-
-                    that.chatbox = new Chatbox(that.game, that.text);
-                    that.game.addEntityToTop(that.chatbox);
-                    that.chatbox.setVisible = true;
-                }
-
-                // interact with Richie
-                if (entity instanceof Richie && that.game.interact && that.hideChat) {
-                    that.game.interact = false;
-                    that.hideChat = false;
-
-                    console.log("R state before " + that.chatState);
-
-                    that.loadText(levelOne1, "richie", that.chatState);
-                    that.chatState = that.updateState(levelOne1, "richie", that.chatState);
-
-                    console.log("R state after " + that.chatState);
 
                     that.chatbox = new Chatbox(that.game, that.text);
                     that.game.addEntityToTop(that.chatbox);
@@ -237,23 +280,33 @@ class Spy {
                     that.game.interact = false;
                     that.hideChat = false;
 
-                    console.log("S state before " + that.chatState);
-
                     that.loadText(levelOne1, "stephanie", that.chatState);
                     that.chatState = that.updateState(levelOne1, "stephanie", that.chatState);
-
-                    console.log("S state after " + that.chatState);
 
                     that.chatbox = new Chatbox(that.game, that.text);
                     that.game.addEntityToTop(that.chatbox);
                     that.chatbox.setVisible = true;
                 }
-            }
+
+                // interact with Richie
+                if (entity instanceof Richie && that.game.interact && that.hideChat) {
+                    that.game.interact = false;
+                    that.hideChat = false;
+
+                    that.loadText(levelOne1, "richie", that.chatState);
+                    that.chatState = that.updateState(levelOne1, "richie", that.chatState);
+
+                    that.chatbox = new Chatbox(that.game, that.text);
+                    that.game.addEntityToTop(that.chatbox);
+                    that.chatbox.setVisible = true;
+                }
+            }*/
 
             // don't display "can interact" text
-            else if (entity.interactBB && !that.BB.collide(entity.interactBB)) {
+           /* if (entity.interactBB && !that.BB.collide(entity.interactBB)) {
+                console.log("no collision");
                 that.canInteract = false;
-            }
+            }*/
 
             that.updateBB();
         });
@@ -265,6 +318,7 @@ class Spy {
 
         // interact message
         if (this.canInteract) {
+            console.log("drawing");
             setBlackStroke(ctx);
             ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
             ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);

@@ -66,7 +66,6 @@ class Chatbox {
 
             // npc text
             this.wrapText(ctx, this.text);
-            //ctx.fillText(this.text, this.chatboxX + 10, this.chatboxY + 20);
         }
     };
 
