@@ -1,5 +1,5 @@
 let levelOne1 = {
-    label: "Phase 1",
+    label: "Phase 1-1",
     butler: false,
     guards: false,
 
@@ -169,7 +169,7 @@ let levelOne1 = {
 };
 
 let levelOne2 = {
-    label: "Phase 1",
+    label: "Phase 1-2",
     butler: false,
     guards: false,
 
@@ -349,10 +349,18 @@ let titleScreen = {
     label: "title screen"
 };
 
+let loseScreen = {
+    label: "lose screen"
+};
+
+let winScreen = {
+    label: "win screen"
+};
+
 let introCutscene = {
     label: "intro"
 };
 
-let loseScreen = {
-    label: "lose screen"
+let levelOneCutscene = {
+    label: "level one"
 };
