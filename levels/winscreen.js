@@ -1,4 +1,4 @@
-class LoseScreen {
+class WinScreen {
     constructor(game) {
         this.game = game;
 
@@ -35,8 +35,7 @@ class LoseScreen {
 
         //title
         ctx.font = "Bold 60px Courier";
-        ctx.fillText("You Have Been", PARAMS.CANVAS_WIDTH / 2, 100);
-        ctx.fillText("Caught!", PARAMS.CANVAS_WIDTH / 2, 160);
+        ctx.fillText("You Win!", PARAMS.CANVAS_WIDTH / 2, 160);
 
         ctx.font = "Bold 35px Courier";
 

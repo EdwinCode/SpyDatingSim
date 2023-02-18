@@ -29,12 +29,17 @@ class Scenemanager {
             this.game.addEntity(new LoseScreen(this.game));
         }
 
+        // win screen
+        if (this.currentLevel === winScreen) {
+            this.game.addEntity(new WinScreen(this.game));
+        }
+
         // title screen
         if (this.currentLevel === titleScreen) {
             this.game.addEntity(new TitleScreen(this.game));
         }
 
-        // level one cutscene
+        // intro cutscene
         if (this.currentLevel === introCutscene) {
             //this.clearEntities();
             this.game.addEntity(new IntroCutscene(this.game));
@@ -47,6 +52,11 @@ class Scenemanager {
             this.darkness = new Darkness(this.game, this.spyCharacter.x, this.spyCharacter.y);
             this.hud.setTextColor("black");
             this.game.addEntity(new Level1Part1(this.game, this.hud, this.darkness, this.currentLevel, this.spyCharacter));
+        }
+
+        // level one cutscene
+        if (this.currentLevel === levelOneCutscene) {
+            this.game.addEntity(new LevelOneCutscene(this.game));
         }
 
         // TO BE ADDED

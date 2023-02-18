@@ -181,10 +181,13 @@ class Spy {
             //
 
             // trigger cutscene
-            if (that.game.currLvl.label === "Phase 1" && that.chatState === 4 && that.chatbox.setVisible === false) {
-                console.log("NEW");
-                that.game.camera.clearEntities();
-                that.game.camera.loadLevel(levelOne2);
+            if (that.game.currLvl.label === "Phase 1-1" && that.chatState === 4 && that.chatbox.setVisible === false) {
+                that.game.camera.loadLevel(levelOneCutscene);
+            }
+
+            // win game
+            if (that.game.currLvl.label === "Phase 1-2" && that.chatState === 4 && that.chatbox.setVisible === false) {
+                that.game.camera.loadLevel(winScreen);
             }
 
             // reset variable
