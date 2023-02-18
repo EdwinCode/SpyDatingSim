@@ -51,16 +51,24 @@ class NPC {
             if (entity.BB && that.BB.collide(entity.BB)) {
                 if (entity instanceof  Furniture|| entity instanceof NPC) {
                     if(entity.BB.right <= (that.lastBB.left+20)){ // from right
+                        that.x += entity.BB.right - that.lastBB.left;
                         that.direction = that.chooseRandDirection();
+
                     }
                     else if(entity.BB.left >= (that.lastBB.right-20)){ // from left
+                        that.x -= that.lastBB.right - entity.BB.left;
                         that.direction = that.chooseRandDirection();
+
                     }
                     else if(entity.BB.bottom <= (that.lastBB.top+20)){ //from below
+                        that.y += entity.BB.bottom - that.lastBB.top;
                         that.direction = that.chooseRandDirection();
+
                     }
                     else if(entity.BB.top >= (that.lastBB.bottom-20)){ // from above
+                        that.y -= that.lastBB.bottom - entity.BB.top;
                         that.direction = that.chooseRandDirection();
+
                     }
                 }
             }
