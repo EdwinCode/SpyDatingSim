@@ -14,6 +14,7 @@ class NPC {
 
         this.animations = [];
 
+        this.npcInteract = false;
     }
 
     updateBB() {
