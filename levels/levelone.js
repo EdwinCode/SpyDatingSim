@@ -151,10 +151,6 @@ class Level1Part2 {
             this.game.addEntity(new Bed(this.game, bed.x * PARAMS.BLOCKWIDTH, bed.y * PARAMS.BLOCKWIDTH));
         }
 
-        //spy
-        // this.spyCharacter = new Spy(this.game, -100, 55);
-        this.game.addEntity(this.spyCharacter);
-
         // guard
         // this.game.addEntity(new Guard(this.game, 88, 216, false));
         //
@@ -163,14 +159,18 @@ class Level1Part2 {
         this.game.addEntity(new Guard(this.game, 388, 216, false));
         this.game.addEntity(new Guard(this.game, 550, 125, true));
 
-        // billionaire
-        this.game.addEntity(new Billionaire(this.game));
-
         // stephanie
         this.game.addEntity(new Stephanie(this.game));
 
         // richie
         this.game.addEntity(new Richie(this.game));
+
+        // billionaire
+        this.game.addEntity(new Billionaire(this.game));
+
+        //spy
+        // this.spyCharacter = new Spy(this.game, -100, 55);
+        this.game.addEntity(this.spyCharacter);
 
         //plain wall
         for (let i = 0; i < this.level.plainWalls.length; i++) {

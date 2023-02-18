@@ -20,7 +20,11 @@ class Spy {
         this.velocity = 300;
 
         this.spotted = false;
-        this.canInteract = false;
+
+        this.stephInteract = false;
+        this.richieInteract = false;
+        this.billionaireInteract = false;
+
 
         // use for decision tree
         this.chatState = 0;
@@ -193,50 +197,10 @@ class Spy {
             // reset variable
             that.hideChat = true;
 
-            if (entity instanceof Billionaire) {
-                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
-                    console.log("B collision!!");
-                    that.canInteract = true;
-                    if (that.game.interact && that.hideChat) {
-                        that.game.interact = false;
-                        that.hideChat = false;
-
-                        that.loadText(levelOne1, "billionaire", that.chatState);
-                        that.chatState = that.updateState(levelOne1, "billionaire", that.chatState);
-
-                        that.chatbox = new Chatbox(that.game, that.text);
-                        that.game.addEntityToTop(that.chatbox);
-                        that.chatbox.setVisible = true;
-                    }
-                } else {
-                    that.canInteract = false;
-                }
-            }
-
-            if (entity instanceof Stephanie) {
-                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
-                    console.log("S collision!!");
-                    that.canInteract = true;
-                    if (that.game.interact && that.hideChat) {
-                        that.game.interact = false;
-                        that.hideChat = false;
-
-                        that.loadText(levelOne1, "stephanie", that.chatState);
-                        that.chatState = that.updateState(levelOne1, "stephanie", that.chatState);
-
-                        that.chatbox = new Chatbox(that.game, that.text);
-                        that.game.addEntityToTop(that.chatbox);
-                        that.chatbox.setVisible = true;
-                    }
-                } else {
-                    that.canInteract = false;
-                }
-            }
-
             if (entity instanceof Richie) {
                 if (entity.interactBB && that.BB.collide(entity.interactBB)) {
                     console.log("R collision!!");
-                    that.canInteract = true;
+                    that.richieInteract = true;
                     if (that.game.interact && that.hideChat) {
                         that.game.interact = false;
                         that.hideChat = false;
@@ -249,7 +213,47 @@ class Spy {
                         that.chatbox.setVisible = true;
                     }
                 } else {
-                    that.canInteract = false;
+                    that.richieInteract = false;
+                }
+            }
+
+            else if (entity instanceof Billionaire) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                    console.log("B collision!!");
+                    that.billionaireInteract = true;
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
+
+                        that.loadText(levelOne1, "billionaire", that.chatState);
+                        that.chatState = that.updateState(levelOne1, "billionaire", that.chatState);
+
+                        that.chatbox = new Chatbox(that.game, that.text);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
+                    }
+                } else {
+                    that.billionaireInteract = false;
+                }
+            }
+
+            else if (entity instanceof Stephanie) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                    console.log("S collision!!");
+                    that.stephInteract = true;
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
+
+                        that.loadText(levelOne1, "stephanie", that.chatState);
+                        that.chatState = that.updateState(levelOne1, "stephanie", that.chatState);
+
+                        that.chatbox = new Chatbox(that.game, that.text);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
+                    }
+                } else {
+                    that.stephInteract = false;
                 }
             }
 
@@ -317,8 +321,7 @@ class Spy {
         this.animations[this.state][this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
 
         // interact message
-        if (this.canInteract) {
-            console.log("drawing");
+        if (this.stephInteract || this.billionaireInteract || this.richieInteract) {
             setBlackStroke(ctx);
             ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
             ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
