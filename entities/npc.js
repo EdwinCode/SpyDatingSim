@@ -1,16 +1,7 @@
-class Billionaire {
-    constructor(game) {
-        this.game = game;
-
-        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/billionaire.png");
-
-        // pulled out repeated number to a variable
-        this.billionaireW = 16 * PARAMS.BLOCKWIDTH;
-        this.billionaireH = 29 * PARAMS.BLOCKWIDTH;
-
-        // character placement
-        this.x = 80 * PARAMS.BLOCKWIDTH;
-        this.y = 192 * PARAMS.BLOCKWIDTH;
+class NPC {
+    constructor(game, spritesheet, x, y, dWidth, dHeight) {
+        Object.assign(this, {game, x, y, dWidth, dHeight});
+        this.spritesheet = ASSET_MANAGER.getAsset(spritesheet);
 
         this.velocity = 70;
         this.direction = 0;
@@ -22,37 +13,18 @@ class Billionaire {
         this.updateInteractionBB();
 
         this.animations = [];
-        this.loadAnimations();
-    };
 
-    setBillionairePlacement(x, y) {
-        this.x = x;
-        this.y = y;
     }
-
-    setWanderBBPlacement(x, y) {
-        this.wanderX = x;
-        this.wanderY = y;
-    }
-
-    loadAnimations() {
-        // walking animation
-        // 0 = down, 1 = up, 2 = left, 3 = right
-        this.animations[0] = new Animator(this.spritesheet, 0, 0, 120, 232, 4, 0.3);
-        this.animations[1] = new Animator(this.spritesheet, 0, 240, 128, 232, 4, 0.3);
-        this.animations[2] = new Animator(this.spritesheet, 0, 480, 120, 232, 4, 0.3);
-        this.animations[3] = new Animator(this.spritesheet, 0, 720, 120, 232, 4, 0.3);
-
-    };
 
     updateBB() {
         this.lastBB = this.BB;
-        this.BB = new BoundingBox(this.x, this.y, this.billionaireW, this.billionaireH);
+        this.BB = new BoundingBox(this.x, this.y, this.dWidth, this.dHeight);
     };
 
     updateInteractionBB() {
-        this.interactBB = new BoundingBox(this.x - this.billionaireW / 2, this.y - this.billionaireH / 2, this.billionaireW * 2, this.billionaireH * 2);
+        this.interactBB = new BoundingBox(this.x - this.dWidth / 2, this.y - this.dHeight / 2, this.dWidth * 2, this.dHeight * 2);
     };
+
 
     update() {
         this.updateBB();
@@ -156,4 +128,65 @@ class Billionaire {
 
         }
     };
-};
+
+}
+
+
+class Billionaire extends NPC{
+    constructor(game, x, y) {
+        super(game, "./sprites/entities/billionaire.png", x, y, 16 * PARAMS.BLOCKWIDTH, 29 * PARAMS.BLOCKWIDTH);
+
+        this.loadAnimations();
+    };
+
+
+    loadAnimations() {
+        // walking animation
+        // 0 = down, 1 = up, 2 = left, 3 = right
+        this.animations[0] = new Animator(this.spritesheet, 0, 0, 120, 232, 4, 0.3);
+        this.animations[1] = new Animator(this.spritesheet, 0, 240, 128, 232, 4, 0.3);
+        this.animations[2] = new Animator(this.spritesheet, 0, 480, 120, 232, 4, 0.3);
+        this.animations[3] = new Animator(this.spritesheet, 0, 720, 120, 232, 4, 0.3);
+
+    };
+
+}
+
+class Stephanie extends NPC{
+    constructor(game, x, y) {
+        super(game, "./sprites/entities/stephanie.png", x, y, 16 * PARAMS.BLOCKWIDTH, 29 * PARAMS.BLOCKWIDTH);
+
+        this.loadAnimations();
+    };
+
+
+    loadAnimations() {
+        // walking animation
+        // 0 = down, 1 = up, 2 = left, 3 = right
+        this.animations[0] = new Animator(this.spritesheet, 8, 8, 144, 208, 4, 0.3);
+        this.animations[1] = new Animator(this.spritesheet, 8, 215, 150, 208, 4, 0.3);
+        this.animations[2] = new Animator(this.spritesheet, 8, 420, 144, 208, 4, 0.3);
+        this.animations[3] = new Animator(this.spritesheet, 8, 628, 144, 208, 4, 0.3);
+
+    };
+}
+
+class Richie extends NPC{
+    constructor(game, x, y) {
+        super(game, "./sprites/entities/richie.png", x, y, 16 * PARAMS.BLOCKWIDTH, 29 * PARAMS.BLOCKWIDTH);
+
+        this.loadAnimations();
+    };
+
+
+    loadAnimations() {
+        // walking animation
+        // 0 = down, 1 = up, 2 = left, 3 = right
+        this.animations[0] = new Animator(this.spritesheet, 8, 8, 128, 208, 4, 0.3);
+        this.animations[1] = new Animator(this.spritesheet, 8, 212, 128, 208, 4, 0.3);
+        this.animations[2] = new Animator(this.spritesheet, 8, 420, 110, 208, 4, 0.3);
+        this.animations[3] = new Animator(this.spritesheet, 8, 628, 110, 208, 4, 0.3);
+
+    };
+
+}
