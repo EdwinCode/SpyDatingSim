@@ -59,7 +59,6 @@ class Scenemanager {
             this.game.addEntity(new LevelOneCutscene(this.game));
         }
 
-        // TO BE ADDED
         // level one, part 2
         if (this.currentLevel === levelOne2) {
             this.hud = new HUD(this.game);
