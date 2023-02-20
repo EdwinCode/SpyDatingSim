@@ -47,19 +47,19 @@ class Guard{
         //if going up and down
         if (this.isUpDown) {
             if (this.direction === 0) {
-                this.sightBB = new BoundingBox(this.x, this.y, this.guardW, this.wanderBB.height - (this.y - this.wanderBB.y));
+                this.sightBB = new BoundingBox(this.x, this.y + this.guardH, this.guardW, this.wanderBB.height - (this.y - this.wanderBB.y));
 
             } else {
-                this.sightBB = new BoundingBox(this.x, this.wanderBB.y, this.guardW, this.y - (this.wanderBB.y - this.guardH));
+                this.sightBB = new BoundingBox(this.x, this.wanderBB.y, this.guardW, this.y - (this.wanderBB.y));
             }
         }
         //if going left and right
         else {
             if (this.direction === 2) {
-                this.sightBB = new BoundingBox(this.x, this.y, this.wanderBB.width - (this.x - this.wanderBB.x), this.guardH);
+                this.sightBB = new BoundingBox(this.x + this.guardW, this.y, this.wanderBB.width - (this.x - this.wanderBB.x + this.guardW), this.guardH);
 
             } else {
-                this.sightBB = new BoundingBox(this.wanderBB.x, this.y, this.x - (this.wanderBB.x - this.guardW), this.guardH);
+                this.sightBB = new BoundingBox(this.wanderBB.x, this.y, this.x - (this.wanderBB.x), this.guardH);
             }
         }
 
@@ -129,6 +129,8 @@ class Guard{
 
     draw(ctx) {
         this.animations[this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
+        ctx.fillStyle = 'white';
+        ctx.fillRect(this.sightBB.x - this.game.camera.x, this.sightBB.y - this.game.camera.y, this.sightBB.width, this.sightBB.height);
 
         PARAMS.DEBUG = document.getElementById("debug").checked;
         if (PARAMS.DEBUG) {

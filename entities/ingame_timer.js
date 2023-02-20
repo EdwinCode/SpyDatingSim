@@ -2,7 +2,8 @@ class IngameTimer {
     constructor(game) {
         this.game = game;
 
-        this.time = 200;
+        this.time = 10;
+        this.timeIsZero = false;
 
     };
 
@@ -16,6 +17,10 @@ class IngameTimer {
         if (this.timer > 0.4) {
             this.time -= 1;
             this.timer = undefined;
+        }
+
+        if (this.time === 0) {
+            this.timeIsZero = true;
         }
     };
 
