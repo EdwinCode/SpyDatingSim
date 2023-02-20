@@ -205,8 +205,8 @@ class Spy {
                         that.game.interact = false;
                         that.hideChat = false;
 
-                        that.loadText(levelOne1, "richie", that.chatState);
-                        that.chatState = that.updateState(levelOne1, "richie", that.chatState);
+                        that.loadText(that.game.currLvl, "richie", that.chatState);
+                        that.chatState = that.updateState(that.game.currLvl, "richie", that.chatState);
 
                         that.chatbox = new Chatbox(that.game, that.text);
                         that.game.addEntityToTop(that.chatbox);
@@ -225,8 +225,8 @@ class Spy {
                         that.game.interact = false;
                         that.hideChat = false;
 
-                        that.loadText(levelOne1, "billionaire", that.chatState);
-                        that.chatState = that.updateState(levelOne1, "billionaire", that.chatState);
+                        that.loadText(that.game.currLvl, "billionaire", that.chatState);
+                        that.chatState = that.updateState(that.game.currLvl, "billionaire", that.chatState);
 
                         that.chatbox = new Chatbox(that.game, that.text);
                         that.game.addEntityToTop(that.chatbox);
@@ -245,8 +245,8 @@ class Spy {
                         that.game.interact = false;
                         that.hideChat = false;
 
-                        that.loadText(levelOne1, "stephanie", that.chatState);
-                        that.chatState = that.updateState(levelOne1, "stephanie", that.chatState);
+                        that.loadText(that.game.currLvl, "stephanie", that.chatState);
+                        that.chatState = that.updateState(that.game.currLvl, "stephanie", that.chatState);
 
                         that.chatbox = new Chatbox(that.game, that.text);
                         that.game.addEntityToTop(that.chatbox);
@@ -256,61 +256,6 @@ class Spy {
                     that.stephInteract = false;
                 }
             }
-
-            //console.log(that.canInteract);
-
-
-            /*if (entity.interactBB && that.BB.collide(entity.interactBB)) {
-                // display "can interact" text for user
-                that.canInteract = true;
-
-                console.log(entity);
-
-                // interact with Billionaire
-                if (entity instanceof Billionaire && that.game.interact && that.hideChat) {
-                    that.game.interact = false;
-                    that.hideChat = false;
-
-                    that.loadText(levelOne1, "billionaire", that.chatState);
-                    that.chatState = that.updateState(levelOne1, "billionaire", that.chatState);
-
-                    that.chatbox = new Chatbox(that.game, that.text);
-                    that.game.addEntityToTop(that.chatbox);
-                    that.chatbox.setVisible = true;
-                }
-
-                // interact with Stephanie
-                if (entity instanceof Stephanie && that.game.interact && that.hideChat) {
-                    that.game.interact = false;
-                    that.hideChat = false;
-
-                    that.loadText(levelOne1, "stephanie", that.chatState);
-                    that.chatState = that.updateState(levelOne1, "stephanie", that.chatState);
-
-                    that.chatbox = new Chatbox(that.game, that.text);
-                    that.game.addEntityToTop(that.chatbox);
-                    that.chatbox.setVisible = true;
-                }
-
-                // interact with Richie
-                if (entity instanceof Richie && that.game.interact && that.hideChat) {
-                    that.game.interact = false;
-                    that.hideChat = false;
-
-                    that.loadText(levelOne1, "richie", that.chatState);
-                    that.chatState = that.updateState(levelOne1, "richie", that.chatState);
-
-                    that.chatbox = new Chatbox(that.game, that.text);
-                    that.game.addEntityToTop(that.chatbox);
-                    that.chatbox.setVisible = true;
-                }
-            }*/
-
-            // don't display "can interact" text
-           /* if (entity.interactBB && !that.BB.collide(entity.interactBB)) {
-                console.log("no collision");
-                that.canInteract = false;
-            }*/
 
             that.updateBB();
         });

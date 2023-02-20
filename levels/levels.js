@@ -338,23 +338,8 @@ let levelOne2 = {
     ]
 };
 
-let credits = {
-    label: "credits",
-    text: [
-        "Felon For You"
-    ]
-};
-
 let titleScreen = {
     label: "title screen"
-};
-
-let loseScreen = {
-    label: "lose screen"
-};
-
-let winScreen = {
-    label: "win screen"
 };
 
 let introCutscene = {
@@ -363,4 +348,20 @@ let introCutscene = {
 
 let levelOneCutscene = {
     label: "level one"
+};
+
+let hints = {
+    label: "lose screen"
+};
+
+let itemsBag = {
+    label: "win screen"
+};
+
+let loseScreen = {
+    label: "lose screen"
+};
+
+let winScreen = {
+    label: "win screen"
 };
