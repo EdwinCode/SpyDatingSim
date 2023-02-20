@@ -20,7 +20,6 @@ class Chatbox {
            if (this.mouseBB.collide(this.exitBB)) {
                this.setVisible = false;
                this.removeFromWorld = true;
-               console.log("removed chat");
             }
 
             this.game.click = null;
@@ -97,17 +96,56 @@ class Chatbox {
 };
 
 class CasefileChatbox {
-    constructor(game, text) {
+    constructor(game) {
 
         this.game = game;
-        this.text = text;
 
         // image that looks like a case file
         this.spritesheet;
 
-        this.chatboxX = 0;
-        this.chatboxY;
-        this.chatboxW;
-        this.chatboxH;
+        this.chatboxX = PARAMS.CANVAS_WIDTH / 2 - 100;
+        this.chatboxY = PARAMS.CANVAS_HEIGHT / 2 - 150;
+        this.chatboxW = 200;
+        this.chatboxH = 300;
+
+        this.mouseBB = new BoundingBox(0, 0, 1, 1);
+        this.exitBB = new BoundingBox(612, 615, 50, 50);
+    };
+
+    update() {
+        if (this.game.click) {
+            this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y, 1, 1);
+
+            // exit chat box
+            if (this.mouseBB.collide(this.exitBB)) {
+                this.removeFromWorld = true;
+            }
+
+            this.game.click = null;
+        }
+
+        // update mouse area
+        if (this.game.mouse) {
+            this.mouseBB = new BoundingBox(this.game.mouse.x, this.game.mouse.y, 1, 1);
+        }
+    };
+
+    draw(ctx) {
+        // casefile
+        setBlackStroke(ctx);
+        ctx.strokeRect(this.chatboxX, this.chatboxY, this.chatboxW, this.chatboxH);
+        ctx.fillRect(this.chatboxX, this.chatboxY, this.chatboxW, this.chatboxH);
+
+        // exit button
+        setBlackStroke(ctx);
+        if (this.mouseBB.collide(this.exitBB)) {
+            setRedStroke(ctx);
+        }
+
+        ctx.lineWidth = 6;
+        ctx.textAlign = "center";
+        ctx.font = "Bold 35px Courier";
+        ctx.fillText("EXIT", 600, 640);
+        ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
     };
 };

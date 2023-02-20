@@ -10,6 +10,9 @@ class Scenemanager {
         this.spyCharacter = new Spy(this.game, -100, 55);
         this.darkness = new Darkness(this.game, 0, 0);
 
+        // items bag for whole game
+        this.suitcase = new Suitcase(this.game);
+
         this.loadLevel(titleScreen);
     };
 

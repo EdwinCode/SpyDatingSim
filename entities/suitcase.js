@@ -5,6 +5,8 @@ class Suitcase {
 
         this.x = 700;
         this.y = 550;
+
+        this.show = false;
     };
 
     update() {
@@ -12,6 +14,8 @@ class Suitcase {
     };
 
     draw(ctx) {
-        this.animator.drawFrame(this.game.clockTick, ctx, this.x, this.y);
+        if (this.show) {
+            this.animator.drawFrame(this.game.clockTick, ctx, this.x, this.y);
+        }
     };
 }

@@ -10,6 +10,9 @@ class Level1Part1 {
     };
 
     setUpLevel() {
+        // casefile chatbox
+        this.game.addEntity(new CasefileChatbox(this.game));
+
         // HUD
         this.game.addEntity(this.hud);
         this.hud.setText("Phase 1 - 1");
@@ -122,9 +125,9 @@ class Level1Part2 {
 
     setUpLevel() {
 
+        // Timer
         this.ingameTimer = new IngameTimer(this.game);
         this.game.addEntity(this.ingameTimer);
-        // this.game.addEntity(this.darkness);
 
         // HUD
         this.game.addEntity(this.hud);
@@ -200,6 +203,7 @@ class Level1Part2 {
             this.game.addEntity(new BigRug(this.game, rug.x * PARAMS.BLOCKWIDTH, rug.y * PARAMS.BLOCKWIDTH));
         }
 
+        // darkness
         this.game.addEntity(this.darkness);
 
         this.game.camera.paused = false;

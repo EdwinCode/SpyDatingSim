@@ -50,6 +50,7 @@ class TitleScreen {
 
     draw(ctx) {
 
+        // main screen
         if (!this.credits) {
             setBlackStroke(ctx);
             ctx.lineWidth = 6;
@@ -89,21 +90,10 @@ class TitleScreen {
             ctx.fillText("CREDITS", ctx.canvas.width / 2, 720 / 2 + 200);
             ctx.strokeRect(this.creditsBB.left, this.creditsBB.top, this.creditsBB.width, this.creditsBB.height);
 
-        } else {
-            setBlackStroke(ctx);
-            if (this.mouseBB.collide(this.exitBB)) {
-                setRedStroke(ctx);
-            }
-
-            ctx.lineWidth = 6;
-            ctx.textAlign = "center";
-            ctx.font = "Bold 35px Courier";
-            ctx.fillText("EXIT", 600, 640);
-            ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
-
         }
 
-        if (this.credits) {
+        // credits screen
+        else {
             setBlackStroke(ctx);
             ctx.lineWidth = 6;
             ctx.textAlign = "center";
@@ -117,6 +107,18 @@ class TitleScreen {
             ctx.fillText("Maria Babko", 40, 240);
             ctx.fillText("Chloe Duncan", 40, 280);
             ctx.fillText("Edwin Solis-Bruno", 40, 320);
+
+            // exit button
+            setBlackStroke(ctx);
+            if (this.mouseBB.collide(this.exitBB)) {
+                setRedStroke(ctx);
+            }
+
+            ctx.lineWidth = 6;
+            ctx.textAlign = "center";
+            ctx.font = "Bold 35px Courier";
+            ctx.fillText("EXIT", 600, 640);
+            ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
         }
     };
 };
