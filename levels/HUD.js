@@ -23,9 +23,9 @@ class HUD {
             this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y,1,1);
 
             if (this.mouseBB.collide(this.butlerBB)) {
-                // do something
-                this.text = loadText(this.game.currLvl, "butler", this.game.chatState);
-                this.chatbox = new Chatbox(this.game, this.text);
+                // new Chatbox with Butler hints
+                this.hintText = loadText(this.game.currLvl, "butler", this.game.chatState);
+                this.chatbox = new Chatbox(this.game, this.hintText);
                 this.game.addEntityToTop(this.chatbox);
                 this.chatbox.setVisible = true;
             } else {
