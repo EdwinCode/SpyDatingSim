@@ -27,8 +27,7 @@ class Spy {
 
 
         // use for decision tree
-        this.chatState = 0;
-        this.currLevel = this.game.level;
+        this.game.chatState = 0;
         this.text = "";
 
         this.updateBB();
@@ -185,12 +184,12 @@ class Spy {
             //
 
             // trigger cutscene
-            if (that.game.currLvl.label === "Phase 1-1" && that.chatState === 4 && that.chatbox.setVisible === false) {
+            if (that.game.currLvl.label === "Phase 1-1" && that.game.chatState === 4 && that.chatbox.setVisible === false) {
                 that.game.camera.loadLevel(levelOneCutscene);
             }
 
             // win game
-            if (that.game.currLvl.label === "Phase 1-2" && that.chatState === 4 && that.chatbox.setVisible === false) {
+            if (that.game.currLvl.label === "Phase 1-2" && that.game.chatState === 4 && that.chatbox.setVisible === false) {
                 that.game.camera.loadLevel(winScreen);
             }
 
@@ -205,8 +204,8 @@ class Spy {
                         that.game.interact = false;
                         that.hideChat = false;
 
-                        that.loadText(that.game.currLvl, "richie", that.chatState);
-                        that.chatState = that.updateState(that.game.currLvl, "richie", that.chatState);
+                        that.text = loadText(that.game.currLvl, "richie", that.game.chatState);
+                        that.game.chatState = that.updateState(that.game.currLvl, "richie", that.game.chatState);
 
                         that.chatbox = new Chatbox(that.game, that.text);
                         that.game.addEntityToTop(that.chatbox);
@@ -225,8 +224,8 @@ class Spy {
                         that.game.interact = false;
                         that.hideChat = false;
 
-                        that.loadText(that.game.currLvl, "billionaire", that.chatState);
-                        that.chatState = that.updateState(that.game.currLvl, "billionaire", that.chatState);
+                        that.text = loadText(that.game.currLvl, "billionaire", that.game.chatState);
+                        that.game.chatState = that.updateState(that.game.currLvl, "billionaire", that.game.chatState);
 
                         that.chatbox = new Chatbox(that.game, that.text);
                         that.game.addEntityToTop(that.chatbox);
@@ -245,8 +244,8 @@ class Spy {
                         that.game.interact = false;
                         that.hideChat = false;
 
-                        that.loadText(that.game.currLvl, "stephanie", that.chatState);
-                        that.chatState = that.updateState(that.game.currLvl, "stephanie", that.chatState);
+                        that.text = loadText(that.game.currLvl, "stephanie", that.game.chatState);
+                        that.game.chatState = that.updateState(that.game.currLvl, "stephanie", that.game.chatState);
 
                         that.chatbox = new Chatbox(that.game, that.text);
                         that.game.addEntityToTop(that.chatbox);
@@ -291,7 +290,7 @@ class Spy {
         }
     };
 
-    // for character interaction decision tree
+    /*// for character interaction decision tree
     loadText(level, entity, chatState) {
         // stephanie
         if (entity === "stephanie") {
@@ -309,10 +308,10 @@ class Spy {
         }
 
         // butler
-        else {
+        else if (entity === "butler") {
             this.text = level.butler[chatState].message;
         }
-    };
+    };*/
 
     updateState(level, entity, chatState) {
         // stephanie

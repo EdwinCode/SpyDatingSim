@@ -2,7 +2,6 @@ class Chatbox {
     constructor(game, text) {
         this.game = game;
         this.text = text;
-        this.textLength = text.length;
 
         this.chatboxX = 0;
         this.chatboxY = 500;
@@ -111,51 +110,4 @@ class CasefileChatbox {
         this.chatboxW;
         this.chatboxH;
     };
-};
-
-class HintChat {
-    constructor(game, level) {
-        this.game = game;
-        this.level = level;
-
-        // determine which hint to give based on character interaction
-        this.numItems = 0;
-
-        this.hints = [];
-        this.loadHints();
-        //this.hideHints = true;
-    };
-
-    loadHints() {
-        // jagged array
-        for (let i = 0; i < 2; i++) { // one level, two parts
-            this.hints.push([]);
-        }
-
-        for (let j = 0; j < 2; j++) { // two hints for lvl 1 pt 1
-            this.hints[1].push([]);
-        }
-
-        for (let j = 0; j < 3; j++) { // three hints for lvl 1 pt 2
-            this.hints[1].push([]);
-        }
-
-        // level one, part one hints
-        this.hints[0][0] = "Talk to Mr.Billionaire.";
-        this.hints[0][1] = "Talk to Stephanie and Richie.";
-
-        // level one, part two hints
-        this.hints[1][0] = "Look in the trashcan.";
-        this.hints[1][1] = "Look at the table surfaces.";
-        this.hints[1][2] = "Look in the cabinets near the wet table.";
-    };
-
-    update() {
-
-    };
-
-    draw(ctx) {
-
-    };
-
 };

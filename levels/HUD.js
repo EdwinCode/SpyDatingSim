@@ -24,6 +24,10 @@ class HUD {
 
             if (this.mouseBB.collide(this.butlerBB)) {
                 // do something
+                this.text = loadText(this.game.currLvl, "butler", this.game.chatState);
+                this.chatbox = new Chatbox(this.game, this.text);
+                this.game.addEntityToTop(this.chatbox);
+                this.chatbox.setVisible = true;
             } else {
                 if (this.mouseBB.collide(this.suitcaseBB)) {
                     // do something

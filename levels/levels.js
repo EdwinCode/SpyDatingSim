@@ -275,16 +275,16 @@ let levelOne2 = {
     ],
 
     butler: [
-        {message: "Talk to Mr.Billionaire.",
+        {message: "Look in the trashcan.",
             state: 0,
             stateIncr: false},
-        {message: "Talk to Stephanie.",
+        {message: "Look at the table surfaces.",
             state: 1,
             stateIncr: false},
-        {message: "Talk to Richie.",
+        {message: "Look in the cabinets near the wet table.",
             state: 2,
             stateIncr: false},
-        {message: "Go back to Mr.Billionaire.",
+        {message: "Look in the cabinets near the wet table.",
             state: 3,
             stateIncr: false}
     ],
