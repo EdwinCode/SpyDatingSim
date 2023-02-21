@@ -101,15 +101,10 @@ class CasefileChatbox {
         this.game = game;
 
         // image that looks like a case file
-        this.spritesheet;
-
-        this.chatboxX = PARAMS.CANVAS_WIDTH / 2 - 100;
-        this.chatboxY = PARAMS.CANVAS_HEIGHT / 2 - 150;
-        this.chatboxW = 200;
-        this.chatboxH = 300;
+        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/casefile.png");
 
         this.mouseBB = new BoundingBox(0, 0, 1, 1);
-        this.exitBB = new BoundingBox(612, 615, 50, 50);
+        this.exitBB = new BoundingBox(565, 520, 75, 30);
     };
 
     update() {
@@ -132,9 +127,28 @@ class CasefileChatbox {
 
     draw(ctx) {
         // casefile
+        ctx.drawImage(this.spritesheet, 0, 0, 460, 340, PARAMS.CANVAS_WIDTH / 2 - (460 * 1.5 / 2), PARAMS.CANVAS_HEIGHT / 2 - (340 * 1.5 / 2), 460 * 1.5, 340 * 1.5);
+
+        // text
+        ctx.fillStyle = "white";
+        ctx.font = "18px Courier";
+        ctx.fillRect(380, 300, 260, 200);
         setBlackStroke(ctx);
-        ctx.strokeRect(this.chatboxX, this.chatboxY, this.chatboxW, this.chatboxH);
-        ctx.fillRect(this.chatboxX, this.chatboxY, this.chatboxW, this.chatboxH);
+        ctx.fillText("OVERVIEW:", 387, 310);
+        ctx.fillText("Subject burned down the", 387, 325);
+        ctx.fillText("headquarters of his", 387, 340);
+        ctx.fillText("business competitor to", 387, 355);
+        ctx.fillText("cover up his true crime.", 387, 370);
+        ctx.fillText("He stole a patent,", 387, 385);
+        ctx.fillText("marketing it as his own.", 387, 400);
+        ctx.fillText("He is the lead suspect,", 387, 415);
+        ctx.fillText("but there is no solid", 387, 430);
+        ctx.fillText("proof of this. There is", 387, 445);
+        ctx.fillText("only the word of one", 387, 460);
+        ctx.fillText("witness who saw him", 387, 475);
+        ctx.fillText("take the patent.", 387, 490);
+        ctx.fillText("OBJECTIVE: Find the", 387, 515);
+        ctx.fillText("original patent.", 387, 530);
 
         // exit button
         setBlackStroke(ctx);
@@ -142,10 +156,10 @@ class CasefileChatbox {
             setRedStroke(ctx);
         }
 
-        ctx.lineWidth = 6;
+        ctx.lineWidth = 2;
         ctx.textAlign = "center";
-        ctx.font = "Bold 35px Courier";
-        ctx.fillText("EXIT", 600, 640);
+        ctx.font = "Bold 25px Courier";
+        ctx.fillText("EXIT", 603, 542);
         ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
     };
 };

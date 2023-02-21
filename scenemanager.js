@@ -71,6 +71,12 @@ class Scenemanager {
 
     };
 
+    // before moving on to next level, save state of items bag
+    // and pass to next level
+    setItemsBag(suitcase) {
+        this.suitcase = suitcase;
+    };
+
     update() {
 
         let midpointX = PARAMS.CANVAS_WIDTH  / 2 - this.spyCharacter.width / 2;

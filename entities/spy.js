@@ -290,29 +290,6 @@ class Spy {
         }
     };
 
-    /*// for character interaction decision tree
-    loadText(level, entity, chatState) {
-        // stephanie
-        if (entity === "stephanie") {
-            this.text = level.stephanie[chatState].message;
-        }
-
-        // richie
-        else if (entity === "richie") {
-            this.text = level.richie[chatState].message;
-        }
-
-        // billionaire
-        else if (entity === "billionaire") {
-            this.text = level.billionaire[chatState].message;
-        }
-
-        // butler
-        else if (entity === "butler") {
-            this.text = level.butler[chatState].message;
-        }
-    };*/
-
     updateState(level, entity, chatState) {
         // stephanie
         if (entity === "stephanie") {
