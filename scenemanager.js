@@ -10,8 +10,15 @@ class Scenemanager {
         this.spyCharacter = new Spy(this.game, -100, 55);
         this.darkness = new Darkness(this.game, 0, 0);
 
+        // items bag tracking
+        this.itemsBag = new Itemsbag(this.game);
+
         this.loadLevel(titleScreen);
     };
+
+    saveItemsBagConditions(itemsBag) {
+        this.itemsBag = itemsBag;
+    }
 
     clearEntities() {
         this.game.entities.forEach(function (entity) {

@@ -7,8 +7,6 @@ class HUD {
         this.mouseBB = new BoundingBox(0,0,1,1);
         this.butlerBB = new BoundingBox(545,5,60,54);
         this.itemsBagBB = new BoundingBox(615,5,60,54);
-
-        this.firstTime = true;
     };
 
     setText(text) {
@@ -24,24 +22,19 @@ class HUD {
         if (this.game.click) {
             this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y,1,1);
 
+            // new Chatbox with Butler hints
             if (this.mouseBB.collide(this.butlerBB)) {
-                // new Chatbox with Butler hints
                 this.hintText = loadText(this.game.currLvl, "butler", this.game.chatState);
                 this.chatbox = new Chatbox(this.game, this.hintText);
                 this.game.addEntityToTop(this.chatbox);
                 this.chatbox.setVisible = true;
-            } else {
-                if (this.mouseBB.collide(this.itemsBagBB)) {
+            }
 
-                    if (this.firstTime) {
-                        this.game.addEntityToTop(new Itemsbag(this.game));
-                        this.game.displayItemsBag = true;
-                        this.game.casefileDisplay = true;
-                        this.firstTime = false;
-                    } else {
-                        this.game.displayItemsBag = true;
-                    }
-                }
+            // new items bag
+            else if (this.mouseBB.collide(this.itemsBagBB)) {
+                this.itemsBag = new Itemsbag(this.game);
+                this.itemsBag.setBagConditions(true);
+                this.game.addEntityToTop(this.itemsBag);
             }
             // reset user click
             this.game.click = null;

@@ -2,9 +2,6 @@ class Itemsbag {
     constructor(game) {
         this.game = game;
 
-        // display items bag
-        this.game.displayItemsBag = false;
-
         // display booleans
         this.game.casefileDisplay = false;
         this.sneakersDisplay = false;
@@ -22,6 +19,10 @@ class Itemsbag {
         this.mouseBB = new BoundingBox(0,0,1,1);
     };
 
+    setBagConditions(casefileDisplay) {
+        this.game.casefileDisplay = casefileDisplay;
+    }
+
     update() {
         if (this.game.click) {
             this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y,1,1);
@@ -36,8 +37,7 @@ class Itemsbag {
             // else if clues -> view
 
             else if (this.mouseBB.collide(this.exitBB)) {
-                console.log("don't show")
-                this.game.displayItemsBag = false;
+                this.removeFromWorld = true;
             }
 
             this.game.click = null;
@@ -49,30 +49,27 @@ class Itemsbag {
     };
 
     draw(ctx) {
-        if (this.game.displayItemsBag) {
-            // basic items bag
-            setWhiteStroke(ctx);
-            ctx.fillRect(0,0,PARAMS.CANVAS_WIDTH,PARAMS.CANVAS_HEIGHT);
+        // basic items bag
+        setWhiteStroke(ctx);
+        ctx.fillRect(0, 0, PARAMS.CANVAS_WIDTH, PARAMS.CANVAS_HEIGHT);
 
-            // change text color and text fill
-            setBlackStroke(ctx);
+        // change text color and text fill
+        setBlackStroke(ctx);
 
-            // exit
-            if (this.mouseBB.collide(this.exitBB)) {
+        // exit
+        if (this.mouseBB.collide(this.exitBB)) {
+            setRedStroke(ctx);
+        }
+        ctx.fillText("EXIT", 600, 640);
+        ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
+
+        // add items
+        if (this.game.casefileDisplay) {
+            if (this.mouseBB.collide(this.casefileBB)) {
                 setRedStroke(ctx);
             }
-            ctx.fillText("EXIT", 600, 640);
-            ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
-
-            // add items
-            if (this.game.casefileDisplay) {
-                console.log("displaying")
-                if (this.mouseBB.collide(this.casefileBB)) {
-                    setRedStroke(ctx);
-                }
-                ctx.fillText("Case File", 60, 60);
-                ctx.strokeRect(this.casefileBB.left, this.casefileBB.top, this.casefileBB.width, this.casefileBB.height);
-            }
+            ctx.fillText("Case File", 60, 60);
+            ctx.strokeRect(this.casefileBB.left, this.casefileBB.top, this.casefileBB.width, this.casefileBB.height);
         }
     };
 }
