@@ -219,7 +219,6 @@ class GameEngine {
             this.draw();
         } else {
             this.clockTick = null;
-            this.update();
         }
     };
 
