@@ -179,6 +179,11 @@ class GameEngine {
     };
 
     addEntityToTop(entity) {
+        for (let i = 0; i < this.entities.length; i++) {
+            if (this.entities[i] === entity) {
+                console.log(this.entities.splice(i, 1));
+            }
+        }
       this.entities.unshift(entity) ;
     };
 
@@ -219,7 +224,6 @@ class GameEngine {
             this.draw();
         } else {
             this.clockTick = null;
-            this.update();
         }
     };
 
