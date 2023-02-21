@@ -158,6 +158,14 @@ class Level1Part2 {
             this.game.addEntity(new Bed(this.game, bed.x * PARAMS.BLOCKWIDTH, bed.y * PARAMS.BLOCKWIDTH));
         }
 
+        this.cama = new Bed(this.game, 500 * PARAMS.BLOCKWIDTH, 220 * PARAMS.BLOCKWIDTH);
+        this.game.addEntity(this.cama);
+        let camaX = this.cama.x;
+        let camaY = this.cama.y;
+        let camaW = this.cama.dWidth;
+        let camaH = this.cama.dHeight;
+        this.cama.winBB = new BoundingBox(camaX - camaW / 2, camaY - camaH / 2, camaW * 2, camaH * 2);
+
         // guard
         // this.game.addEntity(new Guard(this.game, 88, 216, false));
         //

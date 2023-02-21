@@ -171,6 +171,13 @@ class Spy {
                 }
             }
 
+            else if (entity.winBB && that.BB.collide(entity.winBB)) {
+                if (that.game.interact) {
+                    that.game.camera.loadLevel(winScreen);
+
+                }
+            }
+
             // collide with guard sight
             else if (entity.sightBB && that.BB.collide(entity.sightBB)) {
                 if (entity instanceof Guard) {
