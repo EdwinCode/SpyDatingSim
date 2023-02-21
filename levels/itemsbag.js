@@ -2,6 +2,9 @@ class Itemsbag {
     constructor(game) {
         this.game = game;
 
+        // display items bag
+        this.game.displayItemsBag = false;
+
         // display booleans
         this.game.casefileDisplay = false;
         this.sneakersDisplay = false;
@@ -11,8 +14,12 @@ class Itemsbag {
         this.clueThreeDisplay = false;
 
         // items bounding boxes
-        this.mouseBB = new BoundingBox(0,0,1,1);
+        // to be added to
         this.casefileBB = new BoundingBox(60,60,100,50);
+
+        // other bounding boxes
+        this.exitBB = new BoundingBox(600 - 50, 650 - 45, 100, 50);
+        this.mouseBB = new BoundingBox(0,0,1,1);
     };
 
     update() {
@@ -24,12 +31,14 @@ class Itemsbag {
                 this.game.addEntityToTop(new CasefileChatbox(this.game));
             }
             // to be implemented
-            /*else {
-                if (this.mouseBB.collide()) {
-                    // do something
+            // else if sneaker -> apply
+            // else if cape -> apply
+            // else if clues -> view
 
-                }
-            }*/
+            else if (this.mouseBB.collide(this.exitBB)) {
+                console.log("don't show")
+                this.game.displayItemsBag = false;
+            }
 
             this.game.click = null;
         }
@@ -40,21 +49,30 @@ class Itemsbag {
     };
 
     draw(ctx) {
-        // basic items bag
-        setWhiteStroke(ctx);
-        ctx.fillRect(50,50,500,500);
+        if (this.game.displayItemsBag) {
+            // basic items bag
+            setWhiteStroke(ctx);
+            ctx.fillRect(0,0,PARAMS.CANVAS_WIDTH,PARAMS.CANVAS_HEIGHT);
 
-        // change text color and fill
-        setBlackStroke(ctx);
+            // change text color and text fill
+            setBlackStroke(ctx);
 
-        // add items
-        if (this.game.casefileDisplay) {
-            console.log("yup")
-            if (this.mouseBB.collide(this.casefileBB)) {
+            // exit
+            if (this.mouseBB.collide(this.exitBB)) {
                 setRedStroke(ctx);
             }
-            ctx.fillText("Casefile", 60, 60);
-            ctx.strokeRect(this.casefileBB.x, this.casefileBB.y, this.casefileBB.width, this.casefileBB.height);
+            ctx.fillText("EXIT", 600, 640);
+            ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
+
+            // add items
+            if (this.game.casefileDisplay) {
+                console.log("displaying")
+                if (this.mouseBB.collide(this.casefileBB)) {
+                    setRedStroke(ctx);
+                }
+                ctx.fillText("Case File", 60, 60);
+                ctx.strokeRect(this.casefileBB.left, this.casefileBB.top, this.casefileBB.width, this.casefileBB.height);
+            }
         }
     };
 }

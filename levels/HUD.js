@@ -6,7 +6,9 @@ class HUD {
 
         this.mouseBB = new BoundingBox(0,0,1,1);
         this.butlerBB = new BoundingBox(545,5,60,54);
-        this.suitcaseBB = new BoundingBox(615,5,60,54);
+        this.itemsBagBB = new BoundingBox(615,5,60,54);
+
+        this.firstTime = true;
     };
 
     setText(text) {
@@ -29,13 +31,19 @@ class HUD {
                 this.game.addEntityToTop(this.chatbox);
                 this.chatbox.setVisible = true;
             } else {
-                if (this.mouseBB.collide(this.suitcaseBB)) {
-                    // show items bag
-                    this.game.addEntityToTop(new Itemsbag(this.game));
-                    this.game.casefileDisplay = true;
+                if (this.mouseBB.collide(this.itemsBagBB)) {
+
+                    if (this.firstTime) {
+                        this.game.addEntityToTop(new Itemsbag(this.game));
+                        this.game.displayItemsBag = true;
+                        this.game.casefileDisplay = true;
+                        this.firstTime = false;
+                    } else {
+                        this.game.displayItemsBag = true;
+                    }
                 }
             }
-
+            // reset user click
             this.game.click = null;
         }
 
@@ -70,11 +78,11 @@ class HUD {
         ctx.fillStyle = 'gray';
 
         // suitcase
-        if (this.mouseBB.collide(this.suitcaseBB)) {
+        if (this.mouseBB.collide(this.itemsBagBB)) {
             ctx.fillStyle = "rgb(93,93,93)";
         }
-        ctx.strokeRect(this.suitcaseBB.left, this.suitcaseBB.top, this.suitcaseBB.width, this.suitcaseBB.height);
-        ctx.fillRect(this.suitcaseBB.left, this.suitcaseBB.top, this.suitcaseBB.width, this.suitcaseBB.height);
+        ctx.strokeRect(this.itemsBagBB.left, this.itemsBagBB.top, this.itemsBagBB.width, this.itemsBagBB.height);
+        ctx.fillRect(this.itemsBagBB.left, this.itemsBagBB.top, this.itemsBagBB.width, this.itemsBagBB.height);
         this.butlerIcon = ASSET_MANAGER.getAsset("./sprites/suitcase.png")
         ctx.drawImage(this.butlerIcon, 615, 5, 3 * 20, 3 * 18);
 
