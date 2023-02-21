@@ -2,7 +2,7 @@ class LevelOneCutscene {
     constructor(game) {
         this.game = game;
 
-        //this.spritesheet = ASSET_MANAGER.getAsset("./sprites/cutscenes/Intro.png");
+        //this.spritesheet = ASSET_MANAGER.getAsset("./sprites/cutscenes/intro.png");
         //this.animation = new Animator(this.spritesheet, 0, 0, 700, 700, 64, 0.1);
 
         //this.xStart = (this.animation.frameCount * 700) - 700;
@@ -60,7 +60,7 @@ class IntroCutscene {
     constructor(game) {
         this.game = game;
 
-        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/cutscenes/Intro.png");
+        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/cutscenes/intro.png");
         this.animation = new Animator(this.spritesheet, 0, 0, 700, 700, 64, 0.1);
 
         this.xStart = (this.animation.frameCount * 700) - 700;

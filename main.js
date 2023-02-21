@@ -10,15 +10,17 @@ ASSET_MANAGER.queueDownload("./sprites/entities/stephanie.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/richie.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/darkness.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/guard.png");
+
+// HUD icons
 ASSET_MANAGER.queueDownload("./sprites/alfred.png");
 ASSET_MANAGER.queueDownload("./sprites/suitcase.png");
 
-//cutscene
-ASSET_MANAGER.queueDownload("./sprites/cutscenes/Intro.png");
+//cutscenes
+ASSET_MANAGER.queueDownload("./sprites/cutscenes/intro.png");
+ASSET_MANAGER.queueDownload("./sprites/casefile.png");
 
 //furniture
 ASSET_MANAGER.queueDownload("./sprites/furniture/House_Tileset.png");
-
 
 ASSET_MANAGER.downloadAll(() => {
 	const canvas = document.getElementById("gameWorld");

@@ -94,3 +94,30 @@ function setWhiteStroke(ctx) {
     ctx.strokeStyle = "white";
     ctx.fillStyle = "white";
 };
+
+//
+// Character Interaction Tools
+//
+
+// for character interaction decision tree
+function loadText(level, entity, chatState) {
+    // stephanie
+    if (entity === "stephanie") {
+         return level.stephanie[chatState].message;
+    }
+
+    // richie
+    else if (entity === "richie") {
+        return level.richie[chatState].message;
+    }
+
+    // billionaire
+    else if (entity === "billionaire") {
+        return level.billionaire[chatState].message;
+    }
+
+    // butler
+    else if (entity === "butler") {
+        return level.butler[chatState].message;
+    }
+};

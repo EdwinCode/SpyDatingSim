@@ -2,7 +2,6 @@ class Chatbox {
     constructor(game, text) {
         this.game = game;
         this.text = text;
-        this.textLength = text.length;
 
         this.chatboxX = 0;
         this.chatboxY = 500;
@@ -21,7 +20,6 @@ class Chatbox {
            if (this.mouseBB.collide(this.exitBB)) {
                this.setVisible = false;
                this.removeFromWorld = true;
-               console.log("removed chat");
             }
 
             this.game.click = null;
@@ -98,64 +96,70 @@ class Chatbox {
 };
 
 class CasefileChatbox {
-    constructor(game, text) {
+    constructor(game) {
 
         this.game = game;
-        this.text = text;
 
         // image that looks like a case file
-        this.spritesheet;
+        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/casefile.png");
 
-        this.chatboxX = 0;
-        this.chatboxY;
-        this.chatboxW;
-        this.chatboxH;
-    };
-};
-
-class HintChat {
-    constructor(game, level) {
-        this.game = game;
-        this.level = level;
-
-        // determine which hint to give based on character interaction
-        this.numItems = 0;
-
-        this.hints = [];
-        this.loadHints();
-        //this.hideHints = true;
-    };
-
-    loadHints() {
-        // jagged array
-        for (let i = 0; i < 2; i++) { // one level, two parts
-            this.hints.push([]);
-        }
-
-        for (let j = 0; j < 2; j++) { // two hints for lvl 1 pt 1
-            this.hints[1].push([]);
-        }
-
-        for (let j = 0; j < 3; j++) { // three hints for lvl 1 pt 2
-            this.hints[1].push([]);
-        }
-
-        // level one, part one hints
-        this.hints[0][0] = "Talk to Mr.Billionaire.";
-        this.hints[0][1] = "Talk to Stephanie and Richie.";
-
-        // level one, part two hints
-        this.hints[1][0] = "Look in the trashcan.";
-        this.hints[1][1] = "Look at the table surfaces.";
-        this.hints[1][2] = "Look in the cabinets near the wet table.";
+        this.mouseBB = new BoundingBox(0, 0, 1, 1);
+        this.exitBB = new BoundingBox(565, 520, 75, 30);
     };
 
     update() {
+        if (this.game.click) {
+            this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y, 1, 1);
 
+            // exit chat box
+            if (this.mouseBB.collide(this.exitBB)) {
+                this.removeFromWorld = true;
+            }
+
+            this.game.click = null;
+        }
+
+        // update mouse area
+        if (this.game.mouse) {
+            this.mouseBB = new BoundingBox(this.game.mouse.x, this.game.mouse.y, 1, 1);
+        }
     };
 
     draw(ctx) {
+        // casefile
+        ctx.drawImage(this.spritesheet, 0, 0, 460, 340, PARAMS.CANVAS_WIDTH / 2 - (460 * 1.5 / 2), PARAMS.CANVAS_HEIGHT / 2 - (340 * 1.5 / 2), 460 * 1.5, 340 * 1.5);
 
+        // text
+        ctx.fillStyle = "white";
+        ctx.font = "18px Courier";
+        ctx.fillRect(380, 300, 260, 200);
+        setBlackStroke(ctx);
+        ctx.fillText("OVERVIEW:", 387, 310);
+        ctx.fillText("Subject burned down the", 387, 325);
+        ctx.fillText("headquarters of his", 387, 340);
+        ctx.fillText("business competitor to", 387, 355);
+        ctx.fillText("cover up his true crime.", 387, 370);
+        ctx.fillText("He stole a patent,", 387, 385);
+        ctx.fillText("marketing it as his own.", 387, 400);
+        ctx.fillText("He is the lead suspect,", 387, 415);
+        ctx.fillText("but there is no solid", 387, 430);
+        ctx.fillText("proof of this. There is", 387, 445);
+        ctx.fillText("only the word of one", 387, 460);
+        ctx.fillText("witness who saw him", 387, 475);
+        ctx.fillText("take the patent.", 387, 490);
+        ctx.fillText("OBJECTIVE: Find the", 387, 515);
+        ctx.fillText("original patent.", 387, 530);
+
+        // exit button
+        setBlackStroke(ctx);
+        if (this.mouseBB.collide(this.exitBB)) {
+            setRedStroke(ctx);
+        }
+
+        ctx.lineWidth = 2;
+        ctx.textAlign = "center";
+        ctx.font = "Bold 25px Courier";
+        ctx.fillText("EXIT", 603, 542);
+        ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
     };
-
 };

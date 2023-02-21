@@ -2,7 +2,6 @@ class Level1Part1 {
     constructor(game, hud, darkness, level, spyCharacter) {
         this.game = game;
         this.hud = hud;
-        this.darkness = darkness;
         this.level = level;
         this.spyCharacter = spyCharacter;
 
@@ -10,9 +9,13 @@ class Level1Part1 {
     };
 
     setUpLevel() {
+        // casefile chatbox
+        this.game.addEntity(new CasefileChatbox(this.game));
+
         // HUD
         this.game.addEntity(this.hud);
-        this.hud.setText("Phase 1 - 1", "white");
+        this.hud.setText("Phase 1 - 1");
+        this.hud.setTextColor("black");
 
         //big couch
         for (let i = 0; i < this.level.bigCouches.length; i++) {
@@ -44,14 +47,9 @@ class Level1Part1 {
         }
 
         //spy
-        // this.spyCharacter = new Spy(this.game, -100, 55);
         this.game.addEntity(this.spyCharacter);
 
-        // guard
-        // this.game.addEntity(new Guard(this.game, 88, 216, false));
-        //
-        // this.game.addEntity(new Guard(this.game, 295, 125, true));
-
+        // guards
         this.game.addEntity(new Guard(this.game, 388, 216, false));
         this.game.addEntity(new Guard(this.game, 550, 125, true));
 
@@ -93,12 +91,6 @@ class Level1Part1 {
 
     update() {
         // method not used but declaration is necessary for game engine
-        // if(!this.game.entities.includes(this.darkness) && this.spyCharacter.x > 320 * PARAMS.BLOCKWIDTH) {
-        //     this.game.addEntityToTop(this.darkness);
-        //     this.hud.setTextColor("white");
-        //     this.game.addEntityToTop(this.hud);
-        //     this.game.addEntityToTop(new IngameTimer(this.game));
-        // }
     };
 
     draw(ctx) {
@@ -120,14 +112,14 @@ class Level1Part2 {
     };
 
     setUpLevel() {
-
+        // Timer
         this.ingameTimer = new IngameTimer(this.game);
         this.game.addEntity(this.ingameTimer);
-        this.game.addEntity(this.darkness);
 
         // HUD
         this.game.addEntity(this.hud);
-        this.hud.setText("Phase 1 - 2", "white");
+        this.hud.setText("Phase 1 - 2");
+        this.hud.setTextColor("white");
 
         //big couch
         for (let i = 0; i < this.level.bigCouches.length; i++) {
@@ -166,11 +158,7 @@ class Level1Part2 {
         let camaH = this.cama.dHeight;
         this.cama.winBB = new BoundingBox(camaX - camaW / 2, camaY - camaH / 2, camaW * 2, camaH * 2);
 
-        // guard
-        // this.game.addEntity(new Guard(this.game, 88, 216, false));
-        //
-        // this.game.addEntity(new Guard(this.game, 295, 125, true));
-
+        // guards
         this.game.addEntity(new Guard(this.game, 388, 216, false));
         this.game.addEntity(new Guard(this.game, 550, 125, true));
 
@@ -184,7 +172,6 @@ class Level1Part2 {
         this.game.addEntity(new Billionaire(this.game));
 
         //spy
-        // this.spyCharacter = new Spy(this.game, -100, 55);
         this.game.addEntity(this.spyCharacter);
 
         //plain wall
@@ -210,6 +197,9 @@ class Level1Part2 {
             let rug = this.level.bigRugs[i];
             this.game.addEntity(new BigRug(this.game, rug.x * PARAMS.BLOCKWIDTH, rug.y * PARAMS.BLOCKWIDTH));
         }
+
+        // darkness
+        this.game.addEntity(this.darkness);
 
         this.game.camera.paused = false;
     };
