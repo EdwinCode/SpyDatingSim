@@ -93,6 +93,9 @@ class GameEngine {
         function keydownListener (e) {
             //e.preventDefault();
             switch (e.code) {
+                case "Escape":
+                    that.running = !that.running;
+                    break;
                 case "KeyE":
                 case "Slash":
                     that.interact = true;
@@ -210,9 +213,14 @@ class GameEngine {
     };
 
     loop() {
-        this.clockTick = this.timer.tick();
-        this.update();
-        this.draw();
+        if (this.running) {
+            this.clockTick = this.timer.tick();
+            this.update();
+            this.draw();
+        } else {
+            this.clockTick = null;
+            this.update();
+        }
     };
 
 }
