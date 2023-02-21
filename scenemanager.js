@@ -10,9 +10,6 @@ class Scenemanager {
         this.spyCharacter = new Spy(this.game, -100, 55);
         this.darkness = new Darkness(this.game, 0, 0);
 
-        // items bag for whole game
-        this.suitcase = new Suitcase(this.game);
-
         this.loadLevel(titleScreen);
     };
 
@@ -44,7 +41,6 @@ class Scenemanager {
 
         // intro cutscene
         if (this.currentLevel === introCutscene) {
-            //this.clearEntities();
             this.game.addEntity(new IntroCutscene(this.game));
         }
 
@@ -69,12 +65,6 @@ class Scenemanager {
             this.game.addEntity(new Level1Part2(this.game, this.hud, this.darkness, this.currentLevel, this.spyCharacter));
         }
 
-    };
-
-    // before moving on to next level, save state of items bag
-    // and pass to next level
-    setItemsBag(suitcase) {
-        this.suitcase = suitcase;
     };
 
     update() {

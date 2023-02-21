@@ -2,7 +2,6 @@ class Level1Part1 {
     constructor(game, hud, darkness, level, spyCharacter) {
         this.game = game;
         this.hud = hud;
-        this.darkness = darkness;
         this.level = level;
         this.spyCharacter = spyCharacter;
 

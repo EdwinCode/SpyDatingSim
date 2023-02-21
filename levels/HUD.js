@@ -30,7 +30,9 @@ class HUD {
                 this.chatbox.setVisible = true;
             } else {
                 if (this.mouseBB.collide(this.suitcaseBB)) {
-                    // do something
+                    // show items bag
+                    this.game.addEntityToTop(new Itemsbag(this.game));
+                    this.game.casefileDisplay = true;
                 }
             }
 
