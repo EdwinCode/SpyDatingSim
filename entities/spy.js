@@ -166,14 +166,15 @@ class Spy {
                 // LOSE GAME if collide with Guard
                 else if (entity instanceof Guard) {
                     //that.gameOver = true;
+                    saveItemsBagState(this.game.itemsBag);
                     that.game.camera.loadLevel(loseScreen);
                 }
             }
 
+            // WIN game
             else if (entity.winBB && that.BB.collide(entity.winBB)) {
                 if (that.game.interact) {
                     that.game.camera.loadLevel(winScreen);
-
                 }
             }
 
@@ -205,7 +206,6 @@ class Spy {
 
             if (entity instanceof Richie) {
                 if (entity.interactBB && that.BB.collide(entity.interactBB)) {
-                    console.log("R collision!!");
                     that.richieInteract = true;
                     if (that.game.interact && that.hideChat) {
                         that.game.interact = false;
@@ -225,7 +225,6 @@ class Spy {
 
             else if (entity instanceof Billionaire) {
                 if (entity.interactBB && that.BB.collide(entity.interactBB)) {
-                    console.log("B collision!!");
                     that.billionaireInteract = true;
                     if (that.game.interact && that.hideChat) {
                         that.game.interact = false;
@@ -245,7 +244,6 @@ class Spy {
 
             else if (entity instanceof Stephanie) {
                 if (entity.interactBB && that.BB.collide(entity.interactBB)) {
-                    console.log("S collision!!");
                     that.stephInteract = true;
                     if (that.game.interact && that.hideChat) {
                         that.game.interact = false;

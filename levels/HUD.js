@@ -1,6 +1,8 @@
 class HUD {
-    constructor(game) {
+    constructor(game, itemsBag) {
         this.game = game;
+        this.itemsBag = itemsBag;
+
         this.levelText = "";
         this.textColor = "";
 
@@ -17,7 +19,6 @@ class HUD {
         this.textColor = color;
     };
 
-
     update() {
         if (this.game.click) {
             this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y,1,1);
@@ -33,7 +34,7 @@ class HUD {
             // new items bag
             else if (this.mouseBB.collide(this.itemsBagBB)) {
                 this.itemsBag = new Itemsbag(this.game);
-                this.itemsBag.setBagConditions(true);
+                this.itemsBag.setCaseFileDisplay(true);
                 this.game.addEntityToTop(this.itemsBag);
             }
             // reset user click

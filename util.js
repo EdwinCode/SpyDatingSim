@@ -95,6 +95,29 @@ function setWhiteStroke(ctx) {
     ctx.fillStyle = "white";
 };
 
+function wrapText(ctx, text, textLocationX, textLocationY, maxWidth) {
+    let lineHeight = 20;
+
+    let words = text.split(' ');
+    let line = '';
+
+    for(let i = 0; i < words.length; i++) {
+        let testLine = line + words[i] + ' ';
+        let metrics = ctx.measureText(testLine);
+        let testWidth = metrics.width;
+
+        if (testWidth > maxWidth && i > 0) {
+            ctx.fillText(line, textLocationX, textLocationY);
+            line = words[i] + ' ';
+            textLocationY += lineHeight;
+        }
+        else {
+            line = testLine;
+        }
+    }
+    ctx.fillText(line, textLocationX, textLocationY);
+}
+
 //
 // Character Interaction Tools
 //
@@ -121,3 +144,18 @@ function loadText(level, entity, chatState) {
         return level.butler[chatState].message;
     }
 };
+
+//
+// Items Bag
+//
+
+let suitcase = null;
+
+function saveItemsBagState(itemsBag) {
+    suitcase = itemsBag;
+    return suitcase;
+};
+
+function getItemsBag() {
+    return suitcase;
+}

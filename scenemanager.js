@@ -5,20 +5,16 @@ class Scenemanager {
         this.x = 0;
         this.y = 0;
 
+        // items bag tracking
+        this.itemsBag = null;
+
         // declare these here for game camera tracking
-        this.hud = new HUD(this.game);
+        this.hud = new HUD(this.game, this.itemsBag);
         this.spyCharacter = new Spy(this.game, -100, 55);
         this.darkness = new Darkness(this.game, 0, 0);
 
-        // items bag tracking
-        this.itemsBag = new Itemsbag(this.game);
-
         this.loadLevel(titleScreen);
     };
-
-    saveItemsBagConditions(itemsBag) {
-        this.itemsBag = itemsBag;
-    }
 
     clearEntities() {
         this.game.entities.forEach(function (entity) {
@@ -29,6 +25,7 @@ class Scenemanager {
     loadLevel(level) {
         this.currentLevel = level;
         this.game.currLvl = level;
+
         this.clearEntities();
 
         // lose screen
@@ -53,7 +50,7 @@ class Scenemanager {
 
         // level one part 1
         if (this.currentLevel === levelOne1) {
-            this.hud = new HUD(this.game);
+            this.hud = new HUD(this.game, this.itemsBag);
             this.spyCharacter = new Spy(this.game, 25 * PARAMS.BLOCKWIDTH, 62 * PARAMS.BLOCKWIDTH);
             this.darkness = new Darkness(this.game, this.spyCharacter.x, this.spyCharacter.y);
             this.game.addEntity(new Level1Part1(this.game, this.hud, this.darkness, this.currentLevel, this.spyCharacter));
@@ -66,7 +63,8 @@ class Scenemanager {
 
         // level one, part 2
         if (this.currentLevel === levelOne2) {
-            this.hud = new HUD(this.game);
+            this.itemsBag = getItemsBag();
+            this.hud = new HUD(this.game, this.itemsBag);
             this.spyCharacter = new Spy(this.game, 25 * PARAMS.BLOCKWIDTH, 62 * PARAMS.BLOCKWIDTH);
             this.darkness = new Darkness(this.game, this.spyCharacter.x, this.spyCharacter.y);
             this.game.addEntity(new Level1Part2(this.game, this.hud, this.darkness, this.currentLevel, this.spyCharacter));

@@ -150,6 +150,7 @@ class Level1Part2 {
             this.game.addEntity(new Bed(this.game, bed.x * PARAMS.BLOCKWIDTH, bed.y * PARAMS.BLOCKWIDTH));
         }
 
+        // bed with win condition
         this.cama = new Bed(this.game, 500 * PARAMS.BLOCKWIDTH, 220 * PARAMS.BLOCKWIDTH);
         this.game.addEntity(this.cama);
         let camaX = this.cama.x;
