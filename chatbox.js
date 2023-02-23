@@ -86,6 +86,7 @@ class CasefileChatbox {
 
             // exit chat box
             if (this.mouseBB.collide(this.exitBB)) {
+                caseFileDisplay = true;
                 this.removeFromWorld = true;
             }
 

@@ -2,14 +2,6 @@ class Itemsbag {
     constructor(game) {
         this.game = game;
 
-        // display booleans
-        this.game.casefileDisplay = false;
-        this.game.sneakerDisplay = false;
-        this.game.capeDisplay = false;
-        this.game.clueOneDisplay = false;
-        this.game.clueTwoDisplay = false;
-        this.game.clueThreeDisplay = false;
-
         // items bounding boxes
         // to be added to
         this.casefileBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
@@ -24,34 +16,6 @@ class Itemsbag {
         this.mouseBB = new BoundingBox(0,0,1,1);
         this.buttonBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 4 - 40, PARAMS.CANVAS_HEIGHT / 2 - 36, 80, 30);
     };
-
-    //
-    // SETTERS
-    //
-
-    setCaseFileDisplay(file) {
-        this.game.casefileDisplay = file;
-    }
-
-    setSneakerDisplay(sneaker) {
-        this.game.sneakerDisplay = sneaker;
-    }
-
-    setCapeDisplay(cape) {
-        this.game.capeDisplay = cape;
-    }
-
-    setClueOneDisplay(clue) {
-        this.game.clueOneDisplay = clue;
-    }
-
-    setClueTwoDisplay(clue) {
-        this.game.clueTwoDisplay = clue;
-    }
-
-    setClueThreeDisplay(clue) {
-        this.game.clueThreeDisplay = clue;
-    }
 
     update() {
         if (this.game.click) {
@@ -221,7 +185,7 @@ class Itemsbag {
         ctx.textAlign = "center";
 
         // CASE FILE
-        if (this.game.casefileDisplay) {
+        if (caseFileDisplay) {
             if (this.mouseBB.collide(this.casefileBB)) {
                 setWhiteStroke(ctx);
             }
@@ -241,8 +205,8 @@ class Itemsbag {
         setBlackStroke(ctx);
 
         // SNEAKERS
-        if (this.game.sneakerDisplay) {
-            if (this.mouseBB.collide(this.casefileBB)) {
+        if (sneakerDisplay) {
+            if (this.mouseBB.collide(this.sneakerBB)) {
                 setWhiteStroke(ctx);
             }
             ctx.fillText("Sneakers", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);
@@ -260,8 +224,8 @@ class Itemsbag {
         setBlackStroke(ctx);
 
         // CAPE
-        if (this.game.capeDisplay) {
-            if (this.mouseBB.collide(this.casefileBB)) {
+        if (capeDisplay) {
+            if (this.mouseBB.collide(this.capeBB)) {
                 setWhiteStroke(ctx);
             }
             ctx.fillText("Cape", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 210);
@@ -279,8 +243,8 @@ class Itemsbag {
         setBlackStroke(ctx);
 
         // CLUE ONE
-        if (this.game.clueOneDisplay) {
-            if (this.mouseBB.collide(this.casefileBB)) {
+        if (clueOneDisplay) {
+            if (this.mouseBB.collide(this.clueOneBB)) {
                 setWhiteStroke(ctx);
             }
             ctx.fillText("Clue One", PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 65);
@@ -297,8 +261,8 @@ class Itemsbag {
         setBlackStroke(ctx);
 
         // CLUE TWO
-        if (this.game.clueTwoDisplay) {
-            if (this.mouseBB.collide(this.casefileBB)) {
+        if (clueTwoDisplay) {
+            if (this.mouseBB.collide(this.clueTwoBB)) {
                 setWhiteStroke(ctx);
             }
             ctx.fillText("Clue Two", PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 65);
@@ -315,8 +279,8 @@ class Itemsbag {
         setBlackStroke(ctx);
 
         // CLUE THREE
-        if (this.game.clueThreeDisplay) {
-            if (this.mouseBB.collide(this.casefileBB)) {
+        if (clueThreeDisplay) {
+            if (this.mouseBB.collide(this.clueThreeBB)) {
                 setWhiteStroke(ctx);
             }
             ctx.fillText("Clue Three", PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 65);

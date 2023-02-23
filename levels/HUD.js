@@ -34,7 +34,6 @@ class HUD {
             // new items bag
             else if (this.mouseBB.collide(this.itemsBagBB)) {
                 this.itemsBag = new Itemsbag(this.game);
-                this.itemsBag.setCaseFileDisplay(true);
                 this.game.addEntityToTop(this.itemsBag);
             }
             // reset user click

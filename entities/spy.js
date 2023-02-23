@@ -165,25 +165,33 @@ class Spy {
 
                 // LOSE GAME if collide with Guard
                 else if (entity instanceof Guard) {
-                    //that.gameOver = true;
-                    saveItemsBagState(this.game.itemsBag);
                     that.game.camera.loadLevel(loseScreen);
                 }
             }
 
             // WIN game
-            else if (entity.winBB && that.BB.collide(entity.winBB)) {
+            if (entity.winBB && that.BB.collide(entity.winBB)) {
                 if (that.game.interact) {
                     that.game.camera.loadLevel(winScreen);
                 }
             }
 
             // collide with guard sight
-            else if (entity.sightBB && that.BB.collide(entity.sightBB)) {
+            if (entity.sightBB && that.BB.collide(entity.sightBB)) {
                 if (entity instanceof Guard) {
                     entity.spottedSpy();
                     that.state = 0; // idle
                     that.spotted = true;
+                }
+            }
+
+            //
+            // ITEMS
+            //
+
+            if (entity.sneakerBB && that.BB.collide(entity.sneakerBB)) {
+                if (that.game.interact) {
+                    sneakerDisplay = true;
                 }
             }
 

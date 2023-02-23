@@ -63,7 +63,7 @@ class Scenemanager {
 
         // level one, part 2
         if (this.currentLevel === levelOne2) {
-            this.itemsBag = getItemsBag();
+            //this.itemsBag = getItemsBag();
             this.hud = new HUD(this.game, this.itemsBag);
             this.spyCharacter = new Spy(this.game, 25 * PARAMS.BLOCKWIDTH, 62 * PARAMS.BLOCKWIDTH);
             this.darkness = new Darkness(this.game, this.spyCharacter.x, this.spyCharacter.y);
