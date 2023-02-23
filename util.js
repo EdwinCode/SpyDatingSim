@@ -149,13 +149,9 @@ function loadText(level, entity, chatState) {
 // Items Bag
 //
 
-let suitcase = null;
-
-function saveItemsBagState(itemsBag) {
-    suitcase = itemsBag;
-    return suitcase;
-};
-
-function getItemsBag() {
-    return suitcase;
-}
+let caseFileDisplay = false;
+let sneakerDisplay = false;
+let capeDisplay = false;
+let clueOneDisplay = false;
+let clueTwoDisplay = false;
+let clueThreeDisplay = false;
