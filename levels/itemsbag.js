@@ -13,6 +13,11 @@ class Itemsbag {
         // items bounding boxes
         // to be added to
         this.casefileBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
+        this.sneakerBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
+        this.capeBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 6 - 3, 525,120,40);
+        this.clueOneBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
+        this.clueTwoBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
+        this.clueThreeBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, 525,120,40);
 
         // other bounding boxes
         this.exitBB = new BoundingBox(550, 605, 100, 50);
@@ -56,24 +61,88 @@ class Itemsbag {
                 if (this.clickCase) {
                     this.game.addEntityToTop(new CasefileChatbox(this.game));
                 }
+
+                else if (this.clickSneaker) {
+                    // apply sneaker if not applied
+                    // remove sneaker application if applied
+                }
+
+                else if (this.clickCape) {
+                    // apply sneaker if not applied
+                    // remove sneaker application if applied
+                }
             }
 
             // show casefile
             if (this.mouseBB.collide(this.casefileBB)) {
                 this.clickCase = true;
+                this.clickSneaker = false;
+                this.clickCape = false;
+                this.clickClueOne = false;
+                this.clickClueTwo = false;
+                this.clickClueThree = false;
             }
-            // to be implemented
-            // else if sneaker -> apply
-            // else if cape -> apply
-            // else if clues -> view
 
-            else if (this.mouseBB.collide(this.exitBB)) {
+            // show sneaker
+            if (this.mouseBB.collide(this.sneakerBB)) {
+                this.clickCase = false
+                this.clickSneaker = true;
+                this.clickCape = false;
+                this.clickClueOne = false;
+                this.clickClueTwo = false;
+                this.clickClueThree = false;
+            }
+
+            // show cape
+            if (this.mouseBB.collide(this.capeBB)) {
+                this.clickCase = false;
+                this.clickSneaker = false;
+                this.clickCape = true;
+                this.clickClueOne = false;
+                this.clickClueTwo = false;
+                this.clickClueThree = false;
+            }
+
+            // show clue one
+            if (this.mouseBB.collide(this.clueOneBB)) {
+                this.clickCase = false;
+                this.clickSneaker = false;
+                this.clickCape = false;
+                this.clickClueOne = true;
+                this.clickClueTwo = false;
+                this.clickClueThree = false;
+            }
+
+            // show clue two
+            if (this.mouseBB.collide(this.clueTwoBB)) {
+                this.clickCase = false;
+                this.clickSneaker = false;
+                this.clickCape = false;
+                this.clickClueOne = false;
+                this.clickClueTwo = true;
+                this.clickClueThree = false;
+            }
+
+            // show clue three
+            if (this.mouseBB.collide(this.clueThreeBB)) {
+                this.clickCase = false;
+                this.clickSneaker = false;
+                this.clickCape = false;
+                this.clickClueOne = false;
+                this.clickClueTwo = false;
+                this.clickClueThree = true;
+            }
+
+            // close out of the items bag
+            if (this.mouseBB.collide(this.exitBB)) {
                 this.removeFromWorld = true;
             }
 
+            // reset user click
             this.game.click = null;
         }
 
+        // update mouse location
         if (this.game.mouse) {
             this.mouseBB = new BoundingBox(this.game.mouse.x, this.game.mouse.y,1,1);
         }
@@ -113,57 +182,7 @@ class Itemsbag {
         // reset text color
         setBlackStroke(ctx);
 
-        // add items according to booleans
-        ctx.textAlign = "center";
-
-        if (this.game.casefileDisplay) {
-            if (this.mouseBB.collide(this.casefileBB)) {
-                setWhiteStroke(ctx);
-            }
-            ctx.fillText("Case File", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 65);
-
-            if (this.clickCase) {
-                this.setItemBlurbBox(ctx, "You have chosen the case file.");
-                this.setButton(ctx, "VIEW");
-            }
-        }
-
-        // reset text color
-        setBlackStroke(ctx);
-
-        if (this.game.sneakerDisplay) {
-            if (this.clickSneaker) {
-
-            }
-        }
-
-        // reset text color
-        setBlackStroke(ctx);
-
-        if (this.game.capeDisplay) {
-
-        }
-
-        // reset text color
-        setBlackStroke(ctx);
-
-        if (this.game.clueOneDisplay) {
-
-        }
-
-        // reset text color
-        setBlackStroke(ctx);
-
-        if (this.game.clueTwoDisplay) {
-
-        }
-
-        // reset text color
-        setBlackStroke(ctx);
-
-        if (this.game.clueThreeDisplay) {
-
-        }
+        this.drawItems(ctx);
 
         // exit button
         if (this.mouseBB.collide(this.exitBB)) {
@@ -191,6 +210,124 @@ class Itemsbag {
         // add new image
         ctx.textAlign = "left";
         wrapText(ctx, text, PARAMS.CANVAS_WIDTH / 2 + 10, 20, PARAMS.CANVAS_WIDTH / 2 - 10);
+    }
+
+    //
+    // DRAW Helper Methods
+    //
+
+    drawItems(ctx) {
+        // add items according to booleans
+        ctx.textAlign = "center";
+
+        // CASE FILE
+        if (this.game.casefileDisplay) {
+            if (this.mouseBB.collide(this.casefileBB)) {
+                setWhiteStroke(ctx);
+            }
+            ctx.fillText("Case File", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 65);
+
+            if (this.clickCase) {
+                this.setItemBlurbBox(ctx, "You have chosen the case file. This file provides you with " +
+                    "the pertinent information for your case.");
+                this.setViewItemBox(ctx, "");  // show nothing
+                this.setButton(ctx, "VIEW");
+            }
+        } else {
+            ctx.fillText("---", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 65);
+        }
+
+        // reset text color
+        setBlackStroke(ctx);
+
+        // SNEAKERS
+        if (this.game.sneakerDisplay) {
+            if (this.mouseBB.collide(this.casefileBB)) {
+                setWhiteStroke(ctx);
+            }
+            ctx.fillText("Sneakers", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);
+
+            if (this.clickSneaker) {
+                this.setItemBlurbBox(ctx, "");
+                this.setViewItemBox(ctx, "To be implemented sneaker img");  // show sneaker img
+                this.setButton(ctx, "APPLY");
+            }
+        } else {
+            ctx.fillText("---", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);
+        }
+
+        // reset text color
+        setBlackStroke(ctx);
+
+        // CAPE
+        if (this.game.capeDisplay) {
+            if (this.mouseBB.collide(this.casefileBB)) {
+                setWhiteStroke(ctx);
+            }
+            ctx.fillText("Cape", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 210);
+
+            if (this.clickCape) {
+                this.setItemBlurbBox(ctx, "");
+                this.setViewItemBox(ctx, "To be implemented cape img");  // show cape img
+                this.setButton(ctx, "APPLY");
+            }
+        } else {
+            ctx.fillText("---", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 210);
+        }
+
+        // reset text color
+        setBlackStroke(ctx);
+
+        // CLUE ONE
+        if (this.game.clueOneDisplay) {
+            if (this.mouseBB.collide(this.casefileBB)) {
+                setWhiteStroke(ctx);
+            }
+            ctx.fillText("Clue One", PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 65);
+
+            if (this.clickClueOne) {
+                this.setItemBlurbBox(ctx, "");
+                this.setViewItemBox(ctx, "To be implemented clue img");  // show clue
+            }
+        } else {
+            ctx.fillText("---", (3 * PARAMS.CANVAS_WIDTH) / 4, PARAMS.CANVAS_HEIGHT / 2 + 65);
+        }
+
+        // reset text color
+        setBlackStroke(ctx);
+
+        // CLUE TWO
+        if (this.game.clueTwoDisplay) {
+            if (this.mouseBB.collide(this.casefileBB)) {
+                setWhiteStroke(ctx);
+            }
+            ctx.fillText("Clue Two", PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 65);
+
+            if (this.clickClueTwo) {
+                this.setItemBlurbBox(ctx, "");
+                this.setViewItemBox(ctx, "To be implemented clue img");  // show clue
+            }
+        } else {
+            ctx.fillText("---", (3 * PARAMS.CANVAS_WIDTH) / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);
+        }
+
+        // reset text color
+        setBlackStroke(ctx);
+
+        // CLUE THREE
+        if (this.game.clueThreeDisplay) {
+            if (this.mouseBB.collide(this.casefileBB)) {
+                setWhiteStroke(ctx);
+            }
+            ctx.fillText("Clue Three", PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 65);
+
+            if (this.clickClueThree) {
+                this.setItemBlurbBox(ctx, "");
+                this.setViewItemBox(ctx, "To be implemented clue img");  // show clue
+            }
+        } else {
+            ctx.fillText("---", (3 * PARAMS.CANVAS_WIDTH) / 4, PARAMS.CANVAS_HEIGHT / 2 + 210);
+        }
     }
 
     setItemBlurbBox(ctx, text) {
