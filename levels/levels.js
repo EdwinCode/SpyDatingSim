@@ -108,15 +108,19 @@ let levelOne1 = {
     butler: [
         {message: "Talk to Mr.Billionaire.",
             state: 0,
+            portraitNumber: 0,
             stateIncr: false},
         {message: "Talk to Stephanie.",
             state: 1,
+            portraitNumber: 0,
             stateIncr: false},
         {message: "Talk to Richie.",
             state: 2,
+            portraitNumber: 0,
             stateIncr: false},
         {message: "Go back to Mr.Billionaire.",
             state: 3,
+            portraitNumber: 0,
             stateIncr: false}
     ],
 
