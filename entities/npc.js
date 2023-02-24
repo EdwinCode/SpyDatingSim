@@ -29,80 +29,80 @@ class NPC {
         this.updateBB();
         this.updateInteractionBB();
 
-        // choose a random direction after a # of rounds
-        if (this.directionDuration === 0) {
-            //console.log("zero");  // debug
+        if (!Chatbox.OPEN) {
 
-            this.direction = this.chooseRandDirection();
-            // random duration to keep animator the same for
-            this.directionDuration = 500;
+            // choose a random direction after a # of rounds
+            if (this.directionDuration === 0) {
+                //console.log("zero");  // debug
 
-            // keep choosing new direction if there is collision detected
-            while (this.collides(this.direction)) {
                 this.direction = this.chooseRandDirection();
-            }
-        }
+                // random duration to keep animator the same for
+                this.directionDuration = 500;
 
-        var that = this;
-        this.game.entities.forEach(function (entity) {
-            //if the entity has a bounding box and we collided with it
-            if (entity.BB && that.BB.collide(entity.BB)) {
-                if (entity instanceof  Furniture|| entity instanceof NPC || entity instanceof Spy) {
-                    if(entity.BB.right <= (that.lastBB.left+20)){ // from right
-                        that.x += entity.BB.right - that.lastBB.left;
-                        that.direction = that.chooseRandDirection();
-
-                    }
-                    else if(entity.BB.left >= (that.lastBB.right-20)){ // from left
-                        that.x -= that.lastBB.right - entity.BB.left;
-                        that.direction = that.chooseRandDirection();
-
-                    }
-                    else if(entity.BB.bottom <= (that.lastBB.top+20)){ //from below
-                        that.y += entity.BB.bottom - that.lastBB.top;
-                        that.direction = that.chooseRandDirection();
-
-                    }
-                    else if(entity.BB.top >= (that.lastBB.bottom-20)){ // from above
-                        that.y -= that.lastBB.bottom - entity.BB.top;
-                        that.direction = that.chooseRandDirection();
-
-                    }
+                // keep choosing new direction if there is collision detected
+                while (this.collides(this.direction)) {
+                    this.direction = this.chooseRandDirection();
                 }
             }
-        });
 
-        // else still duration
-        // no collision
-        if (that.collides(that.direction) === false) {
-            // down
-            if (that.direction === 0) {
-                that.y += that.velocity * that.game.clockTick;
+            var that = this;
+            this.game.entities.forEach(function (entity) {
+                //if the entity has a bounding box and we collided with it
+                if (entity.BB && that.BB.collide(entity.BB)) {
+                    if (entity instanceof Furniture || entity instanceof NPC || entity instanceof Spy) {
+                        if (entity.BB.right <= (that.lastBB.left + 20)) { // from right
+                            that.x += entity.BB.right - that.lastBB.left;
+                            that.direction = that.chooseRandDirection();
+
+                        } else if (entity.BB.left >= (that.lastBB.right - 20)) { // from left
+                            that.x -= that.lastBB.right - entity.BB.left;
+                            that.direction = that.chooseRandDirection();
+
+                        } else if (entity.BB.bottom <= (that.lastBB.top + 20)) { //from below
+                            that.y += entity.BB.bottom - that.lastBB.top;
+                            that.direction = that.chooseRandDirection();
+
+                        } else if (entity.BB.top >= (that.lastBB.bottom - 20)) { // from above
+                            that.y -= that.lastBB.bottom - entity.BB.top;
+                            that.direction = that.chooseRandDirection();
+
+                        }
+                    }
+                }
+            });
+
+            // else still duration
+            // no collision
+            if (that.collides(that.direction) === false) {
+                // down
+                if (that.direction === 0) {
+                    that.y += that.velocity * that.game.clockTick;
+                }
+
+                // up
+                else if (that.direction === 1) {
+                    that.y -= that.velocity * that.game.clockTick;
+                }
+
+                // left
+                else if (that.direction === 2) {
+                    that.x -= that.velocity * that.game.clockTick;
+                }
+
+                // right
+                else {
+                    that.x += that.velocity * that.game.clockTick;
+                }
+
+                this.directionDuration -= 1;
             }
 
-            // up
-            else if (that.direction === 1) {
-                that.y -= that.velocity * that.game.clockTick;
-            }
-
-            // left
-            else if (that.direction === 2) {
-                that.x -= that.velocity * that.game.clockTick;
-            }
-
-            // right
+            // collision
             else {
-                that.x += that.velocity * that.game.clockTick;
-            }
-
-            this.directionDuration -= 1;
-        }
-
-        // collision
-        else {
-            // choose new direction but keep duration same
-            while (that.collides(that.direction)) {
-                that.direction = that.chooseRandDirection();
+                // choose new direction but keep duration same
+                while (that.collides(that.direction)) {
+                    that.direction = that.chooseRandDirection();
+                }
             }
         }
     };
@@ -139,8 +139,12 @@ class NPC {
     };
 
     draw(ctx) {
-        this.animations[this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
+        if (!Chatbox.OPEN) {
+            this.animations[this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
+        } else {
+            this.animations[this.direction].drawStillFrame(ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
 
+        }
         // debug
         PARAMS.DEBUG = document.getElementById("debug").checked;
         if (PARAMS.DEBUG) {

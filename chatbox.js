@@ -1,4 +1,5 @@
 class Chatbox {
+    static OPEN = false;
     constructor(game, text, portraitNumber, spritesheet) {
         this.game = game;
         this.text = text;
@@ -50,6 +51,7 @@ class Chatbox {
                this.removeFromWorld = true;
                this.imageX = 0;
                this.imageY = 0;
+               Chatbox.OPEN = false;
             }
 
             this.game.click = null;

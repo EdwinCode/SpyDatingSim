@@ -18,6 +18,18 @@ class Animator {
             this.width * scale, this.height * scale);
     };
 
+    drawStillFrame(ctx, x, y, scale) {
+        // this.elaspedTime += tick;
+        // if(this.elaspedTime > this.totalTime) this.elaspedTime -= this.totalTime;
+        // const frame = this.currentFrame();
+
+        ctx.drawImage(this.spritesheet,
+            this.xStart + this.width, this.yStart,
+            this.width, this.height,
+            x, y,
+            this.width * scale, this.height * scale);
+    };
+
     currentFrame() {
         return Math.floor(this.elaspedTime / this.frameDuration);
     };

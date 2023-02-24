@@ -77,65 +77,67 @@ class Spy {
 
     update() {
         //movement
-        if (this.spotted === false) {
-            if (!this.game.up && !this.game.down && !this.game.left && !this.game.right) {
-                this.state = 0; // idle
+        if (!Chatbox.OPEN) {
+            if (this.spotted === false) {
+                if (!this.game.up && !this.game.down && !this.game.left && !this.game.right) {
+                    this.state = 0; // idle
+                } else {
+                    if (this.game.right && this.game.left && this.game.up && this.game.down) {
+                        this.state = 0; // idle
+                    } else if (this.game.up && this.game.run && !this.game.down) {
+                        this.direction = 3; // up
+                        this.state = 2; // running
+                        this.y -= this.velocity * 2 * this.game.clockTick;
+                    } else if (this.game.up && !this.game.down) {
+                        this.direction = 3; // up
+                        this.state = 1; // walking
+                        this.y -= this.velocity * this.game.clockTick;
+                    } else if (this.game.down && this.game.run && !this.game.up) {
+                        this.direction = 1; // down
+                        this.state = 2; // running
+                        this.y += this.velocity * 2 * this.game.clockTick;
+                    } else if (this.game.down && !this.game.up) {
+                        this.direction = 1; // down
+                        this.state = 1; // walking
+                        this.y += this.velocity * this.game.clockTick;
+                    } else if (this.game.up && this.game.down) {
+                        this.direction = 3; // up
+                        this.state = 0; // idle
+                    }
+
+                    if (this.game.right && this.game.left && this.game.up && this.game.down) {
+                        this.state = 0; // idle
+                    } else if (this.game.right && this.game.run && !this.game.left) {
+                        this.direction = 0; // right
+                        this.state = 2; // running
+                        this.x += this.velocity * 2 * this.game.clockTick;
+                    } else if (this.game.right && !this.game.left) {
+                        this.direction = 0; // right
+                        this.state = 1; // walking
+                        this.x += this.velocity * this.game.clockTick;
+                    } else if (this.game.left && this.game.run && !this.game.right) {
+                        this.direction = 2; // left
+                        this.state = 2; // running
+                        this.x -= this.velocity * 2 * this.game.clockTick;
+                    } else if (this.game.left && !this.game.right) {
+                        this.direction = 2; // left
+                        this.state = 1; // walking
+                        this.x -= this.velocity * this.game.clockTick;
+                    } else if (this.game.right && this.game.left && this.game.up) {
+                        this.direction = 3; // up
+                        this.state = 1; // walking
+                    } else if (this.game.right && this.game.left && this.game.down) {
+                        this.direction = 1; // down
+                        this.state = 1; // walking
+                    } else if (this.game.right && this.game.left) {
+                        this.direction = 0; // right
+                        this.state = 0; // idle
+                    }
+                }
+
             } else {
-                if (this.game.right && this.game.left && this.game.up && this.game.down) {
-                    this.state = 0; // idle
-                } else if (this.game.up && this.game.run && !this.game.down) {
-                    this.direction = 3; // up
-                    this.state = 2; // running
-                    this.y -= this.velocity* 2 *this.game.clockTick;
-                } else if (this.game.up && !this.game.down) {
-                    this.direction = 3; // up
-                    this.state = 1; // walking
-                    this.y -= this.velocity*this.game.clockTick;
-                } else if (this.game.down && this.game.run && !this.game.up) {
-                    this.direction = 1; // down
-                    this.state = 2; // running
-                    this.y += this.velocity* 2 *this.game.clockTick;
-                } else if (this.game.down && !this.game.up) {
-                    this.direction = 1; // down
-                    this.state = 1; // walking
-                    this.y += this.velocity*this.game.clockTick;
-                } else if (this.game.up && this.game.down) {
-                    this.direction = 3; // up
-                    this.state = 0; // idle
-                }
-
-                if (this.game.right && this.game.left && this.game.up && this.game.down) {
-                    this.state = 0; // idle
-                } else if (this.game.right && this.game.run && !this.game.left) {
-                    this.direction = 0; // right
-                    this.state = 2; // running
-                    this.x += this.velocity* 2 *this.game.clockTick;
-                } else if (this.game.right && !this.game.left) {
-                    this.direction = 0; // right
-                    this.state = 1; // walking
-                    this.x += this.velocity*this.game.clockTick;
-                } else if (this.game.left && this.game.run && !this.game.right) {
-                    this.direction = 2; // left
-                    this.state = 2; // running
-                    this.x -= this.velocity* 2 *this.game.clockTick;
-                } else if (this.game.left && !this.game.right) {
-                    this.direction = 2; // left
-                    this.state = 1; // walking
-                    this.x -= this.velocity*this.game.clockTick;
-                } else if (this.game.right && this.game.left && this.game.up) {
-                    this.direction = 3; // up
-                    this.state = 1; // walking
-                } else if (this.game.right && this.game.left && this.game.down) {
-                    this.direction = 1; // down
-                    this.state = 1; // walking
-                } else if (this.game.right && this.game.left) {
-                    this.direction = 0; // right
-                    this.state = 0; // idle
-                }
+                // Do nothing
             }
-
-        } else {
-            // Do nothing
         }
 
         //Update position
@@ -230,6 +232,9 @@ class Spy {
                         that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet);
                         that.game.addEntityToTop(that.chatbox);
                         that.chatbox.setVisible = true;
+
+                        //TO PAUSE THE GAME
+                        Chatbox.OPEN = true;
                     }
                 } else {
                     that.richieInteract = false;
@@ -253,6 +258,9 @@ class Spy {
                         that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet);
                         that.game.addEntityToTop(that.chatbox);
                         that.chatbox.setVisible = true;
+
+                        //TO PAUSE THE GAME
+                        Chatbox.OPEN = true;
                     }
                 } else {
                     that.billionaireInteract = false;
@@ -278,6 +286,9 @@ class Spy {
                         that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet);
                         that.game.addEntityToTop(that.chatbox);
                         that.chatbox.setVisible = true;
+
+                        //TO PAUSE THE GAME
+                        Chatbox.OPEN = true;
                     }
                 } else {
                     that.stephInteract = false;
@@ -290,8 +301,11 @@ class Spy {
 
 
     draw(ctx) {
-        this.animations[this.state][this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
-
+        if (!Chatbox.OPEN) {
+            this.animations[this.state][this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
+        } else {
+            this.animations[this.state][this.direction].drawStillFrame(ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
+        }
         // interact message
         if (this.stephInteract || this.billionaireInteract || this.richieInteract) {
             setBlackStroke(ctx);
