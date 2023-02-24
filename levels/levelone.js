@@ -130,6 +130,9 @@ class Level1Part2 {
         this.hud.setText("Phase 1 - 2");
         this.hud.setTextColor("white");
 
+        // darkness
+        this.game.addEntity(this.darkness);
+
         //big couch
         for (let i = 0; i < this.level.bigCouches.length; i++) {
             let couch = this.level.bigCouches[i];
@@ -208,8 +211,6 @@ class Level1Part2 {
             this.game.addEntity(new BigRug(this.game, rug.x * PARAMS.BLOCKWIDTH, rug.y * PARAMS.BLOCKWIDTH));
         }
 
-        // darkness
-        this.game.addEntity(this.darkness);
 
         this.game.camera.paused = false;
     };

@@ -220,9 +220,14 @@ class Spy {
                         that.hideChat = false;
 
                         that.text = loadText(that.game.currLvl, "richie", that.game.chatState);
+                        that.image = loadImage(that.game.currLvl, "richie", that.game.chatState);
+
                         that.game.chatState = that.updateState(that.game.currLvl, "richie", that.game.chatState);
 
-                        that.chatbox = new Chatbox(that.game, that.text);
+                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/richie_portraits.png");
+
+
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet);
                         that.game.addEntityToTop(that.chatbox);
                         that.chatbox.setVisible = true;
                     }
@@ -239,9 +244,13 @@ class Spy {
                         that.hideChat = false;
 
                         that.text = loadText(that.game.currLvl, "billionaire", that.game.chatState);
+                        that.image = loadImage(that.game.currLvl, "billionaire", that.game.chatState);
                         that.game.chatState = that.updateState(that.game.currLvl, "billionaire", that.game.chatState);
 
-                        that.chatbox = new Chatbox(that.game, that.text);
+                        //CHANGE LATER TO BILLIONAIRE PORTRAIT
+                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/stephanie_portraits.png");
+
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet);
                         that.game.addEntityToTop(that.chatbox);
                         that.chatbox.setVisible = true;
                     }
@@ -258,9 +267,15 @@ class Spy {
                         that.hideChat = false;
 
                         that.text = loadText(that.game.currLvl, "stephanie", that.game.chatState);
+                        that.image = loadImage(that.game.currLvl, "stephanie", that.game.chatState);
                         that.game.chatState = that.updateState(that.game.currLvl, "stephanie", that.game.chatState);
 
-                        that.chatbox = new Chatbox(that.game, that.text);
+                        //PISKEL INFO
+                        // x4 scale
+                        //Padding: 8 pixels wide, 4 pixels length
+                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/stephanie_portraits.png");
+
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet);
                         that.game.addEntityToTop(that.chatbox);
                         that.chatbox.setVisible = true;
                     }

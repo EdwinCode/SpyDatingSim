@@ -102,6 +102,9 @@ let levelOne1 = {
         {x: 500, y: -150}
     ],
 
+    //NPC PORTRAIT NUMBERS
+    // 0 = neutral, 1 = happy, 2 = sad, 3 = mad, 4 = surprised
+
     butler: [
         {message: "Talk to Mr.Billionaire.",
             state: 0,
@@ -120,31 +123,39 @@ let levelOne1 = {
     stephanie: [
         { message: "Talk to Mr.Billionaire.",
             state: 0,
+            portraitNumber: 0,
             stateIncr: "false"},
         { message: "Hi, I'm Stephanie! Isn't Mr. Billionaire so wonderful? " +
                 "He's definitely a tall drink of water.",
             state: 1,
+            portraitNumber: 1,
             stateIncr: "true"},
         { message: "*is suddenly thirsty*",
             state: 2,
+            portraitNumber: 0,
             stateIncr: "false"},
         { message: "*is suddenly thirsty*",
             state: 3,
+            portraitNumber: 0,
             stateIncr: "false"}
     ],
 
     richie: [
         { message: "Talk to Mr.Billionaire.",
             state: 0,
+            portraitNumber: 0,
             stateIncr: "false"},
         { message: "I'm going to live up to my name and win Mr. Billionaire's heart!",
             state: 1,
+            portraitNumber: 1,
             stateIncr: "false"},
         { message: "Oh, beware of the water here. That stuff I had earlier was nasty.",
             state: 2,
+            portraitNumber: 2,
             stateIncr: "true"},
         { message: "Then again, maybe that water does wonders for the skin...",
             state: 3,
+            portraitNumber: 0,
             stateIncr: "false"}
     ],
 
@@ -152,16 +163,20 @@ let levelOne1 = {
         { message: "Welcome to the mansion! I'm so glad you could make it. " +
                 "I'll be giving a toast soon. Make yourself comfortable.",
             state: 0,
+            portraitNumber: 1,
             stateIncr: "true"},
         { message: "You should get familiar with the other contestants.",
             state: 1,
+            portraitNumber: 0,
             stateIncr: "false"},
         { message: "You should get familiar with the other contestants.",
             state: 2,
+            portraitNumber: 0,
             stateIncr: "false"},
         { message: "*annoying clinging of silverware on a glass* I'd like to give a toast." +
                 "Welcome to my mansion! I know we'll have a great time. Let the sparks ignite.",
             state: 3,
+            portraitNumber: 1,
             stateIncr: "true"}
     ]
 };

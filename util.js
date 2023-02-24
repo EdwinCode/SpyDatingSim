@@ -145,6 +145,29 @@ function loadText(level, entity, chatState) {
     }
 };
 
+function loadImage(level, entity, chatState) {
+    // stephanie
+    if (entity === "stephanie") {
+        return level.stephanie[chatState].portraitNumber;
+    }
+
+    // richie
+    else if (entity === "richie") {
+        return level.richie[chatState].portraitNumber;
+    }
+
+    // billionaire
+    else if (entity === "billionaire") {
+        return level.billionaire[chatState].portraitNumber;
+    }
+
+    // butler
+    else if (entity === "butler") {
+        return level.butler[chatState].portraitNumber;
+    }
+
+}
+
 //
 // Items Bag
 //

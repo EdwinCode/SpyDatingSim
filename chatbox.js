@@ -1,16 +1,44 @@
 class Chatbox {
-    constructor(game, text) {
+    constructor(game, text, portraitNumber, spritesheet) {
         this.game = game;
         this.text = text;
+        this.portraitNumber = portraitNumber;
+        this.spritesheet = spritesheet;
 
         this.chatboxX = 0;
         this.chatboxY = 500;
+
+        this.imageX = 0;
+        this.imageY = 0;
+
+        this.imageW = 45 * PARAMS.BLOCKWIDTH;;
+        this.imageH = 45 * PARAMS.BLOCKWIDTH;;
 
         this.setVisible = false;
 
         this.mouseBB = new BoundingBox(0, 0, 1, 1);
         this.exitBB = new BoundingBox(612, 615, 50, 50);
     };
+
+    getImageXandY(portraitNumber) {
+        // 0 = neutral, 1 = happy, 2 = sad, 3 = mad, 4 = surprised
+        if (portraitNumber === 0) {
+            this.imageX = 32;
+            this.imageY = 16;
+        } else if (portraitNumber === 1) {
+            this.imageX = 340;
+            this.imageY = 16;
+        } else if (portraitNumber === 2) {
+            this.imageX = 36;
+            this.imageY = 320;
+        } else if (portraitNumber === 3) {
+            this.imageX = 340;
+            this.imageY = 320;
+        } else if (portraitNumber === 4) {
+            this.imageX = 36;
+            this.imageY = 628;
+        }
+    }
 
     update() {
         if (this.game.click) {
@@ -20,6 +48,8 @@ class Chatbox {
            if (this.mouseBB.collide(this.exitBB)) {
                this.setVisible = false;
                this.removeFromWorld = true;
+               this.imageX = 0;
+               this.imageY = 0;
             }
 
             this.game.click = null;
@@ -62,8 +92,15 @@ class Chatbox {
 
             setWhiteStroke(ctx);
 
+            console.log("portraitNumber: " + this.portraitNumber);
+            this.getImageXandY(this.portraitNumber);
+            console.log("imageX: " + this.imageX + ", imageY: " + this.imageY + ", imageW: " + this.imageW + ", imageH: " + this.imageH);
+            ctx.drawImage(this.spritesheet, this.imageX, this.imageY, 294, 294, this.chatboxX + 10, this.chatboxY + 10, this.imageW, this.imageH);
+
+
             // npc text
-            wrapText(ctx, this.text, this.chatboxX + 10, this.chatboxY + 20, 680);
+            //TO CHANGE WHERE THE TEXT IS IN THE CHAT BOX
+            wrapText(ctx, this.text, this.chatboxX + 195, this.chatboxY + 30, 490);
         }
     };
 };
