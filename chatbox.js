@@ -94,9 +94,7 @@ class Chatbox {
 
             setWhiteStroke(ctx);
 
-            console.log("portraitNumber: " + this.portraitNumber);
             this.getImageXandY(this.portraitNumber);
-            console.log("imageX: " + this.imageX + ", imageY: " + this.imageY + ", imageW: " + this.imageW + ", imageH: " + this.imageH);
             ctx.drawImage(this.spritesheet, this.imageX, this.imageY, 294, 294, this.chatboxX + 10, this.chatboxY + 10, this.imageW, this.imageH);
 
 
