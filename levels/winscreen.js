@@ -3,7 +3,7 @@ class WinScreen {
         this.game = game;
 
         this.mouseBB = new BoundingBox(0, 0, 1, 1);
-        this.restartBB = new BoundingBox((720 / 2) - 115, (720 / 2) - 65, 190, 70);
+        this.newgameBB = new BoundingBox((720 / 2) - 115, (720 / 2) - 65, 190, 70);
     };
 
     update() {
@@ -13,7 +13,7 @@ class WinScreen {
             this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y, 1, 1);
 
             // restart game
-            if (this.mouseBB.collide(this.restartBB)) {
+            if (this.mouseBB.collide(this.newgameBB)) {
                 this.game.camera.loadLevel(titleScreen);
                 this.game.male = false;
             }
@@ -42,10 +42,10 @@ class WinScreen {
         setBlackStroke(ctx);
 
         //restart
-        if (this.mouseBB.collide(this.restartBB)) {
+        if (this.mouseBB.collide(this.newgameBB)) {
             setRedStroke(ctx);
         }
-        ctx.fillText("RESTART", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2);
-        ctx.strokeRect(this.restartBB.left, this.restartBB.top, this.restartBB.width, this.restartBB.height);
+        ctx.fillText("NEW GAME", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2);
+        ctx.strokeRect(this.newgameBB.left, this.newgameBB.top, this.newgameBB.width, this.newgameBB.height);
     };
 };
