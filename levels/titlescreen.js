@@ -7,7 +7,8 @@ class TitleScreen {
 
 
         this.mouseBB = new BoundingBox(0, 0, 1, 1);
-        this.creditsBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 2 - 80, (720 / 2) + 155, 160, 70);
+        this.instructionsBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 2 - 100, (720 / 2) + 146, 200, 50);
+        this.creditsBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 2 - 65, (720 / 2) + 215, 130, 50);
         this.exitBB = new BoundingBox(600 - 50, 650 - 45, 100, 50);
 
         this.player1BB = new BoundingBox((720 / 2) - 210, (720 / 2) - 55, 80, 125);
@@ -72,6 +73,7 @@ class TitleScreen {
             ctx.drawImage(this.animationPlayer1, 0, 0, 128, 208, (720 / 2) - 200, (720 / 2) - 45, 128 / 2, 208 / 2);
             ctx.strokeRect(this.player1BB.left, this.player1BB.top, this.player1BB.width, this.player1BB.height);
 
+            // RESET TEXT
             setBlackStroke(ctx);
 
             //brown hair boy
@@ -81,13 +83,25 @@ class TitleScreen {
             ctx.drawImage(this.animationPlayer2, 0, 0, 128, 208, (720 / 2) + 100, (720 / 2) - 45, 128 / 2, 208 / 2);
             ctx.strokeRect(this.player2BB.left, this.player2BB.top, this.player2BB.width, this.player2BB.height);
 
+            // RESET TEXT and make font smaller
+            setBlackStroke(ctx);
+            ctx.font = "Bold 25px Courier";
+
+            // how to play button
+            if (this.mouseBB.collide(this.instructionsBB)) {
+                setRedStroke(ctx);
+            }
+            ctx.fillText("HOW TO PLAY", ctx.canvas.width / 2, 720 / 2 + 180);
+            ctx.strokeRect(this.instructionsBB.left, this.instructionsBB.top, this.instructionsBB.width, this.instructionsBB.height);
+
+            // RESET TEXT
             setBlackStroke(ctx);
 
-            //credits
+            // credits
             if (this.mouseBB.collide(this.creditsBB)) {
                 setRedStroke(ctx);
             }
-            ctx.fillText("CREDITS", ctx.canvas.width / 2, 720 / 2 + 200);
+            ctx.fillText("CREDITS", ctx.canvas.width / 2, 720 / 2 + 250);
             ctx.strokeRect(this.creditsBB.left, this.creditsBB.top, this.creditsBB.width, this.creditsBB.height);
 
         }
