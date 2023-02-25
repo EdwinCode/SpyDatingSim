@@ -35,10 +35,10 @@ class Level1Part1 {
             this.game.addEntity(new ChairLeft(this.game, chairLeft.x * PARAMS.BLOCKWIDTH, chairLeft.y * PARAMS.BLOCKWIDTH));
         }
 
-        //big table
-        for (let i = 0; i < this.level.bigTables.length; i++) {
-            let table = this.level.bigTables[i];
-            this.game.addEntity(new BigTable(this.game, table.x * PARAMS.BLOCKWIDTH, table.y * PARAMS.BLOCKWIDTH));
+        //long Wooden Patterned Tables
+        for (let i = 0; i < this.level.longWoodenPatternedTables.length; i++) {
+            let table = this.level.longWoodenPatternedTables[i];
+            this.game.addEntity(new LongWoodenPatternedTable(this.game, table.x * PARAMS.BLOCKWIDTH, table.y * PARAMS.BLOCKWIDTH));
         }
 
         for (let i = 0; i < this.level.beds.length; i++) {
@@ -154,7 +154,7 @@ class Level1Part2 {
         //big table
         for (let i = 0; i < this.level.bigTables.length; i++) {
             let table = this.level.bigTables[i];
-            this.game.addEntity(new BigTable(this.game, table.x * PARAMS.BLOCKWIDTH, table.y * PARAMS.BLOCKWIDTH));
+            this.game.addEntity(new LongWoodenPatternedTable(this.game, table.x * PARAMS.BLOCKWIDTH, table.y * PARAMS.BLOCKWIDTH));
         }
 
         for (let i = 0; i < this.level.beds.length; i++) {

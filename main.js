@@ -23,6 +23,8 @@ ASSET_MANAGER.queueDownload("./sprites/casefile.png");
 
 //furniture
 ASSET_MANAGER.queueDownload("./sprites/furniture/House_Tileset.png");
+ASSET_MANAGER.queueDownload("./sprites/furniture/furniture.png");
+
 
 ASSET_MANAGER.downloadAll(() => {
 	const canvas = document.getElementById("gameWorld");

@@ -45,9 +45,13 @@ let levelOne1 = {
         {x: 234.25, y: -104}
     ],
 
-    bigTables: [
+    longWoodenPatternedTables: [
+        {x: 55.5, y: 76},
         {x: 55.5, y: 64},
+
+        {x: 173.5, y: 76},
         {x: 173.5, y: 64}
+
     ],
 
     bigCouches: [
@@ -56,14 +60,14 @@ let levelOne1 = {
     ],
 
     chairRights: [
-        {x: 41.5, y: 72},
-        {x: 159.5, y: 72}
+        {x: 40, y: 72},
+        {x: 158, y: 72}
     ],
 
     chairLefts: [
-        {x: 83.5, y: 72},
+        {x: 89, y: 72},
         // x = 96 + 174
-        {x: 201.5, y: 72}
+        {x: 206, y: 72}
     ],
 
     beds: [
@@ -217,7 +221,7 @@ let levelOne2 = {
     ],
 
     //furniture
-    bigTables: [
+    longWoodenPatternedTables: [
         // Room 1 big tables, place wherever they look nice
         {x: 68, y: 64},
         {x: 242, y: 64}
