@@ -192,8 +192,12 @@ class Itemsbag {
             ctx.fillText("Case File", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 65);
 
             if (this.clickCase) {
-                this.setItemBlurbBox(ctx, "You have chosen the case file. This file provides you with " +
-                    "the pertinent information for your case.");
+                this.setItemBlurbBox(ctx, "You have chosen the case file!                                      " +
+                    "           This file was given to you at the beginning of the first level. It contains details " +
+                    "pertinent to your case. Refer back to this file to refresh your memory on the details of your " +
+                    "case.                                               " +
+                    "Click the 'view' button to see the case file.");
+
                 this.setViewItemBox(ctx, "");  // show nothing
                 this.setButton(ctx, "VIEW");
             }
@@ -212,8 +216,12 @@ class Itemsbag {
             ctx.fillText("Sneakers", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);
 
             if (this.clickSneaker) {
-                this.setItemBlurbBox(ctx, "");
-                this.setViewItemBox(ctx, "To be implemented sneaker img");  // show sneaker img
+                this.setItemBlurbBox(ctx, "You have chosen the sneakers! Wearing these will allow you " +
+                    "the ability to run without having to press the 'shift' key.   Use the direction keys " +
+                    "to move with the new applied run velocity.             Be aware that the 'shift' key " +
+                    "will be disabled if you are wearing sneakers. So, you can't go any faster than running. " +
+                    "To take off the sneakers, click the 'apply' button again.");
+                this.setViewItemBox(ctx, "");  // show sneaker img
                 this.setButton(ctx, "APPLY");
             }
         } else {
@@ -231,8 +239,12 @@ class Itemsbag {
             ctx.fillText("Cape", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 210);
 
             if (this.clickCape) {
-                this.setItemBlurbBox(ctx, "");
-                this.setViewItemBox(ctx, "To be implemented cape img");  // show cape img
+                this.setItemBlurbBox(ctx, "You have chosen the cape! Wearing this item will help you evade " +
+                    "the guards. You will not be visible. So, if you are within the sight of a guard, you won't " +
+                    "have to worry about being seen and caught. However, just because you're invisible doesn't mean " +
+                    "you can't bump into things! So, you can still be caught if you collide with a guard.       " +
+                    "Click the 'apply' button to take the cape on and off.");
+                this.setViewItemBox(ctx, "");  // show cape img
                 this.setButton(ctx, "APPLY");
             }
         } else {
@@ -250,7 +262,10 @@ class Itemsbag {
             ctx.fillText("Clue One", PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 65);
 
             if (this.clickClueOne) {
-                this.setItemBlurbBox(ctx, "");
+                this.setItemBlurbBox(ctx, "You have chosen the lighter fluid! This is your first found clue. " +
+                    "                                           It was hidden and disguised as water...strange. Even " +
+                    "though, this is a weird clue, it still doesn't prove Mr. Billionaire did the crime.             " +
+                    "                             There are more clues to be found, so get back out there, Agent Spy!");
                 this.setViewItemBox(ctx, "To be implemented clue img");  // show clue
             }
         } else {
@@ -307,7 +322,7 @@ class Itemsbag {
         // add new text
         ctx.textAlign = "left";
         ctx.font = "Bold 20px Courier";
-        wrapText(ctx, text, PARAMS.CANVAS_WIDTH / 2 + 10, 20, PARAMS.CANVAS_WIDTH / 2 - 10);
+        wrapText(ctx, text, PARAMS.CANVAS_WIDTH / 2 + 10, 20, PARAMS.CANVAS_WIDTH / 2);
     }
 
     setButton(ctx, text) {
