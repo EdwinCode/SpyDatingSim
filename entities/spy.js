@@ -229,7 +229,7 @@ class Spy {
                         that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/richie_portraits.png");
 
 
-                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet);
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
                         that.game.addEntityToTop(that.chatbox);
                         that.chatbox.setVisible = true;
 
@@ -255,7 +255,7 @@ class Spy {
                         //CHANGE LATER TO BILLIONAIRE PORTRAIT
                         that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/stephanie_portraits.png");
 
-                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet);
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
                         that.game.addEntityToTop(that.chatbox);
                         that.chatbox.setVisible = true;
 
@@ -283,7 +283,7 @@ class Spy {
                         //Padding: 8 pixels wide, 4 pixels length
                         that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/stephanie_portraits.png");
 
-                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet);
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
                         that.game.addEntityToTop(that.chatbox);
                         that.chatbox.setVisible = true;
 

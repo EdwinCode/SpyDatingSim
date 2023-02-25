@@ -35,10 +35,10 @@ class Level1Part1 {
             this.game.addEntity(new ChairLeft(this.game, chairLeft.x * PARAMS.BLOCKWIDTH, chairLeft.y * PARAMS.BLOCKWIDTH));
         }
 
-        //big table
-        for (let i = 0; i < this.level.bigTables.length; i++) {
-            let table = this.level.bigTables[i];
-            this.game.addEntity(new BigTable(this.game, table.x * PARAMS.BLOCKWIDTH, table.y * PARAMS.BLOCKWIDTH));
+        //long Wooden Patterned Tables
+        for (let i = 0; i < this.level.longWoodenPatternedTables.length; i++) {
+            let table = this.level.longWoodenPatternedTables[i];
+            this.game.addEntity(new LongWoodenPatternedTable(this.game, table.x * PARAMS.BLOCKWIDTH, table.y * PARAMS.BLOCKWIDTH));
         }
 
         for (let i = 0; i < this.level.beds.length; i++) {
@@ -59,8 +59,8 @@ class Level1Part1 {
         this.game.addEntity(this.spyCharacter);
 
         // guards
-        this.game.addEntity(new Guard(this.game, 388, 216, false));
-        this.game.addEntity(new Guard(this.game, 550, 125, true));
+        // this.game.addEntity(new Guard(this.game, 388, 216, false));
+        // this.game.addEntity(new Guard(this.game, 550, 125, true));
 
         // billionaire
         this.game.addEntity(new Billionaire(this.game, 80 * PARAMS.BLOCKWIDTH, 192 * PARAMS.BLOCKWIDTH));
@@ -107,6 +107,8 @@ class Level1Part1 {
     };
 };
 
+//-------------------------------------------------------------------------
+
 class Level1Part2 {
     constructor(game, hud, darkness, level, spyCharacter) {
         this.game = game;
@@ -151,10 +153,10 @@ class Level1Part2 {
             this.game.addEntity(new ChairLeft(this.game, chairLeft.x * PARAMS.BLOCKWIDTH, chairLeft.y * PARAMS.BLOCKWIDTH));
         }
 
-        //big table
-        for (let i = 0; i < this.level.bigTables.length; i++) {
-            let table = this.level.bigTables[i];
-            this.game.addEntity(new BigTable(this.game, table.x * PARAMS.BLOCKWIDTH, table.y * PARAMS.BLOCKWIDTH));
+        //long Wooden Patterned Tables
+        for (let i = 0; i < this.level.longWoodenPatternedTables.length; i++) {
+            let table = this.level.longWoodenPatternedTables[i];
+            this.game.addEntity(new LongWoodenPatternedTable(this.game, table.x * PARAMS.BLOCKWIDTH, table.y * PARAMS.BLOCKWIDTH));
         }
 
         for (let i = 0; i < this.level.beds.length; i++) {

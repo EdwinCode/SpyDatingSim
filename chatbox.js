@@ -1,10 +1,11 @@
 class Chatbox {
     static OPEN = false;
-    constructor(game, text, portraitNumber, spritesheet) {
+    constructor(game, text, portraitNumber, spritesheet, isButler) {
         this.game = game;
         this.text = text;
         this.portraitNumber = portraitNumber;
         this.spritesheet = spritesheet;
+        this.isButler = isButler;
 
         this.chatboxX = 0;
         this.chatboxY = 500;
@@ -12,8 +13,13 @@ class Chatbox {
         this.imageX = 0;
         this.imageY = 0;
 
-        this.imageW = 45 * PARAMS.BLOCKWIDTH;;
-        this.imageH = 45 * PARAMS.BLOCKWIDTH;;
+        // original pic width and height
+        this.imageW = 294;
+        this.imageH = 294;
+
+        // Draw width and height
+        this.dWidth = 45 * PARAMS.BLOCKWIDTH;;
+        this.dHeight = 45 * PARAMS.BLOCKWIDTH;;
 
         this.setVisible = false;
 
@@ -94,10 +100,22 @@ class Chatbox {
 
             setWhiteStroke(ctx);
 
-            console.log("portraitNumber: " + this.portraitNumber);
-            this.getImageXandY(this.portraitNumber);
-            console.log("imageX: " + this.imageX + ", imageY: " + this.imageY + ", imageW: " + this.imageW + ", imageH: " + this.imageH);
-            ctx.drawImage(this.spritesheet, this.imageX, this.imageY, 294, 294, this.chatboxX + 10, this.chatboxY + 10, this.imageW, this.imageH);
+            //Different drawing specs for butler
+            if (this.isButler) {
+                // this.imageX = ;
+                // this.imageY = ;
+                this.imageW = 104;
+                this.imageH = 156;
+
+                this.dWidth = 28 * PARAMS.BLOCKWIDTH;;
+                this.dHeight = 41 * PARAMS.BLOCKWIDTH;;
+
+
+            } else {
+                this.getImageXandY(this.portraitNumber);
+            }
+
+            ctx.drawImage(this.spritesheet, this.imageX, this.imageY, this.imageW, this.imageH, this.chatboxX + 10, this.chatboxY + 10, this.dWidth, this.dHeight);
 
 
             // npc text

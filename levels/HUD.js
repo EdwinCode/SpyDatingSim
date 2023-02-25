@@ -9,6 +9,9 @@ class HUD {
         this.mouseBB = new BoundingBox(0,0,1,1);
         this.butlerBB = new BoundingBox(545,5,60,54);
         this.itemsBagBB = new BoundingBox(615,5,60,54);
+
+        this.butlerIcon = ASSET_MANAGER.getAsset("./sprites/alfred.png");
+        this.suitcase = ASSET_MANAGER.getAsset("./sprites/suitcase.png");
     };
 
     setText(text) {
@@ -26,9 +29,16 @@ class HUD {
             // new Chatbox with Butler hints
             if (this.mouseBB.collide(this.butlerBB)) {
                 this.hintText = loadText(this.game.currLvl, "butler", this.game.chatState);
-                this.chatbox = new Chatbox(this.game, this.hintText);
+
+                this.image = loadImage(this.game.currLvl, "butler", this.game.chatState);
+
+                this.chatbox = new Chatbox(this.game, this.hintText, this.image, this.butlerIcon, true);
+
                 this.game.addEntityToTop(this.chatbox);
                 this.chatbox.setVisible = true;
+
+                //TO PAUSE THE GAME
+                Chatbox.OPEN = true;
             }
 
             // new items bag
@@ -65,7 +75,6 @@ class HUD {
         }
         ctx.strokeRect(this.butlerBB.left, this.butlerBB.top, this.butlerBB.width, this.butlerBB.height);
         ctx.fillRect(this.butlerBB.left, this.butlerBB.top, this.butlerBB.width, this.butlerBB.height);
-        this.butlerIcon = ASSET_MANAGER.getAsset("./sprites/alfred.png")
         ctx.drawImage(this.butlerIcon, 556, 6, 3 * 13, 3 * 18);
 
         ctx.fillStyle = 'gray';
@@ -76,8 +85,7 @@ class HUD {
         }
         ctx.strokeRect(this.itemsBagBB.left, this.itemsBagBB.top, this.itemsBagBB.width, this.itemsBagBB.height);
         ctx.fillRect(this.itemsBagBB.left, this.itemsBagBB.top, this.itemsBagBB.width, this.itemsBagBB.height);
-        this.butlerIcon = ASSET_MANAGER.getAsset("./sprites/suitcase.png")
-        ctx.drawImage(this.butlerIcon, 615, 5, 3 * 20, 3 * 18);
+        ctx.drawImage(this.suitcase, 615, 5, 3 * 20, 3 * 18);
 
         setBlackStroke(ctx);
     };
