@@ -29,7 +29,7 @@ class HowToPlay {
 
     draw(ctx) {
         // fill screen to be white
-        setWhiteStroke(ctx);
+        ctx.fillStyle = "gray";
         ctx.fillRect(0, 0, PARAMS.CANVAS_WIDTH, PARAMS.CANVAS_HEIGHT);
 
         // draw title
@@ -44,11 +44,30 @@ class HowToPlay {
         ctx.font = "Bold 35px Courier";
 
         // add how-to instructions
-        ctx.fillText("DEVELOPERS:", 40, 200);
-        ctx.fillText("Maria Babko", 40, 240);
-        ctx.fillText("Chloe Duncan", 40, 280);
-        ctx.fillText("Edwin Solis-Bruno", 40, 320);
+        ctx.fillText("GAME CONTROLS:", 40, 200);
 
+        ctx.font = "Bold 25px Courier";
+        ctx.lineWidth = 2;
+        ctx.strokeRect(42, 215, 40, 40);
+        ctx.strokeRect(103, 215, 40, 40);
+        ctx.fillText(" a , \u2190  Move Left", 40, 240);
+        ctx.strokeRect(42, 260, 40, 40);
+        ctx.strokeRect(103, 260, 40, 40);
+        ctx.fillText(" d , \u2192  Move Right", 40, 287);
+        ctx.strokeRect(42, 305, 40, 40);
+        ctx.strokeRect(103, 305, 40, 40);
+        ctx.fillText(" w , \u2191  Move Up", 40, 334);
+        ctx.strokeRect(42, 350, 40, 40);
+        ctx.strokeRect(103, 350, 40, 40);
+        ctx.fillText(" s , \u2193  Move Down", 40, 378);
+        ctx.strokeRect(72, 395, 40, 40);
+        ctx.fillText(" e      Interact", 70, 422);
+        ctx.strokeRect(42, 440, 100, 40);
+        ctx.fillText(" shift  Run", 40, 465);
+
+        ctx.fillText("", 40, 480);
+        ctx.fillText("IN-GAME HUD:", 40, 520);
+        ctx.fillText("words", 40, 560);
         // exit button
         setBlackStroke(ctx);
         if (this.mouseBB.collide(this.exitBB)) {

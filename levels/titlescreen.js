@@ -33,6 +33,11 @@ class TitleScreen {
                 this.credits = true;
             }
 
+            // how to play screen
+            else if (this.mouseBB.collide(this.instructionsBB)) {
+                this.game.addEntityToTop(new HowToPlay(this.game));
+            }
+
             // exit credits screen
             else {
                 if (this.mouseBB.collide(this.exitBB)) {
