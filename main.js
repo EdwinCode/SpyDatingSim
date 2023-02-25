@@ -24,6 +24,10 @@ ASSET_MANAGER.queueDownload("./sprites/casefile.png");
 //furniture
 ASSET_MANAGER.queueDownload("./sprites/furniture/House_Tileset.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/furniture.png");
+ASSET_MANAGER.queueDownload("./sprites/furniture/Cars.png");
+ASSET_MANAGER.queueDownload("./sprites/furniture/floorAndWall.png");
+
+
 
 
 ASSET_MANAGER.downloadAll(() => {
