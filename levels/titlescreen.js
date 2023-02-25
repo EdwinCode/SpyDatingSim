@@ -123,9 +123,11 @@ class TitleScreen {
             ctx.font = "Bold 35px Courier";
 
             ctx.fillText("DEVELOPERS:", 40, 200);
-            ctx.fillText("Maria Babko", 40, 240);
-            ctx.fillText("Chloe Duncan", 40, 280);
-            ctx.fillText("Edwin Solis-Bruno", 40, 320);
+            ctx.fillText("\u2615 Maria Babko", 40, 240);
+            ctx.fillText("\u2615 Chloe Duncan", 40, 280);
+            ctx.fillText("\u2615 Edwin Solis-Bruno", 40, 320);
+            ctx.fillText("\uD83D\uDCBB TCSS 491", 40, 400);
+            ctx.fillText("\u26c4 Winter 2023", 40, 440);
 
             // exit button
             setBlackStroke(ctx);
