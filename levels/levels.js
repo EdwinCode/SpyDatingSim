@@ -106,26 +106,27 @@ let levelOne1 = {
     // 0 = neutral, 1 = happy, 2 = sad, 3 = mad, 4 = surprised
 
     butler: [
-        {message: "Talk to Mr.Billionaire.",
+        {message: "Talk to Mr.Billionaire. He has a welcome message. Also, make sure to take a look around. You " +
+                "never know what you might find in this big mansion...",
             state: 0,
             stateIncr: false},
-        {message: "Talk to Stephanie.",
+        {message: "Talk to Stephanie. She's also dating Mr. Billionaire.",
             state: 1,
             stateIncr: false},
-        {message: "Talk to Richie.",
+        {message: "Talk to Richie. He's also dating Mr. Billionaire, and is such a gossip queen...much like myself.",
             state: 2,
             stateIncr: false},
-        {message: "Go back to Mr.Billionaire.",
+        {message: "Someone is going to give a toast. Go back to them to hear it.",
             state: 3,
             stateIncr: false}
     ],
 
     stephanie: [
-        { message: "Talk to Mr.Billionaire.",
+        { message: "Talk to Mr.Billionaire. He wants to meet everyone first.",
             state: 0,
             portraitNumber: 0,
             stateIncr: "false"},
-        { message: "Hi, I'm Stephanie! Isn't Mr. Billionaire so wonderful? " +
+        { message: "So, you met Mr. Billionaire? Isn't he so wonderful? " +
                 "He's definitely a tall drink of water.",
             state: 1,
             portraitNumber: 1,
@@ -141,11 +142,11 @@ let levelOne1 = {
     ],
 
     richie: [
-        { message: "Talk to Mr.Billionaire.",
+        { message: "Steph says that Mr. Billionaire said to talk to him first.",
             state: 0,
             portraitNumber: 0,
             stateIncr: "false"},
-        { message: "I'm going to live up to my name and win Mr. Billionaire's heart!",
+        { message: "I'm going to live up to my name...Richie Rich...and win Mr. Billionaire's heart!",
             state: 1,
             portraitNumber: 1,
             stateIncr: "false"},
@@ -165,7 +166,7 @@ let levelOne1 = {
             state: 0,
             portraitNumber: 1,
             stateIncr: "true"},
-        { message: "You should get familiar with the other contestants.",
+        { message: "It's mix and mingle time before we start the real party!",
             state: 1,
             portraitNumber: 0,
             stateIncr: "false"},
@@ -173,8 +174,9 @@ let levelOne1 = {
             state: 2,
             portraitNumber: 0,
             stateIncr: "false"},
-        { message: "*annoying clinging of silverware on a glass* I'd like to give a toast." +
-                "Welcome to my mansion! I know we'll have a great time. Let the sparks ignite.",
+        { message: "*annoying clinging of silverware on a glass* I'd like to give a toast. " +
+                "Welcome to my mansion! I know we'll have a great time. Later, I'll be handing " +
+                "out the first impression rose. *wink* Let the sparks ignite!",
             state: 3,
             portraitNumber: 1,
             stateIncr: "true"}
