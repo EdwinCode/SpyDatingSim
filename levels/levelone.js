@@ -107,6 +107,8 @@ class Level1Part1 {
     };
 };
 
+//-------------------------------------------------------------------------
+
 class Level1Part2 {
     constructor(game, hud, darkness, level, spyCharacter) {
         this.game = game;
@@ -151,9 +153,9 @@ class Level1Part2 {
             this.game.addEntity(new ChairLeft(this.game, chairLeft.x * PARAMS.BLOCKWIDTH, chairLeft.y * PARAMS.BLOCKWIDTH));
         }
 
-        //big table
-        for (let i = 0; i < this.level.bigTables.length; i++) {
-            let table = this.level.bigTables[i];
+        //long Wooden Patterned Tables
+        for (let i = 0; i < this.level.longWoodenPatternedTables.length; i++) {
+            let table = this.level.longWoodenPatternedTables[i];
             this.game.addEntity(new LongWoodenPatternedTable(this.game, table.x * PARAMS.BLOCKWIDTH, table.y * PARAMS.BLOCKWIDTH));
         }
 
