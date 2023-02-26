@@ -104,7 +104,7 @@ let levelOne1 = {
         {x: 440, y: -455},
 
         //bottom
-        {x: 358, y: -390}
+        {x: 358, y: -400}
     ],
 
     kitchenCounterRight: [
@@ -115,7 +115,7 @@ let levelOne1 = {
         {x: 480, y: -455},
 
         // bottom side
-        {x: 480, y: -390},
+        {x: 480, y: -400},
     ],
 
     kitchenCounterMiddle: [
@@ -126,10 +126,10 @@ let levelOne1 = {
         {x: 465, y: -455},
 
         // bottom side
-        {x: 383, y: -390},
-        {x: 408, y: -390},
-        {x: 433, y: -390},
-        {x: 458, y: -390},
+        {x: 383, y: -400},
+        {x: 408, y: -400},
+        {x: 433, y: -400},
+        {x: 458, y: -400},
     ],
 
     microwave: [
@@ -139,6 +139,24 @@ let levelOne1 = {
     kitchenCabinet: [
         {x: 441, y: -480},
         {x: 471, y: -480}
+    ],
+
+    tanChairRight: [
+        {x: 316, y: -322},
+    ],
+
+    tanChairUp: [
+        {x: 348, y: -297},
+        {x: 388, y: -297},
+        {x: 428, y: -297},
+        {x: 468, y: -297},
+    ],
+
+    tanChairDown: [
+        {x: 348, y: -343},
+        {x: 388, y: -343},
+        {x: 428, y: -343},
+        {x: 468, y: -343},
     ],
 
 
@@ -193,7 +211,7 @@ let levelOne1 = {
     ],
 
     bedroomMirror: [
-        {x: 451, y: 3}
+        {x: 450, y: 3}
     ],
 
     wardrobes: [
@@ -232,6 +250,15 @@ let levelOne1 = {
 
 
     longWoodenPatternedTables: [
+
+        //kitchen
+        {x: 335, y: -320},
+        {x: 375, y: -320},
+
+        {x: 415, y: -320},
+        {x: 455, y: -320},
+
+        // entrance
         {x: 55.5, y: 76},
         {x: 55.5, y: 64},
 

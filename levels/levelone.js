@@ -81,6 +81,24 @@ class Level1Part1 {
             this.game.addEntity(new KitchenCounterMiddle(this.game, kitchenCounterMiddle.x * PARAMS.BLOCKWIDTH, kitchenCounterMiddle.y * PARAMS.BLOCKWIDTH));
         }
 
+        //tanChairRight
+        for (let i = 0; i < this.level.tanChairRight.length; i++) {
+            let tanChairRight = this.level.tanChairRight[i];
+            this.game.addEntity(new TanChairRight(this.game, tanChairRight.x * PARAMS.BLOCKWIDTH, tanChairRight.y * PARAMS.BLOCKWIDTH));
+        }
+
+        //tanChairUp
+        for (let i = 0; i < this.level.tanChairUp.length; i++) {
+            let tanChairUp = this.level.tanChairUp[i];
+            this.game.addEntity(new TanChairUp(this.game, tanChairUp.x * PARAMS.BLOCKWIDTH, tanChairUp.y * PARAMS.BLOCKWIDTH));
+        }
+
+        //tanChairDown
+        for (let i = 0; i < this.level.tanChairDown.length; i++) {
+            let tanChairDown = this.level.tanChairDown[i];
+            this.game.addEntity(new TanChairDown(this.game, tanChairDown.x * PARAMS.BLOCKWIDTH, tanChairDown.y * PARAMS.BLOCKWIDTH));
+        }
+
 
 
         // ------------------------ BATHROOM FURNITURE -------------------
