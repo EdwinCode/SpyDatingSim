@@ -175,6 +175,9 @@ function loadImage(level, entity, chatState) {
 let caseFileDisplay = false;
 let sneakerDisplay = false;
 let capeDisplay = false;
+let flashlightDisplay = false;
+let roseDisplay = false;
+let TBD = false;
 let clueOneDisplay = false;
 let clueTwoDisplay = false;
 let clueThreeDisplay = false;
