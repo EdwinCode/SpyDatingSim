@@ -4,8 +4,18 @@ let levelOne1 = {
     // THE UNITS OF MEASUREMENT FOR THE BELOW CODE ARE IN BLOCKWIDTHS!
 
     sideWallLefts: [ // Count makes them grow downwards
-        {x: 0, y: 0, count: 17},
-        {x: 0, y: -240, count: 15}
+        {x: 0, y: 0, count: 7},
+        {x: 0, y: 160, count: 7},
+
+        {x: 0, y: -240, count: 7},
+        {x: 0, y: -80, count: 5},
+
+        {x: 0, y: -480, count: 7},
+        {x: 0, y: -320, count: 5},
+
+        {x: -252.5, y: 0, count: 17},
+        {x: -252.5, y: -240, count: 15},
+        {x: -252.5, y: -480, count: 15},
     ],
 
     plainWalls: [
@@ -23,7 +33,19 @@ let levelOne1 = {
         {x: 412, y: -240, count: 3},
 
         {x: 4.5, y: 240, count: 8},
-        {x: 257, y: 240, count: 8}
+        {x: 257, y: 240, count: 8},
+
+        {x: 4.5, y: -480, count: 8},
+        {x: 257, y: -480, count: 8},
+
+        {x: -248, y: -480, count: 8},
+        {x: -248, y: 240, count: 8},
+
+        {x: -248, y: -240, count: 3},
+        {x: -93, y: -240, count: 3},
+
+        {x: -248, y: 0, count: 3},
+        {x: -93, y: 0, count: 3}
     ],
 
     sideWallRights: [ // Count makes them grow downwards
@@ -34,7 +56,11 @@ let levelOne1 = {
         {x: 252.5, y: -80, count: 5},
 
         {x: 505, y: 0, count: 17},
-        {x: 505, y: -240, count: 15}
+        {x: 505, y: -240, count: 15},
+        {x: 505, y: -480, count: 15},
+
+        {x: 252.5, y: -480, count: 7},
+        {x: 252.5, y: -320, count: 5}
     ],
 
     bigRugs: [
@@ -42,7 +68,19 @@ let levelOne1 = {
         {x: 234.25, y: 136},
 
         {x: 234.25, y: -128},
-        {x: 234.25, y: -104}
+        {x: 234.25, y: -104},
+
+        {x: 234.25, y:-368},
+        {x: 234.25, y:-344},
+
+        {x: -18.25, y: 112},
+        {x: -18.25, y: 136},
+
+        {x: -18.25, y: -128},
+        {x: -18.25, y: -104},
+
+        {x: -18.25, y: -368},
+        {x: -18.25, y: -344}
     ],
 
     longWoodenPatternedTables: [

@@ -17,7 +17,7 @@ class Spy {
 
         this.x = x;
         this.y = y;
-        this.velocity = 300;
+        this.velocity = 550;
 
         this.spotted = false;
 
@@ -87,19 +87,19 @@ class Spy {
                     } else if (this.game.up && this.game.run && !this.game.down) {
                         this.direction = 3; // up
                         this.state = 2; // running
-                        this.y -= this.velocity * 2 * this.game.clockTick;
+                        this.y -= this.velocity * 1.5 * this.game.clockTick * PARAMS.SCALE;
                     } else if (this.game.up && !this.game.down) {
                         this.direction = 3; // up
                         this.state = 1; // walking
-                        this.y -= this.velocity * this.game.clockTick;
+                        this.y -= this.velocity * this.game.clockTick * PARAMS.SCALE;
                     } else if (this.game.down && this.game.run && !this.game.up) {
                         this.direction = 1; // down
                         this.state = 2; // running
-                        this.y += this.velocity * 2 * this.game.clockTick;
+                        this.y += this.velocity * 1.5 * this.game.clockTick * PARAMS.SCALE;
                     } else if (this.game.down && !this.game.up) {
                         this.direction = 1; // down
                         this.state = 1; // walking
-                        this.y += this.velocity * this.game.clockTick;
+                        this.y += this.velocity * this.game.clockTick * PARAMS.SCALE;
                     } else if (this.game.up && this.game.down) {
                         this.direction = 3; // up
                         this.state = 0; // idle
@@ -110,19 +110,19 @@ class Spy {
                     } else if (this.game.right && this.game.run && !this.game.left) {
                         this.direction = 0; // right
                         this.state = 2; // running
-                        this.x += this.velocity * 2 * this.game.clockTick;
+                        this.x += this.velocity * 1.5 * this.game.clockTick * PARAMS.SCALE;
                     } else if (this.game.right && !this.game.left) {
                         this.direction = 0; // right
                         this.state = 1; // walking
-                        this.x += this.velocity * this.game.clockTick;
+                        this.x += this.velocity * this.game.clockTick * PARAMS.SCALE;
                     } else if (this.game.left && this.game.run && !this.game.right) {
                         this.direction = 2; // left
                         this.state = 2; // running
-                        this.x -= this.velocity * 2 * this.game.clockTick;
+                        this.x -= this.velocity * 1.5 * this.game.clockTick * PARAMS.SCALE;
                     } else if (this.game.left && !this.game.right) {
                         this.direction = 2; // left
                         this.state = 1; // walking
-                        this.x -= this.velocity * this.game.clockTick;
+                        this.x -= this.velocity * this.game.clockTick * PARAMS.SCALE;
                     } else if (this.game.right && this.game.left && this.game.up) {
                         this.direction = 3; // up
                         this.state = 1; // walking
