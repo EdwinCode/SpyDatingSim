@@ -17,6 +17,151 @@ class Level1Part1 {
         this.hud.setText("Phase 1 - 1");
         this.hud.setTextColor("black");
 
+        //spy
+        this.game.addEntity(this.spyCharacter);
+
+        // guards
+        // this.game.addEntity(new Guard(this.game, 388, 216, false));
+        // this.game.addEntity(new Guard(this.game, 550, 125, true));
+
+        // billionaire
+        this.game.addEntity(new Billionaire(this.game, 80 * PARAMS.BLOCKWIDTH, 192 * PARAMS.BLOCKWIDTH));
+
+        // stephanie
+        this.game.addEntity(new Stephanie(this.game, 100 * PARAMS.BLOCKWIDTH, 100 * PARAMS.BLOCKWIDTH));
+
+        // richie
+        this.game.addEntity(new Richie(this.game, 150 * PARAMS.BLOCKWIDTH, 100 * PARAMS.BLOCKWIDTH));
+
+
+
+
+        // ------------------------ KITCHEN FURNITURE -------------------
+
+
+        //microwave
+        for (let i = 0; i < this.level.microwave.length; i++) {
+            let microwave = this.level.microwave[i];
+            this.game.addEntity(new Microwave(this.game, microwave.x * PARAMS.BLOCKWIDTH, microwave.y * PARAMS.BLOCKWIDTH));
+        }
+
+        //kitchenCabinet
+        for (let i = 0; i < this.level.kitchenCabinet.length; i++) {
+            let kitchenCabinet = this.level.kitchenCabinet[i];
+            this.game.addEntity(new KitchenCabinet(this.game, kitchenCabinet.x * PARAMS.BLOCKWIDTH, kitchenCabinet.y * PARAMS.BLOCKWIDTH));
+        }
+
+        //kitchenSet
+        for (let i = 0; i < this.level.kitchenSet.length; i++) {
+            let kitchenSet = this.level.kitchenSet[i];
+            this.game.addEntity(new KitchenSet(this.game, kitchenSet.x * PARAMS.BLOCKWIDTH, kitchenSet.y * PARAMS.BLOCKWIDTH));
+        }
+
+        //fridge
+        for (let i = 0; i < this.level.fridge.length; i++) {
+            let fridge = this.level.fridge[i];
+            this.game.addEntity(new Fridge(this.game, fridge.x * PARAMS.BLOCKWIDTH, fridge.y * PARAMS.BLOCKWIDTH));
+        }
+
+        //kitchenCounterLeft
+        for (let i = 0; i < this.level.kitchenCounterLeft.length; i++) {
+            let kitchenCounterLeft = this.level.kitchenCounterLeft[i];
+            this.game.addEntity(new KitchenCounterLeft(this.game, kitchenCounterLeft.x * PARAMS.BLOCKWIDTH, kitchenCounterLeft.y * PARAMS.BLOCKWIDTH));
+        }
+
+        //kitchenCounterRight
+        for (let i = 0; i < this.level.kitchenCounterRight.length; i++) {
+            let kitchenCounterRight = this.level.kitchenCounterRight[i];
+            this.game.addEntity(new KitchenCounterRight(this.game, kitchenCounterRight.x * PARAMS.BLOCKWIDTH, kitchenCounterRight.y * PARAMS.BLOCKWIDTH));
+        }
+
+        //kitchenCounterMiddle
+        for (let i = 0; i < this.level.kitchenCounterMiddle.length; i++) {
+            let kitchenCounterMiddle = this.level.kitchenCounterMiddle[i];
+            this.game.addEntity(new KitchenCounterMiddle(this.game, kitchenCounterMiddle.x * PARAMS.BLOCKWIDTH, kitchenCounterMiddle.y * PARAMS.BLOCKWIDTH));
+        }
+
+
+
+        // ------------------------ BATHROOM FURNITURE -------------------
+
+        //shower
+        for (let i = 0; i < this.level.shower.length; i++) {
+            let shower = this.level.shower[i];
+            this.game.addEntity(new Shower(this.game, shower.x * PARAMS.BLOCKWIDTH, shower.y * PARAMS.BLOCKWIDTH));
+        }
+
+        //toilet
+        for (let i = 0; i < this.level.toilet.length; i++) {
+            let toilet = this.level.toilet[i];
+            this.game.addEntity(new Toilet(this.game, toilet.x * PARAMS.BLOCKWIDTH, toilet.y * PARAMS.BLOCKWIDTH));
+        }
+
+        //bathtub
+        for (let i = 0; i < this.level.bathtub.length; i++) {
+            let bathtub = this.level.bathtub[i];
+            this.game.addEntity(new Bathtub(this.game, bathtub.x * PARAMS.BLOCKWIDTH, bathtub.y * PARAMS.BLOCKWIDTH));
+        }
+
+        //bathroomSink
+        for (let i = 0; i < this.level.bathroomSink.length; i++) {
+            let bathroomSink = this.level.bathroomSink[i];
+            this.game.addEntity(new BathroomSink(this.game, bathroomSink.x * PARAMS.BLOCKWIDTH, bathroomSink.y * PARAMS.BLOCKWIDTH));
+        }
+
+        //bathroomMirror
+        for (let i = 0; i < this.level.bathroomMirror.length; i++) {
+            let bathroomMirror = this.level.bathroomMirror[i];
+            this.game.addEntity(new BathroomMirror(this.game, bathroomMirror.x * PARAMS.BLOCKWIDTH, bathroomMirror.y * PARAMS.BLOCKWIDTH));
+        }
+
+        //trashcan
+        for (let i = 0; i < this.level.trashcan.length; i++) {
+            let trashcan = this.level.trashcan[i];
+            this.game.addEntity(new Trashcan(this.game, trashcan.x * PARAMS.BLOCKWIDTH, trashcan.y * PARAMS.BLOCKWIDTH));
+        }
+
+
+        // ------------------------ BEDROOM FURNITURE -------------------
+
+        //bigWhiteBed
+        for (let i = 0; i < this.level.bigWhiteBed.length; i++) {
+            let bigWhiteBed = this.level.bigWhiteBed[i];
+            this.game.addEntity(new BigWhiteBed(this.game, bigWhiteBed.x * PARAMS.BLOCKWIDTH, bigWhiteBed.y * PARAMS.BLOCKWIDTH));
+        }
+
+        //bedroomMirror
+        for (let i = 0; i < this.level.bedroomMirror.length; i++) {
+            let bedroomMirror = this.level.bedroomMirror[i];
+            this.game.addEntity(new BedroomMirror(this.game, bedroomMirror.x * PARAMS.BLOCKWIDTH, bedroomMirror.y * PARAMS.BLOCKWIDTH));
+        }
+
+        //wardrobe
+        for (let i = 0; i < this.level.wardrobes.length; i++) {
+            let wardrobe = this.level.wardrobes[i];
+            this.game.addEntity(new Wardrobe(this.game, wardrobe.x * PARAMS.BLOCKWIDTH, wardrobe.y * PARAMS.BLOCKWIDTH));
+        }
+
+        //lamp
+        for (let i = 0; i < this.level.lamp.length; i++) {
+            let lamp = this.level.lamp[i];
+            this.game.addEntity(new Lamp(this.game, lamp.x * PARAMS.BLOCKWIDTH, lamp.y * PARAMS.BLOCKWIDTH));
+        }
+
+        //bookshelves
+        for (let i = 0; i < this.level.bookshelves.length; i++) {
+            let bookshelves = this.level.bookshelves[i];
+            this.game.addEntity(new Bookshelf(this.game, bookshelves.x * PARAMS.BLOCKWIDTH, bookshelves.y * PARAMS.BLOCKWIDTH));
+        }
+
+        //smallBlueTable
+        for (let i = 0; i < this.level.smallBlueTable.length; i++) {
+            let smallBlueTable = this.level.smallBlueTable[i];
+            this.game.addEntity(new SmallBlueTable(this.game, smallBlueTable.x * PARAMS.BLOCKWIDTH, smallBlueTable.y * PARAMS.BLOCKWIDTH));
+        }
+
+
+
         //big couch
         for (let i = 0; i < this.level.bigCouches.length; i++) {
             let couch = this.level.bigCouches[i];
@@ -41,10 +186,10 @@ class Level1Part1 {
             this.game.addEntity(new LongWoodenPatternedTable(this.game, table.x * PARAMS.BLOCKWIDTH, table.y * PARAMS.BLOCKWIDTH));
         }
 
-        for (let i = 0; i < this.level.beds.length; i++) {
-            let bed = this.level.beds[i];
-            this.game.addEntity(new Bed(this.game, bed.x * PARAMS.BLOCKWIDTH, bed.y * PARAMS.BLOCKWIDTH));
-        }
+        // for (let i = 0; i < this.level.beds.length; i++) {
+        //     let bed = this.level.beds[i];
+        //     this.game.addEntity(new Bed(this.game, bed.x * PARAMS.BLOCKWIDTH, bed.y * PARAMS.BLOCKWIDTH));
+        // }
 
         // bed with win condition
         this.cama = new Bed(this.game, 500 * PARAMS.BLOCKWIDTH, 220 * PARAMS.BLOCKWIDTH);
@@ -54,22 +199,6 @@ class Level1Part1 {
         let camaW = this.cama.dWidth;
         let camaH = this.cama.dHeight;
         this.cama.sneakerBB = new BoundingBox(camaX - camaW / 2, camaY - camaH / 2, camaW * 2, camaH * 2);
-
-        //spy
-        this.game.addEntity(this.spyCharacter);
-
-        // guards
-        // this.game.addEntity(new Guard(this.game, 388, 216, false));
-        // this.game.addEntity(new Guard(this.game, 550, 125, true));
-
-        // billionaire
-        this.game.addEntity(new Billionaire(this.game, 80 * PARAMS.BLOCKWIDTH, 192 * PARAMS.BLOCKWIDTH));
-
-        // stephanie
-        this.game.addEntity(new Stephanie(this.game, 100 * PARAMS.BLOCKWIDTH, 100 * PARAMS.BLOCKWIDTH));
-
-        // richie
-        this.game.addEntity(new Richie(this.game, 150 * PARAMS.BLOCKWIDTH, 100 * PARAMS.BLOCKWIDTH));
 
         //plain wall
         for (let i = 0; i < this.level.plainWalls.length; i++) {
@@ -108,6 +237,11 @@ class Level1Part1 {
 };
 
 //-------------------------------------------------------------------------
+//-------------------------------------------------------------------------
+//-------------------------------------------------------------------------
+//-------------------------------------------------------------------------
+
+
 
 class Level1Part2 {
     constructor(game, hud, darkness, level, spyCharacter) {
@@ -134,6 +268,8 @@ class Level1Part2 {
 
         // darkness
         this.game.addEntity(this.darkness);
+
+
 
         //big couch
         for (let i = 0; i < this.level.bigCouches.length; i++) {

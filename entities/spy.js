@@ -71,7 +71,7 @@ class Spy {
 
     updateBB() {
         this.lastBB = this.BB;
-        this.BB = new BoundingBox(this.x, this.y, this.width, this.height);
+        this.BB = new BoundingBox(this.x, this.y + 35, this.width, this.height - 35);
 
     };
 
@@ -322,6 +322,7 @@ class Spy {
         if (PARAMS.DEBUG) {
             ctx.font = "Bold 20px Courier";
             ctx.textAlign = "left";
+            setWhiteStroke(ctx);
             ctx.fillText("x: " + this.x / PARAMS.BLOCKWIDTH, this.BB.x - this.game.camera.x, (this.BB.y - 25) - this.game.camera.y);
             ctx.fillText("y: " + this.y / PARAMS.BLOCKWIDTH, this.BB.x - this.game.camera.x, (this.BB.y - 10) - this.game.camera.y);
 

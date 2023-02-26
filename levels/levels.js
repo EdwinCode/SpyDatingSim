@@ -83,6 +83,154 @@ let levelOne1 = {
         {x: -18.25, y: -344}
     ],
 
+
+    // ------------------------ KITCHEN FURNITURE -------------------
+
+    kitchenSet: [
+        {x: 360, y: -481}
+    ],
+
+    fridge: [
+        {x: 278, y: -475}
+    ],
+
+    kitchenCounterLeft: [
+        // left side
+        {x: 257, y: -455},
+
+        {x: 300, y: -455},
+
+        // right side
+        {x: 440, y: -455},
+
+        //bottom
+        {x: 358, y: -390}
+    ],
+
+    kitchenCounterRight: [
+        // left side
+        {x: 340, y: -455},
+
+        // right side
+        {x: 480, y: -455},
+
+        // bottom side
+        {x: 480, y: -390},
+    ],
+
+    kitchenCounterMiddle: [
+        //left side
+        {x: 318, y: -455},
+
+        // right side
+        {x: 465, y: -455},
+
+        // bottom side
+        {x: 383, y: -390},
+        {x: 408, y: -390},
+        {x: 433, y: -390},
+        {x: 458, y: -390},
+    ],
+
+    microwave: [
+        {x: 330, y: -465}
+    ],
+
+    kitchenCabinet: [
+        {x: 441, y: -480},
+        {x: 471, y: -480}
+    ],
+
+
+    // ------------------------ BATHROOM FURNITURE -------------------
+
+    shower: [
+        {x: 427, y: -70},
+        {x: 452, y: -70},
+        {x: 477, y: -70}
+    ],
+
+    toilet: [
+        {x: 282, y: -57}
+    ],
+
+    bathtub: [
+        {x: 405, y: -142},
+        {x: 321, y: -142}
+    ],
+
+    bathroomSink: [
+        // left side
+        {x: 261, y: -215},
+        {x: 306, y: -215},
+
+        // right side
+        {x: 415, y: -215},
+        {x: 462, y: -215}
+    ],
+
+    bathroomMirror: [
+        //left side
+        {x: 257, y: -235},
+        {x: 287, y: -235},
+        {x: 318, y: -235},
+
+        //right side
+        {x: 412, y: -235},
+        {x: 443, y: -235},
+        {x: 473, y: -235}
+    ],
+
+    trashcan: [
+        {x: 262, y: -50}
+    ],
+
+
+    // ------------------------ BEDROOM FURNITURE -------------------
+
+    bigWhiteBed: [
+        {x: 407, y: 156}
+    ],
+
+    bedroomMirror: [
+        {x: 451, y: 3}
+    ],
+
+    wardrobes: [
+        {x: 415, y: 6},
+        {x: 477, y: 6}
+    ],
+
+    lamp: [
+
+        {x: 384, y: 160},
+        {x: 469, y: 160}
+    ],
+
+    bookshelves: [
+        //left side
+        {x: 257, y: 6},
+        {x: 280, y: 6},
+        {x: 303, y: 6},
+        {x: 326, y: 6}
+
+        // //right side
+        // {x: 412, y: -235},
+        // {x: 443, y: -235},
+        // {x: 473, y: -235}
+    ],
+
+    smallBlueTable: [
+        {x: 380, y: 170},
+        {x: 465, y: 170}
+    ],
+
+
+
+
+
+
+
     longWoodenPatternedTables: [
         {x: 55.5, y: 76},
         {x: 55.5, y: 64},
