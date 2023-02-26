@@ -2,11 +2,6 @@ class LevelOneCutscene {
     constructor(game) {
         this.game = game;
 
-        //this.spritesheet = ASSET_MANAGER.getAsset("./sprites/cutscenes/intro.png");
-        //this.animation = new Animator(this.spritesheet, 0, 0, 700, 700, 64, 0.1);
-
-        //this.xStart = (this.animation.frameCount * 700) - 700;
-
         this.x = 0;
         this.y = 0;
 
@@ -37,12 +32,15 @@ class LevelOneCutscene {
         // black box to cover screen
         //ctx.strokeRect(0, 0, this.game.canvas.width, this.game.canvas.height);
         setBlackStroke(ctx);
-
         ctx.fillRect(0, 0, PARAMS.CANVAS_WIDTH, PARAMS.CANVAS_HEIGHT);
 
-        // exit button
+        // white on black background
         setWhiteStroke(ctx);
 
+        // dialog and images
+        this.drawCutscene(ctx);
+
+        // exit button
         if (this.mouseBB.collide(this.exitBB)) {
             setRedStroke(ctx);
         }
@@ -51,8 +49,50 @@ class LevelOneCutscene {
         ctx.font = "Bold 35px Courier";
         ctx.fillText("NEXT", 602, 650);
         ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
+    };
 
-        // entities
+    drawCutscene(ctx) {
+        ctx.font = "Bold 25px Courier";
+        ctx.textAlign = "left";
+
+        ctx.fillText("Some time after Mr. Billionaire's toast...", 20, 20);
+
+        let bSprite = ASSET_MANAGER.getAsset("./sprites/entities/billionaire.png");
+        let sSprite = ASSET_MANAGER.getAsset("./sprites/entities/stephanie_portraits.png");
+        let rSprite = ASSET_MANAGER.getAsset("./sprites/entities/richie_portraits.png");
+
+        this.imageX = 340;
+        this.imageY = 16;
+
+        // original pic width and height
+        this.imageW = 294;
+        this.imageH = 294;
+
+        // Draw width and height
+        this.dWidth = 32 * PARAMS.BLOCKWIDTH;
+        this.dHeight = 32 * PARAMS.BLOCKWIDTH;
+
+        // billionaire portrait
+        ctx.drawImage(sSprite, this.imageX, this.imageY, this.imageW, this.imageH, PARAMS.CANVAS_WIDTH / 6, 60, this.dWidth, this.dHeight);
+        let bText = "Hello, everyone! This is our first rose ceremony together. The person who I feel the " +
+            "greatest spark with will receive this rose.";
+        wrapText(ctx, bText, PARAMS.CANVAS_WIDTH / 2, 60, PARAMS.CANVAS_WIDTH / 2)
+
+        // steph
+        ctx.drawImage(sSprite, this.imageX, this.imageY, this.imageW, this.imageH, (2 * PARAMS.CANVAS_WIDTH) / 3, 200, this.dWidth, this.dHeight);
+        let sText = "Roses are so romantic! Especially red ones...reminds me of burning passion.";
+        wrapText(ctx, sText, 20, 220, PARAMS.CANVAS_WIDTH / 2)
+
+        // richie
+        ctx.drawImage(rSprite, this.imageX, this.imageY, this.imageW, this.imageH, PARAMS.CANVAS_WIDTH / 6, 310, this.dWidth, this.dHeight);
+        let rText = "Eek! *repositions himself to show his best \"come hither\" expression*";
+        wrapText(ctx, rText, PARAMS.CANVAS_WIDTH / 2, 340, PARAMS.CANVAS_WIDTH / 2)
+
+        // billionaire
+        ctx.drawImage(sSprite, this.imageX, this.imageY, this.imageW, this.imageH, (2 * PARAMS.CANVAS_WIDTH) / 3, 455, this.dWidth, this.dHeight);
+        bText = "*makes eye contact with...you!*     Meeting you today has lit a fire in my soul, and I feel it burning " +
+            "bright. Will you accept this rose?";
+        wrapText(ctx, bText, 20, 460, PARAMS.CANVAS_WIDTH / 2)
     };
 };
 

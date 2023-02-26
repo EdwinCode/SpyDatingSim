@@ -18,8 +18,8 @@ class Chatbox {
         this.imageH = 294;
 
         // Draw width and height
-        this.dWidth = 45 * PARAMS.BLOCKWIDTH;;
-        this.dHeight = 45 * PARAMS.BLOCKWIDTH;;
+        this.dWidth = 45 * PARAMS.BLOCKWIDTH;
+        this.dHeight = 45 * PARAMS.BLOCKWIDTH;
 
         this.setVisible = false;
 
