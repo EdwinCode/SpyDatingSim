@@ -57,7 +57,7 @@ class LevelOneCutscene {
 
         ctx.fillText("Some time after Mr. Billionaire's toast...", 20, 20);
 
-        let bSprite = ASSET_MANAGER.getAsset("./sprites/entities/billionaire.png");
+        let bSprite = ASSET_MANAGER.getAsset("./sprites/entities/billionaire_portraits.png");
         let sSprite = ASSET_MANAGER.getAsset("./sprites/entities/stephanie_portraits.png");
         let rSprite = ASSET_MANAGER.getAsset("./sprites/entities/richie_portraits.png");
 
@@ -73,7 +73,7 @@ class LevelOneCutscene {
         this.dHeight = 32 * PARAMS.BLOCKWIDTH;
 
         // billionaire portrait
-        ctx.drawImage(sSprite, this.imageX, this.imageY, this.imageW, this.imageH, PARAMS.CANVAS_WIDTH / 6, 60, this.dWidth, this.dHeight);
+        ctx.drawImage(bSprite, this.imageX, this.imageY, this.imageW, this.imageH, PARAMS.CANVAS_WIDTH / 6, 60, this.dWidth, this.dHeight);
         let bText = "Hello, everyone! This is our first rose ceremony together. The person who I feel the " +
             "greatest spark with will receive this rose.";
         wrapText(ctx, bText, PARAMS.CANVAS_WIDTH / 2, 60, PARAMS.CANVAS_WIDTH / 2)
@@ -89,7 +89,7 @@ class LevelOneCutscene {
         wrapText(ctx, rText, PARAMS.CANVAS_WIDTH / 2, 340, PARAMS.CANVAS_WIDTH / 2)
 
         // billionaire
-        ctx.drawImage(sSprite, this.imageX, this.imageY, this.imageW, this.imageH, (2 * PARAMS.CANVAS_WIDTH) / 3, 455, this.dWidth, this.dHeight);
+        ctx.drawImage(bSprite, 32, 16, this.imageW, this.imageH, (2 * PARAMS.CANVAS_WIDTH) / 3, 455, this.dWidth, this.dHeight);
         bText = "*makes eye contact with...you!*     Meeting you today has lit a fire in my soul, and I feel it burning " +
             "bright. Will you accept this rose?";
         wrapText(ctx, bText, 20, 460, PARAMS.CANVAS_WIDTH / 2)

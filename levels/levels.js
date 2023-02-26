@@ -192,7 +192,7 @@ let levelOne1 = {
                 "Welcome to my mansion! I know we'll have a great time. Later, I'll be handing " +
                 "out the first impression rose. *wink* Let the sparks ignite!",
             state: 3,
-            portraitNumber: 1,
+            portraitNumber: 5,
             stateIncr: "true"}
     ]
 };

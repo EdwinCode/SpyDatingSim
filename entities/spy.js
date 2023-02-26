@@ -253,7 +253,7 @@ class Spy {
                         that.game.chatState = that.updateState(that.game.currLvl, "billionaire", that.game.chatState);
 
                         //CHANGE LATER TO BILLIONAIRE PORTRAIT
-                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/stephanie_portraits.png");
+                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/billionaire_portraits.png");
 
                         that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
                         that.game.addEntityToTop(that.chatbox);

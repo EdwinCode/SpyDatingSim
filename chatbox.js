@@ -28,7 +28,7 @@ class Chatbox {
     };
 
     getImageXandY(portraitNumber) {
-        // 0 = neutral, 1 = happy, 2 = sad, 3 = mad, 4 = surprised
+        // 0 = neutral, 1 = happy, 2 = sad, 3 = mad, 4 = surprised, 5 = special (only for billionaire)
         if (portraitNumber === 0) {
             this.imageX = 32;
             this.imageY = 16;
@@ -43,6 +43,9 @@ class Chatbox {
             this.imageY = 320;
         } else if (portraitNumber === 4) {
             this.imageX = 36;
+            this.imageY = 628;
+        } else if (portraitNumber === 5) {
+            this.imageX = 340;
             this.imageY = 628;
         }
     }
