@@ -129,16 +129,31 @@ class Itemsbag {
         ctx.strokeRect(0,PARAMS.CANVAS_HEIGHT / 2, PARAMS.CANVAS_WIDTH, PARAMS.CANVAS_HEIGHT / 2);
 
         // individual item boxes
+        // column 1
         ctx.strokeRect(PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
         ctx.strokeRect(PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
         ctx.strokeRect(PARAMS.CANVAS_WIDTH / 6 - 3, 525,120,40);
+        // column 2
+        ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 - 60, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
+        ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 - 60, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
+        ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 - 60, 525,120,40);
+        // column 3
         ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
         ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
         ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, 525,120,40);
+
         ctx.fillStyle = "gray";
+
+        // column 1
         ctx.fillRect(PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
         ctx.fillRect(PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
         ctx.fillRect(PARAMS.CANVAS_WIDTH / 6 - 3, 525,120,40);
+        // column 2
+        ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 - 60, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
+        ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 - 60, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
+        ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 - 60, 525,120,40);
+
+        // column 3
         ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
         ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
         ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, 525,120,40);
@@ -146,6 +161,7 @@ class Itemsbag {
         // reset text color
         setBlackStroke(ctx);
 
+        // place items in drawn boxes
         this.drawItems(ctx);
 
         // exit button
@@ -183,6 +199,10 @@ class Itemsbag {
     drawItems(ctx) {
         // add items according to booleans
         ctx.textAlign = "center";
+
+        //
+        // COL ONE ITEMS 1-3
+        //
 
         // CASE FILE
         if (caseFileDisplay) {
@@ -250,6 +270,69 @@ class Itemsbag {
         } else {
             ctx.fillText("---", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 210);
         }
+
+
+        //
+        // COL TWO ITEMS 4-6
+        //
+
+        // reset text color
+        setBlackStroke(ctx);
+
+        // FLASHLIGHT
+        if (flashlightDisplay) {
+            if (this.mouseBB.collide(this.flashlightBB)) {
+                setWhiteStroke(ctx);
+            }
+            ctx.fillText("Flashlight", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 65);
+
+            if (this.clickClueOne) {
+                this.setItemBlurbBox(ctx, "You have chosen the flashlight!");
+                this.setViewItemBox(ctx, "To be implemented clue img");  // show clue
+            }
+        } else {
+            ctx.fillText("---", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 65);
+        }
+
+        // reset text color
+        setBlackStroke(ctx);
+
+        // ROSE
+        if (roseDisplay) {
+            if (this.mouseBB.collide(this.roseBB)) {
+                setWhiteStroke(ctx);
+            }
+            ctx.fillText("Rose", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 65);
+
+            if (this.clickClueTwo) {
+                this.setItemBlurbBox(ctx, "You have chosen the rose!");
+                this.setViewItemBox(ctx, "");  // show rose
+            }
+        } else {
+            ctx.fillText("---", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 140);
+        }
+
+        // reset text color
+        setBlackStroke(ctx);
+
+        //
+        if (TBD) {
+            if (this.mouseBB.collide(this.tbdBB)) {
+                setWhiteStroke(ctx);
+            }
+            ctx.fillText("TBD", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 65);
+
+            if (this.clickClueThree) {
+                this.setItemBlurbBox(ctx, "");
+                this.setViewItemBox(ctx, "");  // show tbd item
+            }
+        } else {
+            ctx.fillText("---", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 210);
+        }
+
+        //
+        // COL THREE ITEMS 7-9
+        //
 
         // reset text color
         setBlackStroke(ctx);
