@@ -81,6 +81,40 @@ let levelOneFurniture = {
         {x: -18.25, y: -344}
     ],
 
+    // ------------------------ OFFICE FURNITURE -------------------
+
+    wideBlueMonitor: [
+        {x: 103, y: -472},
+        {x: 133, y: -472}
+    ],
+
+    gamerPC: [
+        {x: 80, y: -460},
+        {x: 161, y: -460},
+    ],
+
+    blackHandleChairUp: [
+        {x: 106, y: -430},
+        {x: 136, y: -430},
+    ],
+
+    officeDesk: [
+        {x: 100, y: -460},
+        {x: 130, y: -460}
+    ],
+
+    whiteBoard: [
+        {x: 177, y: -335},
+    ],
+
+    redStool: [
+        {x: 155, y: -289},
+        {x: 175, y: -270},
+        {x: 200, y: -270},
+        {x: 216, y: -289},
+
+    ],
+
 
     // ------------------------ KITCHEN FURNITURE -------------------
 
@@ -261,15 +295,6 @@ let levelOneFurniture = {
         {x: 469, y: 160}
     ],
 
-    bookshelves: [
-        //left side
-        {x: 257, y: 6},
-        {x: 280, y: 6},
-        {x: 303, y: 6},
-        {x: 326, y: 6}
-
-    ],
-
     smallBlueTable: [
         {x: 380, y: 170},
         {x: 465, y: 170}
@@ -282,6 +307,9 @@ let levelOneFurniture = {
 
     longWoodenPatternedTables: [
 
+        //office
+        {x: 174, y: -295},
+
         //kitchen
         {x: 335, y: -320},
         {x: 375, y: -320},
@@ -289,12 +317,21 @@ let levelOneFurniture = {
         {x: 415, y: -320},
         {x: 455, y: -320},
 
-        // entrance
-        // {x: 55.5, y: 76},
-        // {x: 55.5, y: 64},
-        //
-        // {x: 173.5, y: 76},
-        // {x: 173.5, y: 64}
+
+    ],
+
+    bookshelves: [
+        //office
+        {x: 4.5, y: -475},
+        {x: 25, y: -475},
+        {x: 208, y: -475},
+        {x: 228, y: -475},
+
+        //bedroom
+        {x: 257, y: 6},
+        {x: 280, y: 6},
+        {x: 303, y: 6},
+        {x: 326, y: 6}
 
     ],
 

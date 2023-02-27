@@ -114,6 +114,46 @@ function setUpLevelOneFurniture(game, level) {
     this.game = game;
     this.level = level;
 
+
+    // ------------------------ OFFICE FURNITURE -------------------
+
+    //wideBlueMonitor
+    for (let i = 0; i < this.level.wideBlueMonitor.length; i++) {
+        let wideBlueMonitor = this.level.wideBlueMonitor[i];
+        this.game.addEntity(new WideBlueMonitor(this.game, wideBlueMonitor.x * PARAMS.BLOCKWIDTH, wideBlueMonitor.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //gamerPC
+    for (let i = 0; i < this.level.gamerPC.length; i++) {
+        let gamerPC = this.level.gamerPC[i];
+        this.game.addEntity(new GamerPC(this.game, gamerPC.x * PARAMS.BLOCKWIDTH, gamerPC.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //blackHandleChairUp
+    for (let i = 0; i < this.level.blackHandleChairUp.length; i++) {
+        let blackHandleChairUp = this.level.blackHandleChairUp[i];
+        this.game.addEntity(new BlackHandleChairUp(this.game, blackHandleChairUp.x * PARAMS.BLOCKWIDTH, blackHandleChairUp.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //officeDesk
+    for (let i = 0; i < this.level.officeDesk.length; i++) {
+        let officeDesk = this.level.officeDesk[i];
+        this.game.addEntity(new OfficeDesk(this.game, officeDesk.x * PARAMS.BLOCKWIDTH, officeDesk.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //whiteBoard
+    for (let i = 0; i < this.level.whiteBoard.length; i++) {
+        let whiteBoard = this.level.whiteBoard[i];
+        this.game.addEntity(new WhiteBoard(this.game, whiteBoard.x * PARAMS.BLOCKWIDTH, whiteBoard.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //redStool
+    for (let i = 0; i < this.level.redStool.length; i++) {
+        let redStool = this.level.redStool[i];
+        this.game.addEntity(new RedStool(this.game, redStool.x * PARAMS.BLOCKWIDTH, redStool.y * PARAMS.BLOCKWIDTH));
+    }
+
+
     // ------------------------ KITCHEN FURNITURE -------------------
 
     //microwave
