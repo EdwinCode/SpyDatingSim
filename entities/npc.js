@@ -76,22 +76,22 @@ class NPC {
             if (that.collides(that.direction) === false) {
                 // down
                 if (that.direction === 0) {
-                    that.y += that.velocity * that.game.clockTick;
+                    that.y += that.velocity * that.game.clockTick * PARAMS.SCALE;
                 }
 
                 // up
                 else if (that.direction === 1) {
-                    that.y -= that.velocity * that.game.clockTick;
+                    that.y -= that.velocity * that.game.clockTick * PARAMS.SCALE;
                 }
 
                 // left
                 else if (that.direction === 2) {
-                    that.x -= that.velocity * that.game.clockTick;
+                    that.x -= that.velocity * that.game.clockTick * PARAMS.SCALE;
                 }
 
                 // right
                 else {
-                    that.x += that.velocity * that.game.clockTick;
+                    that.x += that.velocity * that.game.clockTick * PARAMS.SCALE;
                 }
 
                 this.directionDuration -= 1;

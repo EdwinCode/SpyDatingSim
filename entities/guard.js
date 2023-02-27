@@ -108,43 +108,42 @@ class Guard{
         else if (this.movement === 2) {
             if (this.lastBB.y + this.lastBB.height >= this.wanderBB.y + this.wanderBB.height) {
                 this.direction = 1;
-                this.y -= this.velocity*this.game.clockTick;
+                this.y -= this.velocity * this.game.clockTick * PARAMS.SCALE;
             }
 
             if (this.lastBB.y <= this.wanderBB.y) {
                 this.direction = 0;
-                this.y += this.velocity*this.game.clockTick;
+                this.y += this.velocity * this.game.clockTick * PARAMS.SCALE;
             }
 
             else if (this.direction === 0) {
-                this.y += this.velocity*this.game.clockTick;
+                this.y += this.velocity * this.game.clockTick * PARAMS.SCALE;
             }
 
             else {
-                this.y -= this.velocity*this.game.clockTick;
+                this.y -= this.velocity * this.game.clockTick * PARAMS.SCALE;
             }
         }
         //if going left and right
         else {
             if (this.lastBB.x + this.lastBB.width >= this.wanderBB.x + this.wanderBB.width) {
                 this.direction = 3;
-                this.x -= this.velocity*this.game.clockTick;
+                this.x -= this.velocity * this.game.clockTick * PARAMS.SCALE;
             }
 
             if (this.lastBB.x <= this.wanderBB.x) {
                 this.direction = 2;
-                this.x += this.velocity*this.game.clockTick;
+                this.x += this.velocity * this.game.clockTick * PARAMS.SCALE;
             }
 
             else if (this.direction === 2) {
-                this.x += this.velocity*this.game.clockTick;
+                this.x += this.velocity * this.game.clockTick * PARAMS.SCALE;
             }
 
             else {
-                this.x -= this.velocity*this.game.clockTick;
+                this.x -= this.velocity * this.game.clockTick * PARAMS.SCALE;
             }
         }
-
     };
 
     draw(ctx) {
