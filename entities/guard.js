@@ -150,7 +150,7 @@ class Guard{
     draw(ctx) {
         if (this.movement === 0) { //stationary
             //this.animations[0].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
-            ctx.drawImage(this.spritesheet, 0, 0, 130, 209, this.x - this.game.camera.x, this.y - this.game.camera.y, 17 * PARAMS.BLOCKWIDTH, 27 * PARAMS.BLOCKWIDTH);
+            ctx.drawImage(this.spritesheet, 0, 0, 130, 209, this.x - this.game.camera.x, this.y - this.game.camera.y, 18 * PARAMS.BLOCKWIDTH, 28 * PARAMS.BLOCKWIDTH);
 
         } else {
             this.animations[this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);

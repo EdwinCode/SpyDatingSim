@@ -167,7 +167,12 @@ class Spy {
 
                 // LOSE GAME if collide with Guard
                 else if (entity instanceof Guard) {
-                    that.game.camera.loadLevel(loseScreen);
+                    //guards are harmless
+                    if (that.game.currLvl === levelOne1) {
+                        // do nothing
+                    } else {
+                        that.game.camera.loadLevel(loseScreen);
+                    }
                 }
             }
 
@@ -181,9 +186,14 @@ class Spy {
             // collide with guard sight
             if (entity.sightBB && that.BB.collide(entity.sightBB)) {
                 if (entity instanceof Guard) {
-                    entity.spottedSpy();
-                    that.state = 0; // idle
-                    that.spotted = true;
+                    //guards are harmless
+                    if (that.game.currLvl === levelOne1) {
+                        // do nothing
+                    } else {
+                        entity.spottedSpy();
+                        that.state = 0; // idle
+                        that.spotted = true;
+                    }
                 }
             }
 

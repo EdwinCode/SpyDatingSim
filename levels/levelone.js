@@ -22,7 +22,7 @@ class Level1Part1 {
         this.game.addEntity(this.spyCharacter);
 
         // guards
-        this.game.addEntity(new Guard(this.game, 80 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
+        this.game.addEntity(new Guard(this.game, 76 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
         this.game.addEntity(new Guard(this.game, 162 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
 
         // billionaire
