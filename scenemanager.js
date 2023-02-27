@@ -10,7 +10,7 @@ class Scenemanager {
 
         // declare these here for game camera tracking
         this.hud = new HUD(this.game, this.itemsBag);
-        this.spyCharacter = new Spy(this.game, -100, 55);
+        this.spyCharacter = new Spy(this.game, 124  * PARAMS.BLOCKWIDTH, -127  * PARAMS.BLOCKWIDTH);
         this.darkness = new Darkness(this.game, 0, 0);
 
         this.loadLevel(titleScreen);
@@ -51,9 +51,12 @@ class Scenemanager {
         // level one part 1
         if (this.currentLevel === levelOne1) {
             this.hud = new HUD(this.game, this.itemsBag);
-            this.spyCharacter = new Spy(this.game, 16 * PARAMS.BLOCKWIDTH, 48 * PARAMS.BLOCKWIDTH);
+            this.spyCharacter = new Spy(this.game, 124  * PARAMS.BLOCKWIDTH, -127  * PARAMS.BLOCKWIDTH);
             this.darkness = new Darkness(this.game, this.spyCharacter.x, this.spyCharacter.y);
-            this.game.addEntity(new Level1Part1(this.game, this.hud, this.darkness, this.currentLevel, this.spyCharacter));
+
+            //SETTING UP CURRENT FURNITURE IN THE MANSION
+            this.currentLevelFurniture = levelOneFurniture;
+            this.game.addEntity(new Level1Part1(this.game, this.hud, this.darkness, this.currentLevelFurniture, this.spyCharacter));
         }
 
         // level one cutscene
@@ -67,7 +70,10 @@ class Scenemanager {
             this.hud = new HUD(this.game, this.itemsBag);
             this.spyCharacter = new Spy(this.game, 25 * PARAMS.BLOCKWIDTH, 62 * PARAMS.BLOCKWIDTH);
             this.darkness = new Darkness(this.game, this.spyCharacter.x, this.spyCharacter.y);
-            this.game.addEntity(new Level1Part2(this.game, this.hud, this.darkness, this.currentLevel, this.spyCharacter));
+
+            //SETTING UP CURRENT FURNITURE IN THE MANSION
+            this.currentLevelFurniture = levelOneFurniture;
+            this.game.addEntity(new Level1Part2(this.game, this.hud, this.darkness, this.currentLevelFurniture, this.spyCharacter));
         }
 
     };
