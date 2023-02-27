@@ -203,7 +203,7 @@ class OfficeDesk extends Furniture {
 class KitchenSet extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/furniture.png",  442, 120, 61, 32, x, y, 488, 256);
-        this.BB = new BoundingBox(this.x, this.y,80 * PARAMS.BLOCKWIDTH,51 * PARAMS.BLOCKWIDTH);
+        this.BB = new BoundingBox(this.x, this.y,80 * PARAMS.BLOCKWIDTH,51.00000000000001 * PARAMS.BLOCKWIDTH);
     };
 
     update() {
@@ -211,7 +211,7 @@ class KitchenSet extends Furniture {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 442, 120, 61, 32, this.x - this.game.camera.x, this.y - this.game.camera.y, 80 * PARAMS.BLOCKWIDTH, 51 * PARAMS.BLOCKWIDTH);
+        ctx.drawImage(this.spritesheet, 442, 120, 61, 32, this.x - this.game.camera.x, this.y - this.game.camera.y, 80 * PARAMS.BLOCKWIDTH, 51.00000000000001 * PARAMS.BLOCKWIDTH);
         super.draw(ctx);
     };
 }
