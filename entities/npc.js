@@ -7,7 +7,7 @@ class NPC {
         this.direction = 0;
         this.directionDuration = 500;
 
-        this.wanderBB = new BoundingBox(this.x, this.y, 200 * PARAMS.BLOCKWIDTH, 104 * PARAMS.BLOCKWIDTH);
+        this.wanderBB = new BoundingBox(this.x, this.y, 125 * PARAMS.BLOCKWIDTH, 100 * PARAMS.BLOCKWIDTH);
 
         this.updateBB();
         this.updateInteractionBB();

@@ -27,13 +27,13 @@ class Level1Part1 {
         // this.game.addEntity(new Guard(this.game, 550, 125, true));
 
         // billionaire
-        this.game.addEntity(new Billionaire(this.game, 139 * PARAMS.BLOCKWIDTH, -171 * PARAMS.BLOCKWIDTH));
+        this.game.addEntity(new Billionaire(this.game, 125 * PARAMS.BLOCKWIDTH, -171 * PARAMS.BLOCKWIDTH));
 
         // stephanie
-        this.game.addEntity(new Stephanie(this.game, 75 * PARAMS.BLOCKWIDTH, -75 * PARAMS.BLOCKWIDTH));
+        this.game.addEntity(new Stephanie(this.game, 75 * PARAMS.BLOCKWIDTH, -100 * PARAMS.BLOCKWIDTH));
 
         // richie
-        this.game.addEntity(new Richie(this.game, 84 * PARAMS.BLOCKWIDTH, -178 * PARAMS.BLOCKWIDTH));
+        this.game.addEntity(new Richie(this.game, 31 * PARAMS.BLOCKWIDTH, -150 * PARAMS.BLOCKWIDTH));
 
     };
 
