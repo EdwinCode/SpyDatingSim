@@ -21,10 +21,9 @@ class Level1Part1 {
         //spy
         this.game.addEntity(this.spyCharacter);
 
-        //MAYBE ADD STATIONARY GUARDS FOR PART 1?
         // guards
-        // this.game.addEntity(new Guard(this.game, 388, 216, false));
-        // this.game.addEntity(new Guard(this.game, 550, 125, true));
+        this.game.addEntity(new Guard(this.game, 80 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
+        this.game.addEntity(new Guard(this.game, 162 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
 
         // billionaire
         this.game.addEntity(new Billionaire(this.game, 125 * PARAMS.BLOCKWIDTH, -171 * PARAMS.BLOCKWIDTH));
@@ -77,8 +76,8 @@ class Level1Part2 {
         this.game.addEntity(this.darkness);
 
         // guards
-        this.game.addEntity(new Guard(this.game, 388, 216, false));
-        this.game.addEntity(new Guard(this.game, 550, 125, true));
+        this.game.addEntity(new Guard(this.game, 388 * PARAMS.BLOCKWIDTH, 216 * PARAMS.BLOCKWIDTH, 1));
+        this.game.addEntity(new Guard(this.game, 550 * PARAMS.BLOCKWIDTH, 125 * PARAMS.BLOCKWIDTH, 2));
 
         // // stephanie
         // this.game.addEntity(new Stephanie(this.game));
@@ -99,7 +98,7 @@ class Level1Part2 {
         if (this.ingameTimer.timeIsZero === true && this.timerWasZero === false) {
             this.ingameTimer.removeFromWorld = true;
             this.timerWasZero = true;
-            this.game.addEntity(new Guard(this.game, (this.spyCharacter.x - 400) / PARAMS.BLOCKWIDTH, this.spyCharacter.y / PARAMS.BLOCKWIDTH, false));
+            this.game.addEntity(new Guard(this.game, (this.spyCharacter.x - 400) / PARAMS.BLOCKWIDTH, this.spyCharacter.y / PARAMS.BLOCKWIDTH, 1));
 
         }
     };

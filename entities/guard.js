@@ -1,32 +1,43 @@
 class Guard{
 
-    constructor(game, x, y, isUpDown) {
-        Object.assign(this, {game, x, y, isUpDown});
-        // add variables to set x, y and walk left<->right or up<->down
-        // or make setter methods
+    constructor(game, x, y, movement) {
+        Object.assign(this, {game, x, y, movement});
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/guard.png");
 
         this.guardW = 14 * PARAMS.BLOCKWIDTH;
         this.guardH = 25 * PARAMS.BLOCKWIDTH;
 
-        this.x = x * PARAMS.BLOCKWIDTH;
-        this.y = y * PARAMS.BLOCKWIDTH;
+        this.x = x;
+        this.y = y;
+
+        this.movement = movement;
 
         this.velocity = 70;
 
+        ///
+        // 0 = stationary, 1 = left-right, 2 = up-down
+        ///
+
         //direction
-        if (isUpDown) {
+
+        if (this.movement === 0) { //stationary
+            // do nothing
+        } else if (this.movement === 2) { //up-down
             this.direction = 0;
 
-        } else {
+        } else { // left-right
             this.direction = 2;
         }
 
         //wanderBB
-        if (isUpDown) {
+        if (this.movement === 0) { //stationary
+            //JUST TO FILL IN A WANDER BOX (NOT ACTUALLY USED CURRENTLY)
+            this.wanderBB = new BoundingBox(this.x, this.y, this.guardW, this.guardH);
+        }
+        else if (this.movement === 2) { //up-down
             this.wanderBB = new BoundingBox(this.x, this.y, this.guardW * 3,this.guardH * 5);
 
-        } else {
+        } else { // left-right
             this.wanderBB = new BoundingBox(this.x, this.y, this.guardW * 10,this.guardH * 2);
         }
 
@@ -44,8 +55,14 @@ class Guard{
 
     updateSightBB() {
         // this.lastSightBB = this.sightBB;
+
+        if (this.movement === 0) { //stationary
+            //JUST TO FILL IN A SIGHT BOX (NOT ACTUALLY USED CURRENTLY)
+            this.sightBB = new BoundingBox(this.x, this.y, this.guardW, this.guardH);
+
+        }
         //if going up and down
-        if (this.isUpDown) {
+        else if (this.movement === 2) {
             if (this.direction === 0) {
                 this.sightBB = new BoundingBox(this.x, this.y + this.guardH, this.guardW, this.wanderBB.height - (this.y - this.wanderBB.y));
 
@@ -84,8 +101,11 @@ class Guard{
         this.updateBB();
         this.updateSightBB();
 
+        if (this.movement === 0) { //stationary
+            // do nothing
+        }
         //if going up and down
-        if (this.isUpDown) {
+        else if (this.movement === 2) {
             if (this.lastBB.y + this.lastBB.height >= this.wanderBB.y + this.wanderBB.height) {
                 this.direction = 1;
                 this.y -= this.velocity*this.game.clockTick;
@@ -128,9 +148,19 @@ class Guard{
     };
 
     draw(ctx) {
-        this.animations[this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
-        ctx.fillStyle = 'white';
-        ctx.fillRect(this.sightBB.x - this.game.camera.x, this.sightBB.y - this.game.camera.y, this.sightBB.width, this.sightBB.height);
+        if (this.movement === 0) { //stationary
+            //this.animations[0].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
+            ctx.drawImage(this.spritesheet, 0, 0, 130, 209, this.x - this.game.camera.x, this.y - this.game.camera.y, 17 * PARAMS.BLOCKWIDTH, 27 * PARAMS.BLOCKWIDTH);
+
+        } else {
+            this.animations[this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
+        }
+        if (this.movement === 0) { //stationary
+            // do nothing
+        } else { //SIGHT BOX
+            ctx.fillStyle = 'white';
+            ctx.fillRect(this.sightBB.x - this.game.camera.x, this.sightBB.y - this.game.camera.y, this.sightBB.width, this.sightBB.height);
+        }
 
         PARAMS.DEBUG = document.getElementById("debug").checked;
         if (PARAMS.DEBUG) {
