@@ -286,6 +286,33 @@ let levelOneFurniture = {
         {x: 109, y: 90}
     ],
 
+    door: [
+        {x: 112, y: 240}
+    ],
+
+    goldenShoe: [
+        {x: 190, y: 190}
+    ],
+
+    rainbowShoe: [
+        {x: 215, y: 190}
+    ],
+
+    tanShoe: [
+        {x: 160, y: 190}
+    ],
+
+    blackShoe: [
+        {x: 130, y: 190}
+    ],
+
+    greyShoe: [
+        {x: 100, y: 190}
+    ],
+
+    whiteShoe: [
+        {x: 70, y: 190}
+    ],
 
     // ------------------------ BEDROOM FURNITURE -------------------
 

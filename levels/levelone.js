@@ -332,6 +332,47 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new BillionaireStatue(this.game, billionaireStatue.x * PARAMS.BLOCKWIDTH, billionaireStatue.y * PARAMS.BLOCKWIDTH));
     }
 
+    //door
+    for (let i = 0; i < this.level.door.length; i++) {
+        let door = this.level.door[i];
+        this.game.addEntity(new Door(this.game, door.x * PARAMS.BLOCKWIDTH, door.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //goldenShoe
+    for (let i = 0; i < this.level.goldenShoe.length; i++) {
+        let goldenShoe = this.level.goldenShoe[i];
+        this.game.addEntity(new GoldenShoe(this.game, goldenShoe.x * PARAMS.BLOCKWIDTH, goldenShoe.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //rainbowShoe
+    for (let i = 0; i < this.level.rainbowShoe.length; i++) {
+        let rainbowShoe = this.level.rainbowShoe[i];
+        this.game.addEntity(new RainbowShoe(this.game, rainbowShoe.x * PARAMS.BLOCKWIDTH, rainbowShoe.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //tanShoe
+    for (let i = 0; i < this.level.tanShoe.length; i++) {
+        let tanShoe = this.level.tanShoe[i];
+        this.game.addEntity(new TanShoe(this.game, tanShoe.x * PARAMS.BLOCKWIDTH, tanShoe.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //blackShoe
+    for (let i = 0; i < this.level.blackShoe.length; i++) {
+        let blackShoe = this.level.blackShoe[i];
+        this.game.addEntity(new BlackShoe(this.game, blackShoe.x * PARAMS.BLOCKWIDTH, blackShoe.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //greyShoe
+    for (let i = 0; i < this.level.greyShoe.length; i++) {
+        let greyShoe = this.level.greyShoe[i];
+        this.game.addEntity(new GreyShoe(this.game, greyShoe.x * PARAMS.BLOCKWIDTH, greyShoe.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //whiteShoe
+    for (let i = 0; i < this.level.whiteShoe.length; i++) {
+        let whiteShoe = this.level.whiteShoe[i];
+        this.game.addEntity(new WhiteShoe(this.game, whiteShoe.x * PARAMS.BLOCKWIDTH, whiteShoe.y * PARAMS.BLOCKWIDTH));
+    }
 
 
     // ------------------------ BEDROOM FURNITURE -------------------
