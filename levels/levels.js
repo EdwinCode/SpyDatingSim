@@ -273,6 +273,15 @@ let levelOneFurniture = {
         {x: 262, y: -50}
     ],
 
+    // ------------------------ ENTRANCE FURNITURE -------------------
+    bigCubePainting: [
+        {x: 190, y: 0}
+    ],
+
+    starryNight: [
+        {x: 35, y: 0}
+    ],
+
 
     // ------------------------ BEDROOM FURNITURE -------------------
 

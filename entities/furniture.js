@@ -621,6 +621,40 @@ class Trashcan extends Furniture {
 
 // --------------------- ENTRANCE FURNITURE -------------------------------
 
+class BigCubePainting extends Furniture {
+    constructor(game, x, y) {
+        super(game, "./sprites/furniture/furniture.png", 374, 256, 32, 32, x, y, 256, 256);
+        this.BB = new BoundingBox(this.x, this.y,32 * PARAMS.BLOCKWIDTH,32 * PARAMS.BLOCKWIDTH);
+    };
+
+
+    update() { //405 287
+
+    };
+
+    draw(ctx) {
+        ctx.drawImage(this.spritesheet, 374, 256, 32, 32, this.x - this.game.camera.x, this.y - this.game.camera.y, 32 * PARAMS.BLOCKWIDTH, 32 * PARAMS.BLOCKWIDTH);
+        super.draw(ctx);
+    };
+}
+
+class StarryNight extends Furniture {
+    constructor(game, x, y) {
+        super(game, "./sprites/furniture/furniture.png", 476, 256, 32, 32, x, y, 256, 256);
+        this.BB = new BoundingBox(this.x, this.y,32 * PARAMS.BLOCKWIDTH,32 * PARAMS.BLOCKWIDTH);
+    };
+
+
+    update() { //476 287
+
+    };
+
+    draw(ctx) {
+        ctx.drawImage(this.spritesheet, 476, 256, 32, 32, this.x - this.game.camera.x, this.y - this.game.camera.y, 32 * PARAMS.BLOCKWIDTH, 32 * PARAMS.BLOCKWIDTH);
+        super.draw(ctx);
+    };
+}
+
 
 // --------------------- BEDROOM FURNITURE -------------------------------
 class BigWhiteBed extends Furniture {
