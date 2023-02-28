@@ -655,6 +655,23 @@ class StarryNight extends Furniture {
     };
 }
 
+class BillionaireStatue extends Furniture {
+    constructor(game, x, y) {
+        super(game, "./sprites/furniture/billionaire_statue.png", 0, 0, 136, 256, x, y, 136, 256);
+        this.BB = new BoundingBox(this.x, this.y,36 * PARAMS.BLOCKWIDTH,66 * PARAMS.BLOCKWIDTH);
+    };
+
+
+    update() {
+
+    };
+
+    draw(ctx) {
+        ctx.drawImage(this.spritesheet, 0, 0, 136, 256, this.x - this.game.camera.x, this.y - this.game.camera.y, 36 * PARAMS.BLOCKWIDTH, 66 * PARAMS.BLOCKWIDTH);
+        super.draw(ctx);
+    };
+}
+
 
 // --------------------- BEDROOM FURNITURE -------------------------------
 class BigWhiteBed extends Furniture {

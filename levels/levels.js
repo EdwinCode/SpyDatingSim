@@ -282,6 +282,10 @@ let levelOneFurniture = {
         {x: 35, y: 0}
     ],
 
+    billionaireStatue: [
+        {x: 109, y: 90}
+    ],
+
 
     // ------------------------ BEDROOM FURNITURE -------------------
 

@@ -22,8 +22,13 @@ class Level1Part1 {
         this.game.addEntity(this.spyCharacter);
 
         // guards
-        this.game.addEntity(new Guard(this.game, 76 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
-        this.game.addEntity(new Guard(this.game, 162 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
+        //entrance left side
+        this.game.addEntity(new Guard(this.game, 12 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
+        this.game.addEntity(new Guard(this.game, 73 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
+        //entrance left side
+        this.game.addEntity(new Guard(this.game, 164 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
+        this.game.addEntity(new Guard(this.game, 230 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
+
 
         // billionaire
         this.game.addEntity(new Billionaire(this.game, 125 * PARAMS.BLOCKWIDTH, -171 * PARAMS.BLOCKWIDTH));
@@ -319,6 +324,12 @@ function setUpLevelOneFurniture(game, level) {
     for (let i = 0; i < this.level.starryNight.length; i++) {
         let starryNight = this.level.starryNight[i];
         this.game.addEntity(new StarryNight(this.game, starryNight.x * PARAMS.BLOCKWIDTH, starryNight.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //billionaireStatue
+    for (let i = 0; i < this.level.billionaireStatue.length; i++) {
+        let billionaireStatue = this.level.billionaireStatue[i];
+        this.game.addEntity(new BillionaireStatue(this.game, billionaireStatue.x * PARAMS.BLOCKWIDTH, billionaireStatue.y * PARAMS.BLOCKWIDTH));
     }
 
 
