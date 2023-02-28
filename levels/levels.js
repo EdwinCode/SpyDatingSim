@@ -108,10 +108,10 @@ let levelOneFurniture = {
     ],
 
     redStool: [
-        {x: 155, y: -289},
-        {x: 175, y: -270},
-        {x: 200, y: -270},
-        {x: 216, y: -289},
+        {x: 155, y: -284},
+        {x: 175, y: -265},
+        {x: 200, y: -265},
+        {x: 216, y: -284},
 
     ],
 
@@ -308,7 +308,7 @@ let levelOneFurniture = {
     longWoodenPatternedTables: [
 
         //office
-        {x: 174, y: -295},
+        {x: 174, y: -290},
 
         //kitchen
         {x: 335, y: -320},

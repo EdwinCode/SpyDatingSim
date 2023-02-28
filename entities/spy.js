@@ -71,7 +71,7 @@ class Spy {
 
     updateBB() {
         this.lastBB = this.BB;
-        this.BB = new BoundingBox(this.x, this.y + 35, this.width, this.height - 35);
+        this.BB = new BoundingBox(this.x + 2, this.y + 65, this.width - 2, this.height - 65);
 
     };
 
