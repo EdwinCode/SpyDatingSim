@@ -307,6 +307,21 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new Trashcan(this.game, trashcan.x * PARAMS.BLOCKWIDTH, trashcan.y * PARAMS.BLOCKWIDTH));
     }
 
+    // ------------------------ ENTRANCE FURNITURE -------------------
+
+    //bigCubePainting
+    for (let i = 0; i < this.level.bigCubePainting.length; i++) {
+        let bigCubePainting = this.level.bigCubePainting[i];
+        this.game.addEntity(new BigCubePainting(this.game, bigCubePainting.x * PARAMS.BLOCKWIDTH, bigCubePainting.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //starryNight
+    for (let i = 0; i < this.level.starryNight.length; i++) {
+        let starryNight = this.level.starryNight[i];
+        this.game.addEntity(new StarryNight(this.game, starryNight.x * PARAMS.BLOCKWIDTH, starryNight.y * PARAMS.BLOCKWIDTH));
+    }
+
+
 
     // ------------------------ BEDROOM FURNITURE -------------------
 
