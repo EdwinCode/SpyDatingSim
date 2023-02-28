@@ -4,8 +4,8 @@ class Guard{
         Object.assign(this, {game, x, y, movement});
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/guard.png");
 
-        this.guardW = 14 * PARAMS.BLOCKWIDTH;
-        this.guardH = 25 * PARAMS.BLOCKWIDTH;
+        this.guardW = 18 * PARAMS.BLOCKWIDTH;
+        this.guardH = 28 * PARAMS.BLOCKWIDTH;
 
         this.x = x;
         this.y = y;

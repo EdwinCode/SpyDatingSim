@@ -71,7 +71,7 @@ class Spy {
 
     updateBB() {
         this.lastBB = this.BB;
-        this.BB = new BoundingBox(this.x + 2, this.y + 65, this.width - 2, this.height - 65);
+        this.BB = new BoundingBox(this.x + 2, this.y + 62, this.width - 2, this.height - 62);
 
     };
 
@@ -169,7 +169,19 @@ class Spy {
                 else if (entity instanceof Guard) {
                     //guards are harmless
                     if (that.game.currLvl === levelOne1) {
-                        // do nothing
+                        if(entity.BB.right <= (that.lastBB.left+20)){ // from right
+                            that.x += entity.BB.right - that.lastBB.left;
+                        }
+                        else if(entity.BB.left >= (that.lastBB.right-20)){ // from left
+                            that.x -= that.lastBB.right - entity.BB.left;
+                        }
+                        else if(entity.BB.bottom <= (that.lastBB.top+20)){ //from below
+                            that.y += entity.BB.bottom - that.lastBB.top;
+                        }
+                        else if(entity.BB.top >= (that.lastBB.bottom-20)){ // from above
+                            that.y -= that.lastBB.bottom - entity.BB.top;
+                        }
+                        that.updateBB();
                     } else {
                         that.game.camera.loadLevel(loseScreen);
                     }
