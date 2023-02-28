@@ -71,7 +71,7 @@ class Spy {
 
     updateBB() {
         this.lastBB = this.BB;
-        this.BB = new BoundingBox(this.x, this.y + 35, this.width, this.height - 35);
+        this.BB = new BoundingBox(this.x + 2, this.y + 64, this.width - 2, this.height - 64);
 
     };
 
@@ -167,7 +167,24 @@ class Spy {
 
                 // LOSE GAME if collide with Guard
                 else if (entity instanceof Guard) {
-                    that.game.camera.loadLevel(loseScreen);
+                    //guards are harmless
+                    if (that.game.currLvl === levelOne1) {
+                        if(entity.BB.right <= (that.lastBB.left+20)){ // from right
+                            that.x += entity.BB.right - that.lastBB.left;
+                        }
+                        else if(entity.BB.left >= (that.lastBB.right-20)){ // from left
+                            that.x -= that.lastBB.right - entity.BB.left;
+                        }
+                        else if(entity.BB.bottom <= (that.lastBB.top+20)){ //from below
+                            that.y += entity.BB.bottom - that.lastBB.top;
+                        }
+                        else if(entity.BB.top >= (that.lastBB.bottom-20)){ // from above
+                            that.y -= that.lastBB.bottom - entity.BB.top;
+                        }
+                        that.updateBB();
+                    } else {
+                        that.game.camera.loadLevel(loseScreen);
+                    }
                 }
             }
 
@@ -181,9 +198,14 @@ class Spy {
             // collide with guard sight
             if (entity.sightBB && that.BB.collide(entity.sightBB)) {
                 if (entity instanceof Guard) {
-                    entity.spottedSpy();
-                    that.state = 0; // idle
-                    that.spotted = true;
+                    //guards are harmless
+                    if (that.game.currLvl === levelOne1) {
+                        // do nothing
+                    } else {
+                        entity.spottedSpy();
+                        that.state = 0; // idle
+                        that.spotted = true;
+                    }
                 }
             }
 
@@ -314,7 +336,12 @@ class Spy {
 
             ctx.textAlign = "center";
             setWhiteStroke(ctx);
-            ctx.fillText("Can Interact", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 30);
+
+            let interactPersonText = "";
+            if (this.stephInteract) interactPersonText = "Stephanie"
+            else if (this.richieInteract) interactPersonText = "Richie"
+            else if(this.billionaireInteract) interactPersonText = "Mr.Billionaire"
+            ctx.fillText(interactPersonText, PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 30);
         }
 
         // debug
