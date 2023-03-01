@@ -13,6 +13,8 @@ ASSET_MANAGER.queueDownload("./sprites/entities/guard.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/stephanie_portraits.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/richie_portraits.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/billionaire_portraits.png");
+ASSET_MANAGER.queueDownload("./sprites/entities/kitchen_worker.png");
+ASSET_MANAGER.queueDownload("./sprites/entities/kitchen_worker_portraits.png");
 
 // HUD icons
 ASSET_MANAGER.queueDownload("./sprites/alfred.png");

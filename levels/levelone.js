@@ -52,6 +52,8 @@ class Level1Part1 {
         this.game.addEntity(new Guard(this.game, 229 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
 
 
+        //NPC SET UP
+
         // billionaire
         this.game.addEntity(new Billionaire(this.game, 125 * PARAMS.BLOCKWIDTH, -171 * PARAMS.BLOCKWIDTH));
 
@@ -61,12 +63,17 @@ class Level1Part1 {
         // richie
         this.game.addEntity(new Richie(this.game, 31 * PARAMS.BLOCKWIDTH, -150 * PARAMS.BLOCKWIDTH));
 
+        // kitchen worker
+        this.game.addEntity(new KitchenWorker(this.game, 295 * PARAMS.BLOCKWIDTH, -425 * PARAMS.BLOCKWIDTH));
+
+
     };
 
 
 
     update() {
-        // method not used but declaration is necessary for game engine
+        //Checks for Skip Intro and Skip Phase 1 checkboxes
+        checkForSkippedParts(this.game);
     };
 
     draw(ctx) {

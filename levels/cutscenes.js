@@ -26,6 +26,9 @@ class LevelOneCutscene {
         if (this.game.mouse) {
             this.mouseBB = new BoundingBox(this.game.mouse.x, this.game.mouse.y,1,1);
         }
+
+        //Checks for Skip Intro and Skip Phase 1 checkboxes
+        checkForSkippedParts(this.game);
     };
 
     draw(ctx) {
@@ -187,6 +190,9 @@ class IntroCutscene {
         if (this.game.mouse) {
             this.mouseBB = new BoundingBox(this.game.mouse.x, this.game.mouse.y,1,1);
         }
+
+        //Checks for Skip Intro and Skip Phase 1 checkboxes
+        checkForSkippedParts(this.game);
     };
 
     draw(ctx) {
