@@ -26,30 +26,36 @@ class Scenemanager {
         this.currentLevel = level;
         this.game.currLvl = level;
 
-        this.clearEntities();
 
         // lose screen
         if (this.currentLevel === loseScreen) {
+            this.clearEntities();
             this.game.addEntity(new LoseScreen(this.game));
         }
 
         // win screen
         if (this.currentLevel === winScreen) {
+            this.clearEntities();
             this.game.addEntity(new WinScreen(this.game));
         }
 
         // title screen
         if (this.currentLevel === titleScreen) {
+            this.clearEntities();
             this.game.addEntity(new TitleScreen(this.game));
         }
 
         // intro cutscene
         if (this.currentLevel === introCutscene) {
+            this.clearEntities();
             this.game.addEntity(new IntroCutscene(this.game));
         }
 
         // level one part 1
         if (this.currentLevel === levelOne1) {
+
+            this.clearEntities();
+
             this.hud = new HUD(this.game, this.itemsBag);
             this.spyCharacter = new Spy(this.game, 124  * PARAMS.BLOCKWIDTH, -127  * PARAMS.BLOCKWIDTH);
             this.darkness = new Darkness(this.game, this.spyCharacter.x, this.spyCharacter.y);
@@ -61,11 +67,13 @@ class Scenemanager {
 
         // level one cutscene
         if (this.currentLevel === levelOneCutscene) {
+            this.clearEntities();
             this.game.addEntity(new LevelOneCutscene(this.game));
         }
 
         // level one, part 2
         if (this.currentLevel === levelOne2) {
+            this.clearEntities();
             //this.itemsBag = getItemsBag();
             this.hud = new HUD(this.game, this.itemsBag);
             this.spyCharacter = new Spy(this.game, 25 * PARAMS.BLOCKWIDTH, 62 * PARAMS.BLOCKWIDTH);
@@ -86,13 +94,7 @@ class Scenemanager {
         let midpointY = PARAMS.CANVAS_HEIGHT / 2 - this.spyCharacter.height / 2;
         this.y = this.spyCharacter.y - midpointY;
 
-        //CHANGE THE CHECK TO WHATEVER ACTIVATES THE QUICK TIME EVENT
-        //MIGHT JUST HAVE IT BE A SEPARATE "LEVEL"
-        /*if(!this.game.entities.includes(this.darkness) && this.spyCharacter.x > 500) {
-            this.game.addEntityToTop(this.darkness);
-            this.game.addEntityToTop(this.hud);
-            this.game.addEntityToTop(new IngameTimer(this.game));
-        }*/
+
     };
 
     draw(ctx) {
