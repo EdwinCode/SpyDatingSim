@@ -18,7 +18,7 @@ class Level1Part1 {
 
         // alfred help chatboxes
         let text = "Hi, I'm Alfred.                                                                " +
-            "If you need in-game help, click my icon in the top right corner.                      " +
+            "If you need in-game help, click my icon at the top right corner.                      " +
             "                                 Also, let me give you a quick " +
             "          gameplay run-down.";
         let sheet = ASSET_MANAGER.getAsset("./sprites/alfred.png");

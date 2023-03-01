@@ -37,14 +37,14 @@ class HowToPlay {
         ctx.lineWidth = 6;
         ctx.textAlign = "center";
         ctx.font = "Bold 60px Courier";
-        ctx.fillText("HOW TO PLAY", 720 / 2, 100);
+        ctx.fillText("HOW TO PLAY", 720 / 2, 80);
 
         // set text left aligned and smaller font
         ctx.textAlign = "left";
         ctx.font = "Bold 35px Courier";
 
         // add how-to instructions
-        ctx.fillText("GAME CONTROLS:", 40, 200);
+        ctx.fillText("GAME CONTROLS:", 40, 150);
 
         ctx.font = "Bold 25px Courier";
         ctx.lineWidth = 2;
