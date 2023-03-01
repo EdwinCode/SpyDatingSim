@@ -23,11 +23,11 @@ class Level1Part1 {
 
         // guards
         //entrance left side
-        this.game.addEntity(new Guard(this.game, 12 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
+        this.game.addEntity(new Guard(this.game, 11 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
         this.game.addEntity(new Guard(this.game, 73 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
         //entrance left side
-        this.game.addEntity(new Guard(this.game, 164 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
-        this.game.addEntity(new Guard(this.game, 230 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
+        this.game.addEntity(new Guard(this.game, 165 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
+        this.game.addEntity(new Guard(this.game, 229 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
 
 
         // billionaire
@@ -372,6 +372,12 @@ function setUpLevelOneFurniture(game, level) {
     for (let i = 0; i < this.level.whiteShoe.length; i++) {
         let whiteShoe = this.level.whiteShoe[i];
         this.game.addEntity(new WhiteShoe(this.game, whiteShoe.x * PARAMS.BLOCKWIDTH, whiteShoe.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //longTanTable
+    for (let i = 0; i < this.level.longTanTable.length; i++) {
+        let longTanTable = this.level.longTanTable[i];
+        this.game.addEntity(new LongTanTable(this.game, longTanTable.x * PARAMS.BLOCKWIDTH, longTanTable.y * PARAMS.BLOCKWIDTH));
     }
 
 

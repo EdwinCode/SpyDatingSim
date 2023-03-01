@@ -291,27 +291,32 @@ let levelOneFurniture = {
     ],
 
     goldenShoe: [
-        {x: 190, y: 190}
+        {x: 10, y: 193}
     ],
 
     rainbowShoe: [
-        {x: 215, y: 190}
+        {x: 10, y: 184}
     ],
 
     tanShoe: [
-        {x: 160, y: 190}
+        {x: 10, y: 173}
     ],
 
     blackShoe: [
-        {x: 130, y: 190}
+        {x: 232, y: 195}
     ],
 
     greyShoe: [
-        {x: 100, y: 190}
+        {x: 232, y: 184}
     ],
 
     whiteShoe: [
-        {x: 70, y: 190}
+        {x: 232, y: 173}
+    ],
+
+    longTanTable: [
+        {x: 8, y: 175},
+        {x: 230, y: 175},
     ],
 
     // ------------------------ BEDROOM FURNITURE -------------------
