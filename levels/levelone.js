@@ -66,6 +66,10 @@ class Level1Part1 {
         // kitchen worker
         this.game.addEntity(new KitchenWorker(this.game, 295 * PARAMS.BLOCKWIDTH, -425 * PARAMS.BLOCKWIDTH));
 
+        //gardener
+        // kitchen worker
+        this.game.addEntity(new Gardener(this.game, -170 * PARAMS.BLOCKWIDTH, 80 * PARAMS.BLOCKWIDTH));
+
 
     };
 

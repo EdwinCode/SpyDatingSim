@@ -265,7 +265,7 @@ class Maid extends NPC{
 
 class Gardener extends NPC{
     constructor(game, x, y) {
-        super(game, "./sprites/entities/richie.png", x, y, 16 * PARAMS.BLOCKWIDTH, 29 * PARAMS.BLOCKWIDTH);
+        super(game, "./sprites/entities/gardener.png", x, y, 16 * PARAMS.BLOCKWIDTH, 29 * PARAMS.BLOCKWIDTH);
 
         this.loadAnimations();
     };
@@ -274,10 +274,10 @@ class Gardener extends NPC{
     loadAnimations() {
         // walking animation
         // 0 = down, 1 = up, 2 = left, 3 = right
-        this.animations[0] = new Animator(this.spritesheet, 8, 8, 128, 208, 4, 0.3);
-        this.animations[1] = new Animator(this.spritesheet, 8, 212, 128, 208, 4, 0.3);
-        this.animations[2] = new Animator(this.spritesheet, 8, 420, 110, 208, 4, 0.3);
-        this.animations[3] = new Animator(this.spritesheet, 8, 628, 110, 208, 4, 0.3);
+        this.animations[0] = new Animator(this.spritesheet, 0, 0, 128, 193, 4, 0.3);
+        this.animations[1] = new Animator(this.spritesheet, 0, 198, 128, 193, 4, 0.3);
+        this.animations[2] = new Animator(this.spritesheet, 0, 388, 112, 195, 4, 0.3);
+        this.animations[3] = new Animator(this.spritesheet, 0, 581, 112, 195, 4, 0.3);
 
     };
 };
