@@ -114,18 +114,18 @@ class Itemsbag {
 
     draw(ctx) {
         // change text color and text fill
-        setBlackStroke(ctx);
+        setWhiteStroke(ctx);
 
         // view item box
-        this.setViewItemBox(ctx, "");
+        this.setViewItemBox(ctx, null);
 
         // item blurb box
         this.setItemBlurbBox(ctx, "Choose an item below.");
 
         // main items boxes
-        ctx.fillStyle = "white";
+        ctx.fillStyle = "black";
         ctx.fillRect(0,PARAMS.CANVAS_HEIGHT / 2, PARAMS.CANVAS_WIDTH, PARAMS.CANVAS_HEIGHT / 2);
-        setBlackStroke(ctx);
+        setWhiteStroke(ctx);
         ctx.strokeRect(0,PARAMS.CANVAS_HEIGHT / 2, PARAMS.CANVAS_WIDTH, PARAMS.CANVAS_HEIGHT / 2);
 
         // individual item boxes
@@ -142,7 +142,7 @@ class Itemsbag {
         ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
         //ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, 525,120,40);
 
-        ctx.fillStyle = "gray";
+        ctx.fillStyle = "black";
 
         // column 1
         ctx.fillRect(PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
@@ -159,7 +159,7 @@ class Itemsbag {
         //ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, 525,120,40);
 
         // reset text color
-        setBlackStroke(ctx);
+        setWhiteStroke(ctx);
 
         // place items in drawn boxes
         this.drawItems(ctx);
@@ -177,20 +177,47 @@ class Itemsbag {
         ctx.textAlign = "left";
     };
 
-    setViewItemBox(ctx, text) {
+    setViewItemBox(ctx, image, x, y, scaleX, scaleY) {
         // clear old image
         ctx.clearRect(0,0,PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2);
 
         // remake view box
-        ctx.fillStyle = "gray";
-        ctx.fillRect(0,0,PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2);
         setBlackStroke(ctx);
-        ctx.strokeRect(0,0,PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2);
+        ctx.fillRect(0,0,PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2);
 
-        // add new image
+        // draw image
+        if (image != null) {
+            let img = image;
+            ctx.drawImage(img, x, y, scaleX, scaleY);
+        }
+    };
+
+    setItemBlurbBox(ctx, text) {
+        // clear old text
+        ctx.clearRect(PARAMS.CANVAS_WIDTH / 2,0,PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2);
+
+        // remake blurb box
+        setBlackStroke(ctx);
+        ctx.fillRect(PARAMS.CANVAS_WIDTH / 2,0,PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2);
+        setWhiteStroke(ctx);
+        ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2,0,PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2);
+
+        // add new text
         ctx.textAlign = "left";
-        wrapText(ctx, text, PARAMS.CANVAS_WIDTH / 2 + 10, 20, PARAMS.CANVAS_WIDTH / 2 - 10);
-    }
+        ctx.font = "Bold 20px Courier";
+        wrapText(ctx, text, PARAMS.CANVAS_WIDTH / 2 + 10, 20, PARAMS.CANVAS_WIDTH / 2);
+    };
+
+    setButton(ctx, text) {
+        setWhiteStroke(ctx);
+        ctx.textAlign = "center";
+
+        if (this.mouseBB.collide(this.buttonBB)) {
+            setRedStroke(ctx);
+        }
+        ctx.fillText(text, PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 - 15);
+        ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 4 - 40, PARAMS.CANVAS_HEIGHT / 2 - 36, 80, 30);
+    };
 
     //
     // DRAW Helper Methods
@@ -211,7 +238,7 @@ class Itemsbag {
         // CASE FILE
         if (caseFileDisplay) {
             if (this.mouseBB.collide(this.casefileBB)) {
-                setWhiteStroke(ctx);
+                setRedStroke(ctx);
             }
             ctx.fillText("Case File", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 65);
 
@@ -221,8 +248,8 @@ class Itemsbag {
                     "pertinent to your case. Refer back to this file to refresh your memory on the details of your " +
                     "case.                                               " +
                     "Click the 'view' button to see the case file.");
-
-                this.setViewItemBox(ctx, "");  // show nothing
+                let img = ASSET_MANAGER.getAsset("./sprites/casefile_icon.jpg");
+                this.setViewItemBox(ctx, img, PARAMS.CANVAS_WIDTH / 13, PARAMS.CANVAS_WIDTH / 30, 3 * 80, 3 * 100);
                 this.setButton(ctx, "VIEW");
             }
         } else {
@@ -230,12 +257,12 @@ class Itemsbag {
         }
 
         // reset text color
-        setBlackStroke(ctx);
+        setWhiteStroke(ctx);
 
         // SNEAKERS
         if (sneakerDisplay) {
             if (this.mouseBB.collide(this.sneakerBB)) {
-                setWhiteStroke(ctx);
+                setRedStroke(ctx);
             }
             ctx.fillText("Sneakers", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);
 
@@ -245,7 +272,7 @@ class Itemsbag {
                     "to move with the new applied run velocity.             Be aware that the 'shift' key " +
                     "will be disabled if you are wearing sneakers. So, you can't go any faster than running. " +
                     "To take off the sneakers, click the 'apply' button again.");
-                this.setViewItemBox(ctx, "");  // show sneaker img
+                this.setViewItemBox(ctx, null);  // show sneaker img
                 this.setButton(ctx, "APPLY");
             }
         } else {
@@ -253,12 +280,12 @@ class Itemsbag {
         }
 
         // reset text color
-        setBlackStroke(ctx);
+        setWhiteStroke(ctx);
 
         // CAPE
         if (capeDisplay) {
             if (this.mouseBB.collide(this.capeBB)) {
-                setWhiteStroke(ctx);
+                setRedStroke(ctx);
             }
             ctx.fillText("Cape", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 210);
 
@@ -281,12 +308,12 @@ class Itemsbag {
         //
 
         // reset text color
-        setBlackStroke(ctx);
+        setWhiteStroke(ctx);
 
         // FLASHLIGHT
         if (flashlightDisplay) {
             if (this.mouseBB.collide(this.flashlightBB)) {
-                setWhiteStroke(ctx);
+                setRedStroke(ctx);
             }
             ctx.fillText("Flashlight", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 65);
 
@@ -299,12 +326,12 @@ class Itemsbag {
         }
 
         // reset text color
-        setBlackStroke(ctx);
+        setWhiteStroke(ctx);
 
         // ROSE
         if (roseDisplay) {
             if (this.mouseBB.collide(this.roseBB)) {
-                setWhiteStroke(ctx);
+                setRedStroke(ctx);
             }
             ctx.fillText("Rose", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 65);
 
@@ -317,12 +344,12 @@ class Itemsbag {
         }
 
         // reset text color
-        setBlackStroke(ctx);
+        setWhiteStroke(ctx);
 
         // CLUE ONE
         if (clueOneDisplay) {
             if (this.mouseBB.collide(this.clueOneBB)) {
-                setWhiteStroke(ctx);
+                setRedStroke(ctx);
             }
             ctx.fillText("Clue One", PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 65);
 
@@ -342,12 +369,12 @@ class Itemsbag {
         //
 
         // reset text color
-        setBlackStroke(ctx);
+        setWhiteStroke(ctx);
 
         // CLUE TWO
         if (clueTwoDisplay) {
             if (this.mouseBB.collide(this.clueTwoBB)) {
-                setWhiteStroke(ctx);
+                setRedStroke(ctx);
             }
             ctx.fillText("Clue Two", PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 65);
 
@@ -360,12 +387,12 @@ class Itemsbag {
         }
 
         // reset text color
-        setBlackStroke(ctx);
+        setWhiteStroke(ctx);
 
         // CLUE THREE
         if (clueThreeDisplay) {
             if (this.mouseBB.collide(this.clueThreeBB)) {
-                setWhiteStroke(ctx);
+                setRedStroke(ctx);
             }
             ctx.fillText("Clue Three", PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 65);
 
@@ -376,35 +403,5 @@ class Itemsbag {
         } else {
             ctx.fillText("---", (3 * PARAMS.CANVAS_WIDTH) / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);
         }
-
-        // reset text color
-        setBlackStroke(ctx);
-    }
-
-    setItemBlurbBox(ctx, text) {
-        // clear old text
-        ctx.clearRect(PARAMS.CANVAS_WIDTH / 2,0,PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2);
-
-        // remake blurb box
-        setWhiteStroke(ctx);
-        ctx.fillRect(PARAMS.CANVAS_WIDTH / 2,0,PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2);
-        setBlackStroke(ctx);
-        ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2,0,PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2);
-
-        // add new text
-        ctx.textAlign = "left";
-        ctx.font = "Bold 20px Courier";
-        wrapText(ctx, text, PARAMS.CANVAS_WIDTH / 2 + 10, 20, PARAMS.CANVAS_WIDTH / 2);
-    }
-
-    setButton(ctx, text) {
-        setBlackStroke(ctx);
-        ctx.textAlign = "center";
-
-        if (this.mouseBB.collide(this.buttonBB)) {
-            setRedStroke(ctx);
-        }
-        ctx.fillText(text, PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 - 15);
-        ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 4 - 40, PARAMS.CANVAS_HEIGHT / 2 - 36, 80, 30);
     };
-}
+};

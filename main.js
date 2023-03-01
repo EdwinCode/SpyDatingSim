@@ -18,6 +18,9 @@ ASSET_MANAGER.queueDownload("./sprites/entities/billionaire_portraits.png");
 ASSET_MANAGER.queueDownload("./sprites/alfred.png");
 ASSET_MANAGER.queueDownload("./sprites/suitcase.png");
 
+// item icons
+ASSET_MANAGER.queueDownload("./sprites/casefile_icon.jpg");
+
 //cutscenes
 ASSET_MANAGER.queueDownload("./sprites/cutscenes/intro.png");
 ASSET_MANAGER.queueDownload("./sprites/casefile.png");

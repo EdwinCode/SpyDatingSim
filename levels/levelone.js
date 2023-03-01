@@ -14,7 +14,10 @@ class Level1Part1 {
         //this.game.addEntityToTop(new HowToPlay(this.game));
 
         // casefile chatbox
-        this.game.addEntityToTop(new CasefileChatbox(this.game));
+        let caseFile = new CasefileChatbox(this.game);
+        caseFile.firstTime = true;
+        this.game.addEntityToTop(caseFile);
+
 
         // alfred help chatboxes
         let text = "Hi, I'm Alfred.                                                                " +
