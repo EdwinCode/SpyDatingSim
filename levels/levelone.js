@@ -10,12 +10,24 @@ class Level1Part1 {
     };
 
     setUpLevel() {
+        // game rules
+        //this.game.addEntityToTop(new HowToPlay(this.game));
+
         // casefile chatbox
-        this.game.addEntity(new CasefileChatbox(this.game));
+        this.game.addEntityToTop(new CasefileChatbox(this.game));
+
+        let text = "Hi, I'm Alfred.                                                                " +
+            "If you need in-game help, click my icon in the top right corner.                      " +
+            "                                 Enjoy your stay at the mansion.";
+        let sheet = ASSET_MANAGER.getAsset("./sprites/alfred.png");
+        //Chatbox.OPEN = true;
+        let chatbox = new Chatbox(this.game, text, 0, sheet, true);
+        this.game.addEntity(chatbox);
+        chatbox.setVisible = true;
 
         // HUD
         this.game.addEntity(this.hud);
-        this.hud.setText("Phase 1 - 1");
+        this.hud.setText("Phase 1");
         this.hud.setTextColor("black");
 
         //spy
@@ -69,7 +81,7 @@ class Level1Part2 {
 
         // HUD
         this.game.addEntity(this.hud);
-        this.hud.setText("Phase 1 - 2");
+        this.hud.setText("Phase 2");
         this.hud.setTextColor("white");
 
         // darkness

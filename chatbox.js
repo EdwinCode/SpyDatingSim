@@ -160,10 +160,18 @@ class CasefileChatbox {
     };
 
     draw(ctx) {
+        setBlackStroke(ctx);
+        ctx.fillRect(0,0,PARAMS.CANVAS_WIDTH,PARAMS.CANVAS_HEIGHT);
+        setWhiteStroke(ctx);
+        ctx.textAlign = "center";
+        ctx.fillText("A New Item...", PARAMS.CANVAS_WIDTH / 2, 50);
+        ctx.fillText("This will be in your items bag.", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 50);
+
         // casefile
         ctx.drawImage(this.spritesheet, 0, 0, 460, 340, PARAMS.CANVAS_WIDTH / 2 - (460 * 1.5 / 2), PARAMS.CANVAS_HEIGHT / 2 - (340 * 1.5 / 2), 460 * 1.5, 340 * 1.5);
 
         // text
+        ctx.textAlign = "left";
         ctx.fillStyle = "white";
         ctx.font = "18px Courier";
         ctx.fillRect(380, 300, 260, 200);

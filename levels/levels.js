@@ -354,13 +354,12 @@ let levelOneFurniture = {
 let levelOne1 = {
     label: "Phase 1-1",
 
-
     //NPC PORTRAIT NUMBERS
     // 0 = neutral, 1 = happy, 2 = sad, 3 = mad, 4 = surprised
 
     butler: [
         {message: "Talk to Mr.Billionaire. He has a welcome message. Also, make sure to take a look around. You " +
-                "never know what you might find in this big mansion...",
+                "never know what you might find in this mansion...",
             state: 0,
             portraitNumber: 0,
             stateIncr: false},
@@ -368,14 +367,62 @@ let levelOne1 = {
             state: 1,
             portraitNumber: 0,
             stateIncr: false},
-        {message: "Talk to Richie. He's also dating Mr. Billionaire, and is such a gossip queen...much like myself.",
+        {message: "Look in the Entrance room for a special item. The Entrance room is south of the Lounge room," +
+                "which is where you started.",
             state: 2,
             portraitNumber: 0,
             stateIncr: false},
-        {message: "Someone is going to give a toast. Go back to them to hear it.",
+        {message: "Talk to Richie. He is also dating Mr. Billionaire. I know I like to gossip, but Richie " +
+                "has no filter...",
             state: 3,
             portraitNumber: 0,
+            stateIncr: false},
+        {message: "Look in the Office for a special item. The Office is north of the Lounge.",
+            state: 4,
+            portraitNumber: 0,
+            stateIncr: false},
+        {message: "Look in the Garage for a special item. The Garage is west of the Office.",
+            state: 5,
+            portraitNumber: 0,
+            stateIncr: false},
+        {message: "Someone is going to give a toast. Go back to them to hear it.",
+            state: 6,
+            portraitNumber: 0,
             stateIncr: false}
+    ],
+
+    billionaire: [
+        { message: "Welcome to the mansion! I'm so glad you could make it. I'll be giving a toast soon. " +
+                "Make yourself comfortable.",
+            state: 0,
+            portraitNumber: 1,
+            stateIncr: true},
+        { message: "It's mix and mingle time before we start the real party!",
+            state: 1,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "It's mix and mingle time before we start the real party!",
+            state: 2,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "It's mix and mingle time before we start the real party!",
+            state: 3,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "It's mix and mingle time before we start the real party!",
+            state: 4,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "It's mix and mingle time before we start the real party!",
+            state: 5,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "*annoying clinging of silverware on a glass* I'd like to give a toast. " +
+                "Welcome to my mansion! I know we'll have a great time. Later, I'll be handing " +
+                "out the first impression rose. *wink* Let the sparks ignite!",
+            state: 6,
+            portraitNumber: 5,  // holding wine glass and smiling
+            stateIncr: true}
     ],
 
     stephanie: [
@@ -395,7 +442,19 @@ let levelOne1 = {
         { message: "*is suddenly thirsty*",
             state: 3,
             portraitNumber: 0,
-            stateIncr: "false"}
+            stateIncr: "false"},
+        { message: "*is suddenly thirsty*",
+            state: 4,
+            portraitNumber: 0,
+            stateIncr: "false"},
+        { message: "*is suddenly thirsty*",
+            state: 5,
+            portraitNumber: 0,
+            stateIncr: "false"},
+        { message: "*is suddenly thirsty*",
+            state: 6,
+            portraitNumber: 0,
+            stateIncr: "false"},
     ],
 
     richie: [
@@ -415,29 +474,12 @@ let levelOne1 = {
             state: 3,
             portraitNumber: 0,
             stateIncr: "false"}
-    ],
-
-    billionaire: [
-        { message: "Welcome to the mansion! I'm so glad you could make it. " +
-                "I'll be giving a toast soon. Make yourself comfortable.",
-            state: 0,
-            portraitNumber: 1,
-            stateIncr: "true"},
-        { message: "It's mix and mingle time before we start the real party!",
-            state: 1,
-            portraitNumber: 0,
-            stateIncr: "false"},
-        { message: "You should get familiar with the other contestants.",
-            state: 2,
-            portraitNumber: 0,
-            stateIncr: "false"},
-        { message: "*annoying clinking of silverware on a glass* I'd like to give a toast. " +
-                "Welcome to my mansion! I know we'll have a great time. Later, I'll be handing " +
-                "out the first impression rose. *wink* Let the sparks ignite!",
-            state: 3,
-            portraitNumber: 5,
-            stateIncr: "true"}
     ]
+
+    // add furniture interactions
+    // sneakers: if state == 2 then stateIncr = true
+    // cape: if state == 4 then stateIncr = true
+    // flashlight: if state == 5 then stateIncr = true
 };
 
 
