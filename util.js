@@ -53,6 +53,7 @@ window.requestAnimFrame = (() => {
 
 const PARAMS = {
     DEBUG: true,
+    SKIPPHASE1: true,
     // Changing the scale breaks things, which means we aren't using it correctly.
     SCALE: 0.5,
     /*

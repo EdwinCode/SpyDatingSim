@@ -41,8 +41,13 @@ class Level1Part1 {
         this.game.addEntity(this.spyCharacter);
 
         // guards
-        this.game.addEntity(new Guard(this.game, 76 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
-        this.game.addEntity(new Guard(this.game, 162 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
+        //entrance left side
+        this.game.addEntity(new Guard(this.game, 11 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
+        this.game.addEntity(new Guard(this.game, 73 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
+        //entrance left side
+        this.game.addEntity(new Guard(this.game, 165 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
+        this.game.addEntity(new Guard(this.game, 229 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
+
 
         // billionaire
         this.game.addEntity(new Billionaire(this.game, 125 * PARAMS.BLOCKWIDTH, -171 * PARAMS.BLOCKWIDTH));
@@ -340,6 +345,59 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new StarryNight(this.game, starryNight.x * PARAMS.BLOCKWIDTH, starryNight.y * PARAMS.BLOCKWIDTH));
     }
 
+    //billionaireStatue
+    for (let i = 0; i < this.level.billionaireStatue.length; i++) {
+        let billionaireStatue = this.level.billionaireStatue[i];
+        this.game.addEntity(new BillionaireStatue(this.game, billionaireStatue.x * PARAMS.BLOCKWIDTH, billionaireStatue.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //door
+    for (let i = 0; i < this.level.door.length; i++) {
+        let door = this.level.door[i];
+        this.game.addEntity(new Door(this.game, door.x * PARAMS.BLOCKWIDTH, door.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //goldenShoe
+    for (let i = 0; i < this.level.goldenShoe.length; i++) {
+        let goldenShoe = this.level.goldenShoe[i];
+        this.game.addEntity(new GoldenShoe(this.game, goldenShoe.x * PARAMS.BLOCKWIDTH, goldenShoe.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //rainbowShoe
+    for (let i = 0; i < this.level.rainbowShoe.length; i++) {
+        let rainbowShoe = this.level.rainbowShoe[i];
+        this.game.addEntity(new RainbowShoe(this.game, rainbowShoe.x * PARAMS.BLOCKWIDTH, rainbowShoe.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //tanShoe
+    for (let i = 0; i < this.level.tanShoe.length; i++) {
+        let tanShoe = this.level.tanShoe[i];
+        this.game.addEntity(new TanShoe(this.game, tanShoe.x * PARAMS.BLOCKWIDTH, tanShoe.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //blackShoe
+    for (let i = 0; i < this.level.blackShoe.length; i++) {
+        let blackShoe = this.level.blackShoe[i];
+        this.game.addEntity(new BlackShoe(this.game, blackShoe.x * PARAMS.BLOCKWIDTH, blackShoe.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //greyShoe
+    for (let i = 0; i < this.level.greyShoe.length; i++) {
+        let greyShoe = this.level.greyShoe[i];
+        this.game.addEntity(new GreyShoe(this.game, greyShoe.x * PARAMS.BLOCKWIDTH, greyShoe.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //whiteShoe
+    for (let i = 0; i < this.level.whiteShoe.length; i++) {
+        let whiteShoe = this.level.whiteShoe[i];
+        this.game.addEntity(new WhiteShoe(this.game, whiteShoe.x * PARAMS.BLOCKWIDTH, whiteShoe.y * PARAMS.BLOCKWIDTH));
+    }
+
+    //longTanTable
+    for (let i = 0; i < this.level.longTanTable.length; i++) {
+        let longTanTable = this.level.longTanTable[i];
+        this.game.addEntity(new LongTanTable(this.game, longTanTable.x * PARAMS.BLOCKWIDTH, longTanTable.y * PARAMS.BLOCKWIDTH));
+    }
 
 
     // ------------------------ BEDROOM FURNITURE -------------------

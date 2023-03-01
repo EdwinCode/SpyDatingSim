@@ -319,6 +319,13 @@ class Spy {
 
             that.updateBB();
         });
+
+        // skip phase 1 of level 1
+        PARAMS.SKIPPHASE1 = document.getElementById("skipPhaseOne").checked;
+        if (PARAMS.SKIPPHASE1) {
+            this.game.camera.loadLevel(levelOneCutscene);
+            document.getElementById("skipPhaseOne").checked = false;
+        }
     };
 
 

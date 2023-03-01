@@ -282,6 +282,42 @@ let levelOneFurniture = {
         {x: 35, y: 0}
     ],
 
+    billionaireStatue: [
+        {x: 109, y: 90}
+    ],
+
+    door: [
+        {x: 112, y: 240}
+    ],
+
+    goldenShoe: [
+        {x: 10, y: 193}
+    ],
+
+    rainbowShoe: [
+        {x: 10, y: 184}
+    ],
+
+    tanShoe: [
+        {x: 10, y: 173}
+    ],
+
+    blackShoe: [
+        {x: 232, y: 195}
+    ],
+
+    greyShoe: [
+        {x: 232, y: 184}
+    ],
+
+    whiteShoe: [
+        {x: 232, y: 173}
+    ],
+
+    longTanTable: [
+        {x: 8, y: 175},
+        {x: 230, y: 175},
+    ],
 
     // ------------------------ BEDROOM FURNITURE -------------------
 
