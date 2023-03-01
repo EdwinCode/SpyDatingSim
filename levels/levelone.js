@@ -16,12 +16,19 @@ class Level1Part1 {
         // casefile chatbox
         this.game.addEntityToTop(new CasefileChatbox(this.game));
 
+        // alfred help chatboxes
         let text = "Hi, I'm Alfred.                                                                " +
             "If you need in-game help, click my icon in the top right corner.                      " +
-            "                                 Enjoy your stay at the mansion.";
+            "                                 Also, let me give you a quick " +
+            "          gameplay run-down.";
         let sheet = ASSET_MANAGER.getAsset("./sprites/alfred.png");
-        //Chatbox.OPEN = true;
         let chatbox = new Chatbox(this.game, text, 0, sheet, true);
+        this.game.addEntity(chatbox);
+        chatbox.setVisible = true;
+
+        text = "Use arrow or 'wasd' keys to move, 'shift' to run, and 'e' to interact." +
+            "                                       Enjoy your stay at the mansion.";
+        chatbox = new Chatbox(this.game, text, 0, sheet, true);
         this.game.addEntity(chatbox);
         chatbox.setVisible = true;
 
