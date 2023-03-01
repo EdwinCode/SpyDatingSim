@@ -140,7 +140,7 @@ class Itemsbag {
         // column 3
         ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
         ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
-        ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, 525,120,40);
+        //ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, 525,120,40);
 
         ctx.fillStyle = "gray";
 
@@ -156,7 +156,7 @@ class Itemsbag {
         // column 3
         ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
         ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
-        ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, 525,120,40);
+        //ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, 525,120,40);
 
         // reset text color
         setBlackStroke(ctx);
@@ -196,6 +196,10 @@ class Itemsbag {
     // DRAW Helper Methods
     //
 
+    // ITEMS
+    // case file    flashlight    clue two
+    // sneakers     rose          clue three
+    // cape         clue one
     drawItems(ctx) {
         // add items according to booleans
         ctx.textAlign = "center";
@@ -315,28 +319,6 @@ class Itemsbag {
         // reset text color
         setBlackStroke(ctx);
 
-        //
-        if (TBD) {
-            if (this.mouseBB.collide(this.tbdBB)) {
-                setWhiteStroke(ctx);
-            }
-            ctx.fillText("TBD", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 65);
-
-            if (this.clickClueThree) {
-                this.setItemBlurbBox(ctx, "");
-                this.setViewItemBox(ctx, "");  // show tbd item
-            }
-        } else {
-            ctx.fillText("---", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 210);
-        }
-
-        //
-        // COL THREE ITEMS 7-9
-        //
-
-        // reset text color
-        setBlackStroke(ctx);
-
         // CLUE ONE
         if (clueOneDisplay) {
             if (this.mouseBB.collide(this.clueOneBB)) {
@@ -352,8 +334,12 @@ class Itemsbag {
                 this.setViewItemBox(ctx, "To be implemented clue img");  // show clue
             }
         } else {
-            ctx.fillText("---", (3 * PARAMS.CANVAS_WIDTH) / 4, PARAMS.CANVAS_HEIGHT / 2 + 65);
+            ctx.fillText("---", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 210);
         }
+
+        //
+        // COL THREE ITEMS 7-8
+        //
 
         // reset text color
         setBlackStroke(ctx);
@@ -370,7 +356,7 @@ class Itemsbag {
                 this.setViewItemBox(ctx, "To be implemented clue img");  // show clue
             }
         } else {
-            ctx.fillText("---", (3 * PARAMS.CANVAS_WIDTH) / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);
+            ctx.fillText("---", (3 * PARAMS.CANVAS_WIDTH) / 4, PARAMS.CANVAS_HEIGHT / 2 + 65);
         }
 
         // reset text color
@@ -388,8 +374,11 @@ class Itemsbag {
                 this.setViewItemBox(ctx, "To be implemented clue img");  // show clue
             }
         } else {
-            ctx.fillText("---", (3 * PARAMS.CANVAS_WIDTH) / 4, PARAMS.CANVAS_HEIGHT / 2 + 210);
+            ctx.fillText("---", (3 * PARAMS.CANVAS_WIDTH) / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);
         }
+
+        // reset text color
+        setBlackStroke(ctx);
     }
 
     setItemBlurbBox(ctx, text) {

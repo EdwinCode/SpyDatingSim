@@ -336,7 +336,12 @@ class Spy {
 
             ctx.textAlign = "center";
             setWhiteStroke(ctx);
-            ctx.fillText("Can Interact", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 30);
+
+            let interactPersonText = "";
+            if (this.stephInteract) interactPersonText = "Stephanie"
+            else if (this.richieInteract) interactPersonText = "Richie"
+            else if(this.billionaireInteract) interactPersonText = "Mr.Billionaire"
+            ctx.fillText(interactPersonText, PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 30);
         }
 
         // debug
