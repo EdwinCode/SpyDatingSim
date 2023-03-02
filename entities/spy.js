@@ -279,7 +279,6 @@ class Spy {
                         that.image = loadImage(that.game.currLvl, "billionaire", that.game.chatState);
                         that.game.chatState = that.updateState(that.game.currLvl, "billionaire", that.game.chatState);
 
-                        //CHANGE LATER TO BILLIONAIRE PORTRAIT
                         that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/billionaire_portraits.png");
 
                         that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
@@ -322,6 +321,31 @@ class Spy {
                 }
             }
 
+            else if (entity instanceof KitchenWorker) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                    that.kitchenWorkerInteract = true;
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
+
+                        that.text = loadText(that.game.currLvl, "kitchenWorker", that.game.chatState);
+                        that.image = loadImage(that.game.currLvl, "kitchenWorker", that.game.chatState);
+                        that.game.chatState = that.updateState(that.game.currLvl, "kitchenWorker", that.game.chatState);
+
+                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/kitchen_worker_portraits.png");
+
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
+
+                        //TO PAUSE THE GAME
+                        Chatbox.OPEN = true;
+                    }
+                } else {
+                    that.kitchenWorkerInteract = false;
+                }
+            }
+
             that.updateBB();
         });
 
@@ -336,7 +360,7 @@ class Spy {
             this.animations[this.state][this.direction].drawStillFrame(ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
         }
         // interact message
-        if (this.stephInteract || this.billionaireInteract || this.richieInteract) {
+        if (this.stephInteract || this.billionaireInteract || this.richieInteract || this.kitchenWorkerInteract) {
             setBlackStroke(ctx);
             ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
             ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
@@ -348,6 +372,7 @@ class Spy {
             if (this.stephInteract) interactPersonText = "Stephanie"
             else if (this.richieInteract) interactPersonText = "Richie"
             else if(this.billionaireInteract) interactPersonText = "Mr.Billionaire"
+            else if(this.kitchenWorkerInteract) interactPersonText = "Kitchen Worker"
             ctx.fillText(interactPersonText, PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 30);
         }
 
@@ -391,6 +416,15 @@ class Spy {
         else if (entity === "billionaire") {
             console.log("billionaire");
             if (level.billionaire[chatState].stateIncr === true) {
+                return chatState + 1;
+            } else {
+                return chatState;
+            }
+        }
+
+        // kitchen worker
+        if (entity === "kitchenWorker") {
+            if (level.kitchenWorker[chatState].stateIncr === true) {
                 return chatState + 1;
             } else {
                 return chatState;

@@ -522,7 +522,18 @@ let levelOne1 = {
             state: 6,
             portraitNumber: 0,
             stateIncr: false},
-    ]
+    ],
+
+    kitchenWorker: [
+        { message: "Hi! I'm Leah. I'm the kitchen worker here in the mansion.",
+            state: 0,
+            portraitNumber: 1,
+            stateIncr: false},
+        { message: "Cooking for everyone sure is a lot...",
+            state: 1,
+            portraitNumber: 2,
+            stateIncr: false},
+        ],
 
     // add furniture interactions
     // sneakers: if state == 2 then stateIncr = true

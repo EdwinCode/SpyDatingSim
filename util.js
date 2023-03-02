@@ -141,6 +141,11 @@ function loadText(level, entity, chatState) {
         return level.billionaire[chatState].message;
     }
 
+    // kitchen worker
+    else if (entity === "kitchenWorker") {
+        return level.kitchenWorker[chatState].message;
+    }
+
     // butler
     else if (entity === "butler") {
         return level.butler[chatState].message;
@@ -161,6 +166,11 @@ function loadImage(level, entity, chatState) {
     // billionaire
     else if (entity === "billionaire") {
         return level.billionaire[chatState].portraitNumber;
+    }
+
+    // kitchen worker
+    else if (entity === "kitchenWorker") {
+        return level.kitchenWorker[chatState].portraitNumber;
     }
 
     // butler
