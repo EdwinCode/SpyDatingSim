@@ -238,7 +238,7 @@ class KitchenWorker extends NPC{
         // 0 = down, 1 = up, 2 = left, 3 = right
         this.animations[0] = new Animator(this.spritesheet, 8, 8, 123, 208, 4, 0.3);
         this.animations[1] = new Animator(this.spritesheet, 8, 212, 126, 208, 4, 0.3);
-        this.animations[2] = new Animator(this.spritesheet, 8, 420, 117, 208, 4, 0.3);
+        this.animations[2] = new Animator(this.spritesheet, 8, 420, 118, 208, 4, 0.3);
         this.animations[3] = new Animator(this.spritesheet, 8, 628, 118, 208, 4, 0.3);
 
     };

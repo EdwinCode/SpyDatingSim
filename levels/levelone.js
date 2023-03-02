@@ -169,7 +169,7 @@ class Level1Part2 {
         if (this.ingameTimer.timeIsZero === true && this.timerWasZero === false) {
             this.ingameTimer.removeFromWorld = true;
             this.timerWasZero = true;
-            this.game.addEntity(new Guard(this.game, (this.spyCharacter.x - 400) / PARAMS.BLOCKWIDTH, this.spyCharacter.y / PARAMS.BLOCKWIDTH, 1));
+            this.game.addEntity(new Guard(this.game, this.spyCharacter.x - 300, this.spyCharacter.y, 1));
 
         }
     };
