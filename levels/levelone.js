@@ -114,8 +114,41 @@ class Level1Part2 {
         this.game.addEntity(this.darkness);
 
         // guards
-        this.game.addEntity(new Guard(this.game, 388 * PARAMS.BLOCKWIDTH, 216 * PARAMS.BLOCKWIDTH, 1));
-        this.game.addEntity(new Guard(this.game, 550 * PARAMS.BLOCKWIDTH, 125 * PARAMS.BLOCKWIDTH, 2));
+        // 1 = left-right, 2 = up-down
+
+        //entrance
+        this.game.addEntity(new Guard(this.game, 229 * PARAMS.BLOCKWIDTH, 70 * PARAMS.BLOCKWIDTH, 2));
+        this.game.addEntity(new Guard(this.game, 70 * PARAMS.BLOCKWIDTH, 200 * PARAMS.BLOCKWIDTH, 1));
+
+
+        //lounge
+        this.game.addEntity(new Guard(this.game, 65 * PARAMS.BLOCKWIDTH, -33 * PARAMS.BLOCKWIDTH, 1));
+        this.game.addEntity(new Guard(this.game, 130 * PARAMS.BLOCKWIDTH, -180 * PARAMS.BLOCKWIDTH, 2));
+        this.game.addEntity(new Guard(this.game, 10 * PARAMS.BLOCKWIDTH, -180 * PARAMS.BLOCKWIDTH, 2));
+        this.game.addEntity(new Guard(this.game, 230 * PARAMS.BLOCKWIDTH, -180 * PARAMS.BLOCKWIDTH, 2));
+
+
+        //green house
+        this.game.addEntity(new Guard(this.game, -23 * PARAMS.BLOCKWIDTH, 70 * PARAMS.BLOCKWIDTH, 2));
+
+        //patio
+        this.game.addEntity(new Guard(this.game, -190 * PARAMS.BLOCKWIDTH, -32 * PARAMS.BLOCKWIDTH, 1));
+        this.game.addEntity(new Guard(this.game, -190 * PARAMS.BLOCKWIDTH, -218 * PARAMS.BLOCKWIDTH, 1));
+
+        //garage
+        this.game.addEntity(new Guard(this.game, -20 * PARAMS.BLOCKWIDTH, -410 * PARAMS.BLOCKWIDTH, 2));
+
+        //office
+        this.game.addEntity(new Guard(this.game, 230 * PARAMS.BLOCKWIDTH, -410 * PARAMS.BLOCKWIDTH, 2));
+
+        //kitchen
+        this.game.addEntity(new Guard(this.game, 310 * PARAMS.BLOCKWIDTH, -275 * PARAMS.BLOCKWIDTH, 1));
+
+        //bedroom
+        this.game.addEntity(new Guard(this.game, 315 * PARAMS.BLOCKWIDTH, 40 * PARAMS.BLOCKWIDTH, 1));
+
+
+
 
         // // stephanie
         // this.game.addEntity(new Stephanie(this.game));
@@ -461,13 +494,13 @@ function setUpLevelOneFurniture(game, level) {
     // }
 
     // bed with win condition
-    this.cama = new Bed(this.game, 500 * PARAMS.BLOCKWIDTH, 220 * PARAMS.BLOCKWIDTH);
-    this.game.addEntity(this.cama);
-    let camaX = this.cama.x;
-    let camaY = this.cama.y;
-    let camaW = this.cama.dWidth;
-    let camaH = this.cama.dHeight;
-    this.cama.sneakerBB = new BoundingBox(camaX - camaW / 2, camaY - camaH / 2, camaW * 2, camaH * 2);
+    // this.cama = new Bed(this.game, 500 * PARAMS.BLOCKWIDTH, 220 * PARAMS.BLOCKWIDTH);
+    // this.game.addEntity(this.cama);
+    // let camaX = this.cama.x;
+    // let camaY = this.cama.y;
+    // let camaW = this.cama.dWidth;
+    // let camaH = this.cama.dHeight;
+    // this.cama.sneakerBB = new BoundingBox(camaX - camaW / 2, camaY - camaH / 2, camaW * 2, camaH * 2);
 
     //plain wall
     for (let i = 0; i < this.level.plainWalls.length; i++) {
