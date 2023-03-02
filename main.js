@@ -18,6 +18,10 @@ ASSET_MANAGER.queueDownload("./sprites/entities/kitchen_worker_portraits.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/gardener.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/gardener_portraits.png");
 
+//EXTRA
+ASSET_MANAGER.queueDownload("./sprites/emotes.png");
+
+
 // HUD icons
 ASSET_MANAGER.queueDownload("./sprites/alfred.png");
 ASSET_MANAGER.queueDownload("./sprites/suitcase.png");

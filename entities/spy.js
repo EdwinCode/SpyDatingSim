@@ -203,6 +203,11 @@ class Spy {
                         // do nothing
                     } else {
                         entity.spottedSpy();
+
+                        if (entity.hasExclamation === false) {
+                            that.game.addEntityToTop(new ExclamationEmote(that.game, entity, entity.x, entity.y));
+                            entity.hasExclamation = true;
+                        }
                         that.state = 0; // idle
                         that.spotted = true;
                     }

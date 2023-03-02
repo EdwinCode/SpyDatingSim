@@ -51,7 +51,6 @@ class Level1Part1 {
         this.game.addEntity(new Guard(this.game, 165 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
         this.game.addEntity(new Guard(this.game, 229 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
 
-
         //NPC SET UP
 
         // billionaire
@@ -70,6 +69,9 @@ class Level1Part1 {
         // kitchen worker
         this.game.addEntity(new Gardener(this.game, -170 * PARAMS.BLOCKWIDTH, 80 * PARAMS.BLOCKWIDTH));
 
+
+        //TESTING HEART EMOTE
+        //this.game.addEntity(new HeartEmote(this.game, 125 * PARAMS.BLOCKWIDTH, -171 * PARAMS.BLOCKWIDTH))
 
     };
 
@@ -112,6 +114,9 @@ class Level1Part2 {
 
         // darkness
         this.game.addEntity(this.darkness);
+
+        //spy
+        this.game.addEntity(this.spyCharacter);
 
         // guards
         // 1 = left-right, 2 = up-down
@@ -159,8 +164,6 @@ class Level1Part2 {
         // // billionaire
         // this.game.addEntity(new Billionaire(this.game));
 
-        //spy
-        this.game.addEntity(this.spyCharacter);
     };
 
     update() {

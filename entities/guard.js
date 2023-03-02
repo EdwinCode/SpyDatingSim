@@ -12,6 +12,8 @@ class Guard{
 
         this.movement = movement;
 
+        this.hasExclamation = false;
+
         this.velocity = 170;
 
         ///
@@ -64,19 +66,19 @@ class Guard{
         //if going up and down
         else if (this.movement === 2) {
             if (this.direction === 0) {
-                this.sightBB = new BoundingBox(this.x, this.y + this.guardH, this.guardW, this.wanderBB.height - this.guardH * 1.5);
+                this.sightBB = new BoundingBox(this.x, this.y + this.guardH, this.guardW, (this.guardH * 3.5) - this.guardH * 1.5);
 
             } else {
-                this.sightBB = new BoundingBox(this.x, this.y - (this.wanderBB.height - this.guardH * 1.5), this.guardW, this.wanderBB.height - this.guardH * 1.5);
+                this.sightBB = new BoundingBox(this.x, this.y - ((this.guardH * 3.5) - this.guardH * 1.5), this.guardW, (this.guardH * 3.5) - this.guardH * 1.5);
             }
         }
         //if going left and right
         else {
             if (this.direction === 2) {
-                this.sightBB = new BoundingBox(this.x + this.guardW, this.y + (this.guardH/5), this.wanderBB.width - this.guardW * 4, this.guardH - (this.guardH/2));
+                this.sightBB = new BoundingBox(this.x + this.guardW, this.y + (this.guardH/5), (this.guardW * 7) - this.guardW * 4, this.guardH - (this.guardH/2));
 
             } else {
-                this.sightBB = new BoundingBox(this.x - (this.wanderBB.width - this.guardW * 4), this.y + (this.guardH/5), this.wanderBB.width - this.guardW * 4, this.guardH - (this.guardH/2));
+                this.sightBB = new BoundingBox(this.x - ((this.guardW * 7) - this.guardW * 4), this.y + (this.guardH/5), (this.guardW * 7) - this.guardW * 4, this.guardH - (this.guardH/2));
             }
         }
 
@@ -84,6 +86,7 @@ class Guard{
 
     spottedSpy() {
         this.velocity = 200;
+        this.wanderBB = new BoundingBox(this.x, this.y, this.guardW * 10,this.guardH * 10);
     }
 
     loadAnimations() {
