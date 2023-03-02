@@ -176,6 +176,10 @@ function checkForSkippedParts(game) {
     // skip intro
     PARAMS.SKIPINTRO = document.getElementById("skipIntro").checked;
     if (PARAMS.SKIPINTRO) {
+
+        this.game.camera.currentLevel = levelOne1;
+        this.game.currLvl = levelOne1;
+
         this.game.camera.clearEntities();
 
         this.game.camera.hud = new HUD(this.game, this.game.camera.itemsBag);
@@ -192,6 +196,9 @@ function checkForSkippedParts(game) {
     // skip phase 1 of level 1
     PARAMS.SKIPPHASE1 = document.getElementById("skipPhaseOne").checked;
     if (PARAMS.SKIPPHASE1) {
+        this.game.camera.currentLevel = levelOneCutscene;
+        this.game.currLvl = levelOneCutscene;
+
         this.game.camera.loadLevel(levelOneCutscene);
         document.getElementById("skipPhaseOne").checked = false;
     }
