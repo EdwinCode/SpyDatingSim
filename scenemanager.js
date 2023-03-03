@@ -13,6 +13,8 @@ class Scenemanager {
         this.spyCharacter = new Spy(this.game, 124  * PARAMS.BLOCKWIDTH, -127  * PARAMS.BLOCKWIDTH);
         this.darkness = new Darkness(this.game, 0, 0);
 
+        this.currentLevelFurniture = levelOneFurniture;
+
         this.loadLevel(titleScreen);
     };
 

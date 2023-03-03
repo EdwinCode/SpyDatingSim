@@ -63,7 +63,7 @@ class Level1Part1 {
         this.game.addEntity(new Richie(this.game, 31 * PARAMS.BLOCKWIDTH, -150 * PARAMS.BLOCKWIDTH));
 
         // kitchen worker
-        this.game.addEntity(new KitchenWorker(this.game, 295 * PARAMS.BLOCKWIDTH, -425 * PARAMS.BLOCKWIDTH));
+        this.game.addEntity(new KitchenWorker(this.game, 310 * PARAMS.BLOCKWIDTH, -425 * PARAMS.BLOCKWIDTH));
 
         //gardener
         // kitchen worker
@@ -153,6 +153,9 @@ class Level1Part2 {
         this.game.addEntity(new Guard(this.game, 315 * PARAMS.BLOCKWIDTH, 40 * PARAMS.BLOCKWIDTH, 1));
 
 
+        //FRIDGE
+        // x: 278, y: -478
+        this.game.addEntity(new FridgeClose(this.game, ))
 
 
         // // stephanie

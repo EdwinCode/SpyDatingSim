@@ -167,6 +167,11 @@ function loadText(level, entity, chatState) {
     else if (entity === "billionaireStatue") {
         return level.billionaireStatue[chatState].message;
     }
+
+    // fridge
+    else if (entity === "fridge") {
+        return level.fridge[chatState].message;
+    }
 };
 
 function loadImage(level, entity, chatState) {
@@ -212,6 +217,10 @@ function loadImage(level, entity, chatState) {
         return level.billionaireStatue[chatState].portraitNumber;
     }
 
+    // fridge
+    else if (entity === "fridge") {
+        return level.fridge[chatState].portraitNumber;
+    }
 }
 
 function checkForSkippedParts(game) {
