@@ -160,6 +160,13 @@ function loadText(level, entity, chatState) {
     else if (entity === "butler") {
         return level.butler[chatState].message;
     }
+
+    // ---------- OBJECTS -------------
+
+    // billionaire statue
+    else if (entity === "billionaireStatue") {
+        return level.billionaireStatue[chatState].message;
+    }
 };
 
 function loadImage(level, entity, chatState) {
@@ -196,6 +203,13 @@ function loadImage(level, entity, chatState) {
     // butler
     else if (entity === "butler") {
         return level.butler[chatState].portraitNumber;
+    }
+
+    // ---------- OBJECTS -------------
+
+    // billionaire statue
+    else if (entity === "billionaireStatue") {
+        return level.billionaireStatue[chatState].portraitNumber;
     }
 
 }

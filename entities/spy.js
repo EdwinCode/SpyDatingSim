@@ -399,6 +399,33 @@ class Spy {
             }
 
 
+            // ----------- OBJECT INTERACTIONS -------------------
+
+            else if (entity instanceof BillionaireStatue) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                    that.billionaireStatueInteract = true;
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
+
+                        that.text = loadText(that.game.currLvl, "billionaireStatue", that.game.chatState);
+                        that.image = loadImage(that.game.currLvl, "billionaireStatue", that.game.chatState);
+                        that.game.chatState = that.updateState(that.game.currLvl, "billionaireStatue", that.game.chatState);
+
+                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/blackbox.png");
+
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, true);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
+
+                        //TO PAUSE THE GAME
+                        Chatbox.OPEN = true;
+                    }
+                } else {
+                    that.billionaireStatueInteract = false;
+                }
+
+            }
 
             that.updateBB();
         });
@@ -414,7 +441,8 @@ class Spy {
             this.animations[this.state][this.direction].drawStillFrame(ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
         }
         // interact message
-        if (this.stephInteract || this.billionaireInteract || this.richieInteract || this.kitchenWorkerInteract || this.gardenerInteract || this.guardInteract) {
+        if (this.stephInteract || this.billionaireInteract || this.richieInteract || this.kitchenWorkerInteract || this.gardenerInteract || this.guardInteract
+        || this.billionaireStatueInteract) {
             setBlackStroke(ctx);
             ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
             ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
@@ -429,6 +457,9 @@ class Spy {
             else if(this.kitchenWorkerInteract) interactPersonText = "Kitchen Worker"
             else if(this.gardenerInteract) interactPersonText = "Gardener"
             else if(this.guardInteract) interactPersonText = "Guard"
+
+            //objects
+            else if(this.billionaireStatueInteract) interactPersonText = "Statue"
 
 
             ctx.fillText(interactPersonText, PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 30);
@@ -501,6 +532,18 @@ class Spy {
         // guard
         else if (entity === "guard") {
             if (level.guard[chatState].stateIncr === true) {
+                return chatState + 1;
+            } else {
+                return chatState;
+            }
+        }
+
+
+        // ------------- OBJECT INTERACTIONS ------------
+
+        // billionaire statue
+        else if (entity === "billionaireStatue") {
+            if (level.billionaireStatue[chatState].stateIncr === true) {
                 return chatState + 1;
             } else {
                 return chatState;

@@ -20,6 +20,8 @@ ASSET_MANAGER.queueDownload("./sprites/entities/gardener_portraits.png");
 
 //EXTRA
 ASSET_MANAGER.queueDownload("./sprites/emotes.png");
+ASSET_MANAGER.queueDownload("./sprites/blackbox.png");
+
 
 
 // HUD icons
