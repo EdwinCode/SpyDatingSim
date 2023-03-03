@@ -6,7 +6,7 @@ class Furniture {
     }
 
     updateInteractionBB() {
-        this.interactBB = new BoundingBox(this.x - this.dWidth / 5, this.y - this.dHeight / 5, this.dWidth * 1.5, this.dHeight * 1.5);
+        this.interactBB = new BoundingBox(this.x - this.dWidth / 4, this.y - this.dHeight / 4, this.dWidth * 1.5, this.dHeight * 1.5);
     };
 
     draw(ctx) {
@@ -255,8 +255,8 @@ class KitchenSet extends Furniture {
 
 class Fridge extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/furniture.png",  289, 290, 16, 32, x, y, 128, 256);
-        this.BB = new BoundingBox(this.x, this.y,24 * PARAMS.BLOCKWIDTH,48 * PARAMS.BLOCKWIDTH);
+        super(game, "./sprites/furniture/furniture.png",  289, 290, 16, 32, x, y, 20 * PARAMS.BLOCKWIDTH, 40 * PARAMS.BLOCKWIDTH);
+        this.BB = new BoundingBox(this.x, this.y,20 * PARAMS.BLOCKWIDTH,48 * PARAMS.BLOCKWIDTH);
         this.sx = 289;
         this.sy = 290;
         this.sw = 16;
@@ -686,7 +686,7 @@ class StarryNight extends Furniture {
 
 class BillionaireStatue extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/billionaire_statue.png", 0, 0, 136, 256, x, y, 136, 256);
+        super(game, "./sprites/furniture/billionaire_statue.png", 0, 0, 136, 256, x, y, 36 * PARAMS.BLOCKWIDTH,66 * PARAMS.BLOCKWIDTH);
         this.BB = new BoundingBox(this.x, this.y,36 * PARAMS.BLOCKWIDTH,66 * PARAMS.BLOCKWIDTH);
     };
 

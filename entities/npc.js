@@ -21,7 +21,7 @@ class NPC {
     };
 
     updateInteractionBB() {
-        this.interactBB = new BoundingBox(this.x - this.dWidth / 2, this.y - this.dHeight / 2, this.dWidth * 2, this.dHeight * 2);
+        this.interactBB = new BoundingBox(this.x - this.dWidth / 4, this.y - this.dHeight / 4, this.dWidth * 1.5, this.dHeight * 1.5);
     };
 
 
