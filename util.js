@@ -146,6 +146,16 @@ function loadText(level, entity, chatState) {
         return level.kitchenWorker[chatState].message;
     }
 
+    // gardener
+    else if (entity === "gardener") {
+        return level.gardener[chatState].message;
+    }
+
+    // guard
+    else if (entity === "guard") {
+        return level.guard[chatState].message;
+    }
+
     // butler
     else if (entity === "butler") {
         return level.butler[chatState].message;
@@ -171,6 +181,16 @@ function loadImage(level, entity, chatState) {
     // kitchen worker
     else if (entity === "kitchenWorker") {
         return level.kitchenWorker[chatState].portraitNumber;
+    }
+
+    // gardener
+    else if (entity === "gardener") {
+        return level.gardener[chatState].portraitNumber;
+    }
+
+    // guard
+    else if (entity === "guard") {
+        return level.guard[chatState].portraitNumber;
     }
 
     // butler

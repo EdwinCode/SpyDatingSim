@@ -45,6 +45,7 @@ class Guard{
 
         this.updateBB();
         this.updateSightBB();
+        this.updateInteractionBB();
 
         this.animations = [];
         this.loadAnimations();
@@ -54,6 +55,10 @@ class Guard{
         this.lastBB = this.BB;
         this.BB = new BoundingBox(this.x, this.y, this.guardW, this.guardH);
     }
+
+    updateInteractionBB() {
+        this.interactBB = new BoundingBox(this.x - this.guardW / 2, this.y - this.guardH / 2, this.guardW * 2, this.guardH * 2);
+    };
 
     updateSightBB() {
         // this.lastSightBB = this.sightBB;
@@ -103,6 +108,7 @@ class Guard{
 
         this.updateBB();
         this.updateSightBB();
+        this.updateInteractionBB();
 
         if (this.movement === 0) { //stationary
             // do nothing
@@ -170,8 +176,11 @@ class Guard{
             ctx.strokeStyle = 'red';
             ctx.strokeRect(this.BB.x - this.game.camera.x, this.BB.y - this.game.camera.y, this.BB.width, this.BB.height);
 
-            ctx.strokeStyle = 'green';
+            ctx.strokeStyle = 'purple';
             ctx.strokeRect(this.sightBB.x - this.game.camera.x, this.sightBB.y - this.game.camera.y, this.sightBB.width, this.sightBB.height);
+
+            ctx.strokeStyle = 'green';
+            ctx.strokeRect(this.interactBB.x - this.game.camera.x, this.interactBB.y - this.game.camera.y, this.interactBB.width, this.interactBB.height);
 
 
             ctx.strokeStyle = 'blue';

@@ -346,6 +346,60 @@ class Spy {
                 }
             }
 
+            else if (entity instanceof Gardener) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                    that.gardenerInteract = true;
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
+
+                        that.text = loadText(that.game.currLvl, "gardener", that.game.chatState);
+                        that.image = loadImage(that.game.currLvl, "gardener", that.game.chatState);
+                        that.game.chatState = that.updateState(that.game.currLvl, "gardener", that.game.chatState);
+
+                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/gardener_portraits.png");
+
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
+
+                        //TO PAUSE THE GAME
+                        Chatbox.OPEN = true;
+                    }
+                } else {
+                    that.gardenerInteract = false;
+                }
+            }
+
+            else if (entity instanceof Guard) {
+                if (that.game.currLvl === levelOne1) {
+                    if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                        that.guardInteract = true;
+                        if (that.game.interact && that.hideChat) {
+                            that.game.interact = false;
+                            that.hideChat = false;
+
+                            that.text = loadText(that.game.currLvl, "guard", that.game.chatState);
+                            that.image = loadImage(that.game.currLvl, "guard", that.game.chatState);
+                            that.game.chatState = that.updateState(that.game.currLvl, "guard", that.game.chatState);
+
+                            that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/guard.png");
+
+                            that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, true);
+                            that.game.addEntityToTop(that.chatbox);
+                            that.chatbox.setVisible = true;
+
+                            //TO PAUSE THE GAME
+                            Chatbox.OPEN = true;
+                        }
+                    } else {
+                        that.guardInteract = false;
+                    }
+                }
+            }
+
+
+
             that.updateBB();
         });
 
@@ -360,7 +414,7 @@ class Spy {
             this.animations[this.state][this.direction].drawStillFrame(ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
         }
         // interact message
-        if (this.stephInteract || this.billionaireInteract || this.richieInteract || this.kitchenWorkerInteract) {
+        if (this.stephInteract || this.billionaireInteract || this.richieInteract || this.kitchenWorkerInteract || this.gardenerInteract || this.guardInteract) {
             setBlackStroke(ctx);
             ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
             ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
@@ -373,6 +427,10 @@ class Spy {
             else if (this.richieInteract) interactPersonText = "Richie"
             else if(this.billionaireInteract) interactPersonText = "Mr.Billionaire"
             else if(this.kitchenWorkerInteract) interactPersonText = "Kitchen Worker"
+            else if(this.gardenerInteract) interactPersonText = "Gardener"
+            else if(this.guardInteract) interactPersonText = "Guard"
+
+
             ctx.fillText(interactPersonText, PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 30);
         }
 
@@ -423,8 +481,26 @@ class Spy {
         }
 
         // kitchen worker
-        if (entity === "kitchenWorker") {
+        else if (entity === "kitchenWorker") {
             if (level.kitchenWorker[chatState].stateIncr === true) {
+                return chatState + 1;
+            } else {
+                return chatState;
+            }
+        }
+
+        // gardener
+        else if (entity === "gardener") {
+            if (level.gardener[chatState].stateIncr === true) {
+                return chatState + 1;
+            } else {
+                return chatState;
+            }
+        }
+
+        // guard
+        else if (entity === "guard") {
+            if (level.guard[chatState].stateIncr === true) {
                 return chatState + 1;
             } else {
                 return chatState;
