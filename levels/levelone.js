@@ -153,11 +153,6 @@ class Level1Part2 {
         this.game.addEntity(new Guard(this.game, 315 * PARAMS.BLOCKWIDTH, 40 * PARAMS.BLOCKWIDTH, 1));
 
 
-        //FRIDGE
-        // x: 278, y: -478
-        this.game.addEntity(new FridgeClose(this.game, ))
-
-
         // // stephanie
         // this.game.addEntity(new Stephanie(this.game));
         //
