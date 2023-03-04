@@ -21,16 +21,16 @@ class Level1Part1 {
 
         // alfred help chatboxes
         let text = "Hi, I'm Alfred.                                                                " +
-            "If you need in-game help, click my icon at the top right corner.                      " +
-            "                                 Also, let me give you a quick " +
-            "          gameplay run-down.";
+            "If you need in-game help, click my icon in the upper right corner.                      " +
+            "                                Now, let's review gameplay.";
         let sheet = ASSET_MANAGER.getAsset("./sprites/alfred.png");
         let chatbox = new Chatbox(this.game, text, 0, sheet, true);
         this.game.addEntity(chatbox);
         chatbox.setVisible = true;
 
-        text = "Use arrow or 'wasd' keys to move, 'shift' to run, and 'e' to interact." +
-            "                                       Enjoy your stay at the mansion.";
+        text = "To play, use the arrow or 'wasd' keys to move, 'shift' to run, and 'e' to interact." +
+            "                                                                  " +
+            "Enjoy your stay at the mansion.";
         chatbox = new Chatbox(this.game, text, 0, sheet, true);
         this.game.addEntity(chatbox);
         chatbox.setVisible = true;
@@ -140,7 +140,6 @@ class Level1Part2 {
 function setUpLevelOneFurniture(game, level) {
     this.game = game;
     this.level = level;
-
 
     // ------------------------ OFFICE FURNITURE -------------------
 
@@ -441,22 +440,26 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new SmallBlueTable(this.game, smallBlueTable.x * PARAMS.BLOCKWIDTH, smallBlueTable.y * PARAMS.BLOCKWIDTH));
     }
 
+    // -----------------------------------------------------------------
 
+    // DRAW HERE TO DRAW ON TOP OF WALLS (useful for pictures and doors)
 
+    // -----------------------------------------------------------------
 
-    // for (let i = 0; i < this.level.beds.length; i++) {
-    //     let bed = this.level.beds[i];
-    //     this.game.addEntity(new Bed(this.game, bed.x * PARAMS.BLOCKWIDTH, bed.y * PARAMS.BLOCKWIDTH));
-    // }
+    // ------------------------ PATIO FURNITURE -------------------
 
-    // bed with win condition
-    this.cama = new Bed(this.game, 500 * PARAMS.BLOCKWIDTH, 220 * PARAMS.BLOCKWIDTH);
-    this.game.addEntity(this.cama);
-    let camaX = this.cama.x;
-    let camaY = this.cama.y;
-    let camaW = this.cama.dWidth;
-    let camaH = this.cama.dHeight;
-    this.cama.sneakerBB = new BoundingBox(camaX - camaW / 2, camaY - camaH / 2, camaW * 2, camaH * 2);
+    for (let i = 0; i < this.level.trellis.length; i++) {
+        let trellis = this.level.trellis[i];
+        this.game.addEntity(new Trellis(this.game, trellis.x * PARAMS.BLOCKWIDTH, trellis.y * PARAMS.BLOCKWIDTH, trellis.count));
+    }
+
+    // ------------------------------------------------------------
+
+    //
+    // DRAW WALLS
+    //
+
+    // ------------------------------------------------------------
 
     //plain wall
     for (let i = 0; i < this.level.plainWalls.length; i++) {
@@ -476,11 +479,52 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new SideWallRight(this.game, sideWallRight.x * PARAMS.BLOCKWIDTH, sideWallRight.y * PARAMS.BLOCKWIDTH, sideWallRight.count));
     }
 
+    // ------------------------------------------------------------
+
+    //
+    // DRAW HERE TO DRAW UNDER WALLS (useful for flooring)
+    //
+
+    // ------------------------------------------------------------
+
     //big rug
     for (let i = 0; i < this.level.bigRugs.length; i++) {
         let rug = this.level.bigRugs[i];
         this.game.addEntity(new BigRug(this.game, rug.x * PARAMS.BLOCKWIDTH, rug.y * PARAMS.BLOCKWIDTH));
     }
+
+    // bed with win condition
+    this.cama = new Bed(this.game, 500 * PARAMS.BLOCKWIDTH, 220 * PARAMS.BLOCKWIDTH);
+    this.game.addEntity(this.cama);
+    let camaX = this.cama.x;
+    let camaY = this.cama.y;
+    let camaW = this.cama.dWidth;
+    let camaH = this.cama.dHeight;
+    this.cama.sneakerBB = new BoundingBox(camaX - camaW / 2, camaY - camaH / 2, camaW * 2, camaH * 2);
+
+    // ------------------------ PATIO FURNITURE -------------------
+
+    for (let i = 0; i < this.level.plantOne.length; i++) {
+        let plantOne = this.level.plantOne[i];
+        this.game.addEntity(new RowOnePlant(this.game, plantOne.x * PARAMS.BLOCKWIDTH, plantOne.y * PARAMS.BLOCKWIDTH));
+    }
+
+    for (let i = 0; i < this.level.patioBench.length; i++) {
+        let patioBench = this.level.patioBench[i];
+        this.game.addEntity(new PatioBench(this.game, patioBench.x * PARAMS.BLOCKWIDTH, patioBench.y * PARAMS.BLOCKWIDTH));
+    }
+
+    for (let i = 0; i < this.level.patioChairLeft.length; i++) {
+        let patioChairLeft = this.level.patioChairLeft[i];
+        this.game.addEntity(new GreenPatioChairRight(this.game, patioChairLeft.x * PARAMS.BLOCKWIDTH, patioChairLeft.y * PARAMS.BLOCKWIDTH));
+    }
+
+    for (let i = 0; i < this.level.patioFloor.length; i++) {
+        let patioFloor = this.level.patioFloor[i];
+        this.game.addEntity(new PatioFloor(this.game, patioFloor.x * PARAMS.BLOCKWIDTH, patioFloor.y * PARAMS.BLOCKWIDTH, patioFloor.count));
+    }
+
+    // ------------------------------------------------------------
 
     this.game.camera.paused = false;
 }
