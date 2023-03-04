@@ -435,6 +435,20 @@ class Trellis extends Furniture {
     };
 };
 
+class PatioTable extends Furniture {
+    constructor(game, x, y) {
+        super(game, "./sprites/furniture/furniture.png", 360, 90, 10, 11, x, y, 10, 11);
+        this.BB = new BoundingBox(this.x, this.y,15 * PARAMS.BLOCKWIDTH,10 * PARAMS.BLOCKWIDTH);
+    };
+
+    update() {};
+
+    draw(ctx) {
+        ctx.drawImage(this.spritesheet, 360, 90, 10, 11, this.x - this.game.camera.x, this.y - this.game.camera.y, 15 * PARAMS.BLOCKWIDTH, 15 * PARAMS.BLOCKWIDTH);
+        super.draw(ctx);
+    };
+};
+
 class PatioBench extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/furniture.png", 358, 256, 14, 14, x, y, 14, 14);
@@ -479,14 +493,14 @@ class RowOnePlant extends Furniture {
 
 class RowTwoPlantOne extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/furniture.png", 34, 85, 32, 16, x, y, 256, 128);
-        this.BB = new BoundingBox(this.x, this.y,40 * PARAMS.BLOCKWIDTH,24 * PARAMS.BLOCKWIDTH);
+        super(game, "./sprites/furniture/furniture.png", 123, 21, 8, 15, x, y, 8, 15);
+        this.BB = new BoundingBox(this.x, this.y,12 * PARAMS.BLOCKWIDTH,14 * PARAMS.BLOCKWIDTH);
     };
 
     update() {};
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 34, 85, 32, 16, this.x - this.game.camera.x, this.y - this.game.camera.y, 40 * PARAMS.BLOCKWIDTH, 24 * PARAMS.BLOCKWIDTH);
+        ctx.drawImage(this.spritesheet, 123, 21, 8, 15, this.x - this.game.camera.x, this.y - this.game.camera.y, 12 * PARAMS.BLOCKWIDTH, 25 * PARAMS.BLOCKWIDTH);
         super.draw(ctx);
     };
 };
@@ -521,14 +535,14 @@ class RowEightPlantOne extends Furniture {
 
 class RowEightPlantTwo extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/furniture.png", 34, 85, 32, 16, x, y, 256, 128);
-        this.BB = new BoundingBox(this.x, this.y,40 * PARAMS.BLOCKWIDTH,24 * PARAMS.BLOCKWIDTH);
+        super(game, "./sprites/furniture/furniture.png", 582, 141, 8, 11, x, y, 8, 10);
+        this.BB = new BoundingBox(this.x, this.y,10 * PARAMS.BLOCKWIDTH,6 * PARAMS.BLOCKWIDTH);
     };
 
     update() {};
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 34, 85, 32, 16, this.x - this.game.camera.x, this.y - this.game.camera.y, 40 * PARAMS.BLOCKWIDTH, 24 * PARAMS.BLOCKWIDTH);
+        ctx.drawImage(this.spritesheet, 582, 141, 8, 11, this.x - this.game.camera.x, this.y - this.game.camera.y, 10 * PARAMS.BLOCKWIDTH, 12 * PARAMS.BLOCKWIDTH);
         super.draw(ctx);
     };
 };
