@@ -55,17 +55,7 @@ const PARAMS = {
     DEBUG: true,
     SKIPPHASE1: true,
     SKIPINTRO: true,
-    // Changing the scale breaks things, which means we aren't using it correctly.
     SCALE: 0.5,
-    /*
-    Since our sprites are almost entirely multiples of 8 for width and height, we should use
-    a bitwidth of 8. This will let us change the scale and not break the world layout.
-    By using SCALE * BITWIDTH we can establish a blockwidth that we use when drawing things.
-    We would take the numbers we currently have and replace them with (BLOCKWIDTH * [Width or Height factor]).
-    In theory, we could then change the scale to be whatever we need and the layouts would remain the same.
-    We also would need to apply the scale to position update (after all velocity changes), bounding boxes, etc.
-    I need this working before finishing the rooms.
-    */
     BITWIDTH: 8
 };
 
