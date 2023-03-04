@@ -21,16 +21,16 @@ class Level1Part1 {
 
         // alfred help chatboxes
         let text = "Hi, I'm Alfred.                                                                " +
-            "If you need in-game help, click my icon at the top right corner.                      " +
-            "                                 Also, let me give you a quick " +
-            "          gameplay run-down.";
+            "If you need in-game help, click my icon in the upper right corner.                      " +
+            "                                Now, let's review gameplay.";
         let sheet = ASSET_MANAGER.getAsset("./sprites/alfred.png");
         let chatbox = new Chatbox(this.game, text, 0, sheet, true);
         this.game.addEntity(chatbox);
         chatbox.setVisible = true;
 
-        text = "Use arrow or 'wasd' keys to move, 'shift' to run, and 'e' to interact." +
-            "                                       Enjoy your stay at the mansion.";
+        text = "To play, use the arrow or 'wasd' keys to move, 'shift' to run, and 'e' to interact." +
+            "                                                                  " +
+            "Enjoy your stay at the mansion.";
         chatbox = new Chatbox(this.game, text, 0, sheet, true);
         this.game.addEntity(chatbox);
         chatbox.setVisible = true;
@@ -125,13 +125,11 @@ class Level1Part2 {
         this.game.addEntity(new Guard(this.game, 229 * PARAMS.BLOCKWIDTH, 70 * PARAMS.BLOCKWIDTH, 2));
         this.game.addEntity(new Guard(this.game, 70 * PARAMS.BLOCKWIDTH, 200 * PARAMS.BLOCKWIDTH, 1));
 
-
         //lounge
         this.game.addEntity(new Guard(this.game, 65 * PARAMS.BLOCKWIDTH, -33 * PARAMS.BLOCKWIDTH, 1));
         this.game.addEntity(new Guard(this.game, 130 * PARAMS.BLOCKWIDTH, -180 * PARAMS.BLOCKWIDTH, 2));
         this.game.addEntity(new Guard(this.game, 10 * PARAMS.BLOCKWIDTH, -180 * PARAMS.BLOCKWIDTH, 2));
         this.game.addEntity(new Guard(this.game, 230 * PARAMS.BLOCKWIDTH, -180 * PARAMS.BLOCKWIDTH, 2));
-
 
         //green house
         this.game.addEntity(new Guard(this.game, -23 * PARAMS.BLOCKWIDTH, 70 * PARAMS.BLOCKWIDTH, 2));
@@ -152,15 +150,6 @@ class Level1Part2 {
         //bedroom
         this.game.addEntity(new Guard(this.game, 315 * PARAMS.BLOCKWIDTH, 40 * PARAMS.BLOCKWIDTH, 1));
 
-
-        // // stephanie
-        // this.game.addEntity(new Stephanie(this.game));
-        //
-        // // richie
-        // this.game.addEntity(new Richie(this.game));
-        //
-        // // billionaire
-        // this.game.addEntity(new Billionaire(this.game));
 
     };
 
