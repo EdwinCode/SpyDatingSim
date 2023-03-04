@@ -559,6 +559,14 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new PatioFloor(this.game, patioFloor.x * PARAMS.BLOCKWIDTH, patioFloor.y * PARAMS.BLOCKWIDTH, patioFloor.count));
     }
 
+    // ------------------------ PATIO FURNITURE -------------------
+
+    // same as patio floor
+    for (let i = 0; i < this.level.greenHouseFloor.length; i++) {
+        let greenHouseFloor = this.level.greenHouseFloor[i];
+        this.game.addEntity(new PatioFloor(this.game, greenHouseFloor.x * PARAMS.BLOCKWIDTH, greenHouseFloor.y * PARAMS.BLOCKWIDTH, greenHouseFloor.count));
+    }
+
     // ------------------------------------------------------------
 
     this.game.camera.paused = false;

@@ -216,6 +216,32 @@ let levelOneFurniture = {
 
     ],
 
+    // ------------------------ GREENHOUSE FURNITURE -------------------
+
+    greenHouseFloor : [
+        {x: -248, y: 32, count: 25},
+        {x: -248, y: 42, count: 25},
+        {x: -248, y: 52, count: 25},
+        {x: -248, y: 62, count: 25},
+        {x: -248, y: 72, count: 25},
+        {x: -248, y: 82, count: 25},
+        {x: -248, y: 92, count: 25},
+        {x: -248, y: 102, count: 25},
+        {x: -248, y: 112, count: 25},
+        {x: -248, y: 122, count: 25},
+        {x: -248, y: 132, count: 25},
+        {x: -248, y: 142, count: 25},
+        {x: -248, y: 152, count: 25},
+        {x: -248, y: 162, count: 25},
+        {x: -248, y: 172, count: 25},
+        {x: -248, y: 182, count: 25},
+        {x: -248, y: 192, count: 25},
+        {x: -248, y: 202, count: 25},
+        {x: -248, y: 212, count: 25},
+        {x: -248, y: 222, count: 25},
+        {x: -248, y: 232, count: 25}
+    ],
+
     // ------------------------ KITCHEN FURNITURE -------------------
 
     kitchenSet: [
