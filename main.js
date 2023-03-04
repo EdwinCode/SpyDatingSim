@@ -32,7 +32,7 @@ ASSET_MANAGER.queueDownload("./sprites/furniture/Cars.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/billionaire_statue.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/door.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/shoes.png");
-
+ASSET_MANAGER.queueDownload("./sprites/furniture/trellis.png");
 
 //NOT CURRENTLY USED
 ASSET_MANAGER.queueDownload("./sprites/furniture/floorAndWall.png");
