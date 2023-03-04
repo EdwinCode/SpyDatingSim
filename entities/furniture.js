@@ -6,7 +6,7 @@ class Furniture {
     }
 
     updateInteractionBB() {
-        this.interactBB = new BoundingBox(this.x - this.dWidth / 5, this.y - this.dHeight / 5, this.dWidth * 1.5, this.dHeight * 1.5);
+        this.interactBB = new BoundingBox(this.x - this.dWidth / 4, this.y - this.dHeight / 4, this.dWidth * 1.5, this.dHeight * 1.5);
     };
 
     draw(ctx) {
@@ -255,19 +255,43 @@ class KitchenSet extends Furniture {
 
 class Fridge extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/furniture.png",  306, 324, 15, 32, x, y, 120, 256);
-        this.BB = new BoundingBox(this.x, this.y,28 * PARAMS.BLOCKWIDTH,45 * PARAMS.BLOCKWIDTH);
+        super(game, "./sprites/furniture/furniture.png",  289, 290, 16, 32, x, y, 20 * PARAMS.BLOCKWIDTH, 40 * PARAMS.BLOCKWIDTH);
+        this.BB = new BoundingBox(this.x, this.y,20 * PARAMS.BLOCKWIDTH,48 * PARAMS.BLOCKWIDTH);
+        this.sx = 289;
+        this.sy = 290;
+        this.sw = 16;
+        this.sh = 32;
+        this.dWidth =  20 * PARAMS.BLOCKWIDTH;
+        this.dHeight = 40 * PARAMS.BLOCKWIDTH;
     };
 
     update() {
+        if (Chatbox.OPEN === true && this.game.camera.spyCharacter.fridgeInteract === true) {
+            this.sx = 306;
+            this.sw = 29;
+            this.dWidth = 36 * PARAMS.BLOCKWIDTH;
 
+        } else {
+            this.sx = 289;
+            this.sw = 16;
+            this.dWidth =  20 * PARAMS.BLOCKWIDTH;
+
+        }
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 306, 324, 15, 32, this.x - this.game.camera.x, this.y - this.game.camera.y, 28 * PARAMS.BLOCKWIDTH, 45 * PARAMS.BLOCKWIDTH);
+        ctx.drawImage(this.spritesheet, this.sx, this.sy, this.sw, this.sh, this.x - this.game.camera.x, this.y - this.game.camera.y, this.dWidth, this.dHeight);
         super.draw(ctx);
+
+        PARAMS.DEBUG = document.getElementById("debug").checked;
+        if (PARAMS.DEBUG) {
+            ctx.strokeStyle = 'green';
+            ctx.strokeRect(this.interactBB.x - this.game.camera.x, this.interactBB.y - this.game.camera.y, this.interactBB.width, this.interactBB.height);
+
+        }
     };
 }
+
 
 class KitchenCounterLeft extends Furniture {
     constructor(game, x, y) {
@@ -795,7 +819,7 @@ class StarryNight extends Furniture {
 
 class BillionaireStatue extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/billionaire_statue.png", 0, 0, 136, 256, x, y, 136, 256);
+        super(game, "./sprites/furniture/billionaire_statue.png", 0, 0, 136, 256, x, y, 36 * PARAMS.BLOCKWIDTH,66 * PARAMS.BLOCKWIDTH);
         this.BB = new BoundingBox(this.x, this.y,36 * PARAMS.BLOCKWIDTH,66 * PARAMS.BLOCKWIDTH);
     };
 

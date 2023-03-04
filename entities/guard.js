@@ -57,7 +57,7 @@ class Guard{
     }
 
     updateInteractionBB() {
-        this.interactBB = new BoundingBox(this.x - this.guardW / 2, this.y - this.guardH / 2, this.guardW * 2, this.guardH * 2);
+        this.interactBB = new BoundingBox(this.x - this.guardW / 4, this.y - this.guardH / 4, this.guardW * 1.5, this.guardH * 1.5);
     };
 
     updateSightBB() {

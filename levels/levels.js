@@ -180,21 +180,19 @@ let levelOneFurniture = {
     // ------------------------ KITCHEN FURNITURE -------------------
 
     kitchenSet: [
-        {x: 360, y: -481}
+        {x: 354, y: -481}
     ],
 
     fridge: [
-        {x: 278, y: -475}
+        {x: 257, y: -450}
     ],
 
     kitchenCounterLeft: [
         // left side
         {x: 257, y: -455},
 
-        {x: 300, y: -455},
-
         // right side
-        {x: 440, y: -455},
+        {x: 433, y: -455},
 
         //bottom
         {x: 358, y: -400}
@@ -202,10 +200,10 @@ let levelOneFurniture = {
 
     kitchenCounterRight: [
         // left side
-        {x: 340, y: -455},
+        {x: 329, y: -455},
 
         // right side
-        {x: 480, y: -455},
+        {x: 481, y: -455},
 
         // bottom side
         {x: 480, y: -400},
@@ -213,10 +211,11 @@ let levelOneFurniture = {
 
     kitchenCounterMiddle: [
         //left side
-        {x: 318, y: -455},
+        {x: 306, y: -455},
+        {x: 282, y: -455},
 
         // right side
-        {x: 465, y: -455},
+        {x: 456, y: -455},
 
         // bottom side
         {x: 383, y: -400},
@@ -678,6 +677,8 @@ let levelOne1 = {
             stateIncr: false},
     ],
 
+
+    // --------------- OBJECTS ------------------
     billionaireStatue: [
         { message: "A larger than life statue of Mr. Billionaire, he clearly loves himself.",
             state: 0,
@@ -704,6 +705,37 @@ let levelOne1 = {
             portraitNumber: 0,
             stateIncr: false},
         { message: "He wasn't kidding on how much he enjoys wine.",
+            state: 6,
+            portraitNumber: 0,
+            stateIncr: false},
+    ],
+
+    fridge: [
+        { message: "There looks to be food prepared by the kitchen worker Leah.",
+            state: 0,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "There's a whole wine section it seems.",
+            state: 1,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "They probably wouldn't notice if you took something as a snack...",
+            state: 2,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "They probably wouldn't notice if you took something as a snack...",
+            state: 3,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "They probably wouldn't notice if you took something as a snack...",
+            state: 4,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "They probably wouldn't notice if you took something as a snack...",
+            state: 5,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "They probably wouldn't notice if you took something as a snack...",
             state: 6,
             portraitNumber: 0,
             stateIncr: false},
