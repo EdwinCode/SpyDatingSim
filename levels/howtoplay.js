@@ -5,6 +5,9 @@ class HowToPlay {
         this.player1 = ASSET_MANAGER.getAsset("./sprites/entities/girluser.png");
         this.player2 = ASSET_MANAGER.getAsset("./sprites/entities/boyuser.png");
 
+        this.butlerIcon = ASSET_MANAGER.getAsset("./sprites/alfred.png");
+        this.suitcase = ASSET_MANAGER.getAsset("./sprites/suitcase.png");
+
         this.mouseBB = new BoundingBox(0, 0, 1, 1);
         this.exitBB = new BoundingBox(600 - 50, 650 - 45, 100, 50);
     };
@@ -41,33 +44,44 @@ class HowToPlay {
 
         // set text left aligned and smaller font
         ctx.textAlign = "left";
-        ctx.font = "Bold 35px Courier";
+        ctx.font = "Bold 30px Courier";
 
         // add how-to instructions
-        ctx.fillText("GAME CONTROLS:", 40, 150);
+        ctx.fillText("GAME CONTROLS:", 40, 140);
 
         ctx.font = "Bold 25px Courier";
         ctx.lineWidth = 2;
-        ctx.strokeRect(42, 215, 40, 40);
-        ctx.strokeRect(103, 215, 40, 40);
-        ctx.fillText(" a , \u2190  Move Left", 40, 240);
-        ctx.strokeRect(42, 260, 40, 40);
-        ctx.strokeRect(103, 260, 40, 40);
-        ctx.fillText(" d , \u2192  Move Right", 40, 287);
-        ctx.strokeRect(42, 305, 40, 40);
-        ctx.strokeRect(103, 305, 40, 40);
-        ctx.fillText(" w , \u2191  Move Up", 40, 334);
-        ctx.strokeRect(42, 350, 40, 40);
-        ctx.strokeRect(103, 350, 40, 40);
-        ctx.fillText(" s , \u2193  Move Down", 40, 378);
-        ctx.strokeRect(72, 395, 40, 40);
-        ctx.fillText(" e      Interact", 70, 422);
-        ctx.strokeRect(42, 440, 100, 40);
-        ctx.fillText(" shift  Run", 40, 465);
+        ctx.strokeRect(42, 160, 40, 40);
+        ctx.strokeRect(103, 160, 40, 40);
+        ctx.fillText(" a , \u2190  Move Left", 40, 185);
+        ctx.strokeRect(42, 205, 40, 40);
+        ctx.strokeRect(103, 205, 40, 40);
+        ctx.fillText(" d , \u2192  Move Right", 40, 233);
+        ctx.strokeRect(42, 250, 40, 40);
+        ctx.strokeRect(103, 250, 40, 40);
+        ctx.fillText(" w , \u2191  Move Up", 40, 277);
+        ctx.strokeRect(42, 295, 40, 40);
+        ctx.strokeRect(103, 295, 40, 40);
+        ctx.fillText(" s , \u2193  Move Down", 40, 320);
+        ctx.strokeRect(72, 340, 40, 40);
+        ctx.fillText(" e    Interact", 70, 365);
+        ctx.strokeRect(42, 385, 100, 40);
+        ctx.fillText(" shift  Run", 40, 412);
 
-        ctx.fillText("", 40, 480);
-        ctx.fillText("IN-GAME HUD:", 40, 520);
-        ctx.fillText("words", 40, 560);
+        ctx.font = "Bold 30px Courier";
+        ctx.fillText("IN-GAME HUD:", 40, 470);
+
+        ctx.font = "Bold 25px Courier";
+        ctx.strokeRect(42, 490, 57, 57);
+        ctx.fillText("Butler [Hints Chat Box]:", 115, 510);
+        ctx.fillText("Provides clues for in-game help", 115, 540);
+        ctx.drawImage(this.butlerIcon, 50, 492, 3 * 13, 3 * 18);
+
+        ctx.strokeRect(42, 555, 57, 57);
+        ctx.fillText("Suitcase [Items Box]:", 115, 575);
+        ctx.fillText("Stores collected items", 115, 605);
+        ctx.drawImage(this.suitcase, 41, 557, 3 * 20, 3 * 18);
+
         // exit button
         setBlackStroke(ctx);
         if (this.mouseBB.collide(this.exitBB)) {
