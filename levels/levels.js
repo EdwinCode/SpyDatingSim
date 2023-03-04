@@ -149,12 +149,19 @@ let levelOneFurniture = {
         {x: -109, y: -240, count: 5}
     ],
 
+    patioTable : [
+        // upper left room section
+        {x: -50, y: -175},
+        // lower right room section
+        {x: -200, y: -45}
+    ],
+
     patioBench : [
         // upper left room section
-        {x: -177, y: -180},
-        {x: -220, y: -180},
-        {x: -177, y: -100},
-        {x: -220, y: -100},
+        {x: -177, y: -190},
+        {x: -225, y: -190},
+        {x: -177, y: -130},
+        {x: -225, y: -130},
         // lower right room section
         {x: -80, y: -80},
         {x: -35, y: -80},
@@ -171,10 +178,68 @@ let levelOneFurniture = {
         {x: -80, y: -170}
     ],
 
+    // larger potted plant
     plantOne : [
-        {x: -177, y: -140},
-        {x: -198, y: -140},
-        {x: -220, y: -140}
+        //{x: -200, y: -160},
+        //{x: -206, y: -82}
+    ],
+
+    // small tree plant
+    plantTwo : [
+        // upper right room section
+        {x: -109, y: -200},
+        {x: -109, y: -148},
+        {x: -16, y: -148},
+        // lower left room section
+        {x: -167, y: -22},
+        {x: -245, y: -90},
+        {x: -167, y: -90}
+    ],
+
+    plantThree : [
+        {x: -215, y: -140}
+    ],
+
+    plantFour : [
+
+    ],
+
+    // small potted plant
+    plantFive : [
+        // upper right section
+        {x: -108, y: -170},
+        // lower left section
+        {x: -218, y: -82},
+        {x: -192, y: -82}
+        //{x: -245, y: -80},
+        //{x: -165, y: -80}
+
+    ],
+
+    // ------------------------ GREENHOUSE FURNITURE -------------------
+
+    greenHouseFloor : [
+        {x: -248, y: 32, count: 25},
+        {x: -248, y: 42, count: 25},
+        {x: -248, y: 52, count: 25},
+        {x: -248, y: 62, count: 25},
+        {x: -248, y: 72, count: 25},
+        {x: -248, y: 82, count: 25},
+        {x: -248, y: 92, count: 25},
+        {x: -248, y: 102, count: 25},
+        {x: -248, y: 112, count: 25},
+        {x: -248, y: 122, count: 25},
+        {x: -248, y: 132, count: 25},
+        {x: -248, y: 142, count: 25},
+        {x: -248, y: 152, count: 25},
+        {x: -248, y: 162, count: 25},
+        {x: -248, y: 172, count: 25},
+        {x: -248, y: 182, count: 25},
+        {x: -248, y: 192, count: 25},
+        {x: -248, y: 202, count: 25},
+        {x: -248, y: 212, count: 25},
+        {x: -248, y: 222, count: 25},
+        {x: -248, y: 232, count: 25}
     ],
 
     // ------------------------ KITCHEN FURNITURE -------------------

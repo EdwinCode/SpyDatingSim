@@ -555,9 +555,32 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new GreenPatioChairRight(this.game, patioChairLeft.x * PARAMS.BLOCKWIDTH, patioChairLeft.y * PARAMS.BLOCKWIDTH));
     }
 
+    for (let i = 0; i < this.level.patioTable.length; i++) {
+        let patioTable = this.level.patioTable[i];
+        this.game.addEntity(new PatioTable(this.game, patioTable.x * PARAMS.BLOCKWIDTH, patioTable.y * PARAMS.BLOCKWIDTH));
+    }
+
+    for (let i = 0; i < this.level.plantTwo.length; i++) {
+        let plantTwo = this.level.plantTwo[i];
+        this.game.addEntity(new RowTwoPlantOne(this.game, plantTwo.x * PARAMS.BLOCKWIDTH, plantTwo.y * PARAMS.BLOCKWIDTH));
+    }
+
+    for (let i = 0; i < this.level.plantFive.length; i++) {
+        let plantFive = this.level.plantFive[i];
+        this.game.addEntity(new RowEightPlantTwo(this.game, plantFive.x * PARAMS.BLOCKWIDTH, plantFive.y * PARAMS.BLOCKWIDTH));
+    }
+
     for (let i = 0; i < this.level.patioFloor.length; i++) {
         let patioFloor = this.level.patioFloor[i];
         this.game.addEntity(new PatioFloor(this.game, patioFloor.x * PARAMS.BLOCKWIDTH, patioFloor.y * PARAMS.BLOCKWIDTH, patioFloor.count));
+    }
+
+    // ------------------------ PATIO FURNITURE -------------------
+
+    // same as patio floor
+    for (let i = 0; i < this.level.greenHouseFloor.length; i++) {
+        let greenHouseFloor = this.level.greenHouseFloor[i];
+        this.game.addEntity(new PatioFloor(this.game, greenHouseFloor.x * PARAMS.BLOCKWIDTH, greenHouseFloor.y * PARAMS.BLOCKWIDTH, greenHouseFloor.count));
     }
 
     // ------------------------------------------------------------
