@@ -107,14 +107,13 @@ class Chatbox {
             if (this.isButler) {
                 // this.imageX = ;
                 // this.imageY = ;
-                this.imageW = 104;
+                this.imageW = 116;
                 this.imageH = 156;
 
-                this.dWidth = 28 * PARAMS.BLOCKWIDTH;;
-                this.dHeight = 41 * PARAMS.BLOCKWIDTH;;
-
-
-            } else {
+                this.dWidth = 31 * PARAMS.BLOCKWIDTH;
+                this.dHeight = 41 * PARAMS.BLOCKWIDTH;
+            }
+            else {
                 this.getImageXandY(this.portraitNumber);
             }
 

@@ -10,9 +10,6 @@ class Level1Part1 {
     };
 
     setUpLevel() {
-        // game rules
-        //this.game.addEntityToTop(new HowToPlay(this.game));
-
         // casefile chatbox
         let caseFile = new CasefileChatbox(this.game);
         caseFile.firstTime = true;
@@ -51,6 +48,7 @@ class Level1Part1 {
         this.game.addEntity(new Guard(this.game, 165 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
         this.game.addEntity(new Guard(this.game, 229 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH, 0));
 
+        //NPC SET UP
 
         // billionaire
         this.game.addEntity(new Billionaire(this.game, 125 * PARAMS.BLOCKWIDTH, -171 * PARAMS.BLOCKWIDTH));
@@ -66,7 +64,8 @@ class Level1Part1 {
 
 
     update() {
-        // method not used but declaration is necessary for game engine
+        //Checks for Skip Intro and Skip Phase 1 checkboxes
+        checkForSkippedParts(this.game);
     };
 
     draw(ctx) {
@@ -102,21 +101,42 @@ class Level1Part2 {
         // darkness
         this.game.addEntity(this.darkness);
 
-        // guards
-        this.game.addEntity(new Guard(this.game, 388 * PARAMS.BLOCKWIDTH, 216 * PARAMS.BLOCKWIDTH, 1));
-        this.game.addEntity(new Guard(this.game, 550 * PARAMS.BLOCKWIDTH, 125 * PARAMS.BLOCKWIDTH, 2));
-
-        // // stephanie
-        // this.game.addEntity(new Stephanie(this.game));
-        //
-        // // richie
-        // this.game.addEntity(new Richie(this.game));
-        //
-        // // billionaire
-        // this.game.addEntity(new Billionaire(this.game));
-
         //spy
         this.game.addEntity(this.spyCharacter);
+
+        // guards
+        // 1 = left-right, 2 = up-down
+
+        //entrance
+        this.game.addEntity(new Guard(this.game, 229 * PARAMS.BLOCKWIDTH, 70 * PARAMS.BLOCKWIDTH, 2));
+        this.game.addEntity(new Guard(this.game, 70 * PARAMS.BLOCKWIDTH, 200 * PARAMS.BLOCKWIDTH, 1));
+
+        //lounge
+        this.game.addEntity(new Guard(this.game, 65 * PARAMS.BLOCKWIDTH, -33 * PARAMS.BLOCKWIDTH, 1));
+        this.game.addEntity(new Guard(this.game, 130 * PARAMS.BLOCKWIDTH, -180 * PARAMS.BLOCKWIDTH, 2));
+        this.game.addEntity(new Guard(this.game, 10 * PARAMS.BLOCKWIDTH, -180 * PARAMS.BLOCKWIDTH, 2));
+        this.game.addEntity(new Guard(this.game, 230 * PARAMS.BLOCKWIDTH, -180 * PARAMS.BLOCKWIDTH, 2));
+
+        //green house
+        this.game.addEntity(new Guard(this.game, -23 * PARAMS.BLOCKWIDTH, 70 * PARAMS.BLOCKWIDTH, 2));
+
+        //patio
+        this.game.addEntity(new Guard(this.game, -190 * PARAMS.BLOCKWIDTH, -32 * PARAMS.BLOCKWIDTH, 1));
+        this.game.addEntity(new Guard(this.game, -190 * PARAMS.BLOCKWIDTH, -218 * PARAMS.BLOCKWIDTH, 1));
+
+        //garage
+        this.game.addEntity(new Guard(this.game, -20 * PARAMS.BLOCKWIDTH, -410 * PARAMS.BLOCKWIDTH, 2));
+
+        //office
+        this.game.addEntity(new Guard(this.game, 230 * PARAMS.BLOCKWIDTH, -410 * PARAMS.BLOCKWIDTH, 2));
+
+        //kitchen
+        this.game.addEntity(new Guard(this.game, 310 * PARAMS.BLOCKWIDTH, -275 * PARAMS.BLOCKWIDTH, 1));
+
+        //bedroom
+        this.game.addEntity(new Guard(this.game, 315 * PARAMS.BLOCKWIDTH, 40 * PARAMS.BLOCKWIDTH, 1));
+
+
     };
 
     update() {
@@ -125,7 +145,7 @@ class Level1Part2 {
         if (this.ingameTimer.timeIsZero === true && this.timerWasZero === false) {
             this.ingameTimer.removeFromWorld = true;
             this.timerWasZero = true;
-            this.game.addEntity(new Guard(this.game, (this.spyCharacter.x - 400) / PARAMS.BLOCKWIDTH, this.spyCharacter.y / PARAMS.BLOCKWIDTH, 1));
+            this.game.addEntity(new Guard(this.game, (this.spyCharacter.x - 300), this.spyCharacter.y / PARAMS.BLOCKWIDTH, 1));
 
         }
     };

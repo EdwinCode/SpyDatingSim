@@ -2,7 +2,12 @@ class Furniture {
     constructor(game, spritesheet, sx, sy, sw, sh, x, y, dWidth, dHeight) {
         Object.assign(this, {game, x, y, dWidth, dHeight});
         this.spritesheet = ASSET_MANAGER.getAsset(spritesheet);
+        this.updateInteractionBB();
     }
+
+    updateInteractionBB() {
+        this.interactBB = new BoundingBox(this.x - this.dWidth / 5, this.y - this.dHeight / 5, this.dWidth * 1.5, this.dHeight * 1.5);
+    };
 
     draw(ctx) {
         //bounding box
@@ -802,6 +807,13 @@ class BillionaireStatue extends Furniture {
     draw(ctx) {
         ctx.drawImage(this.spritesheet, 0, 0, 136, 256, this.x - this.game.camera.x, this.y - this.game.camera.y, 36 * PARAMS.BLOCKWIDTH, 66 * PARAMS.BLOCKWIDTH);
         super.draw(ctx);
+
+        PARAMS.DEBUG = document.getElementById("debug").checked;
+        if (PARAMS.DEBUG) {
+            ctx.strokeStyle = 'green';
+            ctx.strokeRect(this.interactBB.x - this.game.camera.x, this.interactBB.y - this.game.camera.y, this.interactBB.width, this.interactBB.height);
+
+        }
     };
 }
 

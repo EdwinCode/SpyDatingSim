@@ -54,6 +54,7 @@ window.requestAnimFrame = (() => {
 const PARAMS = {
     DEBUG: true,
     SKIPPHASE1: true,
+    SKIPINTRO: true,
     // Changing the scale breaks things, which means we aren't using it correctly.
     SCALE: 0.5,
     /*
@@ -140,9 +141,31 @@ function loadText(level, entity, chatState) {
         return level.billionaire[chatState].message;
     }
 
+    // kitchen worker
+    else if (entity === "kitchenWorker") {
+        return level.kitchenWorker[chatState].message;
+    }
+
+    // gardener
+    else if (entity === "gardener") {
+        return level.gardener[chatState].message;
+    }
+
+    // guard
+    else if (entity === "guard") {
+        return level.guard[chatState].message;
+    }
+
     // butler
     else if (entity === "butler") {
         return level.butler[chatState].message;
+    }
+
+    // ---------- OBJECTS -------------
+
+    // billionaire statue
+    else if (entity === "billionaireStatue") {
+        return level.billionaireStatue[chatState].message;
     }
 };
 
@@ -162,11 +185,67 @@ function loadImage(level, entity, chatState) {
         return level.billionaire[chatState].portraitNumber;
     }
 
+    // kitchen worker
+    else if (entity === "kitchenWorker") {
+        return level.kitchenWorker[chatState].portraitNumber;
+    }
+
+    // gardener
+    else if (entity === "gardener") {
+        return level.gardener[chatState].portraitNumber;
+    }
+
+    // guard
+    else if (entity === "guard") {
+        return level.guard[chatState].portraitNumber;
+    }
+
     // butler
     else if (entity === "butler") {
         return level.butler[chatState].portraitNumber;
     }
 
+    // ---------- OBJECTS -------------
+
+    // billionaire statue
+    else if (entity === "billionaireStatue") {
+        return level.billionaireStatue[chatState].portraitNumber;
+    }
+
+}
+
+function checkForSkippedParts(game) {
+    this.game = game;
+
+    // skip intro
+    PARAMS.SKIPINTRO = document.getElementById("skipIntro").checked;
+    if (PARAMS.SKIPINTRO) {
+
+        this.game.camera.currentLevel = levelOne1;
+        this.game.currLvl = levelOne1;
+
+        this.game.camera.clearEntities();
+
+        this.game.camera.hud = new HUD(this.game, this.game.camera.itemsBag);
+        this.game.camera.spyCharacter = new Spy(this.game, 124  * PARAMS.BLOCKWIDTH, -127  * PARAMS.BLOCKWIDTH);
+        this.game.camera.darkness = new Darkness(this.game, this.game.camera.spyCharacter.x, this.game.camera.spyCharacter.y);
+
+        //SETTING UP CURRENT FURNITURE IN THE MANSION
+        this.currentLevelFurniture = levelOneFurniture;
+        this.game.addEntity(new Level1Part1(this.game, this.game.camera.hud, this.game.camera.darkness, this.currentLevelFurniture, this.game.camera.spyCharacter));
+
+        document.getElementById("skipIntro").checked = false;
+    }
+
+    // skip phase 1 of level 1
+    PARAMS.SKIPPHASE1 = document.getElementById("skipPhaseOne").checked;
+    if (PARAMS.SKIPPHASE1) {
+        this.game.camera.currentLevel = levelOneCutscene;
+        this.game.currLvl = levelOneCutscene;
+
+        this.game.camera.loadLevel(levelOneCutscene);
+        document.getElementById("skipPhaseOne").checked = false;
+    }
 }
 
 //
