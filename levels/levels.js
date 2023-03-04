@@ -37,13 +37,18 @@ let levelOneFurniture = {
         {x: 257, y: -480, count: 8},
 
         {x: -248, y: -480, count: 8},
-        {x: -248, y: 240, count: 8},
+
+        // green house bottom walls
+        {x: -248, y: 240, count: 1},
+        {x: -30, y: 240, count: 6},
 
         {x: -248, y: -240, count: 3},
         {x: -93, y: -240, count: 3},
 
-        {x: -248, y: 0, count: 3},
-        {x: -93, y: 0, count: 3}
+        // green house top walls
+        {x: -248, y: 0, count: 1},
+        {x: -30, y: 0, count: 1}
+
     ],
 
     sideWallRights: [ // Count makes them grow downwards
@@ -71,8 +76,8 @@ let levelOneFurniture = {
         {x: 234.25, y:-368},
         {x: 234.25, y:-344},
 
-        {x: -18.25, y: 112},
-        {x: -18.25, y: 136},
+        //{x: -18.25, y: 112},
+        //{x: -18.25, y: 136},
 
         //{x: -18.25, y: -128},
         //{x: -18.25, y: -104},
@@ -210,7 +215,10 @@ let levelOneFurniture = {
         {x: -108, y: -170},
         // lower left section
         {x: -218, y: -82},
-        {x: -192, y: -82}
+        {x: -192, y: -82},
+        // behind greenhouse window
+        {x: -210, y: 10},
+        {x: -180, y: 10}
         //{x: -245, y: -80},
         //{x: -165, y: -80}
 
@@ -239,7 +247,19 @@ let levelOneFurniture = {
         {x: -248, y: 202, count: 25},
         {x: -248, y: 212, count: 25},
         {x: -248, y: 222, count: 25},
-        {x: -248, y: 232, count: 25}
+        {x: -248, y: 232, count: 25},
+        {x: -248, y: 242, count: 25},
+        {x: -248, y: 252, count: 25},
+        {x: -248, y: 262, count: 25}
+    ],
+
+    greenHouseWindow : [
+        // top
+        {x: -220, y: 0, count: 2},
+        {x: -93, y: 0, count: 2},
+        // bottom
+        {x: -220, y: 240, count: 6}
+        //{x: -93, y: 240, count: 2}
     ],
 
     // ------------------------ KITCHEN FURNITURE -------------------
@@ -811,14 +831,6 @@ let introCutscene = {
 
 let levelOneCutscene = {
     label: "level one"
-};
-
-let hints = {
-    label: "lose screen"
-};
-
-let itemsBag = {
-    label: "win screen"
 };
 
 let loseScreen = {

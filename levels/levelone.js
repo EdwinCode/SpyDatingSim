@@ -473,6 +473,13 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new Trellis(this.game, trellis.x * PARAMS.BLOCKWIDTH, trellis.y * PARAMS.BLOCKWIDTH, trellis.count));
     }
 
+    // ------------------------ GREEN HOUSE FURNITURE -------------------
+
+    for (let i = 0; i < this.level.greenHouseWindow.length; i++) {
+        let greenHouseWindow = this.level.greenHouseWindow[i];
+        this.game.addEntity(new GreenHouseWindow(this.game, greenHouseWindow.x * PARAMS.BLOCKWIDTH, greenHouseWindow.y * PARAMS.BLOCKWIDTH, greenHouseWindow.count));
+    }
+
     // ------------------------------------------------------------
 
     //
@@ -480,12 +487,6 @@ function setUpLevelOneFurniture(game, level) {
     //
 
     // ------------------------------------------------------------
-
-    //plain wall
-    for (let i = 0; i < this.level.plainWalls.length; i++) {
-        let plainWall = this.level.plainWalls[i];
-        this.game.addEntity(new PlainWall(this.game, plainWall.x * PARAMS.BLOCKWIDTH, plainWall.y * PARAMS.BLOCKWIDTH, plainWall.count));
-    }
 
     //side wall left
     for (let i = 0; i < this.level.sideWallLefts.length; i++) {
@@ -497,6 +498,12 @@ function setUpLevelOneFurniture(game, level) {
     for (let i = 0; i < this.level.sideWallRights.length; i++) {
         let sideWallRight = this.level.sideWallRights[i];
         this.game.addEntity(new SideWallRight(this.game, sideWallRight.x * PARAMS.BLOCKWIDTH, sideWallRight.y * PARAMS.BLOCKWIDTH, sideWallRight.count));
+    }
+
+    //plain wall
+    for (let i = 0; i < this.level.plainWalls.length; i++) {
+        let plainWall = this.level.plainWalls[i];
+        this.game.addEntity(new PlainWall(this.game, plainWall.x * PARAMS.BLOCKWIDTH, plainWall.y * PARAMS.BLOCKWIDTH, plainWall.count));
     }
 
     // ------------------------------------------------------------
@@ -559,7 +566,7 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new PatioFloor(this.game, patioFloor.x * PARAMS.BLOCKWIDTH, patioFloor.y * PARAMS.BLOCKWIDTH, patioFloor.count));
     }
 
-    // ------------------------ PATIO FURNITURE -------------------
+    // ------------------------ GREEN HOUSE FURNITURE -------------------
 
     // same as patio floor
     for (let i = 0; i < this.level.greenHouseFloor.length; i++) {
