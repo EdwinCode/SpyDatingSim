@@ -177,6 +177,11 @@ function loadText(level, entity, chatState) {
     else if (entity === "fridge") {
         return level.fridge[chatState].message;
     }
+
+    // monitor
+    else if (entity === "monitor") {
+        return level.monitor[chatState].message;
+    }
 };
 
 function loadImage(level, entity, chatState) {
@@ -230,6 +235,11 @@ function loadImage(level, entity, chatState) {
     // fridge
     else if (entity === "fridge") {
         return level.fridge[chatState].portraitNumber;
+    }
+
+    // monitor
+    else if (entity === "monitor") {
+        return level.monitor[chatState].portraitNumber;
     }
 }
 

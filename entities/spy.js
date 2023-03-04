@@ -33,6 +33,7 @@ class Spy {
         //OBJECT INTERACTIONS
         this.billionaireStatueInteract = false;
         this.fridgeInteract = false;
+        this.monitorInteract = false;
 
 
         // use for decision tree
@@ -487,6 +488,32 @@ class Spy {
 
             }
 
+            else if (entity instanceof WideBlueMonitor) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                    that.monitorInteract = true;
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
+
+                        that.text = loadText(that.game.currLvl, "monitor", that.game.chatState);
+                        that.image = loadImage(that.game.currLvl, "monitor", that.game.chatState);
+                        that.game.chatState = that.updateState(that.game.currLvl, "monitor", that.game.chatState);
+
+                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/blackbox.png");
+
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, true);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
+
+                        //TO PAUSE THE GAME
+                        Chatbox.OPEN = true;
+                    }
+                } else {
+                    that.monitorInteract = false;
+                }
+
+            }
+
             that.updateBB();
         });
 
@@ -502,7 +529,7 @@ class Spy {
         }
         // interact message
         if (this.stephInteract || this.billionaireInteract || this.richieInteract || this.kitchenWorkerInteract || this.gardenerInteract || this.guardInteract
-            || this.carMechanicInteract || this.billionaireStatueInteract || this.fridgeInteract) {
+            || this.carMechanicInteract || this.billionaireStatueInteract || this.fridgeInteract || this.monitorInteract) {
             setBlackStroke(ctx);
             ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
             ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
@@ -522,6 +549,7 @@ class Spy {
             //objects
             else if(this.billionaireStatueInteract) interactPersonText = "Statue"
             else if(this.fridgeInteract) interactPersonText = "Fridge"
+            else if(this.monitorInteract) interactPersonText = "Monitor"
 
 
             ctx.fillText(interactPersonText, PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 30);
@@ -624,6 +652,15 @@ class Spy {
         // fridge
         else if (entity === "fridge") {
             if (level.fridge[chatState].stateIncr === true) {
+                return chatState + 1;
+            } else {
+                return chatState;
+            }
+        }
+
+        // monitor
+        else if (entity === "monitor") {
+            if (level.monitor[chatState].stateIncr === true) {
                 return chatState + 1;
             } else {
                 return chatState;

@@ -772,6 +772,37 @@ let levelOne1 = {
             stateIncr: false},
     ],
 
+    monitor: [
+        { message: "There seems to be League of Legends installed on this computer...",
+            state: 0,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "There seems to be League of Legends installed on this computer...",
+            state: 1,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "There seems to be League of Legends installed on this computer...",
+            state: 2,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "There seems to be League of Legends installed on this computer...",
+            state: 3,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "There seems to be League of Legends installed on this computer...",
+            state: 4,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "There seems to be League of Legends installed on this computer...",
+            state: 5,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "There seems to be League of Legends installed on this computer...",
+            state: 6,
+            portraitNumber: 0,
+            stateIncr: false},
+    ],
+
 
     // add furniture interactions
     // sneakers: if state == 2 then stateIncr = true
