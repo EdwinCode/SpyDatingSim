@@ -475,6 +475,26 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new SmallBlueTable(this.game, smallBlueTable.x * PARAMS.BLOCKWIDTH, smallBlueTable.y * PARAMS.BLOCKWIDTH));
     }
 
+    // -----------------------------------------------------------------
+
+    // DRAW HERE TO DRAW ON TOP OF WALLS (useful for pictures and doors)
+
+    // -----------------------------------------------------------------
+
+    // ------------------------ PATIO FURNITURE -------------------
+
+    for (let i = 0; i < this.level.trellis.length; i++) {
+        let trellis = this.level.trellis[i];
+        this.game.addEntity(new Trellis(this.game, trellis.x * PARAMS.BLOCKWIDTH, trellis.y * PARAMS.BLOCKWIDTH, trellis.count));
+    }
+
+    // ------------------------------------------------------------
+
+    //
+    // DRAW WALLS
+    //
+
+    // ------------------------------------------------------------
 
 
 
@@ -515,6 +535,30 @@ function setUpLevelOneFurniture(game, level) {
         let rug = this.level.bigRugs[i];
         this.game.addEntity(new BigRug(this.game, rug.x * PARAMS.BLOCKWIDTH, rug.y * PARAMS.BLOCKWIDTH));
     }
+
+    // ------------------------ PATIO FURNITURE -------------------
+
+    for (let i = 0; i < this.level.plantOne.length; i++) {
+        let plantOne = this.level.plantOne[i];
+        this.game.addEntity(new RowOnePlant(this.game, plantOne.x * PARAMS.BLOCKWIDTH, plantOne.y * PARAMS.BLOCKWIDTH));
+    }
+
+    for (let i = 0; i < this.level.patioBench.length; i++) {
+        let patioBench = this.level.patioBench[i];
+        this.game.addEntity(new PatioBench(this.game, patioBench.x * PARAMS.BLOCKWIDTH, patioBench.y * PARAMS.BLOCKWIDTH));
+    }
+
+    for (let i = 0; i < this.level.patioChairLeft.length; i++) {
+        let patioChairLeft = this.level.patioChairLeft[i];
+        this.game.addEntity(new GreenPatioChairRight(this.game, patioChairLeft.x * PARAMS.BLOCKWIDTH, patioChairLeft.y * PARAMS.BLOCKWIDTH));
+    }
+
+    for (let i = 0; i < this.level.patioFloor.length; i++) {
+        let patioFloor = this.level.patioFloor[i];
+        this.game.addEntity(new PatioFloor(this.game, patioFloor.x * PARAMS.BLOCKWIDTH, patioFloor.y * PARAMS.BLOCKWIDTH, patioFloor.count));
+    }
+
+    // ------------------------------------------------------------
 
     this.game.camera.paused = false;
 }
