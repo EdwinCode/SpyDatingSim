@@ -66,8 +66,10 @@ class Level1Part1 {
         this.game.addEntity(new KitchenWorker(this.game, 310 * PARAMS.BLOCKWIDTH, -425 * PARAMS.BLOCKWIDTH));
 
         //gardener
-        // kitchen worker
         this.game.addEntity(new Gardener(this.game, -170 * PARAMS.BLOCKWIDTH, 80 * PARAMS.BLOCKWIDTH));
+
+        //car mechanic
+        this.game.addEntity(new CarMechanic(this.game, -145 * PARAMS.BLOCKWIDTH, -380 * PARAMS.BLOCKWIDTH));
 
 
         //TESTING HEART EMOTE
@@ -85,7 +87,7 @@ class Level1Part1 {
     draw(ctx) {
         // method not used but declaration is necessary for game engine
     };
-};
+}
 
 
 class Level1Part2 {
@@ -167,7 +169,7 @@ class Level1Part2 {
     draw(ctx) {
         // method not used but declaration is necessary for game engine
     };
-};
+}
 
 
 // set up for level one furniture so we dont have to duplicate it again

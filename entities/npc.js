@@ -244,9 +244,9 @@ class KitchenWorker extends NPC{
     };
 };
 
-class Maid extends NPC{
+class CarMechanic extends NPC{
     constructor(game, x, y) {
-        super(game, "./sprites/entities/richie.png", x, y, 16 * PARAMS.BLOCKWIDTH, 29 * PARAMS.BLOCKWIDTH);
+        super(game, "./sprites/entities/car_mechanic.png", x, y, 16 * PARAMS.BLOCKWIDTH, 29 * PARAMS.BLOCKWIDTH);
 
         this.loadAnimations();
     };
@@ -255,10 +255,10 @@ class Maid extends NPC{
     loadAnimations() {
         // walking animation
         // 0 = down, 1 = up, 2 = left, 3 = right
-        this.animations[0] = new Animator(this.spritesheet, 8, 8, 128, 208, 4, 0.3);
-        this.animations[1] = new Animator(this.spritesheet, 8, 212, 128, 208, 4, 0.3);
-        this.animations[2] = new Animator(this.spritesheet, 8, 420, 110, 208, 4, 0.3);
-        this.animations[3] = new Animator(this.spritesheet, 8, 628, 110, 208, 4, 0.3);
+        this.animations[0] = new Animator(this.spritesheet, 0, 0, 128, 234, 4, 0.3);
+        this.animations[1] = new Animator(this.spritesheet, 0, 234, 128, 234, 4, 0.3);
+        this.animations[2] = new Animator(this.spritesheet, 0, 468, 128, 234, 4, 0.3);
+        this.animations[3] = new Animator(this.spritesheet, 0, 700, 128, 234, 4, 0.3);
 
     };
 };
@@ -281,6 +281,26 @@ class Gardener extends NPC{
 
     };
 };
+
+class Maid extends NPC{
+    constructor(game, x, y) {
+        super(game, "./sprites/entities/richie.png", x, y, 16 * PARAMS.BLOCKWIDTH, 29 * PARAMS.BLOCKWIDTH);
+
+        this.loadAnimations();
+    };
+
+
+    loadAnimations() {
+        // walking animation
+        // 0 = down, 1 = up, 2 = left, 3 = right
+        this.animations[0] = new Animator(this.spritesheet, 8, 8, 128, 208, 4, 0.3);
+        this.animations[1] = new Animator(this.spritesheet, 8, 212, 128, 208, 4, 0.3);
+        this.animations[2] = new Animator(this.spritesheet, 8, 420, 110, 208, 4, 0.3);
+        this.animations[3] = new Animator(this.spritesheet, 8, 628, 110, 208, 4, 0.3);
+
+    };
+};
+
 
 class NightGhost extends NPC{
     constructor(game, x, y) {

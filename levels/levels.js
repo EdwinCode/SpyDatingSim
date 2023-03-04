@@ -677,6 +677,37 @@ let levelOne1 = {
             stateIncr: false},
     ],
 
+    carMechanic: [
+        { message: "I'm the car mechanic for Mr.Billionaire.",
+            state: 0,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "Gotta make sure his cars are always running perfectly.",
+            state: 1,
+            portraitNumber: 1,
+            stateIncr: false},
+        { message: "We got the best of the best cars here in this garage.",
+            state: 2,
+            portraitNumber: 1,
+            stateIncr: false},
+        { message: "He has taken a couple joy rides that didn't end very well...",
+            state: 3,
+            portraitNumber: 2,
+            stateIncr: false},
+        { message: "Well, more work for me but I enjoy it!",
+            state: 4,
+            portraitNumber: 1,
+            stateIncr: false},
+        { message: "I've always been one to get my hands dirty.",
+            state: 5,
+            portraitNumber: 1,
+            stateIncr: false},
+        { message: "I've always been one to get my hands dirty.",
+            state: 6,
+            portraitNumber: 1,
+            stateIncr: false},
+    ],
+
 
     // --------------- OBJECTS ------------------
     billionaireStatue: [

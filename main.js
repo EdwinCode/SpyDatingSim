@@ -17,6 +17,8 @@ ASSET_MANAGER.queueDownload("./sprites/entities/kitchen_worker.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/kitchen_worker_portraits.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/gardener.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/gardener_portraits.png");
+ASSET_MANAGER.queueDownload("./sprites/entities/car_mechanic.png");
+ASSET_MANAGER.queueDownload("./sprites/entities/car_mechanic_portraits.png");
 
 //EXTRA
 ASSET_MANAGER.queueDownload("./sprites/emotes.png");

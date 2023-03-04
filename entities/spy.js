@@ -28,6 +28,7 @@ class Spy {
         this.kitchenWorkerInteract = false;
         this.gardenerInteract = false;
         this.guardInteract = false;
+        this.carMechanicInteract = false;
 
         //OBJECT INTERACTIONS
         this.billionaireStatueInteract = false;
@@ -406,6 +407,31 @@ class Spy {
                 }
             }
 
+            else if (entity instanceof CarMechanic) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                    that.carMechanicInteract = true;
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
+
+                        that.text = loadText(that.game.currLvl, "carMechanic", that.game.chatState);
+                        that.image = loadImage(that.game.currLvl, "carMechanic", that.game.chatState);
+                        that.game.chatState = that.updateState(that.game.currLvl, "carMechanic", that.game.chatState);
+
+                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/car_mechanic_portraits.png");
+
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
+
+                        //TO PAUSE THE GAME
+                        Chatbox.OPEN = true;
+                    }
+                } else {
+                    that.carMechanicInteract = false;
+                }
+            }
+
 
             // ----------- OBJECT INTERACTIONS -------------------
 
@@ -476,7 +502,7 @@ class Spy {
         }
         // interact message
         if (this.stephInteract || this.billionaireInteract || this.richieInteract || this.kitchenWorkerInteract || this.gardenerInteract || this.guardInteract
-        || this.billionaireStatueInteract || this.fridgeInteract) {
+            || this.carMechanicInteract || this.billionaireStatueInteract || this.fridgeInteract) {
             setBlackStroke(ctx);
             ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
             ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
@@ -491,6 +517,7 @@ class Spy {
             else if(this.kitchenWorkerInteract) interactPersonText = "Kitchen Worker"
             else if(this.gardenerInteract) interactPersonText = "Gardener"
             else if(this.guardInteract) interactPersonText = "Guard"
+            else if(this.carMechanicInteract) interactPersonText = "Car Mechanic"
 
             //objects
             else if(this.billionaireStatueInteract) interactPersonText = "Statue"
@@ -567,6 +594,15 @@ class Spy {
         // guard
         else if (entity === "guard") {
             if (level.guard[chatState].stateIncr === true) {
+                return chatState + 1;
+            } else {
+                return chatState;
+            }
+        }
+
+        // guard
+        else if (entity === "carMechanic") {
+            if (level.carMechanic[chatState].stateIncr === true) {
                 return chatState + 1;
             } else {
                 return chatState;

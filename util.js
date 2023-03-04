@@ -156,6 +156,11 @@ function loadText(level, entity, chatState) {
         return level.guard[chatState].message;
     }
 
+    // car mechanic
+    else if (entity === "carMechanic") {
+        return level.carMechanic[chatState].message;
+    }
+
     // butler
     else if (entity === "butler") {
         return level.butler[chatState].message;
@@ -203,6 +208,11 @@ function loadImage(level, entity, chatState) {
     // guard
     else if (entity === "guard") {
         return level.guard[chatState].portraitNumber;
+    }
+
+    // car mechanic
+    else if (entity === "carMechanic") {
+        return level.carMechanic[chatState].portraitNumber;
     }
 
     // butler
