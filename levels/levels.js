@@ -398,8 +398,12 @@ let levelOneFurniture = {
     ],
 
     greenHouseTable : [
+        // left
         {x: -93, y: 50},
-        {x: -22, y: 50}
+        {x: -93, y: 93},
+        // right
+        {x: -22, y: 50},
+        {x: -22, y: 93}
     ],
 
 
