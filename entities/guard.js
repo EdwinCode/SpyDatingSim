@@ -163,12 +163,66 @@ class Guard{
         } else {
             this.animations[this.direction].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y - this.game.camera.y, PARAMS.SCALE);
         }
+
+        //SIGHT BOX
+        ctx.fillStyle = '#f2eb83';
+        ctx.beginPath();
+
         if (this.movement === 0) { //stationary
             // do nothing
-        } else { //SIGHT BOX
-            ctx.fillStyle = 'white';
-            ctx.fillRect(this.sightBB.x - this.game.camera.x, this.sightBB.y - this.game.camera.y, this.sightBB.width, this.sightBB.height);
+        } //if going up and down
+        else if (this.movement === 2) {
+            //0 = down
+            if (this.direction === 0) {
+                //Middle
+                ctx.moveTo((this.sightBB.x + this.guardW/2) - this.game.camera.x, this.sightBB.y  - this.game.camera.y);
+                //left
+                ctx.lineTo(this.sightBB.x - this.game.camera.x, (this.sightBB.y+ this.guardH*1.5 )- this.game.camera.y);
+                //right
+                ctx.lineTo((this.sightBB.x + this.guardW) - this.game.camera.x, (this.sightBB.y + this.guardH*1.5 )- this.game.camera.y);
+
+            } else {
+
+                //Middle
+                ctx.moveTo((this.sightBB.x + this.guardW/2) - this.game.camera.x, this.sightBB.y + this.sightBB.height - this.game.camera.y);
+                //left
+                ctx.lineTo(this.sightBB.x - this.game.camera.x, this.sightBB.y + this.guardH*0.5 - this.game.camera.y);
+                //right
+                ctx.lineTo((this.sightBB.x + this.guardW) - this.game.camera.x, this.sightBB.y + this.guardH*0.5 - this.game.camera.y);
+
+
+            }
         }
+        //if going left and right
+        else {
+            //2 = right
+            if (this.direction === 2) {
+
+                //Middle
+                ctx.moveTo(this.sightBB.x - this.game.camera.x, this.sightBB.y + this.sightBB.height/2 - this.game.camera.y);
+                //left
+                ctx.lineTo(this.sightBB.x + this.guardW*2.5 - this.game.camera.x, this.sightBB.y - this.game.camera.y);
+                //right
+                ctx.lineTo(this.sightBB.x + this.guardW*2.5 - this.game.camera.x, this.sightBB.y + this.sightBB.height - this.game.camera.y);
+
+
+            } else {
+                //Middle
+                ctx.moveTo(this.sightBB.x + this.sightBB.width - this.game.camera.x, this.sightBB.y + this.sightBB.height/2 - this.game.camera.y);
+                //left
+                ctx.lineTo(this.sightBB.x - this.game.camera.x, this.sightBB.y - this.game.camera.y);
+                //right
+                ctx.lineTo(this.sightBB.x - this.game.camera.x, this.sightBB.y + this.sightBB.height - this.game.camera.y);
+
+            }
+        }
+
+        ctx.fill();
+
+             //650, 640
+
+            //ctx.fillRect(this.sightBB.x - this.game.camera.x, this.sightBB.y - this.game.camera.y, this.sightBB.width, this.sightBB.height);
+
 
         PARAMS.DEBUG = document.getElementById("debug").checked;
         if (PARAMS.DEBUG) {
