@@ -379,15 +379,6 @@ let levelOneFurniture = {
         {x: -248, y: 262, count: 25}
     ],
 
-    greenHouseWindow : [
-        // top
-        {x: -220, y: 0, count: 2},
-        {x: -93, y: 0, count: 2},
-        // bottom
-        {x: -220, y: 240, count: 6}
-        //{x: -93, y: 240, count: 2}
-    ],
-
     greenHouseTable : [
         {x: -93, y: 50},
         {x: -22, y: 50}
@@ -536,11 +527,6 @@ let levelOneFurniture = {
 
 
     // ------------------------ ENTRANCE FURNITURE -------------------
-    entranceWindow : [
-        {x: 35, y: 240, count: 2},
-        {x: 158, y: 240, count: 2},
-    ],
-
     door: [
         {x: 114, y: 240}
     ],
@@ -557,33 +543,35 @@ let levelOneFurniture = {
         {x: 109, y: 90}
     ],
 
-    goldenShoe: [
-        {x: 10, y: 193}
+    // shoes
+    tanShoe: [
+        {x: 7, y: 160}
     ],
 
     rainbowShoe: [
-        {x: 10, y: 184}
+        {x: 7, y: 170}
     ],
 
-    tanShoe: [
-        {x: 10, y: 173}
-    ],
-
-    blackShoe: [
-        {x: 232, y: 195}
-    ],
-
-    greyShoe: [
-        {x: 232, y: 184}
+    goldenShoe: [
+        {x: 7, y: 180}
     ],
 
     whiteShoe: [
-        {x: 232, y: 173}
+        {x: 234, y: 160}
     ],
 
+    greyShoe: [
+        {x: 234, y: 170}
+    ],
+
+    blackShoe: [
+        {x: 235, y: 180}
+    ],
+
+    // table
     longTanTable: [
-        {x: 8, y: 175},
-        {x: 230, y: 175},
+        {x: 5, y: 160},
+        {x: 233, y: 160},
     ],
 
 
@@ -709,6 +697,19 @@ let levelOneFurniture = {
         {x: 469, y: 160},
         // bathroom area
         {x: 261, y: -148}
+    ],
+
+    wallWindow : [
+        // green house
+        // top
+        {x: -220, y: 0, count: 2},
+        {x: -93, y: 0, count: 2},
+        // bottom
+        {x: -220, y: 240, count: 6},
+
+        // entrance
+        {x: 35, y: 240, count: 2},
+        {x: 158, y: 240, count: 2}
     ]
 }
 

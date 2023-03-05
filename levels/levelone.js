@@ -503,18 +503,10 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new Trellis(this.game, trellis.x * PARAMS.BLOCKWIDTH, trellis.y * PARAMS.BLOCKWIDTH, trellis.count));
     }
 
-
-    // ------------------------ GREEN HOUSE FURNITURE -------------------
-    for (let i = 0; i < this.level.greenHouseWindow.length; i++) {
-        let greenHouseWindow = this.level.greenHouseWindow[i];
-        this.game.addEntity(new MansionWindow(this.game, greenHouseWindow.x * PARAMS.BLOCKWIDTH, greenHouseWindow.y * PARAMS.BLOCKWIDTH, greenHouseWindow.count));
-    }
-
-
-    // ------------------------ ENTRANCE FURNITURE -------------------
-    for (let i = 0; i < this.level.entranceWindow.length; i++) {
-        let entranceWindow = this.level.entranceWindow[i];
-        this.game.addEntity(new MansionWindow(this.game, entranceWindow.x * PARAMS.BLOCKWIDTH, entranceWindow.y * PARAMS.BLOCKWIDTH, entranceWindow.count));
+    // ------------------------ WINDOWS -----------------------------
+    for (let i = 0; i < this.level.wallWindow.length; i++) {
+        let wallWindow = this.level.wallWindow[i];
+        this.game.addEntity(new MansionWindow(this.game, wallWindow.x * PARAMS.BLOCKWIDTH, wallWindow.y * PARAMS.BLOCKWIDTH, wallWindow.count));
     }
 
 
