@@ -289,8 +289,6 @@ let levelOneFurniture = {
         {x: -230, y: -290}
     ],
 
-
-
     toolbox : [
         {x: -36, y: -444},
     ],

@@ -493,6 +493,16 @@ function setUpLevelOneFurniture(game, level) {
     // -----------------------------------------------------------------
 
     // ------------------------ GARAGE FURNITURE -------------------
+    for (let i = 0; i < this.level.toolbox.length; i++) {
+        let toolbox = this.level.toolbox[i];
+        this.game.addEntity(new Toolbox(this.game, toolbox.x * PARAMS.BLOCKWIDTH, toolbox.y * PARAMS.BLOCKWIDTH));
+    }
+
+    for (let i = 0; i < this.level.shelf.length; i++) {
+        let shelf = this.level.shelf[i];
+        this.game.addEntity(new Shelf(this.game, shelf.x * PARAMS.BLOCKWIDTH, shelf.y * PARAMS.BLOCKWIDTH));
+    }
+
     for (let i = 0; i < this.level.garageDoor.length; i++) {
         let garageDoor = this.level.garageDoor[i];
         this.game.addEntity(new GarageDoor(this.game, garageDoor.x * PARAMS.BLOCKWIDTH, garageDoor.y * PARAMS.BLOCKWIDTH));
