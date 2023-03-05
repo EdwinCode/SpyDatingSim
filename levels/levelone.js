@@ -529,6 +529,16 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new DarkTable(this.game, darkTable.x * PARAMS.BLOCKWIDTH, darkTable.y * PARAMS.BLOCKWIDTH));
     }
 
+    for (let i = 0; i < this.level.paintingOne.length; i++) {
+        let paintingOne = this.level.paintingOne[i];
+        this.game.addEntity(new PaintingOne(this.game, paintingOne.x * PARAMS.BLOCKWIDTH, paintingOne.y * PARAMS.BLOCKWIDTH));
+    }
+
+    for (let i = 0; i < this.level.paintingTwo.length; i++) {
+        let paintingTwo = this.level.paintingTwo[i];
+        this.game.addEntity(new PaintingTwo(this.game, paintingTwo.x * PARAMS.BLOCKWIDTH, paintingTwo.y * PARAMS.BLOCKWIDTH));
+    }
+
     // ------------------------------------------------------------
 
     //

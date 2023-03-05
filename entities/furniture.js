@@ -166,8 +166,9 @@ class LongWoodenPatternedTable extends Furniture {
 // PATIO       | LOUNGE   | BATHROOM
 // GREEN HOUSE | ENTRANCE | BEDROOM
 
-// --------------------- GARAGE FURNITURE -------------------------------
 
+
+// --------------------- GARAGE FURNITURE -------------------------------
 class GarageDoor extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/garagedoor.png", 0, 0, 768, 151, x, y, 768, 151);
@@ -224,8 +225,9 @@ class GrayCar extends Furniture {
     };
 }
 
-// --------------------- OFFICE FURNITURE -------------------------------
 
+
+// --------------------- OFFICE FURNITURE -------------------------------
 class WideBlueMonitor extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/furniture.png",  158, 138, 22, 14, x, y, 176, 112);
@@ -328,6 +330,8 @@ class RedStool extends Furniture {
         super.draw(ctx);
     };
 }
+
+
 
 // --------------------- KITCHEN FURNITURE -------------------------------
 class KitchenSet extends Furniture {
@@ -496,10 +500,9 @@ class TanChairDown extends Furniture {
     };
 }
 
-//
-// --------------------- PATIO FURNITURE -------------------------------
-//
 
+
+// --------------------- PATIO FURNITURE -------------------------------
 class PatioFloor extends Furniture {
     constructor(game, x, y, count) {
         super(game, "./sprites/furniture/House_Tileset.png", 0, 0, 128, 95, x, y, 128, 95);
@@ -604,10 +607,9 @@ class PlantTwo extends Furniture {
     };
 }
 
-//
-// --------------------- LOUNGE FURNITURE -------------------------------
-//
 
+
+// --------------------- LOUNGE FURNITURE -------------------------------
 class Piano extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/furniture.png", 255, 23, 32, 27, x, y, 256, 216);
@@ -711,10 +713,9 @@ class ChairLeft extends Furniture {
     };
 }
 
-//
-// --------------------- BATHROOM FURNITURE -------------------------------
-//
 
+
+// --------------------- BATHROOM FURNITURE -------------------------------
 class Shower extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/furniture.png", 408, 290, 16, 32, x, y, 128, 256);
@@ -802,10 +803,9 @@ class Trashcan extends Furniture {
     };
 }
 
-//
-// --------------------- GREEN HOUSE FURNITURE -------------------------------
-//
 
+
+// --------------------- GREEN HOUSE FURNITURE -------------------------------
 class MansionWindow extends Furniture {
     constructor(game, x, y, count) {
         super(game, "./sprites/furniture/window.png",  0, 0, 225, 225, x, y, 225, 225);
@@ -837,16 +837,14 @@ class GreenHouseTable extends Furniture {
     };
 }
 
-//
-// --------------------- ENTRANCE FURNITURE -------------------------------
-//
 
+
+// --------------------- ENTRANCE FURNITURE -------------------------------
 class BigCubePainting extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/furniture.png", 374, 256, 32, 32, x, y, 256, 256);
         //this.BB = new BoundingBox(this.x, this.y,32 * PARAMS.BLOCKWIDTH,32 * PARAMS.BLOCKWIDTH);
     };
-
 
     update() {};
 
@@ -1014,6 +1012,7 @@ class LongTanTable extends Furniture {
 }
 
 
+
 // --------------------- BEDROOM FURNITURE -------------------------------
 class BigWhiteBed extends Furniture {
     constructor(game, x, y) {
@@ -1106,7 +1105,31 @@ class SmallBlueTable extends Furniture {
 }
 
 
-// OTHER FURNITURE
+
+// --------------------- OTHER FURNITURE -------------------------------
+class PaintingOne extends Furniture {
+    constructor(game, x, y) {
+        super(game, "./sprites/furniture/furniture.png", 595, 256, 32, 32, x, y, 595, 256);
+    };
+
+    update() {};
+
+    draw(ctx) {
+        ctx.drawImage(this.spritesheet, 595, 256, 32, 32, this.x - this.game.camera.x, this.y - this.game.camera.y, 31 * PARAMS.BLOCKWIDTH, 31 * PARAMS.BLOCKWIDTH);
+    };
+}
+
+class PaintingTwo extends Furniture {
+    constructor(game, x, y) {
+        super(game, "./sprites/furniture/furniture.png", 561, 256, 32, 32, x, y, 561, 256);
+    };
+
+    update() {};
+
+    draw(ctx) {
+        ctx.drawImage(this.spritesheet, 561, 256, 32, 32, this.x - this.game.camera.x, this.y - this.game.camera.y, 31 * PARAMS.BLOCKWIDTH, 31 * PARAMS.BLOCKWIDTH);
+    };
+}
 
 class BigRug extends Furniture {
     constructor(game, x, y) {

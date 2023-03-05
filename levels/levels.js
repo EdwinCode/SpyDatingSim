@@ -683,6 +683,14 @@ let levelOneFurniture = {
         // out front of bathroom on table
         {x: 438, y: -62}
     ],
+
+    paintingOne : [
+        {x: 288, y: -240}
+    ],
+
+    paintingTwo : [
+        {x: 443, y: 0}
+    ]
 }
 
 let levelOne1 = {
