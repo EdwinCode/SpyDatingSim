@@ -517,22 +517,34 @@ function setUpLevelOneFurniture(game, level) {
 
     // ------------------------------------------------------------
 
-    //plain wall
-    for (let i = 0; i < this.level.plainWalls.length; i++) {
-        let plainWall = this.level.plainWalls[i];
-        this.game.addEntity(new PlainWall(this.game, plainWall.x * PARAMS.BLOCKWIDTH, plainWall.y * PARAMS.BLOCKWIDTH, plainWall.count));
+    // walls in doorways
+    for (let i = 0; i < this.level.doorWallsLeft.length; i++) {
+        let doorWallsLeft = this.level.doorWallsLeft[i];
+        this.game.addEntity(new DoorWallLeft(this.game, doorWallsLeft.x * PARAMS.BLOCKWIDTH, doorWallsLeft.y * PARAMS.BLOCKWIDTH));
     }
 
-    //side wall left
+    // walls in doorways
+    for (let i = 0; i < this.level.doorWallsRight.length; i++) {
+        let doorWallsRight = this.level.doorWallsRight[i];
+        this.game.addEntity(new DoorWallRight(this.game, doorWallsRight.x * PARAMS.BLOCKWIDTH, doorWallsRight.y * PARAMS.BLOCKWIDTH));
+    }
+
+    // side wall left
     for (let i = 0; i < this.level.sideWallLefts.length; i++) {
         let sideWallLeft = this.level.sideWallLefts[i];
         this.game.addEntity(new SideWallLeft(this.game, sideWallLeft.x * PARAMS.BLOCKWIDTH, sideWallLeft.y * PARAMS.BLOCKWIDTH, sideWallLeft.count));
     }
 
-    //side wall right
+    // side wall right
     for (let i = 0; i < this.level.sideWallRights.length; i++) {
         let sideWallRight = this.level.sideWallRights[i];
         this.game.addEntity(new SideWallRight(this.game, sideWallRight.x * PARAMS.BLOCKWIDTH, sideWallRight.y * PARAMS.BLOCKWIDTH, sideWallRight.count));
+    }
+
+    // plain wall
+    for (let i = 0; i < this.level.plainWalls.length; i++) {
+        let plainWall = this.level.plainWalls[i];
+        this.game.addEntity(new PlainWall(this.game, plainWall.x * PARAMS.BLOCKWIDTH, plainWall.y * PARAMS.BLOCKWIDTH, plainWall.count));
     }
 
     // ------------------------------------------------------------
