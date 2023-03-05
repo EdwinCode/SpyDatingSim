@@ -23,6 +23,7 @@ ASSET_MANAGER.queueDownload("./sprites/entities/car_mechanic_portraits.png");
 //EXTRA
 ASSET_MANAGER.queueDownload("./sprites/emotes.png");
 ASSET_MANAGER.queueDownload("./sprites/blackbox.png");
+ASSET_MANAGER.queueDownload("./sprites/mysterybackground.png");
 
 // HUD icons
 ASSET_MANAGER.queueDownload("./sprites/alfred.png");
