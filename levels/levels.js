@@ -39,7 +39,8 @@ let levelOneFurniture = {
         {x: 412, y: 0, count: 3},
 
         // bedroom bottom wall
-        {x: 257, y: 240, count: 8},
+        {x: 257, y: 240, count: 1},
+        {x: 476, y: 240, count: 1},
 
         // green house top walls
         {x: -248, y: 0, count: 1},
@@ -103,6 +104,22 @@ let levelOneFurniture = {
         {x: 252.5, y: -390},
         {x: 252.5, y: -150},
         {x: 252.5, y: 90}
+    ],
+
+    wallWindow : [
+        // green house
+        // top
+        {x: -220, y: 0, count: 2},
+        {x: -93, y: 0, count: 2},
+        // bottom
+        {x: -220, y: 240, count: 6},
+
+        // entrance
+        {x: 35, y: 240, count: 2},
+        {x: 158, y: 240, count: 2},
+
+        // bedroom
+        {x: 287, y: 240, count: 6}
     ],
 
     marbleFloor : [
@@ -198,6 +215,7 @@ let levelOneFurniture = {
         {x: 252, y: 191, count: 12},
         {x: 252, y: 211, count: 12},
         {x: 252, y: 231, count: 12},
+        {x: 252, y: 251, count: 12},
         // add one tile to each row that overlaps
         {x: 488, y: 31, count: 1},
         {x: 488, y: 51, count: 1},
@@ -209,8 +227,8 @@ let levelOneFurniture = {
         {x: 488, y: 171, count: 1},
         {x: 488, y: 191, count: 1},
         {x: 488, y: 211, count: 1},
-        {x: 488, y: 231, count: 1}
-
+        {x: 488, y: 231, count: 1},
+        {x: 488, y: 251, count: 1}
     ],
 
     bigRugs: [
@@ -360,45 +378,6 @@ let levelOneFurniture = {
         {x: -80, y: -170}
     ],
 
-    // larger potted plant
-    plantOne : [
-        //{x: -200, y: -160},
-        //{x: -206, y: -82}
-    ],
-
-    // small tree plant
-    plantTwo : [
-        // upper right room section
-        {x: -109, y: -200},
-        {x: -109, y: -148},
-        {x: -16, y: -148},
-        // lower left room section
-        //{x: -167, y: -22},
-        {x: -245, y: -90},
-        {x: -167, y: -90}
-    ],
-
-    plantThree : [
-        {x: -215, y: -140}
-    ],
-
-    plantFour : [
-
-    ],
-
-    // small potted plant
-    plantFive : [
-        // upper right section
-        {x: -108, y: -170},
-        // lower left section
-        {x: -218, y: -82},
-        {x: -192, y: -82},
-        // behind greenhouse window
-        {x: -210, y: 10},
-        {x: -180, y: 10}
-
-    ],
-
     // ------------------------ GREENHOUSE FURNITURE -------------------
 
     greenHouseFloor : [
@@ -428,22 +407,13 @@ let levelOneFurniture = {
         {x: -248, y: 262, count: 25}
     ],
 
-    greenHouseWindow : [
-        // top
-        {x: -220, y: 0, count: 2},
-        {x: -93, y: 0, count: 2},
-        // bottom
-        {x: -220, y: 240, count: 6}
-        //{x: -93, y: 240, count: 2}
-    ],
-
     greenHouseTable : [
+        // left
         {x: -93, y: 50},
-        {x: -22, y: 50}
-    ],
-
-    tablePlant : [
-        {x: -88, y: 50}
+        {x: -93, y: 93},
+        // right
+        {x: -22, y: 50},
+        {x: -22, y: 93}
     ],
 
 
@@ -588,13 +558,7 @@ let levelOneFurniture = {
     ],
 
 
-
     // ------------------------ ENTRANCE FURNITURE -------------------
-    entranceWindow : [
-        {x: 35, y: 240, count: 2},
-        {x: 158, y: 240, count: 2},
-    ],
-
     door: [
         {x: 114, y: 240}
     ],
@@ -611,54 +575,54 @@ let levelOneFurniture = {
         {x: 109, y: 90}
     ],
 
-    goldenShoe: [
-        {x: 10, y: 193}
+    // shoes
+    tanShoe: [
+        {x: 7, y: 160}
     ],
 
     rainbowShoe: [
-        {x: 10, y: 184}
+        {x: 7, y: 170}
     ],
 
-    tanShoe: [
-        {x: 10, y: 173}
-    ],
-
-    blackShoe: [
-        {x: 232, y: 195}
-    ],
-
-    greyShoe: [
-        {x: 232, y: 184}
+    goldenShoe: [
+        {x: 7, y: 180}
     ],
 
     whiteShoe: [
-        {x: 232, y: 173}
+        {x: 234, y: 160}
     ],
 
-    longTanTable: [
-        {x: 8, y: 175},
-        {x: 230, y: 175},
+    greyShoe: [
+        {x: 234, y: 170}
     ],
+
+    blackShoe: [
+        {x: 235, y: 180}
+    ],
+
+    // table
+    longTanTable: [
+        {x: 5, y: 160},
+        {x: 233, y: 160},
+    ],
+
+
 
     // ------------------------ BEDROOM FURNITURE -------------------
-
     bigWhiteBed: [
         {x: 407, y: 156}
     ],
 
     bedroomMirror: [
-        {x: 450, y: 3}
+        //{x: 450, y: 3}
+        {x: 293, y: -78}
     ],
 
     wardrobes: [
-        {x: 415, y: 6},
-        {x: 477, y: 6}
-    ],
-
-    lamp: [
-
-        {x: 384, y: 160},
-        {x: 469, y: 160}
+        //{x: 415, y: 6},
+        //{x: 477, y: 6}
+        {x: 261, y: -78},
+        {x: 318, y: -78}
     ],
 
     smallBlueTable: [
@@ -668,9 +632,7 @@ let levelOneFurniture = {
 
 
 
-
     // ------------ Multiple Rooms ---------------------
-
     longWoodenPatternedTables: [
 
         //office
@@ -682,8 +644,6 @@ let levelOneFurniture = {
 
         {x: 415, y: -320},
         {x: 455, y: -320},
-
-
     ],
 
     bookshelves: [
@@ -698,14 +658,78 @@ let levelOneFurniture = {
         {x: 280, y: 6},
         {x: 303, y: 6},
         {x: 326, y: 6}
-
     ],
-
-
 
     beds: [
         {x: 445.5, y: -126}
     ],
+
+    darkTable : [
+        {x: 428, y: -55}
+    ],
+
+    smallDarkTable : [
+        // bathroom area
+        {x: 296, y: -165},
+        {x: 296, y: -190},
+        {x: 260, y: -135}
+    ],
+
+    // small tree plant
+    plantOne : [
+        // patio
+        // upper right room section
+        {x: -109, y: -200},
+        {x: -109, y: -148},
+        {x: -16, y: -148},
+        // lower left room section
+        //{x: -167, y: -22},
+        {x: -245, y: -90},
+        {x: -167, y: -90},
+        // bathroom area
+        {x: 335, y: -200},
+        {x: 260, y: -185},
+        {x: 335, y: -140}
+    ],
+
+    // small potted plant
+    plantTwo : [
+        // upper right section
+        {x: -108, y: -170},
+        // lower left section
+        {x: -218, y: -82},
+        {x: -192, y: -82},
+        // behind greenhouse window
+        {x: -210, y: 10},
+        {x: -180, y: 10},
+        // out front of bathroom on table
+        {x: 438, y: -62},
+        // green house on table
+        {x: -88, y: 50},
+        // bathroom area
+        {x: 336, y: -165}
+    ],
+
+    paintingOne : [
+        {x: 288, y: -240}
+    ],
+
+    paintingTwo : [
+        {x: 443, y: 0}
+    ],
+
+    standardChair : [
+        {x: 260, y: -205},
+        {x: 260, y: -160}
+    ],
+
+    lamp: [
+        // bedroom
+        {x: 384, y: 160},
+        {x: 469, y: 160},
+        // bathroom area
+        {x: 261, y: -148}
+    ]
 }
 
 let levelOne1 = {

@@ -329,8 +329,9 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new ChairLeft(this.game, chairLeft.x * PARAMS.BLOCKWIDTH, chairLeft.y * PARAMS.BLOCKWIDTH));
     }
 
-    // ------------------------ BATHROOM FURNITURE -------------------
 
+
+    // ------------------------ BATHROOM FURNITURE -------------------
     //shower
     for (let i = 0; i < this.level.shower.length; i++) {
         let shower = this.level.shower[i];
@@ -501,36 +502,56 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new GrayCar(this.game, grayCar.x * PARAMS.BLOCKWIDTH, grayCar.y * PARAMS.BLOCKWIDTH));
     }
 
-    for (let i = 0; i < this.level.toolbox.length; i++) {
-        let toolbox = this.level.toolbox[i];
-        this.game.addEntity(new Toolbox(this.game, toolbox.x * PARAMS.BLOCKWIDTH, toolbox.y * PARAMS.BLOCKWIDTH));
-    }
-
-    for (let i = 0; i < this.level.shelf.length; i++) {
-        let shelf = this.level.shelf[i];
-        this.game.addEntity(new Shelf(this.game, shelf.x * PARAMS.BLOCKWIDTH, shelf.y * PARAMS.BLOCKWIDTH));
-    }
 
     // ------------------------ PATIO FURNITURE -------------------
-
     for (let i = 0; i < this.level.trellis.length; i++) {
         let trellis = this.level.trellis[i];
         this.game.addEntity(new Trellis(this.game, trellis.x * PARAMS.BLOCKWIDTH, trellis.y * PARAMS.BLOCKWIDTH, trellis.count));
     }
 
-    // ------------------------ GREEN HOUSE FURNITURE -------------------
-
-    for (let i = 0; i < this.level.greenHouseWindow.length; i++) {
-        let greenHouseWindow = this.level.greenHouseWindow[i];
-        this.game.addEntity(new MansionWindow(this.game, greenHouseWindow.x * PARAMS.BLOCKWIDTH, greenHouseWindow.y * PARAMS.BLOCKWIDTH, greenHouseWindow.count));
+    // ------------------------ WINDOWS -----------------------------
+    for (let i = 0; i < this.level.wallWindow.length; i++) {
+        let wallWindow = this.level.wallWindow[i];
+        this.game.addEntity(new MansionWindow(this.game, wallWindow.x * PARAMS.BLOCKWIDTH, wallWindow.y * PARAMS.BLOCKWIDTH, wallWindow.count));
     }
 
-    // ------------------------ ENTRANCE FURNITURE -------------------
 
-    for (let i = 0; i < this.level.entranceWindow.length; i++) {
-        let entranceWindow = this.level.entranceWindow[i];
-        this.game.addEntity(new MansionWindow(this.game, entranceWindow.x * PARAMS.BLOCKWIDTH, entranceWindow.y * PARAMS.BLOCKWIDTH, entranceWindow.count));
+    // ----------------------OTHER---------------------------------
+    for (let i = 0; i < this.level.paintingOne.length; i++) {
+        let paintingOne = this.level.paintingOne[i];
+        this.game.addEntity(new PaintingOne(this.game, paintingOne.x * PARAMS.BLOCKWIDTH, paintingOne.y * PARAMS.BLOCKWIDTH));
     }
+
+    for (let i = 0; i < this.level.paintingTwo.length; i++) {
+        let paintingTwo = this.level.paintingTwo[i];
+        this.game.addEntity(new PaintingTwo(this.game, paintingTwo.x * PARAMS.BLOCKWIDTH, paintingTwo.y * PARAMS.BLOCKWIDTH));
+    }
+
+    for (let i = 0; i < this.level.standardChair.length; i++) {
+        let standardChair = this.level.standardChair[i];
+        this.game.addEntity(new StandardChair(this.game, standardChair.x * PARAMS.BLOCKWIDTH, standardChair.y * PARAMS.BLOCKWIDTH));
+    }
+
+    for (let i = 0; i < this.level.plantOne.length; i++) {
+        let plantOne = this.level.plantOne[i];
+        this.game.addEntity(new PlantOne(this.game, plantOne.x * PARAMS.BLOCKWIDTH, plantOne.y * PARAMS.BLOCKWIDTH));
+    }
+
+    for (let i = 0; i < this.level.plantTwo.length; i++) {
+        let plantTwo = this.level.plantTwo[i];
+        this.game.addEntity(new PlantTwo(this.game, plantTwo.x * PARAMS.BLOCKWIDTH, plantTwo.y * PARAMS.BLOCKWIDTH));
+    }
+
+    for (let i = 0; i < this.level.darkTable.length; i++) {
+        let darkTable = this.level.darkTable[i];
+        this.game.addEntity(new DarkTable(this.game, darkTable.x * PARAMS.BLOCKWIDTH, darkTable.y * PARAMS.BLOCKWIDTH));
+    }
+
+    for (let i = 0; i < this.level.smallDarkTable.length; i++) {
+        let smallDarkTable = this.level.smallDarkTable[i];
+        this.game.addEntity(new SmallDarkTable(this.game, smallDarkTable.x * PARAMS.BLOCKWIDTH, smallDarkTable.y * PARAMS.BLOCKWIDTH));
+    }
+
 
     // ------------------------------------------------------------
 
@@ -607,11 +628,6 @@ function setUpLevelOneFurniture(game, level) {
 
     // ------------------------ PATIO FURNITURE -------------------
 
-    for (let i = 0; i < this.level.plantOne.length; i++) {
-        let plantOne = this.level.plantOne[i];
-        this.game.addEntity(new RowOnePlant(this.game, plantOne.x * PARAMS.BLOCKWIDTH, plantOne.y * PARAMS.BLOCKWIDTH));
-    }
-
     for (let i = 0; i < this.level.patioBench.length; i++) {
         let patioBench = this.level.patioBench[i];
         this.game.addEntity(new PatioBench(this.game, patioBench.x * PARAMS.BLOCKWIDTH, patioBench.y * PARAMS.BLOCKWIDTH));
@@ -627,28 +643,14 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new PatioTable(this.game, patioTable.x * PARAMS.BLOCKWIDTH, patioTable.y * PARAMS.BLOCKWIDTH));
     }
 
-    for (let i = 0; i < this.level.plantTwo.length; i++) {
-        let plantTwo = this.level.plantTwo[i];
-        this.game.addEntity(new RowTwoPlantOne(this.game, plantTwo.x * PARAMS.BLOCKWIDTH, plantTwo.y * PARAMS.BLOCKWIDTH));
-    }
-
-    for (let i = 0; i < this.level.plantFive.length; i++) {
-        let plantFive = this.level.plantFive[i];
-        this.game.addEntity(new RowEightPlantTwo(this.game, plantFive.x * PARAMS.BLOCKWIDTH, plantFive.y * PARAMS.BLOCKWIDTH));
-    }
-
     for (let i = 0; i < this.level.patioFloor.length; i++) {
         let patioFloor = this.level.patioFloor[i];
         this.game.addEntity(new PatioFloor(this.game, patioFloor.x * PARAMS.BLOCKWIDTH, patioFloor.y * PARAMS.BLOCKWIDTH, patioFloor.count));
     }
 
+
+
     // ------------------------ GREEN HOUSE FURNITURE -------------------
-
-    for (let i = 0; i < this.level.tablePlant.length; i++) {
-        let tablePlant = this.level.tablePlant[i];
-        this.game.addEntity(new RowEightPlantTwo(this.game, tablePlant.x * PARAMS.BLOCKWIDTH, tablePlant.y * PARAMS.BLOCKWIDTH));
-    }
-
     for (let i = 0; i < this.level.greenHouseTable.length; i++) {
         let greenHouseTable = this.level.greenHouseTable[i];
         this.game.addEntity(new GreenHouseTable(this.game, greenHouseTable.x * PARAMS.BLOCKWIDTH, greenHouseTable.y * PARAMS.BLOCKWIDTH));
