@@ -122,13 +122,11 @@ class GarageDoor extends Furniture {
 
 class BlackCar extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/Cars.png",  6, 3, 61, 20, x, y, 488, 160);
-        this.BB = new BoundingBox(this.x, this.y,61 * PARAMS.BLOCKWIDTH,20 * PARAMS.BLOCKWIDTH);
+        super(game, "./sprites/furniture/cars.png",  6, 3, 61, 20, x, y, 488, 160);
+        this.BB = new BoundingBox(this.x, this.y,61 * PARAMS.BLOCKWIDTH,15 * PARAMS.BLOCKWIDTH);
     };
 
-    update() { //66 22
-
-    };
+    update() {};
 
     draw(ctx) {
         ctx.drawImage(this.spritesheet, 6, 3, 61, 20, this.x - this.game.camera.x, this.y - this.game.camera.y, 61 * PARAMS.BLOCKWIDTH, 20 * PARAMS.BLOCKWIDTH);
@@ -138,16 +136,28 @@ class BlackCar extends Furniture {
 
 class RedCar extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/Cars.png",  2, 57, 67, 20, x, y, 536, 160);
-        this.BB = new BoundingBox(this.x, this.y,67 * PARAMS.BLOCKWIDTH,20 * PARAMS.BLOCKWIDTH);
+        super(game, "./sprites/furniture/cars.png",  2, 57, 67, 20, x, y, 536, 160);
+        this.BB = new BoundingBox(this.x, this.y,67 * PARAMS.BLOCKWIDTH,15 * PARAMS.BLOCKWIDTH);
     };
 
-    update() { //68 76
-
-    };
+    update() {};
 
     draw(ctx) {
         ctx.drawImage(this.spritesheet, 2, 57, 67, 20, this.x - this.game.camera.x, this.y - this.game.camera.y, 67 * PARAMS.BLOCKWIDTH, 20 * PARAMS.BLOCKWIDTH);
+        super.draw(ctx);
+    };
+}
+
+class GrayCar extends Furniture {
+    constructor(game, x, y) {
+        super(game, "./sprites/furniture/cars.png",  6, 30, 60, 20, x, y, 60, 20);
+        this.BB = new BoundingBox(this.x, this.y,65 * PARAMS.BLOCKWIDTH,15 * PARAMS.BLOCKWIDTH);
+    };
+
+    update() {};
+
+    draw(ctx) {
+        ctx.drawImage(this.spritesheet, 6, 30, 60, 20, this.x - this.game.camera.x, this.y - this.game.camera.y, 65 * PARAMS.BLOCKWIDTH, 20 * PARAMS.BLOCKWIDTH);
         super.draw(ctx);
     };
 }

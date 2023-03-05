@@ -90,7 +90,21 @@ let levelOneFurniture = {
     // ------------------------ GARAGE FURNITURE -------------------
 
     garageDoor : [
-        {x: -248, y: -480},
+        {x: -248, y: -480}
+    ],
+
+    redCar : [
+        {x: -230, y: -420}
+
+    ],
+
+    blackCar : [
+        {x: -230, y: -360}
+
+    ],
+
+    grayCar : [
+        {x: -230, y: -290}
     ],
 
     // ------------------------ OFFICE FURNITURE -------------------

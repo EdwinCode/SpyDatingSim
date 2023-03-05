@@ -38,17 +38,16 @@ ASSET_MANAGER.queueDownload("./sprites/casefile.png");
 //furniture
 ASSET_MANAGER.queueDownload("./sprites/furniture/House_Tileset.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/furniture.png");
-ASSET_MANAGER.queueDownload("./sprites/furniture/Cars.png");
+ASSET_MANAGER.queueDownload("./sprites/furniture/cars.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/billionaire_statue.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/door.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/shoes.png");
 
 ASSET_MANAGER.queueDownload("./sprites/furniture/trellis.png");
-ASSET_MANAGER.queueDownload("./sprites/furniture/stainedglass_1.png");
-ASSET_MANAGER.queueDownload("./sprites/furniture/stainedglass_2.png");
-ASSET_MANAGER.queueDownload("./sprites/furniture/stainedglass_3.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/window.png");
+
 ASSET_MANAGER.queueDownload("./sprites/furniture/garagedoor.png");
+ASSET_MANAGER.queueDownload("./sprites/furniture/cars.png");
 
 //NOT CURRENTLY USED
 ASSET_MANAGER.queueDownload("./sprites/furniture/floorAndWall.png");
