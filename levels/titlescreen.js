@@ -61,57 +61,78 @@ class TitleScreen {
 
         // main screen
         if (!this.credits) {
+            // draw background
+            let background = ASSET_MANAGER.getAsset("./sprites/mysterybackground.png");
+            ctx.drawImage(background, 0, 0, PARAMS.CANVAS_WIDTH, PARAMS.CANVAS_HEIGHT);
+
+            // draw black rectangle
             setBlackStroke(ctx);
+            ctx.fillRect(80, 30, 520, 105);
+
+            // title text
+            setWhiteStroke(ctx);
             ctx.lineWidth = 6;
             ctx.textAlign = "center";
-
-            //title
             ctx.font = "Bold 60px Courier";
             ctx.fillText("Felon For You", PARAMS.CANVAS_WIDTH / 2, 100);
 
-            ctx.font = "Bold 35px Courier";
+            // draw black rectangle
+            setBlackStroke(ctx);
+            ctx.fillRect(100, 200, 480, 80);
 
-            //choose your player
+            //choose your player text
+            setWhiteStroke(ctx);
+            ctx.font = "Bold 35px Courier";
             ctx.fillText("Choose your Agent Spy:", PARAMS.CANVAS_WIDTH / 2, 250);
 
-            //purple hair girl
+            // reset black stroke
+            setBlackStroke(ctx);
+
+            // draw purple hair spy
             if (this.mouseBB.collide(this.player1BB)) {
                 setRedStroke(ctx);
             }
-            ctx.drawImage(this.animationPlayer1, 0, 0, 128, 208, (720 / 2) - 200, (720 / 2) - 45, 128 / 2, 208 / 2);
             ctx.strokeRect(this.player1BB.left, this.player1BB.top, this.player1BB.width, this.player1BB.height);
+            setWhiteStroke(ctx);
+            ctx.fillRect(this.player1BB.left + 3, this.player1BB.top + 3, this.player1BB.width - 5, this.player1BB.height - 5);
+            ctx.drawImage(this.animationPlayer1, 0, 0, 128, 208, (720 / 2) - 200, (720 / 2) - 45, 128 / 2, 208 / 2);
 
-            // RESET TEXT
+            // reset black stroke
             setBlackStroke(ctx);
 
-            //brown hair boy
+            //draw brown hair spy
             if (this.mouseBB.collide(this.player2BB)) {
                 setRedStroke(ctx);
             }
-            ctx.drawImage(this.animationPlayer2, 0, 0, 128, 208, (720 / 2) + 100, (720 / 2) - 45, 128 / 2, 208 / 2);
             ctx.strokeRect(this.player2BB.left, this.player2BB.top, this.player2BB.width, this.player2BB.height);
+            setWhiteStroke(ctx);
+            ctx.fillRect(this.player2BB.left + 3, this.player2BB.top + 3, this.player2BB.width - 5, this.player2BB.height - 5);
+            ctx.drawImage(this.animationPlayer2, 0, 0, 128, 208, (720 / 2) + 100, (720 / 2) - 45, 128 / 2, 208 / 2);
+
+            // draw white rectangles to place buttons on
+            ctx.fillRect(this.instructionsBB.left + 3, this.instructionsBB.top + 3, this.instructionsBB.width - 5, this.instructionsBB.height - 5);
+            ctx.fillRect(this.creditsBB.left + 3, this.creditsBB.top + 3, this.creditsBB.width - 5, this.creditsBB.height - 5);
 
             // RESET TEXT and make font smaller
             setBlackStroke(ctx);
             ctx.font = "Bold 25px Courier";
 
-            // how to play button
+            // draw how to play button
             if (this.mouseBB.collide(this.instructionsBB)) {
                 setRedStroke(ctx);
             }
-            ctx.fillText("HOW TO PLAY", ctx.canvas.width / 2, 720 / 2 + 180);
             ctx.strokeRect(this.instructionsBB.left, this.instructionsBB.top, this.instructionsBB.width, this.instructionsBB.height);
+            ctx.fillText("HOW TO PLAY", ctx.canvas.width / 2, 720 / 2 + 180);
 
             // RESET TEXT
             setBlackStroke(ctx);
 
-            // credits
+            // draw credits button
             if (this.mouseBB.collide(this.creditsBB)) {
                 setRedStroke(ctx);
             }
             ctx.fillText("CREDITS", ctx.canvas.width / 2, 720 / 2 + 250);
             ctx.strokeRect(this.creditsBB.left, this.creditsBB.top, this.creditsBB.width, this.creditsBB.height);
-
         }
 
         // credits screen
