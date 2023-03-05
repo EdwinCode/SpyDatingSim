@@ -16,6 +16,8 @@ class Itemsbag {
         this.exitBB = new BoundingBox(550, 605, 100, 50);
         this.mouseBB = new BoundingBox(0,0,1,1);
         this.buttonBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 4 - 40, PARAMS.CANVAS_HEIGHT / 2 - 36, 80, 30);
+
+        this.flashlightApplied = false;
     };
 
     update() {
@@ -32,10 +34,13 @@ class Itemsbag {
                 }
 
                 else if (this.clickFlashlight) {
-                    // apply sneaker if not applied
-                    // remove sneaker application if applied
+                    // apply flashlight if not applied
+                    // remove flashlight application if applied
+                    if (this.game.camera.currentLevel === levelOne2) {
+                        this.flashlightApplied = true;
 
-
+                        this.game.camera.darkness.brightenDarkness();
+                    }
                 }
 
                 else if (this.clickSneaker) {
@@ -341,11 +346,15 @@ class Itemsbag {
             ctx.fillText("Flashlight", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 65);
 
             if (this.clickFlashlight) {
-                this.setItemBlurbBox(ctx, "You have chosen the flashlight! It's a surprise tool that will help us later :). Click apply to activate it");
+                this.setItemBlurbBox(ctx, "You have chosen the flashlight! It's a surprise tool that will help us later :). Click apply when in Phase 2 to activate it.");
                 let img = ASSET_MANAGER.getAsset("./sprites/flashlight.png");
                 this.setViewItemBox(ctx, img, PARAMS.CANVAS_WIDTH / 16, PARAMS.CANVAS_WIDTH / 8, 7.5 * 38, 7.5 * 16);
 
-                this.setButton(ctx, "APPLY");
+                if (this.flashlightApplied === true) {
+                    this.setButton(ctx, "APPLIED");
+                } else {
+                    this.setButton(ctx, "APPLY");
+                }
             }
         } else {
             ctx.fillText("---", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 65);

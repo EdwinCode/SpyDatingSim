@@ -753,15 +753,15 @@ let levelOne1 = {
             state: 2,
             portraitNumber: 0,
             stateIncr: false},
-        {message: "Keep getting to know the other contestants, that's what the Billionaire wanted.",
+        {message: "Keep getting to know the other contestants, that's what Mr. Billionaire wanted.",
             state: 3,
             portraitNumber: 0,
             stateIncr: false},
-        {message: "Keep getting to know the other contestants, that's what the Billionaire wanted.",
+        {message: "Keep getting to know the other contestants, that's what Mr. Billionaire wanted.",
             state: 4,
             portraitNumber: 0,
             stateIncr: false},
-        {message: "Keep getting to know the other contestants, that's what the Billionaire wanted.",
+        {message: "Keep getting to know the other contestants, that's what Mr. Billionaire wanted.",
             state: 5,
             portraitNumber: 0,
             stateIncr: false},
@@ -1251,10 +1251,6 @@ let introCutscene = {
 
 let levelOneCutscene = {
     label: "level one"
-};
-
-let levelOnePart2Cutscene = {
-    label: "level one part 2"
 };
 
 let loseScreen = {
