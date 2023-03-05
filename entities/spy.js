@@ -435,7 +435,6 @@ class Spy {
                     // add extra check since there are multiple guards
                     else if (that.noInteract) {
                         that.guardInteract = false;
-                        that.noInteract = true;
                     }
                 }
             }
@@ -558,7 +557,6 @@ class Spy {
                 // add extra check since there are multiple monitors
                 if (that.noInteract) {
                     that.monitorInteract = false;
-                    that.noInteract = true;
                 }
             }
 
