@@ -299,14 +299,6 @@ let levelOneFurniture = {
         {x: 177, y: -335},
     ],
 
-    redStool: [
-        {x: 155, y: -284},
-        {x: 175, y: -265},
-        {x: 200, y: -265},
-        {x: 216, y: -284},
-
-    ],
-
 
 
     // ------------------------ PATIO FURNITURE -------------------
@@ -750,7 +742,18 @@ let levelOneFurniture = {
         {x: 261, y: 88},
         // bathroom area
         {x: 261, y: -148}
-    ]
+    ],
+
+    redStool: [
+        // office
+        {x: 155, y: -284},
+        {x: 175, y: -265},
+        {x: 200, y: -265},
+        {x: 216, y: -284},
+
+        // bedroom
+
+    ],
 }
 
 
