@@ -101,6 +101,12 @@ class Level1Part2 {
     };
 
     setUpLevel() {
+
+        // casefile chatbox
+        let casefileUpdated = new CasefileUpdatedChatbox(this.game);
+        casefileUpdated.firstTime = true;
+        this.game.addEntityToTop(casefileUpdated);
+
         // Timer
         this.ingameTimer = new IngameTimer(this.game);
         this.game.addEntity(this.ingameTimer);

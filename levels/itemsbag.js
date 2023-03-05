@@ -23,7 +23,11 @@ class Itemsbag {
 
             if (this.mouseBB.collide(this.buttonBB)) {
                 if (this.clickCase) {
-                    this.game.addEntityToTop(new CasefileChatbox(this.game));
+                    if (this.game.camera.currentLevel === levelOne1) {
+                        this.game.addEntityToTop(new CasefileChatbox(this.game));
+                    } else {
+                        this.game.addEntityToTop(new CasefileUpdatedChatbox(this.game));
+                    }
                 }
 
                 else if (this.clickSneaker) {

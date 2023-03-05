@@ -35,6 +35,7 @@ ASSET_MANAGER.queueDownload("./sprites/casefile_icon.jpg");
 //cutscenes
 ASSET_MANAGER.queueDownload("./sprites/cutscenes/intro.png");
 ASSET_MANAGER.queueDownload("./sprites/casefile.png");
+ASSET_MANAGER.queueDownload("./sprites/casefileUpdated.png");
 
 //furniture
 ASSET_MANAGER.queueDownload("./sprites/furniture/House_Tileset.png");

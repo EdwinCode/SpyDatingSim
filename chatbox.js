@@ -208,3 +208,115 @@ class CasefileChatbox {
         ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
     };
 };
+
+class CasefileUpdatedChatbox {
+    constructor(game) {
+        this.game = game;
+
+        this.firstTime = false;
+
+        // image that looks like a case file
+        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/casefileUpdated.png");
+
+        this.mouseBB = new BoundingBox(0, 0, 1, 1);
+        this.exitBB = new BoundingBox(565, 520, 75, 30);
+    };
+
+    update() {
+        if (this.game.click) {
+            this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y, 1, 1);
+
+            // exit chat box
+            if (this.mouseBB.collide(this.exitBB)) {
+                caseFileDisplay = true;
+                this.removeFromWorld = true;
+            }
+
+            this.game.click = null;
+        }
+
+        // update mouse area
+        if (this.game.mouse) {
+            this.mouseBB = new BoundingBox(this.game.mouse.x, this.game.mouse.y, 1, 1);
+        }
+    };
+
+    draw(ctx) {
+        setBlackStroke(ctx);
+        ctx.fillRect(0,0,PARAMS.CANVAS_WIDTH,PARAMS.CANVAS_HEIGHT);
+        setWhiteStroke(ctx);
+        ctx.textAlign = "center";
+
+        if (this.firstTime) {
+            ctx.fillText("A New Item...", PARAMS.CANVAS_WIDTH / 2, 50);
+            ctx.fillText("This will be in your items bag.", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 50);
+        }
+
+        // casefile
+        ctx.drawImage(this.spritesheet, 0, 0, 460, 340, PARAMS.CANVAS_WIDTH / 2 - (460 * 1.5 / 2), PARAMS.CANVAS_HEIGHT / 2 - (340 * 1.5 / 2), 460 * 1.5, 340 * 1.5);
+
+        ctx.textAlign = "left";
+        ctx.fillStyle = "white";
+        ctx.font = "18px Courier";
+        ctx.fillRect(40, 300, 260, 200);
+        setBlackStroke(ctx);
+        ctx.fillText("OVERVIEW:", 47, 310);
+        ctx.fillText("Subject burned down the", 47, 325);
+        ctx.fillText("headquarters of his", 47, 340);
+        ctx.fillText("business competitor to", 47, 355);
+        ctx.fillText("cover up his true crime.", 47, 370);
+        ctx.fillText("He stole a patent,", 47, 385);
+        ctx.fillText("marketing it as his own.", 47, 400);
+        ctx.fillText("He is the lead suspect,", 47, 415);
+        ctx.fillText("but there is no solid", 47, 430);
+        ctx.fillText("proof of this. There is", 47, 445);
+        ctx.fillText("only the word of one", 47, 460);
+        ctx.fillText("witness who saw him", 47, 475);
+        ctx.fillText("take the patent.", 47, 490);
+        ctx.fillText("OBJECTIVE: Find the", 47, 515);
+        ctx.fillText("original patent.", 47, 530);
+
+        // text
+        ctx.textAlign = "left";
+        ctx.fillStyle = "white";
+        ctx.font = "18px Courier";
+        ctx.fillRect(380, 300, 260, 200);
+        setBlackStroke(ctx);
+        ctx.fillText("NEXT OBJECT:", 387, 160);
+        ctx.fillText("Roam the mansion and", 387, 185);
+        ctx.fillText("search for clues when", 387, 200);
+        ctx.fillText("it is dark and the", 387, 215);
+        ctx.fillText("mansion is quiet. Be", 387, 230);
+        ctx.fillText("quick when searching.", 387, 245);
+        ctx.fillText("Nighttime is shorter", 387, 260);
+        ctx.fillText("than you think, Use", 387, 275);
+        ctx.fillText("special items, clues", 387, 290);
+        ctx.fillText("gathered from your", 387, 305);
+        ctx.fillText("previous interactions,", 387, 320);
+        ctx.fillText("and the butler’s hints", 387, 335);
+        ctx.fillText("to find three pieces of", 387, 350);
+        ctx.fillText("evidence. When you find", 387, 365);
+        ctx.fillText("the final clue, the", 387, 380);
+        ctx.fillText("patent, your mission", 387, 395);
+        ctx.fillText("will be complete.", 387, 410);
+        ctx.fillText("Good luck, Agent Spy,", 387, 425);
+        ctx.fillText("and remember to watch", 387, 440);
+        ctx.fillText("out for those pesky", 387, 455);
+        ctx.fillText("guards.\n", 387, 470);
+
+
+
+
+        // exit button
+        setBlackStroke(ctx);
+        if (this.mouseBB.collide(this.exitBB)) {
+            setRedStroke(ctx);
+        }
+
+        ctx.lineWidth = 2;
+        ctx.textAlign = "center";
+        ctx.font = "Bold 25px Courier";
+        ctx.fillText("EXIT", 603, 542);
+        ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
+    };
+};
