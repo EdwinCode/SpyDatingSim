@@ -145,6 +145,87 @@ class WoodFloor extends Furniture {
     };
 }
 
+class Rug extends Furniture {
+    constructor(game, x, y, count, color, direction) {
+        super(game, "./sprites/furniture/Floorings.png",  8, 8, 192, 192, x, y, 192, 192);
+        Object.assign(this, {count, color, direction});
+    };
+
+    update() {};
+
+    draw(ctx) {
+        this.xOffset = 0;
+        this.yOffset = 0;
+        if(this.color === "Grey") {
+            this.xOffset += 0;
+            this.yOffset += 0;
+        } else if (this.color === "Hodgepodge") {
+            this.xOffset += 200;
+            this.yOffset += 0;
+        } else if (this.color === "Grass Dark") {
+            this.xOffset += 2 * 200;
+            this.yOffset += 0;
+        } else if (this.color === "Grass Light") {
+            this.xOffset += 3 * 200;
+            this.yOffset += 0;
+        } else if(this.color === "Red") {
+            this.xOffset += 0;
+            this.yOffset += 200;
+        } else if (this.color === "Dark Blue") {
+            this.xOffset += 200;
+            this.yOffset += 200;
+        } else if (this.color === "Pink") {
+            this.xOffset += 2 * 200;
+            this.yOffset += 200;
+        } else if (this.color === "Tan") {
+            this.xOffset += 3 * 200;
+            this.yOffset += 200;
+        } else if(this.color === "Orange") {
+            this.xOffset += 0;
+            this.yOffset += 2 * 200;
+        } else if (this.color === "Light Blue") {
+            this.xOffset += 200;
+            this.yOffset += 2 * 200;
+        } else if (this.color === "Brown") {
+            this.xOffset += 2 * 200;
+            this.yOffset += 2 * 200;
+        } else if (this.color === "Green") {
+            this.xOffset += 3 * 200;
+            this.yOffset += 2 * 200;
+        } else if(this.color === "Weird Checkered") {
+            this.xOffset += 0;
+            this.yOffset += 3 * 200;
+        } else if (this.color === "Checkered") {
+            this.xOffset += 200;
+            this.yOffset += 3 * 200;
+        } else if (this.color === "Wavy") {
+            this.xOffset += 2 * 200;
+            this.yOffset += 3 * 200;
+        } else if (this.color === "Plus") {
+            this.xOffset += 3 * 200;
+            this.yOffset += 3 * 200;
+        }
+
+        if (this.direction === "horizontal") {
+            for (let i = 0; i < this.count; i++) {
+                ctx.drawImage(this.spritesheet, 8 + this.xOffset, 8 + this.yOffset, 192, 192, this.x + i * (10 * PARAMS.BLOCKWIDTH) - this.game.camera.x, this.y - this.game.camera.y, 10 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH);
+            }
+        } else if (this.direction === "vertical") {
+            for (let i = 0; i < this.count; i++) {
+                ctx.drawImage(this.spritesheet, 8 + this.xOffset, 8 + this.yOffset, 192, 192, this.x - this.game.camera.x, this.y + i * (10 * PARAMS.BLOCKWIDTH) - this.game.camera.y, 10 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH);
+            }
+        } else if (this.direction === "square") {
+            for (let i = 0; i < this.count; i++) {
+                for (let j = 0; j < this.count; j++) {
+                    ctx.drawImage(this.spritesheet, 8 + this.xOffset, 8 + this.yOffset, 192, 192, this.x + i * (10 * PARAMS.BLOCKWIDTH) - this.game.camera.x, this.y + j * (10 * PARAMS.BLOCKWIDTH) - this.game.camera.y, 10 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH);
+                }
+            }
+        }
+
+        //ctx.drawImage(this.spritesheet, 8 + this.xOffset, 8 + this.yOffset, 192, 192, this.x - this.game.camera.x, this.y - this.game.camera.y, 24 * PARAMS.BLOCKWIDTH, 24 * PARAMS.BLOCKWIDTH);
+    };
+}
+
 // ----------------- FURNITURE -----------------------------
 
 class LongWoodenPatternedTable extends Furniture {

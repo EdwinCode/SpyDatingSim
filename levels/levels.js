@@ -251,6 +251,23 @@ let levelOneFurniture = {
         //{x: -18.25, y: -344}
     ],
 
+    rugsHorizontal: [
+        {x: 424, y: -192, count: 4, color: "Dark Blue"},
+        {x: 424, y: -182, count: 4, color: "Dark Blue"},
+        {x: 450, y: -101, count: 5, color: "Orange"},
+        {x: 450, y: -91, count: 5, color: "Orange"}
+    ],
+
+    rugsVertical: [
+        {x: 419, y: -160, count: 5, color: "Red"},
+        {x: 429, y: -160, count: 5, color: "Red"}
+    ],
+
+    rugsSquare: [
+        {x: -248, y: -448, count: 25, color: "Grey"},
+        //{x: -248, y: 200, count: 25, color: "Grey"}
+    ],
+
     // ------------------------ GARAGE FURNITURE -------------------
 
     garageDoor : [

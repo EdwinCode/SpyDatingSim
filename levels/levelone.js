@@ -616,14 +616,32 @@ function setUpLevelOneFurniture(game, level) {
 */
     // ------------------------ FLOOR -------------------
 
-    for (let i = 0; i < this.level.marbleFloor.length; i++) {
-        let marbleFloor = this.level.marbleFloor[i];
-        this.game.addEntity(new MarbleFloor(this.game, marbleFloor.x * PARAMS.BLOCKWIDTH, marbleFloor.y * PARAMS.BLOCKWIDTH, marbleFloor.count));
-    }
-
     for (let i = 0; i < this.level.woodFloor.length; i++) {
         let woodFloor = this.level.woodFloor[i];
         this.game.addEntity(new WoodFloor(this.game, woodFloor.x * PARAMS.BLOCKWIDTH, woodFloor.y * PARAMS.BLOCKWIDTH, woodFloor.count));
+    }
+
+    // grow to the right
+    for (let i = 0; i < this.level.rugsHorizontal.length; i++) {
+        let rug = this.level.rugsHorizontal[i];
+        this.game.addEntity(new Rug(this.game, rug.x * PARAMS.BLOCKWIDTH, rug.y * PARAMS.BLOCKWIDTH, rug.count, rug.color, "horizontal"));
+    }
+
+    // grow downward
+    for (let i = 0; i < this.level.rugsVertical.length; i++) {
+        let rug = this.level.rugsVertical[i];
+        this.game.addEntity(new Rug(this.game, rug.x * PARAMS.BLOCKWIDTH, rug.y * PARAMS.BLOCKWIDTH, rug.count, rug.color, "vertical"));
+    }
+
+    // grow both to the right and downward (so in a square and count is width/height)
+    for (let i = 0; i < this.level.rugsSquare.length; i++) {
+        let rug = this.level.rugsSquare[i];
+        this.game.addEntity(new Rug(this.game, rug.x * PARAMS.BLOCKWIDTH, rug.y * PARAMS.BLOCKWIDTH, rug.count, rug.color, "square"));
+    }
+
+    for (let i = 0; i < this.level.marbleFloor.length; i++) {
+        let marbleFloor = this.level.marbleFloor[i];
+        this.game.addEntity(new MarbleFloor(this.game, marbleFloor.x * PARAMS.BLOCKWIDTH, marbleFloor.y * PARAMS.BLOCKWIDTH, marbleFloor.count));
     }
 
     // ------------------------ PATIO FURNITURE -------------------
