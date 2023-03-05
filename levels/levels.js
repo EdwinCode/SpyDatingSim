@@ -1050,6 +1050,10 @@ let levelOneCutscene = {
     label: "level one"
 };
 
+let levelOnePart2Cutscene = {
+    label: "level one part 2"
+};
+
 let loseScreen = {
     label: "lose screen"
 };

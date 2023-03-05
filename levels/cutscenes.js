@@ -18,7 +18,7 @@ class LevelOneCutscene {
             if (this.mouseBB.collide(this.nextBB)) {
                 if (this.slideNum === 5) {
                     this.game.camera.clearEntities();
-                    this.game.camera.loadLevel(levelOne2);
+                    this.game.camera.loadLevel(levelOnePart2Cutscene);
                 } else {
                     this.slideNum++;
                 }
@@ -155,6 +155,7 @@ class LevelOneCutscene {
     };
 };
 
+
 class IntroCutscene {
     constructor(game) {
         this.game = game;
@@ -162,15 +163,15 @@ class IntroCutscene {
         this.x = 0;
         this.y = 0;
 
-        this.mouseBB = new BoundingBox(0,0,1,1);
-        this.nextBB = new BoundingBox(602 - 50,660 - 45,100,50);
+        this.mouseBB = new BoundingBox(0, 0, 1, 1);
+        this.nextBB = new BoundingBox(602 - 50, 660 - 45, 100, 50);
         this.slideNum = 1;
     };
 
     update() {
         // if user clicks on exit button then go to level one
         if (this.game.click) {
-            this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y,1,1);
+            this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y, 1, 1);
 
             if (this.mouseBB.collide(this.nextBB)) {
                 if (this.slideNum === 7) {
@@ -185,7 +186,7 @@ class IntroCutscene {
 
         // update location of mouse pointer
         if (this.game.mouse) {
-            this.mouseBB = new BoundingBox(this.game.mouse.x, this.game.mouse.y,1,1);
+            this.mouseBB = new BoundingBox(this.game.mouse.x, this.game.mouse.y, 1, 1);
         }
 
         //Checks for Skip Intro and Skip Phase 1 checkboxes
@@ -222,9 +223,7 @@ class IntroCutscene {
         if (slideNum === 1) {
             ctx.fillText("Hello, Agent Spy.", PARAMS.CANVAS_WIDTH / 2, 30, PARAMS.CANVAS_WIDTH);
             ctx.fillText("You have a new mission.", PARAMS.CANVAS_WIDTH / 2, 60, PARAMS.CANVAS_WIDTH);
-        }
-
-        else if (slideNum === 2) {
+        } else if (slideNum === 2) {
             ctx.fillText("Hello, Agent Spy.", PARAMS.CANVAS_WIDTH / 2, 30, PARAMS.CANVAS_WIDTH);
             ctx.fillText("You have a new mission.", PARAMS.CANVAS_WIDTH / 2, 60, PARAMS.CANVAS_WIDTH);
 
@@ -233,9 +232,7 @@ class IntroCutscene {
             ctx.fillText("eccentric Mr.Billionaire, \"The Bachelor\"", PARAMS.CANVAS_WIDTH / 2, 140,
                 PARAMS.CANVAS_WIDTH);
             ctx.fillText("style.", PARAMS.CANVAS_WIDTH / 2, 170, PARAMS.CANVAS_WIDTH);
-        }
-
-        else if (slideNum === 3) {
+        } else if (slideNum === 3) {
             ctx.fillText("Hello, Agent Spy.", PARAMS.CANVAS_WIDTH / 2, 30, PARAMS.CANVAS_WIDTH);
             ctx.fillText("You have a new mission.", PARAMS.CANVAS_WIDTH / 2, 60, PARAMS.CANVAS_WIDTH);
 
@@ -251,9 +248,7 @@ class IntroCutscene {
                 PARAMS.CANVAS_WIDTH);
             ctx.fillText("arson relating to his business competitor.", PARAMS.CANVAS_WIDTH / 2, 280,
                 PARAMS.CANVAS_WIDTH);
-        }
-
-        else if (slideNum === 4) {
+        } else if (slideNum === 4) {
             ctx.fillText("Hello, Agent Spy.", PARAMS.CANVAS_WIDTH / 2, 30, PARAMS.CANVAS_WIDTH);
             ctx.fillText("You have a new mission.", PARAMS.CANVAS_WIDTH / 2, 60, PARAMS.CANVAS_WIDTH);
 
@@ -273,9 +268,7 @@ class IntroCutscene {
             ctx.fillText("They claim he stole the patent, but there", PARAMS.CANVAS_WIDTH / 2, 330,
                 PARAMS.CANVAS_WIDTH);
             ctx.fillText("is no proof.", PARAMS.CANVAS_WIDTH / 2, 360, PARAMS.CANVAS_WIDTH);
-        }
-
-        else if (slideNum === 5) {
+        } else if (slideNum === 5) {
             ctx.fillText("Hello, Agent Spy.", PARAMS.CANVAS_WIDTH / 2, 30, PARAMS.CANVAS_WIDTH);
             ctx.fillText("You have a new mission.", PARAMS.CANVAS_WIDTH / 2, 60, PARAMS.CANVAS_WIDTH);
 
@@ -301,9 +294,7 @@ class IntroCutscene {
             ctx.fillText("the perfect cover to roam the mansion,", PARAMS.CANVAS_WIDTH / 2, 440,
                 PARAMS.CANVAS_WIDTH);
             ctx.fillText("searching for clues.", PARAMS.CANVAS_WIDTH / 2, 470, PARAMS.CANVAS_WIDTH);
-        }
-
-        else if (slideNum === 6) {
+        } else if (slideNum === 6) {
             ctx.fillText("Hello, Agent Spy.", PARAMS.CANVAS_WIDTH / 2, 30, PARAMS.CANVAS_WIDTH);
             ctx.fillText("You have a new mission.", PARAMS.CANVAS_WIDTH / 2, 60, PARAMS.CANVAS_WIDTH);
 
@@ -333,9 +324,7 @@ class IntroCutscene {
             ctx.fillText("Prove Mr.Billionaire committed this crime to", PARAMS.CANVAS_WIDTH / 2, 520,
                 PARAMS.CANVAS_WIDTH);
             ctx.fillText("complete the mission.", PARAMS.CANVAS_WIDTH / 2, 550, PARAMS.CANVAS_WIDTH);
-        }
-
-        else if (slideNum === 7) {
+        } else if (slideNum === 7) {
             ctx.fillText("Hello, Agent Spy.", PARAMS.CANVAS_WIDTH / 2, 30, PARAMS.CANVAS_WIDTH);
             ctx.fillText("You have a new mission.", PARAMS.CANVAS_WIDTH / 2, 60, PARAMS.CANVAS_WIDTH);
 
@@ -371,4 +360,161 @@ class IntroCutscene {
             ctx.fillText("pesky guards!", PARAMS.CANVAS_WIDTH / 2, 630, PARAMS.CANVAS_WIDTH);
         }
     };
+}
+
+
+class LevelOnePart2Cutscene {
+    constructor(game) {
+        this.game = game;
+
+        this.x = 0;
+        this.y = 0;
+
+        this.mouseBB = new BoundingBox(0, 0, 1, 1);
+        this.nextBB = new BoundingBox(602 - 50, 660 - 45, 100, 50);
+        this.slideNum = 1;
+    };
+
+    update() {
+        // if user clicks on exit button then go to level one
+        if (this.game.click) {
+            this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y, 1, 1);
+
+            if (this.mouseBB.collide(this.nextBB)) {
+                if (this.slideNum === 5) {
+                    this.game.camera.clearEntities();
+                    this.game.camera.loadLevel(levelOne2);
+                } else {
+                    this.slideNum++;
+                }
+            }
+            this.game.click = null;
+        }
+
+        // update location of mouse pointer
+        if (this.game.mouse) {
+            this.mouseBB = new BoundingBox(this.game.mouse.x, this.game.mouse.y, 1, 1);
+        }
+
+        //Checks for Skip Intro and Skip Phase 1 checkboxes
+        checkForSkippedParts(this.game);
+    };
+
+    draw(ctx) {
+        // black box to cover screen
+        //ctx.strokeRect(0, 0, this.game.canvas.width, this.game.canvas.height);
+        setBlackStroke(ctx);
+        ctx.fillRect(0, 0, PARAMS.CANVAS_WIDTH, PARAMS.CANVAS_HEIGHT);
+
+        // white on black background
+        setWhiteStroke(ctx);
+
+        // dialog and images
+        this.drawCutscene(ctx, this.slideNum);
+
+        // exit button
+        if (this.mouseBB.collide(this.nextBB)) {
+            setRedStroke(ctx);
+        }
+        ctx.lineWidth = 6;
+        ctx.textAlign = "center";
+        ctx.font = "Bold 35px Courier";
+        ctx.fillText("NEXT", 602, 650);
+        ctx.strokeRect(this.nextBB.left, this.nextBB.top, this.nextBB.width, this.nextBB.height);
+    };
+
+    drawCutscene(ctx, slideNum) {
+        ctx.font = "Bold 25px Courier";
+        ctx.textAlign = "center";
+
+        if (slideNum === 1) {
+            ctx.fillText("Hello, Agent Spy.", PARAMS.CANVAS_WIDTH / 2, 30, PARAMS.CANVAS_WIDTH);
+            ctx.fillText("Roam the mansion and search for clues ", PARAMS.CANVAS_WIDTH / 2, 80, PARAMS.CANVAS_WIDTH);
+            ctx.fillText("when it is dark and the mansion is quiet.", PARAMS.CANVAS_WIDTH / 2, 110,
+                PARAMS.CANVAS_WIDTH);
+        } else if (slideNum === 2) {
+            ctx.fillText("Hello, Agent Spy.", PARAMS.CANVAS_WIDTH / 2, 30, PARAMS.CANVAS_WIDTH);
+            ctx.fillText("Roam the mansion and search for clues ", PARAMS.CANVAS_WIDTH / 2, 80, PARAMS.CANVAS_WIDTH);
+            ctx.fillText("when it is dark and the mansion is quiet.", PARAMS.CANVAS_WIDTH / 2, 110,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("Be quick when searching.", PARAMS.CANVAS_WIDTH / 2, 160,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("Nighttime is shorter than you think,", PARAMS.CANVAS_WIDTH / 2, 210,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("so your time to search is limited.", PARAMS.CANVAS_WIDTH / 2, 240,
+                PARAMS.CANVAS_WIDTH);
+        } else if (slideNum === 3) {
+            ctx.fillText("Hello, Agent Spy.", PARAMS.CANVAS_WIDTH / 2, 30, PARAMS.CANVAS_WIDTH);
+            ctx.fillText("Roam the mansion and search for clues ", PARAMS.CANVAS_WIDTH / 2, 80, PARAMS.CANVAS_WIDTH);
+            ctx.fillText("when it is dark and the mansion is quiet.", PARAMS.CANVAS_WIDTH / 2, 110,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("Be quick when searching.", PARAMS.CANVAS_WIDTH / 2, 160,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("Nighttime is shorter than you think,", PARAMS.CANVAS_WIDTH / 2, 210,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("so your time to search is limited.", PARAMS.CANVAS_WIDTH / 2, 240,
+                PARAMS.CANVAS_WIDTH);
+
+            ctx.fillText("Use special items, clues gathered from your", PARAMS.CANVAS_WIDTH / 2, 290,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("previous interactions, and the butler’s", PARAMS.CANVAS_WIDTH / 2, 320,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("hints to find three pieces of evidence.", PARAMS.CANVAS_WIDTH / 2, 350,
+                PARAMS.CANVAS_WIDTH);
+        } else if (slideNum === 4) {
+            ctx.fillText("Hello, Agent Spy.", PARAMS.CANVAS_WIDTH / 2, 30, PARAMS.CANVAS_WIDTH);
+            ctx.fillText("Roam the mansion and search for clues ", PARAMS.CANVAS_WIDTH / 2, 80, PARAMS.CANVAS_WIDTH);
+            ctx.fillText("when it is dark and the mansion is quiet.", PARAMS.CANVAS_WIDTH / 2, 110,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("Be quick when searching.", PARAMS.CANVAS_WIDTH / 2, 160,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("Nighttime is shorter than you think,", PARAMS.CANVAS_WIDTH / 2, 210,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("so your time to search is limited.", PARAMS.CANVAS_WIDTH / 2, 240,
+                PARAMS.CANVAS_WIDTH);
+
+            ctx.fillText("Use special items, clues gathered from your", PARAMS.CANVAS_WIDTH / 2, 290,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("previous interactions, and the butler’s", PARAMS.CANVAS_WIDTH / 2, 320,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("hints to find three pieces of evidence.", PARAMS.CANVAS_WIDTH / 2, 350,
+                PARAMS.CANVAS_WIDTH);
+
+            ctx.fillText("When you find the final clue, the patent,", PARAMS.CANVAS_WIDTH / 2, 390,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("your mission will be complete.", PARAMS.CANVAS_WIDTH / 2, 410,
+                PARAMS.CANVAS_WIDTH);
+
+        } else if (slideNum === 5) {
+            ctx.fillText("Hello, Agent Spy.", PARAMS.CANVAS_WIDTH / 2, 30, PARAMS.CANVAS_WIDTH);
+            ctx.fillText("Roam the mansion and search for clues ", PARAMS.CANVAS_WIDTH / 2, 80, PARAMS.CANVAS_WIDTH);
+            ctx.fillText("when it is dark and the mansion is quiet.", PARAMS.CANVAS_WIDTH / 2, 110,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("Be quick when searching.", PARAMS.CANVAS_WIDTH / 2, 160,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("Nighttime is shorter than you think,", PARAMS.CANVAS_WIDTH / 2, 210,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("so your time to search is limited.", PARAMS.CANVAS_WIDTH / 2, 240,
+                PARAMS.CANVAS_WIDTH);
+
+            ctx.fillText("Use special items, clues gathered from your", PARAMS.CANVAS_WIDTH / 2, 290,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("previous interactions, and the butler’s", PARAMS.CANVAS_WIDTH / 2, 320,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("hints to find three pieces of evidence.", PARAMS.CANVAS_WIDTH / 2, 350,
+                PARAMS.CANVAS_WIDTH);
+
+            ctx.fillText("When you find the final clue, the patent,", PARAMS.CANVAS_WIDTH / 2, 390,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("your mission will be complete.", PARAMS.CANVAS_WIDTH / 2, 410,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("Good luck, Agent Spy,", PARAMS.CANVAS_WIDTH / 2, 460,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("and remember to watch out\n", PARAMS.CANVAS_WIDTH / 2, 490,
+                PARAMS.CANVAS_WIDTH);
+            ctx.fillText("for those pesky guards.\n", PARAMS.CANVAS_WIDTH / 2, 520,
+                PARAMS.CANVAS_WIDTH);
+        }
+    };
+
 };
