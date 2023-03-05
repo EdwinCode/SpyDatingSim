@@ -54,6 +54,9 @@ ASSET_MANAGER.queueDownload("./sprites/furniture/cars.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/flooring.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/marblefloor.png");
 
+ASSET_MANAGER.queueDownload("./sprites/furniture/PlantPots.png");
+ASSET_MANAGER.queueDownload("./sprites/furniture/Roses.png");
+
 //NOT CURRENTLY USED
 ASSET_MANAGER.queueDownload("./sprites/furniture/floorAndWall.png");
 
