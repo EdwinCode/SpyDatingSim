@@ -36,7 +36,10 @@ class Spy {
         this.monitorInteract = false;
 
         //ITEMS
-        this.toolboxInteract = false
+        this.toolboxInteract = false;
+        this.greyCarInteract = false;
+        this.paintingTwoInteract = false;
+        this.waterTankInteract = false;
 
 
         // use for decision tree
@@ -265,6 +268,92 @@ class Spy {
                     that.toolboxInteract = false;
                 }
 
+            }
+
+            if (that.game.camera.currentLevel === levelOne2) {
+                if (entity instanceof WaterTank) {
+                    if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                        that.waterTankInteract = true;
+                        if (that.game.interact && that.hideChat) {
+                            that.game.interact = false;
+                            that.hideChat = false;
+
+                            that.text = loadText(that.game.currLvl, "waterTank", that.game.chatState);
+                            that.image = loadImage(that.game.currLvl, "waterTank", that.game.chatState);
+                            that.game.chatState = that.updateState(that.game.currLvl, "waterTank", that.game.chatState);
+
+                            that.spritesheet = ASSET_MANAGER.getAsset("./sprites/blackbox.png");
+
+                            that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
+                            that.game.addEntityToTop(that.chatbox);
+                            that.chatbox.setVisible = true;
+
+                            //TO PAUSE THE GAME
+                            Chatbox.OPEN = true;
+
+                            clueOneDisplay = true;
+                        }
+                    } else {
+                        that.waterTankInteract = false;
+                    }
+
+                }
+
+                if (entity instanceof GreyCar) {
+                    if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                        that.greyCarInteract = true;
+                        if (that.game.interact && that.hideChat) {
+                            that.game.interact = false;
+                            that.hideChat = false;
+
+                            that.text = loadText(that.game.currLvl, "greyCar", that.game.chatState);
+                            that.image = loadImage(that.game.currLvl, "greyCar", that.game.chatState);
+                            that.game.chatState = that.updateState(that.game.currLvl, "greyCar", that.game.chatState);
+
+                            that.spritesheet = ASSET_MANAGER.getAsset("./sprites/blackbox.png");
+
+                            that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
+                            that.game.addEntityToTop(that.chatbox);
+                            that.chatbox.setVisible = true;
+
+                            //TO PAUSE THE GAME
+                            Chatbox.OPEN = true;
+
+                            clueTwoDisplay = true;
+                        }
+                    } else {
+                        that.greyCarInteract = false;
+                    }
+
+                }
+
+                if (entity instanceof PaintingTwo) {
+                    if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                        that.paintingTwoInteract = true;
+                        if (that.game.interact && that.hideChat) {
+                            that.game.interact = false;
+                            that.hideChat = false;
+
+                            that.text = loadText(that.game.currLvl, "paintingTwo", that.game.chatState);
+                            that.image = loadImage(that.game.currLvl, "paintingTwo", that.game.chatState);
+                            that.game.chatState = that.updateState(that.game.currLvl, "paintingTwo", that.game.chatState);
+
+                            that.spritesheet = ASSET_MANAGER.getAsset("./sprites/blackbox.png");
+
+                            that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
+                            that.game.addEntityToTop(that.chatbox);
+                            that.chatbox.setVisible = true;
+
+                            //TO PAUSE THE GAME
+                            Chatbox.OPEN = true;
+
+                            clueThreeDisplay = true;
+                        }
+                    } else {
+                        that.paintingTwoInteract = false;
+                    }
+
+                }
             }
 
             //
@@ -563,7 +652,8 @@ class Spy {
         }
         // interact message
         if (this.stephInteract || this.billionaireInteract || this.richieInteract || this.kitchenWorkerInteract || this.gardenerInteract || this.guardInteract
-            || this.carMechanicInteract || this.billionaireStatueInteract || this.fridgeInteract || this.monitorInteract || this.toolboxInteract) {
+            || this.carMechanicInteract || this.billionaireStatueInteract || this.fridgeInteract || this.monitorInteract || this.toolboxInteract
+            || this.greyCarInteract) {
             setBlackStroke(ctx);
             ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
             ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
@@ -571,24 +661,25 @@ class Spy {
             ctx.textAlign = "center";
             setWhiteStroke(ctx);
 
-            let interactPersonText = "";
-            if (this.stephInteract) interactPersonText = "Stephanie"
-            else if (this.richieInteract) interactPersonText = "Richie"
-            else if(this.billionaireInteract) interactPersonText = "Mr.Billionaire"
-            else if(this.kitchenWorkerInteract) interactPersonText = "Kitchen Worker"
-            else if(this.gardenerInteract) interactPersonText = "Gardener"
-            else if(this.guardInteract) interactPersonText = "Guard"
-            else if(this.carMechanicInteract) interactPersonText = "Car Mechanic"
+            let interactText = "";
+            if (this.stephInteract) interactText = "Stephanie"
+            else if (this.richieInteract) interactText = "Richie"
+            else if(this.billionaireInteract) interactText = "Mr.Billionaire"
+            else if(this.kitchenWorkerInteract) interactText = "Kitchen Worker"
+            else if(this.gardenerInteract) interactText = "Gardener"
+            else if(this.guardInteract) interactText = "Guard"
+            else if(this.carMechanicInteract) interactText = "Car Mechanic"
 
             //objects
-            else if(this.billionaireStatueInteract) interactPersonText = "Statue"
-            else if(this.fridgeInteract) interactPersonText = "Fridge"
-            else if(this.monitorInteract) interactPersonText = "Monitor"
+            else if(this.billionaireStatueInteract) interactText = "Statue"
+            else if(this.fridgeInteract) interactText = "Fridge"
+            else if(this.monitorInteract) interactText = "Monitor"
 
             //items
-            else if(this.toolboxInteract) interactPersonText = "Toolbox"
+            else if(this.toolboxInteract) interactText = "Toolbox"
+            else if(this.greyCarInteract) interactText = "Grey Car"
 
-            ctx.fillText(interactPersonText, PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 30);
+            ctx.fillText(interactText, PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 30);
         }
 
         // debug
@@ -708,6 +799,42 @@ class Spy {
         else if (entity === "toolbox") {
             if (level.toolbox[chatState].stateIncr === true) {
                 return chatState + 1;
+            } else {
+                return chatState;
+            }
+        }
+
+
+        // 3 pieces of evidence
+
+        // water tank
+        else if (entity === "waterTank") {
+            if (level.waterTank[chatState].stateIncr === true) {
+                if (clueOneDisplay === false) {
+                    return chatState + 1;
+                }
+            } else {
+                return chatState;
+            }
+        }
+
+        // grey car
+        else if (entity === "greyCar") {
+            if (level.greyCar[chatState].stateIncr === true) {
+                if (clueTwoDisplay === false) {
+                    return chatState + 1;
+                }
+            } else {
+                return chatState;
+            }
+        }
+
+        // painting two
+        else if (entity === "paintingTwo") {
+            if (level.paintingTwo[chatState].stateIncr === true) {
+                if (clueThreeDisplay === false) {
+                    return chatState + 1;
+                }
             } else {
                 return chatState;
             }

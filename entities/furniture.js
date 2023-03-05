@@ -292,9 +292,9 @@ class RedCar extends Furniture {
     };
 }
 
-class GrayCar extends Furniture {
+class GreyCar extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/cars.png",  6, 30, 60, 20, x, y, 60, 20);
+        super(game, "./sprites/furniture/cars.png",  6, 30, 60, 20, x, y, 72 * PARAMS.BLOCKWIDTH, 26 * PARAMS.BLOCKWIDTH);
         this.BB = new BoundingBox(this.x, this.y,72 * PARAMS.BLOCKWIDTH,20 * PARAMS.BLOCKWIDTH);
     };
 
@@ -303,6 +303,13 @@ class GrayCar extends Furniture {
     draw(ctx) {
         ctx.drawImage(this.spritesheet, 6, 30, 60, 20, this.x - this.game.camera.x, this.y - this.game.camera.y, 72 * PARAMS.BLOCKWIDTH, 26 * PARAMS.BLOCKWIDTH);
         super.draw(ctx);
+
+        PARAMS.DEBUG = document.getElementById("debug").checked;
+        if (PARAMS.DEBUG) {
+            ctx.strokeStyle = 'green';
+            ctx.strokeRect(this.interactBB.x - this.game.camera.x, this.interactBB.y - this.game.camera.y, this.interactBB.width, this.interactBB.height);
+
+        }
     };
 }
 
@@ -465,6 +472,27 @@ class KitchenSet extends Furniture {
     draw(ctx) {
         ctx.drawImage(this.spritesheet, 442, 120, 61, 32, this.x - this.game.camera.x, this.y - this.game.camera.y, 80 * PARAMS.BLOCKWIDTH, 51 * PARAMS.BLOCKWIDTH);
         super.draw(ctx);
+    };
+}
+
+class WaterTank extends Furniture {
+    constructor(game, x, y) {
+        super(game, "./sprites/furniture/water_tank.png",  18, 4, 198, 529, x, y, 12.8 * PARAMS.BLOCKWIDTH,33.5 * PARAMS.BLOCKWIDTH);
+        this.BB = new BoundingBox(this.x, this.y,12.8 * PARAMS.BLOCKWIDTH,33.5 * PARAMS.BLOCKWIDTH);
+    };
+
+    update() {};
+
+    draw(ctx) {
+        ctx.drawImage(this.spritesheet, 18, 4, 198, 529, this.x - this.game.camera.x, this.y - this.game.camera.y, 12.8 * PARAMS.BLOCKWIDTH,33.5 * PARAMS.BLOCKWIDTH);
+        super.draw(ctx);
+
+        PARAMS.DEBUG = document.getElementById("debug").checked;
+        if (PARAMS.DEBUG) {
+            ctx.strokeStyle = 'green';
+            ctx.strokeRect(this.interactBB.x - this.game.camera.x, this.interactBB.y - this.game.camera.y, this.interactBB.width, this.interactBB.height);
+
+        }
     };
 }
 
@@ -1313,13 +1341,19 @@ class PaintingOne extends Furniture {
 
 class PaintingTwo extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/furniture.png", 561, 256, 32, 32, x, y, 561, 256);
+        super(game, "./sprites/furniture/furniture.png", 561, 256, 32, 32, x, y, 31 * PARAMS.BLOCKWIDTH, 31 * PARAMS.BLOCKWIDTH);
     };
 
     update() {};
 
     draw(ctx) {
         ctx.drawImage(this.spritesheet, 561, 256, 32, 32, this.x - this.game.camera.x, this.y - this.game.camera.y, 31 * PARAMS.BLOCKWIDTH, 31 * PARAMS.BLOCKWIDTH);
+        PARAMS.DEBUG = document.getElementById("debug").checked;
+        if (PARAMS.DEBUG) {
+            ctx.strokeStyle = 'green';
+            ctx.strokeRect(this.interactBB.x - this.game.camera.x, this.interactBB.y - this.game.camera.y, this.interactBB.width, this.interactBB.height);
+
+        }
     };
 }
 

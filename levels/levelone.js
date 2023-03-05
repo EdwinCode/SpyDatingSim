@@ -225,6 +225,12 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new Microwave(this.game, microwave.x * PARAMS.BLOCKWIDTH, microwave.y * PARAMS.BLOCKWIDTH));
     }
 
+    //waterTank
+    for (let i = 0; i < this.level.waterTank.length; i++) {
+        let waterTank = this.level.waterTank[i];
+        this.game.addEntity(new WaterTank(this.game, waterTank.x * PARAMS.BLOCKWIDTH, waterTank.y * PARAMS.BLOCKWIDTH));
+    }
+
     //kitchenCabinet
     for (let i = 0; i < this.level.kitchenCabinet.length; i++) {
         let kitchenCabinet = this.level.kitchenCabinet[i];
@@ -497,9 +503,9 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new BlackCar(this.game, blackCar.x * PARAMS.BLOCKWIDTH, blackCar.y * PARAMS.BLOCKWIDTH));
     }
 
-    for (let i = 0; i < this.level.grayCar.length; i++) {
-        let grayCar = this.level.grayCar[i];
-        this.game.addEntity(new GrayCar(this.game, grayCar.x * PARAMS.BLOCKWIDTH, grayCar.y * PARAMS.BLOCKWIDTH));
+    for (let i = 0; i < this.level.greyCar.length; i++) {
+        let greyCar = this.level.greyCar[i];
+        this.game.addEntity(new GreyCar(this.game, greyCar.x * PARAMS.BLOCKWIDTH, greyCar.y * PARAMS.BLOCKWIDTH));
     }
 
     for (let i = 0; i < this.level.toolbox.length; i++) {

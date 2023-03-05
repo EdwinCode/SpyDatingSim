@@ -285,7 +285,7 @@ let levelOneFurniture = {
 
     ],
 
-    grayCar : [
+    greyCar : [
         {x: -230, y: -290}
     ],
 
@@ -445,6 +445,10 @@ let levelOneFurniture = {
     // ------------------------ KITCHEN FURNITURE -------------------
     kitchenSet: [
         {x: 354, y: -481}
+    ],
+
+    waterTank: [
+        {x: 485, y: -405}
     ],
 
     fridge: [
@@ -1302,6 +1306,52 @@ let levelOne2 = {
             state: 6,
             portraitNumber: 0,
             stateIncr: false},
+    ],
+
+    //ITEMS
+    greyCar: [
+        { message: "You have found a Gps on a car in the garage that proves Mr.Billionaire was at the scene of the crime!",
+            state: 0,
+            portraitNumber: 0,
+            stateIncr: true},
+        { message: "You have found a Gps on a car in the garage that proves Mr.Billionaire was at the scene of the crime!",
+            state: 1,
+            portraitNumber: 0,
+            stateIncr: true},
+        { message: "You have found a Gps on a car in the garage that proves Mr.Billionaire was at the scene of the crime!",
+            state: 2,
+            portraitNumber: 0,
+            stateIncr: true},
+    ],
+
+    waterTank: [
+        { message: "You have found lighter fluid disguised as water!",
+            state: 0,
+            portraitNumber: 0,
+            stateIncr: true},
+        { message: "You have found lighter fluid disguised as water!",
+            state: 1,
+            portraitNumber: 0,
+            stateIncr: true},
+        { message: "You have found lighter fluid disguised as water!",
+            state: 2,
+            portraitNumber: 0,
+            stateIncr: true},
+    ],
+
+    paintingTwo: [
+        { message: "You have found the stolen patent!",
+            state: 0,
+            portraitNumber: 0,
+            stateIncr: true},
+        { message: "You have found the stolen patent!",
+            state: 1,
+            portraitNumber: 0,
+            stateIncr: true},
+        { message: "You have found the stolen patent!",
+            state: 2,
+            portraitNumber: 0,
+            stateIncr: true},
     ],
 };
 

@@ -182,6 +182,32 @@ function loadText(level, entity, chatState) {
             return level.toolbox[chatState].message;
         }
     }
+
+    // 3 pieces of evidence
+
+    else if (entity === "waterTank") {
+        if (clueOneDisplay === true) {
+            return "This is where you found the lighter fluid."
+        } else {
+            return level.waterTank[chatState].message;
+        }
+    }
+
+    else if (entity === "greyCar") {
+        if (clueTwoDisplay === true) {
+            return "This is where you found the gps."
+        } else {
+            return level.greyCar[chatState].message;
+        }
+    }
+
+    else if (entity === "paintingTwo") {
+        if (clueThreeDisplay === true) {
+            return "This is where you found the patent."
+        } else {
+            return level.paintingTwo[chatState].message;
+        }
+    }
 };
 
 function loadImage(level, entity, chatState) {
@@ -246,6 +272,20 @@ function loadImage(level, entity, chatState) {
     // toolbox
     else if (entity === "toolbox") {
         return level.toolbox[chatState].portraitNumber;
+    }
+
+    // 3 pieces of evidence
+
+    else if (entity === "waterTank") {
+        return level.waterTank[chatState].portraitNumber;
+    }
+
+    else if (entity === "greyCar") {
+        return level.greyCar[chatState].portraitNumber;
+    }
+
+    else if (entity === "paintingTwo") {
+        return level.paintingTwo[chatState].portraitNumber;
     }
 
 }

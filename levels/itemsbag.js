@@ -10,8 +10,8 @@ class Itemsbag {
         this.capeBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 6 - 3, 525,120,40);
         this.clueOneBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
         this.clueTwoBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
-        this.clueThreeBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, 525,120,40);
-
+        this.clueThreeBB = new BoundingBox((3 * PARAMS.CANVAS_WIDTH) / 4, PARAMS.CANVAS_HEIGHT / 2 + 140,120,40);
+//
         // other bounding boxes
         this.exitBB = new BoundingBox(550, 605, 100, 50);
         this.mouseBB = new BoundingBox(0,0,1,1);
@@ -51,6 +51,18 @@ class Itemsbag {
                 else if (this.clickCape) {
                     // apply sneaker if not applied
                     // remove sneaker application if applied
+                }
+
+                else if (this.clickClueOne) {
+
+                }
+
+                else if (this.clickClueTwo) {
+
+                }
+
+                else if (this.clickClueThree) {
+
                 }
             }
 
@@ -393,7 +405,9 @@ class Itemsbag {
                     "                                           It was hidden and disguised as water...strange. Even " +
                     "though, this is a weird clue, it still doesn't prove Mr. Billionaire did the crime.             " +
                     "                             There are more clues to be found, so get back out there, Agent Spy!");
-                this.setViewItemBox(ctx, "To be implemented clue img");  // show clue
+                let img = ASSET_MANAGER.getAsset("./sprites/water_tank.png");
+                this.setViewItemBox(ctx, img, PARAMS.CANVAS_WIDTH / 16, PARAMS.CANVAS_WIDTH / 8, 7.5 * 12.8, 7.5 * 33.5);
+
             }
         } else {
             ctx.fillText("---", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 210);
@@ -414,8 +428,11 @@ class Itemsbag {
             ctx.fillText("Clue Two", PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 65);
 
             if (this.clickClueTwo) {
-                this.setItemBlurbBox(ctx, "");
-                this.setViewItemBox(ctx, "To be implemented clue img");  // show clue
+                this.setItemBlurbBox(ctx, "GPS");
+
+                let img = ASSET_MANAGER.getAsset("./sprites/gps.png");
+                this.setViewItemBox(ctx, img, PARAMS.CANVAS_WIDTH / 16, PARAMS.CANVAS_WIDTH / 8, 7.5 * 12.8, 7.5 * 33.5);
+
             }
         } else {
             ctx.fillText("---", (3 * PARAMS.CANVAS_WIDTH) / 4, PARAMS.CANVAS_HEIGHT / 2 + 65);
@@ -429,11 +446,14 @@ class Itemsbag {
             if (this.mouseBB.collide(this.clueThreeBB)) {
                 setRedStroke(ctx);
             }
-            ctx.fillText("Clue Three", PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 65);
+            ctx.fillText("Clue Three", (3 * PARAMS.CANVAS_WIDTH) / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);
 
-            if (this.clickClueThree) {
-                this.setItemBlurbBox(ctx, "");
-                this.setViewItemBox(ctx, "To be implemented clue img");  // show clue
+            if (this.clickClueTwo) {
+                this.setItemBlurbBox(ctx, "Patent");
+
+                let img = ASSET_MANAGER.getAsset("./sprites/patent.png");
+                this.setViewItemBox(ctx, img, PARAMS.CANVAS_WIDTH / 16, PARAMS.CANVAS_WIDTH / 8, 7.5 * 12.8, 7.5 * 33.5);
+
             }
         } else {
             ctx.fillText("---", (3 * PARAMS.CANVAS_WIDTH) / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);

@@ -33,6 +33,8 @@ ASSET_MANAGER.queueDownload("./sprites/suitcase.png");
 // item icons
 ASSET_MANAGER.queueDownload("./sprites/casefile_icon.jpg");
 ASSET_MANAGER.queueDownload("./sprites/flashlight.png");
+ASSET_MANAGER.queueDownload("./sprites/gps.png");
+ASSET_MANAGER.queueDownload("./sprites/patent.png");
 
 //cutscenes
 ASSET_MANAGER.queueDownload("./sprites/cutscenes/intro.png");
@@ -47,6 +49,7 @@ ASSET_MANAGER.queueDownload("./sprites/furniture/cars.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/billionaire_statue.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/door.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/shoes.png");
+ASSET_MANAGER.queueDownload("./sprites/furniture/water_tank.png");
 
 ASSET_MANAGER.queueDownload("./sprites/furniture/trellis.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/window.png");
