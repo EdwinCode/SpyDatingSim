@@ -1,6 +1,53 @@
 let levelOneFurniture = {
     // THE UNITS OF MEASUREMENT FOR THE BELOW CODE ARE IN BLOCKWIDTHS!
 
+    plainWalls: [
+        // Start at x = 4.5 because the Room 1 left wall starts at 0 and a left wall takes up 4.5 BLOCKWIDTHS so 0 + 4.5 = 4.5.
+
+        // entrance top wall
+        {x: 4.5, y: 0, count: 3},
+        {x: 159.5, y: 0, count: 3},
+
+        // entrance bottom wall
+        {x: 4.5, y: 240, count: 1},
+        {x: 98, y: 240, count: 2},
+        {x: 222, y: 240, count: 1},
+
+        // office top wall
+        {x: 4.5, y: -480, count: 8},
+
+        // office bottom wall
+        {x: 4.5, y: -240, count: 3},
+        {x: 159.5, y:-240, count: 3},
+        //{x: 4.5, y: 240, count: 8},
+
+        // kitchen top wall
+        {x: 257, y: -480, count: 8},
+
+        // kitchen bottom wall
+        {x: 257, y: -240, count: 3},
+        {x: 412, y: -240, count: 3},
+
+        // bedroom top wall
+        {x: 257, y: 0, count: 3},
+        {x: 412, y: 0, count: 3},
+
+        // bedroom bottom wall
+        {x: 257, y: 240, count: 8},
+
+        // green house top walls
+        {x: -248, y: 0, count: 1},
+        {x: -30, y: 0, count: 1},
+
+        // green house bottom walls
+        {x: -248, y: 240, count: 1},
+        {x: -30, y: 240, count: 1},
+
+        // patio top walls
+        {x: -248, y: -240, count: 3},
+        {x: -93, y: -240, count: 3}
+    ],
+
     sideWallLefts: [ // Count makes them grow downwards
         {x: 0, y: 0, count: 7},
         {x: 0, y: 160, count: 7},
@@ -14,42 +61,9 @@ let levelOneFurniture = {
         {x: -252.5, y: 0, count: 17},
         {x: -252.5, y: -240, count: 15},
         {x: -252.5, y: -480, count: 15},
-    ],
 
-    plainWalls: [
-        // Start at x = 4.5 because the Room 1 left wall starts at 0 and a left wall takes up 4.5 BLOCKWIDTHS so 0 + 4.5 = 4.5.
-        {x: 4.5, y: 0, count: 3}, // A plain wall piece has a width of 31 BLOCKWIDTHS. Count makes them grow rightward
-        {x: 159.5, y: 0, count: 3},
-
-        {x: 257, y: 0, count: 3},
-        {x: 412, y: 0, count: 3},
-
-        {x: 4.5, y: -240, count: 3},
-        {x: 159.5, y:-240, count: 3},
-
-        {x: 257, y: -240, count: 3},
-        {x: 412, y: -240, count: 3},
-
-        {x: 4.5, y: 240, count: 8},
-        {x: 257, y: 240, count: 8},
-
-        {x: 4.5, y: -480, count: 8},
-        {x: 257, y: -480, count: 8},
-
-        //garage wall
-        //{x: -248, y: -480, count: 8},
-
-        // green house bottom walls
-        {x: -248, y: 240, count: 1},
-        {x: -30, y: 240, count: 6},
-
-        {x: -248, y: -240, count: 3},
-        {x: -93, y: -240, count: 3},
-
-        // green house top walls
-        {x: -248, y: 0, count: 1},
-        {x: -30, y: 0, count: 1}
-
+        // bathroom inner walls
+        //{x: -252.5, y: -480, count: 2}
     ],
 
     sideWallRights: [ // Count makes them grow downwards
@@ -569,6 +583,15 @@ let levelOneFurniture = {
     ],
 
     // ------------------------ ENTRANCE FURNITURE -------------------
+    entranceWindow : [
+        {x: 35, y: 240, count: 2},
+        {x: 158, y: 240, count: 2},
+    ],
+
+    door: [
+        {x: 114, y: 240}
+    ],
+
     bigCubePainting: [
         {x: 190, y: 0}
     ],
@@ -579,10 +602,6 @@ let levelOneFurniture = {
 
     billionaireStatue: [
         {x: 109, y: 90}
-    ],
-
-    door: [
-        {x: 112, y: 240}
     ],
 
     goldenShoe: [

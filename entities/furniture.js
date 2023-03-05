@@ -848,7 +848,7 @@ class Trashcan extends Furniture {
 // --------------------- GREEN HOUSE FURNITURE -------------------------------
 //
 
-class GreenHouseWindow extends Furniture {
+class MansionWindow extends Furniture {
     constructor(game, x, y, count) {
         super(game, "./sprites/furniture/window.png",  0, 0, 225, 225, x, y, 225, 225);
         this.count = count;
@@ -938,14 +938,14 @@ class BillionaireStatue extends Furniture {
 class Door extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/door.png", 26, 17, 194, 221, x, y, 1552, 1768);
-        //this.BB = new BoundingBox(this.x, this.y,30 * PARAMS.BLOCKWIDTH,33.6 * PARAMS.BLOCKWIDTH);
+        //this.BB = new BoundingBox(this.x, this.y,31 * PARAMS.BLOCKWIDTH,31 * PARAMS.BLOCKWIDTH);
     };
 
 
     update() {};
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 26, 17, 194, 221, this.x - this.game.camera.x, this.y - this.game.camera.y, 30 * PARAMS.BLOCKWIDTH, 33.6 * PARAMS.BLOCKWIDTH);
+        ctx.drawImage(this.spritesheet, 26, 17, 194, 221, this.x - this.game.camera.x, this.y - this.game.camera.y, 31 * PARAMS.BLOCKWIDTH, 31 * PARAMS.BLOCKWIDTH);
         //super.draw(ctx);
     };
 }
