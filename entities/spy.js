@@ -561,8 +561,8 @@ class Spy {
             ctx.font = "Bold 20px Courier";
             ctx.textAlign = "left";
             setWhiteStroke(ctx);
-            ctx.fillText("x: " + this.x / PARAMS.BLOCKWIDTH, this.BB.x - this.game.camera.x, (this.BB.y - 25) - this.game.camera.y);
-            ctx.fillText("y: " + this.y / PARAMS.BLOCKWIDTH, this.BB.x - this.game.camera.x, (this.BB.y - 10) - this.game.camera.y);
+            ctx.fillText("x: " + this.x / PARAMS.BLOCKWIDTH, this.BB.x - this.game.camera.x, (this.BB.y - 65) - this.game.camera.y);
+            ctx.fillText("y: " + this.y / PARAMS.BLOCKWIDTH, this.BB.x - this.game.camera.x, (this.BB.y - 50) - this.game.camera.y);
 
 
             ctx.lineWidth = 4;
