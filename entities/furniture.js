@@ -1175,3 +1175,17 @@ class Bed extends Furniture {
         super.draw(ctx);
     };
 }
+
+class DarkTable extends Furniture {
+    constructor(game, x, y) {
+        super(game, "./sprites/furniture/furniture.png", 85, 2, 32, 14, x, y, 32, 14);
+        this.BB = new BoundingBox(this.x, this.y, 32 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH);
+    };
+
+    update() {};
+
+    draw(ctx) {
+        ctx.drawImage(this.spritesheet, 85, 2, 32, 14, this.x - this.game.camera.x, this.y - this.game.camera.y, 31 * PARAMS.BLOCKWIDTH, 14 * PARAMS.BLOCKWIDTH);
+        super.draw(ctx);
+    };
+}

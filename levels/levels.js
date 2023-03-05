@@ -376,19 +376,6 @@ let levelOneFurniture = {
 
     ],
 
-    // small potted plant
-    plantFive : [
-        // upper right section
-        {x: -108, y: -170},
-        // lower left section
-        {x: -218, y: -82},
-        {x: -192, y: -82},
-        // behind greenhouse window
-        {x: -210, y: 10},
-        {x: -180, y: 10}
-
-    ],
-
     // ------------------------ GREENHOUSE FURNITURE -------------------
 
     greenHouseFloor : [
@@ -578,7 +565,6 @@ let levelOneFurniture = {
     ],
 
 
-
     // ------------------------ ENTRANCE FURNITURE -------------------
     entranceWindow : [
         {x: 35, y: 240, count: 2},
@@ -672,8 +658,6 @@ let levelOneFurniture = {
 
         {x: 415, y: -320},
         {x: 455, y: -320},
-
-
     ],
 
     bookshelves: [
@@ -688,13 +672,28 @@ let levelOneFurniture = {
         {x: 280, y: 6},
         {x: 303, y: 6},
         {x: 326, y: 6}
-
     ],
-
-
 
     beds: [
         {x: 445.5, y: -126}
+    ],
+
+    darkTable : [
+        {x: 428, y: -55}
+    ],
+
+    // small potted plant
+    plantFive : [
+        // upper right section
+        {x: -108, y: -170},
+        // lower left section
+        {x: -218, y: -82},
+        {x: -192, y: -82},
+        // behind greenhouse window
+        {x: -210, y: 10},
+        {x: -180, y: 10},
+        // out front of bathroom on table
+        {x: 438, y: -62}
     ],
 }
 
