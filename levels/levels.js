@@ -350,14 +350,8 @@ let levelOneFurniture = {
         {x: -80, y: -170}
     ],
 
-    // larger potted plant
-    plantOne : [
-        //{x: -200, y: -160},
-        //{x: -206, y: -82}
-    ],
-
     // small tree plant
-    plantTwo : [
+    plantOne : [
         // upper right room section
         {x: -109, y: -200},
         {x: -109, y: -148},
@@ -366,14 +360,6 @@ let levelOneFurniture = {
         //{x: -167, y: -22},
         {x: -245, y: -90},
         {x: -167, y: -90}
-    ],
-
-    plantThree : [
-        {x: -215, y: -140}
-    ],
-
-    plantFour : [
-
     ],
 
     // ------------------------ GREENHOUSE FURNITURE -------------------
@@ -616,19 +602,23 @@ let levelOneFurniture = {
         {x: 230, y: 175},
     ],
 
-    // ------------------------ BEDROOM FURNITURE -------------------
 
+
+    // ------------------------ BEDROOM FURNITURE -------------------
     bigWhiteBed: [
         {x: 407, y: 156}
     ],
 
     bedroomMirror: [
-        {x: 450, y: 3}
+        //{x: 450, y: 3}
+        {x: 293, y: -78}
     ],
 
     wardrobes: [
-        {x: 415, y: 6},
-        {x: 477, y: 6}
+        //{x: 415, y: 6},
+        //{x: 477, y: 6}
+        {x: 261, y: -78},
+        {x: 318, y: -78}
     ],
 
     lamp: [
@@ -644,9 +634,7 @@ let levelOneFurniture = {
 
 
 
-
     // ------------ Multiple Rooms ---------------------
-
     longWoodenPatternedTables: [
 
         //office
@@ -683,7 +671,7 @@ let levelOneFurniture = {
     ],
 
     // small potted plant
-    plantFive : [
+    plantTwo : [
         // upper right section
         {x: -108, y: -170},
         // lower left section

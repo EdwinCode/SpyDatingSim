@@ -576,21 +576,7 @@ class GreenPatioChairRight extends Furniture {
     };
 }
 
-class RowOnePlant extends Furniture {
-    constructor(game, x, y) {
-        super(game, "./sprites/furniture/furniture.png", 616, 4, 8, 12, x, y, 8, 12);
-        this.BB = new BoundingBox(this.x, this.y,12 * PARAMS.BLOCKWIDTH,10 * PARAMS.BLOCKWIDTH);
-    };
-
-    update() {};
-
-    draw(ctx) {
-        ctx.drawImage(this.spritesheet, 616, 4, 8, 12, this.x - this.game.camera.x, this.y - this.game.camera.y, 12 * PARAMS.BLOCKWIDTH, 15 * PARAMS.BLOCKWIDTH);
-        super.draw(ctx);
-    };
-}
-
-class RowTwoPlantOne extends Furniture {
+class PlantOne extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/furniture.png", 123, 21, 8, 15, x, y, 8, 15);
         this.BB = new BoundingBox(this.x, this.y,12 * PARAMS.BLOCKWIDTH,14 * PARAMS.BLOCKWIDTH);
@@ -604,35 +590,7 @@ class RowTwoPlantOne extends Furniture {
     };
 }
 
-class RowTwoPlantTwo extends Furniture {
-    constructor(game, x, y) {
-        super(game, "./sprites/furniture/furniture.png", 34, 85, 32, 16, x, y, 256, 128);
-        this.BB = new BoundingBox(this.x, this.y,40 * PARAMS.BLOCKWIDTH,24 * PARAMS.BLOCKWIDTH);
-    };
-
-    update() {};
-
-    draw(ctx) {
-        ctx.drawImage(this.spritesheet, 34, 85, 32, 16, this.x - this.game.camera.x, this.y - this.game.camera.y, 40 * PARAMS.BLOCKWIDTH, 24 * PARAMS.BLOCKWIDTH);
-        super.draw(ctx);
-    };
-}
-
-class RowEightPlantOne extends Furniture {
-    constructor(game, x, y) {
-        super(game, "./sprites/furniture/furniture.png", 34, 85, 32, 16, x, y, 256, 128);
-        this.BB = new BoundingBox(this.x, this.y,40 * PARAMS.BLOCKWIDTH,24 * PARAMS.BLOCKWIDTH);
-    };
-
-    update() {};
-
-    draw(ctx) {
-        ctx.drawImage(this.spritesheet, 34, 85, 32, 16, this.x - this.game.camera.x, this.y - this.game.camera.y, 40 * PARAMS.BLOCKWIDTH, 24 * PARAMS.BLOCKWIDTH);
-        super.draw(ctx);
-    };
-}
-
-class RowEightPlantTwo extends Furniture {
+class PlantTwo extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/furniture.png", 582, 141, 8, 11, x, y, 8, 10);
         this.BB = new BoundingBox(this.x, this.y,10 * PARAMS.BLOCKWIDTH,6 * PARAMS.BLOCKWIDTH);
