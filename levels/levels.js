@@ -350,18 +350,6 @@ let levelOneFurniture = {
         {x: -80, y: -170}
     ],
 
-    // small tree plant
-    plantOne : [
-        // upper right room section
-        {x: -109, y: -200},
-        {x: -109, y: -148},
-        {x: -16, y: -148},
-        // lower left room section
-        //{x: -167, y: -22},
-        {x: -245, y: -90},
-        {x: -167, y: -90}
-    ],
-
     // ------------------------ GREENHOUSE FURNITURE -------------------
 
     greenHouseFloor : [
@@ -403,10 +391,6 @@ let levelOneFurniture = {
     greenHouseTable : [
         {x: -93, y: 50},
         {x: -22, y: 50}
-    ],
-
-    tablePlant : [
-        {x: -88, y: 50}
     ],
 
 
@@ -621,12 +605,6 @@ let levelOneFurniture = {
         {x: 318, y: -78}
     ],
 
-    lamp: [
-
-        {x: 384, y: 160},
-        {x: 469, y: 160}
-    ],
-
     smallBlueTable: [
         {x: 380, y: 170},
         {x: 465, y: 170}
@@ -670,6 +648,30 @@ let levelOneFurniture = {
         {x: 428, y: -55}
     ],
 
+    smallDarkTable : [
+        // bathroom area
+        {x: 296, y: -165},
+        {x: 296, y: -190},
+        {x: 260, y: -135}
+    ],
+
+    // small tree plant
+    plantOne : [
+        // patio
+        // upper right room section
+        {x: -109, y: -200},
+        {x: -109, y: -148},
+        {x: -16, y: -148},
+        // lower left room section
+        //{x: -167, y: -22},
+        {x: -245, y: -90},
+        {x: -167, y: -90},
+        // bathroom area
+        {x: 335, y: -200},
+        {x: 260, y: -185},
+        {x: 335, y: -140}
+    ],
+
     // small potted plant
     plantTwo : [
         // upper right section
@@ -681,7 +683,11 @@ let levelOneFurniture = {
         {x: -210, y: 10},
         {x: -180, y: 10},
         // out front of bathroom on table
-        {x: 438, y: -62}
+        {x: 438, y: -62},
+        // green house on table
+        {x: -88, y: 50},
+        // bathroom area
+        {x: 336, y: -165}
     ],
 
     paintingOne : [
@@ -690,6 +696,19 @@ let levelOneFurniture = {
 
     paintingTwo : [
         {x: 443, y: 0}
+    ],
+
+    standardChair : [
+        {x: 260, y: -205},
+        {x: 260, y: -160}
+    ],
+
+    lamp: [
+        // bedroom
+        {x: 384, y: 160},
+        {x: 469, y: 160},
+        // bathroom area
+        {x: 261, y: -148}
     ]
 }
 
