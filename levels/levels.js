@@ -253,6 +253,16 @@ let levelOneFurniture = {
         {x: -230, y: -290}
     ],
 
+    toolbox : [
+        {x: -36, y: -444},
+    ],
+
+    shelf : [
+        {x: -43, y: -440},
+
+    ],
+
+
     // ------------------------ OFFICE FURNITURE -------------------
 
     wideBlueMonitor: [
@@ -1055,7 +1065,38 @@ let levelOne1 = {
     ],
 
 
-    // add furniture interactions
+    //ITEMS
+    toolbox: [
+        { message: "There seems to be a lot of cool things in this toolbox.",
+            state: 0,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "Maybe something could be useful here for later.",
+            state: 1,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "You found a flashlight!",
+            state: 2,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "This is where you found the flashlight.",
+            state: 3,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "This is where you found the flashlight.",
+            state: 4,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "This is where you found the flashlight.",
+            state: 5,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "This is where you found the flashlight.",
+            state: 6,
+            portraitNumber: 0,
+            stateIncr: false},
+    ],
+
     // sneakers: if state == 2 then stateIncr = true
     // cape: if state == 4 then stateIncr = true
     // flashlight: if state == 5 then stateIncr = true

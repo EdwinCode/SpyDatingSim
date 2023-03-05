@@ -5,7 +5,8 @@ class Itemsbag {
         // items bounding boxes
         // to be added to
         this.casefileBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
-        this.sneakerBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
+        this.flashlightBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 3 + 50, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
+        //this.sneakerBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
         this.capeBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 6 - 3, 525,120,40);
         this.clueOneBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
         this.clueTwoBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
@@ -30,6 +31,13 @@ class Itemsbag {
                     }
                 }
 
+                else if (this.clickFlashlight) {
+                    // apply sneaker if not applied
+                    // remove sneaker application if applied
+
+
+                }
+
                 else if (this.clickSneaker) {
                     // apply sneaker if not applied
                     // remove sneaker application if applied
@@ -51,15 +59,26 @@ class Itemsbag {
                 this.clickClueThree = false;
             }
 
-            // show sneaker
-            if (this.mouseBB.collide(this.sneakerBB)) {
+            // show flashlight
+            if (this.mouseBB.collide(this.flashlightBB)) {
                 this.clickCase = false
-                this.clickSneaker = true;
+                this.clickFlashlight = true;
+                this.clickSneaker = false;
                 this.clickCape = false;
                 this.clickClueOne = false;
                 this.clickClueTwo = false;
                 this.clickClueThree = false;
             }
+
+            // show sneaker
+            // if (this.mouseBB.collide(this.sneakerBB)) {
+            //     this.clickCase = false
+            //     this.clickSneaker = true;
+            //     this.clickCape = false;
+            //     this.clickClueOne = false;
+            //     this.clickClueTwo = false;
+            //     this.clickClueThree = false;
+            // }
 
             // show cape
             if (this.mouseBB.collide(this.capeBB)) {
@@ -321,9 +340,12 @@ class Itemsbag {
             }
             ctx.fillText("Flashlight", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 65);
 
-            if (this.clickClueOne) {
-                this.setItemBlurbBox(ctx, "You have chosen the flashlight!");
-                this.setViewItemBox(ctx, "To be implemented clue img");  // show clue
+            if (this.clickFlashlight) {
+                this.setItemBlurbBox(ctx, "You have chosen the flashlight! It's a surprise tool that will help us later :). Click apply to activate it");
+                let img = ASSET_MANAGER.getAsset("./sprites/flashlight.png");
+                this.setViewItemBox(ctx, img, PARAMS.CANVAS_WIDTH / 16, PARAMS.CANVAS_WIDTH / 8, 7.5 * 38, 7.5 * 16);
+
+                this.setButton(ctx, "APPLY");
             }
         } else {
             ctx.fillText("---", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 65);

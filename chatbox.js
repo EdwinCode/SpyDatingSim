@@ -62,7 +62,6 @@ class Chatbox {
                this.imageY = 0;
                Chatbox.OPEN = false;
             }
-
             this.game.click = null;
         }
 
@@ -105,13 +104,12 @@ class Chatbox {
 
             //Different drawing specs for butler
             if (this.isButler) {
-                // this.imageX = ;
-                // this.imageY = ;
                 this.imageW = 116;
                 this.imageH = 156;
 
                 this.dWidth = 31 * PARAMS.BLOCKWIDTH;
                 this.dHeight = 41 * PARAMS.BLOCKWIDTH;
+
             }
             else {
                 this.getImageXandY(this.portraitNumber);

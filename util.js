@@ -172,6 +172,12 @@ function loadText(level, entity, chatState) {
     else if (entity === "monitor") {
         return level.monitor[chatState].message;
     }
+
+    //ITEMS
+    // toolbox
+    else if (entity === "toolbox") {
+        return level.toolbox[chatState].message;
+    }
 };
 
 function loadImage(level, entity, chatState) {
@@ -231,6 +237,13 @@ function loadImage(level, entity, chatState) {
     else if (entity === "monitor") {
         return level.monitor[chatState].portraitNumber;
     }
+
+    //ITEMS
+    // toolbox
+    else if (entity === "toolbox") {
+        return level.toolbox[chatState].portraitNumber;
+    }
+
 }
 
 function checkForSkippedParts(game) {

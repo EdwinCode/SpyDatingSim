@@ -501,6 +501,16 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new GrayCar(this.game, grayCar.x * PARAMS.BLOCKWIDTH, grayCar.y * PARAMS.BLOCKWIDTH));
     }
 
+    for (let i = 0; i < this.level.toolbox.length; i++) {
+        let toolbox = this.level.toolbox[i];
+        this.game.addEntity(new Toolbox(this.game, toolbox.x * PARAMS.BLOCKWIDTH, toolbox.y * PARAMS.BLOCKWIDTH));
+    }
+
+    for (let i = 0; i < this.level.shelf.length; i++) {
+        let shelf = this.level.shelf[i];
+        this.game.addEntity(new Shelf(this.game, shelf.x * PARAMS.BLOCKWIDTH, shelf.y * PARAMS.BLOCKWIDTH));
+    }
+
     // ------------------------ PATIO FURNITURE -------------------
 
     for (let i = 0; i < this.level.trellis.length; i++) {
