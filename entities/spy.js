@@ -167,7 +167,7 @@ class Spy {
                         that.y += (entity.BB.bottom - that.lastBB.top);
                     }
                     else if(that.lastBB.left + 5 * PARAMS.BLOCKWIDTH >= entity.BB.right && that.game.left){ //from right
-                        that.x = entity.BB.right;
+                        that.x += (entity.BB.right - that.lastBB.left);
                     }
                     else if(that.lastBB.right - 5 * PARAMS.BLOCKWIDTH <= entity.BB.left && that.game.right){ // from left
                         that.x = entity.BB.left - that.width;
