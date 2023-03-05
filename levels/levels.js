@@ -39,7 +39,8 @@ let levelOneFurniture = {
         {x: 412, y: 0, count: 3},
 
         // bedroom bottom wall
-        {x: 257, y: 240, count: 8},
+        {x: 257, y: 240, count: 1},
+        {x: 476, y: 240, count: 1},
 
         // green house top walls
         {x: -248, y: 0, count: 1},
@@ -103,6 +104,22 @@ let levelOneFurniture = {
         {x: 252.5, y: -390},
         {x: 252.5, y: -150},
         {x: 252.5, y: 90}
+    ],
+
+    wallWindow : [
+        // green house
+        // top
+        {x: -220, y: 0, count: 2},
+        {x: -93, y: 0, count: 2},
+        // bottom
+        {x: -220, y: 240, count: 6},
+
+        // entrance
+        {x: 35, y: 240, count: 2},
+        {x: 158, y: 240, count: 2},
+
+        // bedroom
+        {x: 287, y: 240, count: 6}
     ],
 
     marbleFloor : [
@@ -198,6 +215,7 @@ let levelOneFurniture = {
         {x: 252, y: 191, count: 12},
         {x: 252, y: 211, count: 12},
         {x: 252, y: 231, count: 12},
+        {x: 252, y: 251, count: 12},
         // add one tile to each row that overlaps
         {x: 488, y: 31, count: 1},
         {x: 488, y: 51, count: 1},
@@ -209,8 +227,8 @@ let levelOneFurniture = {
         {x: 488, y: 171, count: 1},
         {x: 488, y: 191, count: 1},
         {x: 488, y: 211, count: 1},
-        {x: 488, y: 231, count: 1}
-
+        {x: 488, y: 231, count: 1},
+        {x: 488, y: 251, count: 1}
     ],
 
     bigRugs: [
@@ -697,19 +715,6 @@ let levelOneFurniture = {
         {x: 469, y: 160},
         // bathroom area
         {x: 261, y: -148}
-    ],
-
-    wallWindow : [
-        // green house
-        // top
-        {x: -220, y: 0, count: 2},
-        {x: -93, y: 0, count: 2},
-        // bottom
-        {x: -220, y: 240, count: 6},
-
-        // entrance
-        {x: 35, y: 240, count: 2},
-        {x: 158, y: 240, count: 2}
     ]
 }
 
