@@ -160,17 +160,17 @@ class Spy {
             if (entity.BB && that.BB.collide(entity.BB)) {
                 if (entity instanceof  Furniture || entity instanceof NPC) {
 
-                    if(entity.BB.right <= (that.lastBB.left+20)){ // from right
-                        that.x += entity.BB.right - that.lastBB.left;
+                    if(that.lastBB.bottom - 5 * PARAMS.BLOCKWIDTH <= entity.BB.top && that.game.down){ // from above
+                        that.y = entity.BB.top - that.height;
                     }
-                    else if(entity.BB.left >= (that.lastBB.right-20)){ // from left
-                        that.x -= that.lastBB.right - entity.BB.left;
+                    else if(that.lastBB.top + 5 * PARAMS.BLOCKWIDTH >= entity.BB.bottom && that.game.up){ // from below
+                        that.y += (entity.BB.bottom - that.lastBB.top);
                     }
-                    else if(entity.BB.bottom <= (that.lastBB.top+20)){ //from below
-                        that.y += entity.BB.bottom - that.lastBB.top;
+                    else if(that.lastBB.left + 5 * PARAMS.BLOCKWIDTH >= entity.BB.right && that.game.left){ //from right
+                        that.x = entity.BB.right;
                     }
-                    else if(entity.BB.top >= (that.lastBB.bottom-20)){ // from above
-                        that.y -= that.lastBB.bottom - entity.BB.top;
+                    else if(that.lastBB.right - 5 * PARAMS.BLOCKWIDTH <= entity.BB.left && that.game.right){ // from left
+                        that.x = entity.BB.left - that.width;
                     }
                     that.updateBB();
                 }
@@ -179,17 +179,17 @@ class Spy {
                 else if (entity instanceof Guard) {
                     //guards are harmless
                     if (that.game.currLvl === levelOne1) {
-                        if(entity.BB.right <= (that.lastBB.left+20)){ // from right
-                            that.x += entity.BB.right - that.lastBB.left;
+                        if(that.lastBB.bottom - 5 * PARAMS.BLOCKWIDTH <= entity.BB.top && that.game.down){ // from above
+                            that.y = entity.BB.top - that.height;
                         }
-                        else if(entity.BB.left >= (that.lastBB.right-20)){ // from left
-                            that.x -= that.lastBB.right - entity.BB.left;
+                        else if(that.lastBB.top + 5 * PARAMS.BLOCKWIDTH >= entity.BB.bottom && that.game.up){ // from below
+                            that.y += (entity.BB.bottom - that.lastBB.top);
                         }
-                        else if(entity.BB.bottom <= (that.lastBB.top+20)){ //from below
-                            that.y += entity.BB.bottom - that.lastBB.top;
+                        else if(that.lastBB.left + 5 * PARAMS.BLOCKWIDTH >= entity.BB.right && that.game.left){ //from right
+                            that.x = entity.BB.right;
                         }
-                        else if(entity.BB.top >= (that.lastBB.bottom-20)){ // from above
-                            that.y -= that.lastBB.bottom - entity.BB.top;
+                        else if(that.lastBB.right - 5 * PARAMS.BLOCKWIDTH <= entity.BB.left && that.game.right){ // from left
+                            that.x = entity.BB.left - that.width;
                         }
                         that.updateBB();
                     } else {
