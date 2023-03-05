@@ -524,6 +524,20 @@ class KitchenTable extends Furniture {
     };
 }
 
+class Plates extends Furniture {
+    constructor(game, x, y) {
+        super(game, "./sprites/furniture/furniture.png",  393, 187, 12, 11, x, y, 12, 11);
+        //this.BB = new BoundingBox(this.x, this.y,12 * PARAMS.BLOCKWIDTH,24 * PARAMS.BLOCKWIDTH);
+    };
+
+    update() {};
+
+    draw(ctx) {
+        ctx.drawImage(this.spritesheet, 393, 187, 12, 11, this.x - this.game.camera.x, this.y - this.game.camera.y, 8 * PARAMS.BLOCKWIDTH, 8 * PARAMS.BLOCKWIDTH);
+        //super.draw(ctx);
+    };
+}
+
 
 // --------------------- PATIO FURNITURE -------------------------------
 class PatioFloor extends Furniture {

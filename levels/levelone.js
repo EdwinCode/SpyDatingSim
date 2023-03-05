@@ -267,6 +267,12 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new TanChairUp(this.game, tanChairUp.x * PARAMS.BLOCKWIDTH, tanChairUp.y * PARAMS.BLOCKWIDTH));
     }
 
+    // plates
+    for (let i = 0; i < this.level.plates.length; i++) {
+        let plates = this.level.plates[i];
+        this.game.addEntity(new Plates(this.game, plates.x * PARAMS.BLOCKWIDTH, plates.y * PARAMS.BLOCKWIDTH));
+    }
+
     // kitchen table
     for (let i = 0; i < this.level.kitchenTable.length; i++) {
         let kitchenTable = this.level.kitchenTable[i];
