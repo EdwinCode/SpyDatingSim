@@ -596,7 +596,7 @@ let levelOneFurniture = {
 
     // ------------------------ BEDROOM FURNITURE -------------------
     bigWhiteBed: [
-        {x: 415, y: 160}
+        {x: 422, y: 175}
     ],
 
     bedroomMirror: [
@@ -613,6 +613,10 @@ let levelOneFurniture = {
     smallBlueTable: [
         //{x: 380, y: 170},
         //{x: 465, y: 170}
+    ],
+
+    paintingThree : [
+        {x: 414, y: 160}
     ],
 
 
@@ -648,11 +652,14 @@ let levelOneFurniture = {
         {x: 257, y: 160},
         {x: 280, y: 160},
         {x: 303, y: 160},
-        {x: 326, y: 160}
+        {x: 326, y: 160},
+        // by bed
+        {x: 390, y: 160},
+        {x: 481, y: 160}
     ],
 
     beds: [
-        {x: 445.5, y: -126}
+        {x: 450, y: -126}
     ],
 
     // small tree plant
@@ -669,7 +676,7 @@ let levelOneFurniture = {
         // bathroom area
         {x: 335, y: -200},
         {x: 260, y: -185},
-        {x: 335, y: -140}
+        {x: 335, y: -140},
     ],
 
     // small potted plant
@@ -695,10 +702,12 @@ let levelOneFurniture = {
         {x: 336, y: -165}
     ],
 
+    // green
     paintingOne : [
         {x: 288, y: -240}
     ],
 
+    // pink
     paintingTwo : [
         {x: 443, y: 0}
     ],
@@ -727,15 +736,16 @@ let levelOneFurniture = {
         {x: 296, y: 70},
         {x: 260, y: 100},
         // bedroom by bed
-        {x: 395, y: 173},
-        {x: 470, y: 173},
+        {x: 394, y: 193},
+        {x: 485, y: 193},
+        // by bottom bookshelf nook
         {x: 260, y: 212},
     ],
 
     lamp: [
         // bedroom by bed
-        {x: 396, y: 160},
-        {x: 471, y: 160},
+        {x: 396, y: 180},
+        {x: 487, y: 180},
         // bedroom by pink painting
         {x: 421, y: 12},
         // bedroom by bookshelves
@@ -752,7 +762,10 @@ let levelOneFurniture = {
         {x: 216, y: -284},
 
         // bedroom
-
+        {x: 420, y: 60},
+        {x: 420, y: 100},
+        {x: 470, y: 60},
+        {x: 470, y: 100}
     ],
 }
 
