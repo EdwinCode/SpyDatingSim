@@ -115,6 +115,36 @@ class SideWallRight extends Furniture {
     };
 }
 
+class MarbleFloor extends Furniture {
+    constructor(game, x, y, count) {
+        super(game, "./sprites/furniture/marblefloor.png", 0, 0, 800, 800, x, y, 800, 800);
+        Object.assign(this, {count});
+    };
+
+    update() {};
+
+    draw(ctx) {
+        for (let i = 0; i < this.count; i++) {
+            ctx.drawImage(this.spritesheet, 0, 0, 800, 800, this.x + i * (40 * PARAMS.BLOCKWIDTH) - this.game.camera.x, this.y - this.game.camera.y, 40 * PARAMS.BLOCKWIDTH, 40 * PARAMS.BLOCKWIDTH);
+        }
+    };
+}
+
+class WoodFloor extends Furniture {
+    constructor(game, x, y, count) {
+        super(game, "./sprites/furniture/flooring.png", 224, 96, 30, 30, x, y, 30, 30);
+        Object.assign(this, {count});
+    };
+
+    update() {};
+
+    draw(ctx) {
+        for (let i = 0; i < this.count; i++) {
+            ctx.drawImage(this.spritesheet, 224, 96, 30, 30, this.x + i * (20 * PARAMS.BLOCKWIDTH) - this.game.camera.x, this.y - this.game.camera.y, 20 * PARAMS.BLOCKWIDTH, 20 * PARAMS.BLOCKWIDTH);
+        }
+    };
+}
+
 // ----------------- FURNITURE -----------------------------
 
 class LongWoodenPatternedTable extends Furniture {

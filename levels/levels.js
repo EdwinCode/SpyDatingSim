@@ -81,6 +81,114 @@ let levelOneFurniture = {
         {x: 252.5, y: 90}
     ],
 
+    marbleFloor : [
+        // bathroom
+        {x: 256, y: -209, count: 6},
+        {x: 256, y: -169, count: 6},
+        {x: 256, y: -129, count: 6},
+        {x: 256, y: -89, count: 6},
+        {x: 256, y: -49, count: 6},
+        {x: 256, y: -9, count: 6},
+        {x: 256, y: -31, count: 6},
+        // one tile at end of each row
+        // overlaps with prev tiles in row
+        // since regular tiles don't fit in one row
+        {x: 465, y: -209, count: 1},
+        {x: 465, y: -169, count: 1},
+        {x: 465, y: -129, count: 1},
+        {x: 465, y: -89, count: 1},
+        {x: 465, y: -49, count: 1},
+        {x: 465, y: -9, count: 1},
+        {x: 465, y: -31, count: 1},
+
+        // entrance
+        {x: 0, y: 31, count: 6},
+        {x: 0, y: 71, count: 6},
+        {x: 0, y: 111, count: 6},
+        {x: 0, y: 151, count: 6},
+        {x: 0, y: 191, count: 6},
+        {x: 0, y: 231, count: 6},
+        // add one tile to each row that overlaps
+        {x: 213, y: 31, count: 1},
+        {x: 213, y: 71, count: 1},
+        {x: 213, y: 111, count: 1},
+        {x: 213, y: 151, count: 1},
+        {x: 213, y: 191, count: 1},
+        {x: 213, y: 231, count: 1}
+    ],
+
+    woodFloor : [
+        // office
+        {x: 0, y: -444, count: 13},
+        {x: 0, y: -424, count: 13},
+        {x: 0, y: -404, count: 13},
+        {x: 0, y: -464, count: 13},
+        {x: 0, y: -384, count: 13},
+        {x: 0, y: -364, count: 13},
+        {x: 0, y: -344, count: 13},
+        {x: 0, y: -324, count: 13},
+        {x: 0, y: -304, count: 13},
+        {x: 0, y: -284, count: 13},
+        {x: 0, y: -264, count: 13},
+        {x: 0, y: -244, count: 13},
+        {x: 0, y: -224, count: 13},
+
+        // kitchen
+        {x: 248, y: -444, count: 13},
+        {x: 248, y: -424, count: 13},
+        {x: 248, y: -404, count: 13},
+        {x: 248, y: -464, count: 13},
+        {x: 248, y: -384, count: 13},
+        {x: 248, y: -364, count: 13},
+        {x: 248, y: -344, count: 13},
+        {x: 248, y: -324, count: 13},
+        {x: 248, y: -304, count: 13},
+        {x: 248, y: -284, count: 13},
+        {x: 248, y: -264, count: 13},
+        {x: 248, y: -244, count: 13},
+        {x: 248, y: -224, count: 13},
+
+        // lounge
+        {x: 0, y: -209, count: 13},
+        {x: 0, y: -189, count: 13},
+        {x: 0, y: -169, count: 13},
+        {x: 0, y: -149, count: 13},
+        {x: 0, y: -129, count: 13},
+        {x: 0, y: -109, count: 13},
+        {x: 0, y: -89, count: 13},
+        {x: 0, y: -69, count: 13},
+        {x: 0, y: -49, count: 13},
+        {x: 0, y: -29, count: 13},
+        {x: 0, y: -9, count: 13},
+        {x: 0, y: 11, count: 13},
+
+        // bedroom
+        {x: 252, y: 31, count: 12},
+        {x: 252, y: 51, count: 12},
+        {x: 252, y: 71, count: 12},
+        {x: 252, y: 91, count: 12},
+        {x: 252, y: 111, count: 12},
+        {x: 252, y: 131, count: 12},
+        {x: 252, y: 151, count: 12},
+        {x: 252, y: 171, count: 12},
+        {x: 252, y: 191, count: 12},
+        {x: 252, y: 211, count: 12},
+        {x: 252, y: 231, count: 12},
+        // add one tile to each row that overlaps
+        {x: 488, y: 31, count: 1},
+        {x: 488, y: 51, count: 1},
+        {x: 488, y: 71, count: 1},
+        {x: 488, y: 91, count: 1},
+        {x: 488, y: 111, count: 1},
+        {x: 488, y: 131, count: 1},
+        {x: 488, y: 151, count: 1},
+        {x: 488, y: 171, count: 1},
+        {x: 488, y: 191, count: 1},
+        {x: 488, y: 211, count: 1},
+        {x: 488, y: 231, count: 1}
+
+    ],
+
     bigRugs: [
         //{x: 234.25, y: 112},
         //{x: 234.25, y: 136},

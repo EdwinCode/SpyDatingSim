@@ -570,6 +570,18 @@ function setUpLevelOneFurniture(game, level) {
     let camaH = this.cama.dHeight;
     this.cama.sneakerBB = new BoundingBox(camaX - camaW / 2, camaY - camaH / 2, camaW * 2, camaH * 2);
 */
+    // ------------------------ FLOOR -------------------
+
+    for (let i = 0; i < this.level.marbleFloor.length; i++) {
+        let marbleFloor = this.level.marbleFloor[i];
+        this.game.addEntity(new MarbleFloor(this.game, marbleFloor.x * PARAMS.BLOCKWIDTH, marbleFloor.y * PARAMS.BLOCKWIDTH, marbleFloor.count));
+    }
+
+    for (let i = 0; i < this.level.woodFloor.length; i++) {
+        let woodFloor = this.level.woodFloor[i];
+        this.game.addEntity(new WoodFloor(this.game, woodFloor.x * PARAMS.BLOCKWIDTH, woodFloor.y * PARAMS.BLOCKWIDTH, woodFloor.count));
+    }
+
     // ------------------------ PATIO FURNITURE -------------------
 
     for (let i = 0; i < this.level.plantOne.length; i++) {
