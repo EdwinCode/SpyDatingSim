@@ -46,6 +46,7 @@ ASSET_MANAGER.queueDownload("./sprites/furniture/stainedglass_1.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/stainedglass_2.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/stainedglass_3.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/window.png");
+ASSET_MANAGER.queueDownload("./sprites/furniture/garagedoor.png");
 
 //NOT CURRENTLY USED
 ASSET_MANAGER.queueDownload("./sprites/furniture/floorAndWall.png");
