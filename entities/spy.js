@@ -251,24 +251,151 @@ class Spy {
             // reset variable
             that.hideChat = true;
 
-            if (that.game.currLvl === levelOne1) {
+            if (entity instanceof Richie) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                    that.richieInteract = true;
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
 
-                if (entity instanceof Richie) {
+                        that.text = loadText(that.game.currLvl, "richie", that.game.chatState);
+                        that.image = loadImage(that.game.currLvl, "richie", that.game.chatState);
+
+                        that.game.chatState = that.updateState(that.game.currLvl, "richie", that.game.chatState);
+
+                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/richie_portraits.png");
+
+
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
+
+                        //TO PAUSE THE GAME
+                        Chatbox.OPEN = true;
+                    }
+                } else {
+                    that.richieInteract = false;
+                }
+            }
+
+            else if (entity instanceof Billionaire) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                    that.billionaireInteract = true;
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
+
+                        that.text = loadText(that.game.currLvl, "billionaire", that.game.chatState);
+                        that.image = loadImage(that.game.currLvl, "billionaire", that.game.chatState);
+                        that.game.chatState = that.updateState(that.game.currLvl, "billionaire", that.game.chatState);
+
+                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/billionaire_portraits.png");
+
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
+
+                        //TO PAUSE THE GAME
+                        Chatbox.OPEN = true;
+                    }
+                } else {
+                    that.billionaireInteract = false;
+                }
+            }
+
+            else if (entity instanceof Stephanie) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                    that.stephInteract = true;
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
+
+                        that.text = loadText(that.game.currLvl, "stephanie", that.game.chatState);
+                        that.image = loadImage(that.game.currLvl, "stephanie", that.game.chatState);
+                        that.game.chatState = that.updateState(that.game.currLvl, "stephanie", that.game.chatState);
+
+                        //PISKEL INFO
+                        // x4 scale
+                        //Padding: 8 pixels wide, 4 pixels length
+                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/stephanie_portraits.png");
+
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
+
+                        //TO PAUSE THE GAME
+                        Chatbox.OPEN = true;
+                    }
+                } else {
+                    that.stephInteract = false;
+                }
+            }
+
+            else if (entity instanceof KitchenWorker) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                    that.kitchenWorkerInteract = true;
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
+
+                        that.text = loadText(that.game.currLvl, "kitchenWorker", that.game.chatState);
+                        that.image = loadImage(that.game.currLvl, "kitchenWorker", that.game.chatState);
+                        that.game.chatState = that.updateState(that.game.currLvl, "kitchenWorker", that.game.chatState);
+
+                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/kitchen_worker_portraits.png");
+
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
+
+                        //TO PAUSE THE GAME
+                        Chatbox.OPEN = true;
+                    }
+                } else {
+                    that.kitchenWorkerInteract = false;
+                }
+            }
+
+            else if (entity instanceof Gardener) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                    that.gardenerInteract = true;
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
+
+                        that.text = loadText(that.game.currLvl, "gardener", that.game.chatState);
+                        that.image = loadImage(that.game.currLvl, "gardener", that.game.chatState);
+                        that.game.chatState = that.updateState(that.game.currLvl, "gardener", that.game.chatState);
+
+                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/gardener_portraits.png");
+
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
+
+                        //TO PAUSE THE GAME
+                        Chatbox.OPEN = true;
+                    }
+                } else {
+                    that.gardenerInteract = false;
+                }
+            }
+
+            else if (entity instanceof Guard) {
+                if (that.game.currLvl === levelOne1) {
                     if (entity.interactBB && that.BB.collide(entity.interactBB)) {
-                        that.richieInteract = true;
+                        that.guardInteract = true;
                         if (that.game.interact && that.hideChat) {
                             that.game.interact = false;
                             that.hideChat = false;
 
-                            that.text = loadText(that.game.currLvl, "richie", that.game.chatState);
-                            that.image = loadImage(that.game.currLvl, "richie", that.game.chatState);
+                            that.text = loadText(that.game.currLvl, "guard", that.game.chatState);
+                            that.image = loadImage(that.game.currLvl, "guard", that.game.chatState);
+                            that.game.chatState = that.updateState(that.game.currLvl, "guard", that.game.chatState);
 
-                            that.game.chatState = that.updateState(that.game.currLvl, "richie", that.game.chatState);
+                            that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/guard.png");
 
-                            that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/richie_portraits.png");
-
-
-                            that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
+                            that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, true);
                             that.game.addEntityToTop(that.chatbox);
                             that.chatbox.setVisible = true;
 
@@ -276,229 +403,115 @@ class Spy {
                             Chatbox.OPEN = true;
                         }
                     } else {
-                        that.richieInteract = false;
-                    }
-                } else if (entity instanceof Billionaire) {
-                    if (entity.interactBB && that.BB.collide(entity.interactBB)) {
-                        that.billionaireInteract = true;
-                        if (that.game.interact && that.hideChat) {
-                            that.game.interact = false;
-                            that.hideChat = false;
-
-                            that.text = loadText(that.game.currLvl, "billionaire", that.game.chatState);
-                            that.image = loadImage(that.game.currLvl, "billionaire", that.game.chatState);
-                            that.game.chatState = that.updateState(that.game.currLvl, "billionaire", that.game.chatState);
-
-                            that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/billionaire_portraits.png");
-
-                            that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
-                            that.game.addEntityToTop(that.chatbox);
-                            that.chatbox.setVisible = true;
-
-                            //TO PAUSE THE GAME
-                            Chatbox.OPEN = true;
-                        }
-                    } else {
-                        that.billionaireInteract = false;
-                    }
-                } else if (entity instanceof Stephanie) {
-                    if (entity.interactBB && that.BB.collide(entity.interactBB)) {
-                        that.stephInteract = true;
-                        if (that.game.interact && that.hideChat) {
-                            that.game.interact = false;
-                            that.hideChat = false;
-
-                            that.text = loadText(that.game.currLvl, "stephanie", that.game.chatState);
-                            that.image = loadImage(that.game.currLvl, "stephanie", that.game.chatState);
-                            that.game.chatState = that.updateState(that.game.currLvl, "stephanie", that.game.chatState);
-
-                            //PISKEL INFO
-                            // x4 scale
-                            //Padding: 8 pixels wide, 4 pixels length
-                            that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/stephanie_portraits.png");
-
-                            that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
-                            that.game.addEntityToTop(that.chatbox);
-                            that.chatbox.setVisible = true;
-
-                            //TO PAUSE THE GAME
-                            Chatbox.OPEN = true;
-                        }
-                    } else {
-                        that.stephInteract = false;
-                    }
-                } else if (entity instanceof KitchenWorker) {
-                    if (entity.interactBB && that.BB.collide(entity.interactBB)) {
-                        that.kitchenWorkerInteract = true;
-                        if (that.game.interact && that.hideChat) {
-                            that.game.interact = false;
-                            that.hideChat = false;
-
-                            that.text = loadText(that.game.currLvl, "kitchenWorker", that.game.chatState);
-                            that.image = loadImage(that.game.currLvl, "kitchenWorker", that.game.chatState);
-                            that.game.chatState = that.updateState(that.game.currLvl, "kitchenWorker", that.game.chatState);
-
-                            that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/kitchen_worker_portraits.png");
-
-                            that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
-                            that.game.addEntityToTop(that.chatbox);
-                            that.chatbox.setVisible = true;
-
-                            //TO PAUSE THE GAME
-                            Chatbox.OPEN = true;
-                        }
-                    } else {
-                        that.kitchenWorkerInteract = false;
-                    }
-                } else if (entity instanceof Gardener) {
-                    if (entity.interactBB && that.BB.collide(entity.interactBB)) {
-                        that.gardenerInteract = true;
-                        if (that.game.interact && that.hideChat) {
-                            that.game.interact = false;
-                            that.hideChat = false;
-
-                            that.text = loadText(that.game.currLvl, "gardener", that.game.chatState);
-                            that.image = loadImage(that.game.currLvl, "gardener", that.game.chatState);
-                            that.game.chatState = that.updateState(that.game.currLvl, "gardener", that.game.chatState);
-
-                            that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/gardener_portraits.png");
-
-                            that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
-                            that.game.addEntityToTop(that.chatbox);
-                            that.chatbox.setVisible = true;
-
-                            //TO PAUSE THE GAME
-                            Chatbox.OPEN = true;
-                        }
-                    } else {
-                        that.gardenerInteract = false;
-                    }
-                } else if (entity instanceof Guard) {
-                    if (that.game.currLvl === levelOne1) {
-                        if (entity.interactBB && that.BB.collide(entity.interactBB)) {
-                            that.guardInteract = true;
-                            if (that.game.interact && that.hideChat) {
-                                that.game.interact = false;
-                                that.hideChat = false;
-
-                                that.text = loadText(that.game.currLvl, "guard", that.game.chatState);
-                                that.image = loadImage(that.game.currLvl, "guard", that.game.chatState);
-                                that.game.chatState = that.updateState(that.game.currLvl, "guard", that.game.chatState);
-
-                                that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/guard.png");
-
-                                that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, true);
-                                that.game.addEntityToTop(that.chatbox);
-                                that.chatbox.setVisible = true;
-
-                                //TO PAUSE THE GAME
-                                Chatbox.OPEN = true;
-                            }
-                        } else {
-                            that.guardInteract = false;
-                        }
-                    }
-                } else if (entity instanceof CarMechanic) {
-                    if (entity.interactBB && that.BB.collide(entity.interactBB)) {
-                        that.carMechanicInteract = true;
-                        if (that.game.interact && that.hideChat) {
-                            that.game.interact = false;
-                            that.hideChat = false;
-
-                            that.text = loadText(that.game.currLvl, "carMechanic", that.game.chatState);
-                            that.image = loadImage(that.game.currLvl, "carMechanic", that.game.chatState);
-                            that.game.chatState = that.updateState(that.game.currLvl, "carMechanic", that.game.chatState);
-
-                            that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/car_mechanic_portraits.png");
-
-                            that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
-                            that.game.addEntityToTop(that.chatbox);
-                            that.chatbox.setVisible = true;
-
-                            //TO PAUSE THE GAME
-                            Chatbox.OPEN = true;
-                        }
-                    } else {
-                        that.carMechanicInteract = false;
+                        that.guardInteract = false;
                     }
                 }
+            }
 
+            else if (entity instanceof CarMechanic) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                    that.carMechanicInteract = true;
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
 
-                // ----------- OBJECT INTERACTIONS -------------------
+                        that.text = loadText(that.game.currLvl, "carMechanic", that.game.chatState);
+                        that.image = loadImage(that.game.currLvl, "carMechanic", that.game.chatState);
+                        that.game.chatState = that.updateState(that.game.currLvl, "carMechanic", that.game.chatState);
 
-                else if (entity instanceof BillionaireStatue) {
-                    if (entity.interactBB && that.BB.collide(entity.interactBB)) {
-                        that.billionaireStatueInteract = true;
-                        if (that.game.interact && that.hideChat) {
-                            that.game.interact = false;
-                            that.hideChat = false;
+                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/car_mechanic_portraits.png");
 
-                            that.text = loadText(that.game.currLvl, "billionaireStatue", that.game.chatState);
-                            that.image = loadImage(that.game.currLvl, "billionaireStatue", that.game.chatState);
-                            that.game.chatState = that.updateState(that.game.currLvl, "billionaireStatue", that.game.chatState);
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
 
-                            that.spritesheet = ASSET_MANAGER.getAsset("./sprites/blackbox.png");
-
-                            that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, true);
-                            that.game.addEntityToTop(that.chatbox);
-                            that.chatbox.setVisible = true;
-
-                            //TO PAUSE THE GAME
-                            Chatbox.OPEN = true;
-                        }
-                    } else {
-                        that.billionaireStatueInteract = false;
+                        //TO PAUSE THE GAME
+                        Chatbox.OPEN = true;
                     }
-
-                } else if (entity instanceof Fridge) {
-                    if (entity.interactBB && that.BB.collide(entity.interactBB)) {
-                        that.fridgeInteract = true;
-                        if (that.game.interact && that.hideChat) {
-                            that.game.interact = false;
-                            that.hideChat = false;
-
-                            that.text = loadText(that.game.currLvl, "fridge", that.game.chatState);
-                            that.image = loadImage(that.game.currLvl, "fridge", that.game.chatState);
-                            that.game.chatState = that.updateState(that.game.currLvl, "fridge", that.game.chatState);
-
-                            that.spritesheet = ASSET_MANAGER.getAsset("./sprites/blackbox.png");
-
-                            that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, true);
-                            that.game.addEntityToTop(that.chatbox);
-                            that.chatbox.setVisible = true;
-
-                            //TO PAUSE THE GAME
-                            Chatbox.OPEN = true;
-                        }
-                    } else {
-                        that.fridgeInteract = false;
-                    }
-
-                } else if (entity instanceof WideBlueMonitor) {
-                    if (entity.interactBB && that.BB.collide(entity.interactBB)) {
-                        that.monitorInteract = true;
-                        if (that.game.interact && that.hideChat) {
-                            that.game.interact = false;
-                            that.hideChat = false;
-
-                            that.text = loadText(that.game.currLvl, "monitor", that.game.chatState);
-                            that.image = loadImage(that.game.currLvl, "monitor", that.game.chatState);
-                            that.game.chatState = that.updateState(that.game.currLvl, "monitor", that.game.chatState);
-
-                            that.spritesheet = ASSET_MANAGER.getAsset("./sprites/blackbox.png");
-
-                            that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, true);
-                            that.game.addEntityToTop(that.chatbox);
-                            that.chatbox.setVisible = true;
-
-                            //TO PAUSE THE GAME
-                            Chatbox.OPEN = true;
-                        }
-                    } else {
-                        that.monitorInteract = false;
-                    }
-
+                } else {
+                    that.carMechanicInteract = false;
                 }
+            }
+
+
+            // ----------- OBJECT INTERACTIONS -------------------
+
+            else if (entity instanceof BillionaireStatue) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                    that.billionaireStatueInteract = true;
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
+
+                        that.text = loadText(that.game.currLvl, "billionaireStatue", that.game.chatState);
+                        that.image = loadImage(that.game.currLvl, "billionaireStatue", that.game.chatState);
+                        that.game.chatState = that.updateState(that.game.currLvl, "billionaireStatue", that.game.chatState);
+
+                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/blackbox.png");
+
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, true);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
+
+                        //TO PAUSE THE GAME
+                        Chatbox.OPEN = true;
+                    }
+                } else {
+                    that.billionaireStatueInteract = false;
+                }
+
+            }
+
+            else if (entity instanceof Fridge) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                    that.fridgeInteract = true;
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
+
+                        that.text = loadText(that.game.currLvl, "fridge", that.game.chatState);
+                        that.image = loadImage(that.game.currLvl, "fridge", that.game.chatState);
+                        that.game.chatState = that.updateState(that.game.currLvl, "fridge", that.game.chatState);
+
+                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/blackbox.png");
+
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, true);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
+
+                        //TO PAUSE THE GAME
+                        Chatbox.OPEN = true;
+                    }
+                } else {
+                    that.fridgeInteract = false;
+                }
+
+            }
+
+            else if (entity instanceof WideBlueMonitor) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                    that.monitorInteract = true;
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
+
+                        that.text = loadText(that.game.currLvl, "monitor", that.game.chatState);
+                        that.image = loadImage(that.game.currLvl, "monitor", that.game.chatState);
+                        that.game.chatState = that.updateState(that.game.currLvl, "monitor", that.game.chatState);
+
+                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/blackbox.png");
+
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, true);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
+
+                        //TO PAUSE THE GAME
+                        Chatbox.OPEN = true;
+                    }
+                } else {
+                    that.monitorInteract = false;
+                }
+
             }
 
             that.updateBB();
