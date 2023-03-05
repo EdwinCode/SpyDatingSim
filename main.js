@@ -24,8 +24,6 @@ ASSET_MANAGER.queueDownload("./sprites/entities/car_mechanic_portraits.png");
 ASSET_MANAGER.queueDownload("./sprites/emotes.png");
 ASSET_MANAGER.queueDownload("./sprites/blackbox.png");
 
-
-
 // HUD icons
 ASSET_MANAGER.queueDownload("./sprites/alfred.png");
 ASSET_MANAGER.queueDownload("./sprites/suitcase.png");
@@ -44,7 +42,13 @@ ASSET_MANAGER.queueDownload("./sprites/furniture/Cars.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/billionaire_statue.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/door.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/shoes.png");
+
 ASSET_MANAGER.queueDownload("./sprites/furniture/trellis.png");
+ASSET_MANAGER.queueDownload("./sprites/furniture/stainedglass_1.png");
+ASSET_MANAGER.queueDownload("./sprites/furniture/stainedglass_2.png");
+ASSET_MANAGER.queueDownload("./sprites/furniture/stainedglass_3.png");
+ASSET_MANAGER.queueDownload("./sprites/furniture/window.png");
+ASSET_MANAGER.queueDownload("./sprites/furniture/garagedoor.png");
 
 //NOT CURRENTLY USED
 ASSET_MANAGER.queueDownload("./sprites/furniture/floorAndWall.png");

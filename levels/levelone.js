@@ -10,9 +10,6 @@ class Level1Part1 {
     };
 
     setUpLevel() {
-        // game rules
-        //this.game.addEntityToTop(new HowToPlay(this.game));
-
         // casefile chatbox
         let caseFile = new CasefileChatbox(this.game);
         caseFile.firstTime = true;
@@ -87,8 +84,7 @@ class Level1Part1 {
     draw(ctx) {
         // method not used but declaration is necessary for game engine
     };
-}
-
+};
 
 class Level1Part2 {
     constructor(game, hud, darkness, level, spyCharacter) {
@@ -169,14 +165,13 @@ class Level1Part2 {
     draw(ctx) {
         // method not used but declaration is necessary for game engine
     };
-}
+};
 
 
 // set up for level one furniture so we dont have to duplicate it again
 function setUpLevelOneFurniture(game, level) {
     this.game = game;
     this.level = level;
-
 
     // ------------------------ OFFICE FURNITURE -------------------
 
@@ -215,7 +210,6 @@ function setUpLevelOneFurniture(game, level) {
         let redStool = this.level.redStool[i];
         this.game.addEntity(new RedStool(this.game, redStool.x * PARAMS.BLOCKWIDTH, redStool.y * PARAMS.BLOCKWIDTH));
     }
-
 
     // ------------------------ KITCHEN FURNITURE -------------------
 
@@ -285,7 +279,6 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new LongWoodenPatternedTable(this.game, table.x * PARAMS.BLOCKWIDTH, table.y * PARAMS.BLOCKWIDTH));
     }
 
-
     // ------------------------ LOUNGE FURNITURE -------------------
 
     //piano
@@ -312,7 +305,6 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new PacManGame(this.game, pacManGame.x * PARAMS.BLOCKWIDTH, pacManGame.y * PARAMS.BLOCKWIDTH));
     }
 
-
     //big couch
     for (let i = 0; i < this.level.bigCouches.length; i++) {
         let couch = this.level.bigCouches[i];
@@ -330,7 +322,6 @@ function setUpLevelOneFurniture(game, level) {
         let chairLeft = this.level.chairLefts[i];
         this.game.addEntity(new ChairLeft(this.game, chairLeft.x * PARAMS.BLOCKWIDTH, chairLeft.y * PARAMS.BLOCKWIDTH));
     }
-
 
     // ------------------------ BATHROOM FURNITURE -------------------
 
@@ -438,7 +429,6 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new LongTanTable(this.game, longTanTable.x * PARAMS.BLOCKWIDTH, longTanTable.y * PARAMS.BLOCKWIDTH));
     }
 
-
     // ------------------------ BEDROOM FURNITURE -------------------
 
     //bigWhiteBed
@@ -483,11 +473,25 @@ function setUpLevelOneFurniture(game, level) {
 
     // -----------------------------------------------------------------
 
+    // ------------------------ GARAGE FURNITURE -------------------
+
+    for (let i = 0; i < this.level.garageDoor.length; i++) {
+        let garageDoor = this.level.garageDoor[i];
+        this.game.addEntity(new GarageDoor(this.game, garageDoor.x * PARAMS.BLOCKWIDTH, garageDoor.y * PARAMS.BLOCKWIDTH));
+    }
+
     // ------------------------ PATIO FURNITURE -------------------
 
     for (let i = 0; i < this.level.trellis.length; i++) {
         let trellis = this.level.trellis[i];
         this.game.addEntity(new Trellis(this.game, trellis.x * PARAMS.BLOCKWIDTH, trellis.y * PARAMS.BLOCKWIDTH, trellis.count));
+    }
+
+    // ------------------------ GREEN HOUSE FURNITURE -------------------
+
+    for (let i = 0; i < this.level.greenHouseWindow.length; i++) {
+        let greenHouseWindow = this.level.greenHouseWindow[i];
+        this.game.addEntity(new GreenHouseWindow(this.game, greenHouseWindow.x * PARAMS.BLOCKWIDTH, greenHouseWindow.y * PARAMS.BLOCKWIDTH, greenHouseWindow.count));
     }
 
     // ------------------------------------------------------------
@@ -497,22 +501,6 @@ function setUpLevelOneFurniture(game, level) {
     //
 
     // ------------------------------------------------------------
-
-
-
-    // for (let i = 0; i < this.level.beds.length; i++) {
-    //     let bed = this.level.beds[i];
-    //     this.game.addEntity(new Bed(this.game, bed.x * PARAMS.BLOCKWIDTH, bed.y * PARAMS.BLOCKWIDTH));
-    // }
-
-    // bed with win condition
-    // this.cama = new Bed(this.game, 500 * PARAMS.BLOCKWIDTH, 220 * PARAMS.BLOCKWIDTH);
-    // this.game.addEntity(this.cama);
-    // let camaX = this.cama.x;
-    // let camaY = this.cama.y;
-    // let camaW = this.cama.dWidth;
-    // let camaH = this.cama.dHeight;
-    // this.cama.sneakerBB = new BoundingBox(camaX - camaW / 2, camaY - camaH / 2, camaW * 2, camaH * 2);
 
     //plain wall
     for (let i = 0; i < this.level.plainWalls.length; i++) {
@@ -532,12 +520,29 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new SideWallRight(this.game, sideWallRight.x * PARAMS.BLOCKWIDTH, sideWallRight.y * PARAMS.BLOCKWIDTH, sideWallRight.count));
     }
 
+    // ------------------------------------------------------------
+
+    //
+    // DRAW HERE TO DRAW UNDER WALLS (useful for flooring)
+    //
+
+    // ------------------------------------------------------------
+
     //big rug
     for (let i = 0; i < this.level.bigRugs.length; i++) {
         let rug = this.level.bigRugs[i];
         this.game.addEntity(new BigRug(this.game, rug.x * PARAMS.BLOCKWIDTH, rug.y * PARAMS.BLOCKWIDTH));
     }
 
+    // bed with win condition
+    /*this.cama = new Bed(this.game, 500 * PARAMS.BLOCKWIDTH, 220 * PARAMS.BLOCKWIDTH);
+    this.game.addEntity(this.cama);
+    let camaX = this.cama.x;
+    let camaY = this.cama.y;
+    let camaW = this.cama.dWidth;
+    let camaH = this.cama.dHeight;
+    this.cama.sneakerBB = new BoundingBox(camaX - camaW / 2, camaY - camaH / 2, camaW * 2, camaH * 2);
+*/
     // ------------------------ PATIO FURNITURE -------------------
 
     for (let i = 0; i < this.level.plantOne.length; i++) {
@@ -555,9 +560,32 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new GreenPatioChairRight(this.game, patioChairLeft.x * PARAMS.BLOCKWIDTH, patioChairLeft.y * PARAMS.BLOCKWIDTH));
     }
 
+    for (let i = 0; i < this.level.patioTable.length; i++) {
+        let patioTable = this.level.patioTable[i];
+        this.game.addEntity(new PatioTable(this.game, patioTable.x * PARAMS.BLOCKWIDTH, patioTable.y * PARAMS.BLOCKWIDTH));
+    }
+
+    for (let i = 0; i < this.level.plantTwo.length; i++) {
+        let plantTwo = this.level.plantTwo[i];
+        this.game.addEntity(new RowTwoPlantOne(this.game, plantTwo.x * PARAMS.BLOCKWIDTH, plantTwo.y * PARAMS.BLOCKWIDTH));
+    }
+
+    for (let i = 0; i < this.level.plantFive.length; i++) {
+        let plantFive = this.level.plantFive[i];
+        this.game.addEntity(new RowEightPlantTwo(this.game, plantFive.x * PARAMS.BLOCKWIDTH, plantFive.y * PARAMS.BLOCKWIDTH));
+    }
+
     for (let i = 0; i < this.level.patioFloor.length; i++) {
         let patioFloor = this.level.patioFloor[i];
         this.game.addEntity(new PatioFloor(this.game, patioFloor.x * PARAMS.BLOCKWIDTH, patioFloor.y * PARAMS.BLOCKWIDTH, patioFloor.count));
+    }
+
+    // ------------------------ GREEN HOUSE FURNITURE -------------------
+
+    // same as patio floor
+    for (let i = 0; i < this.level.greenHouseFloor.length; i++) {
+        let greenHouseFloor = this.level.greenHouseFloor[i];
+        this.game.addEntity(new PatioFloor(this.game, greenHouseFloor.x * PARAMS.BLOCKWIDTH, greenHouseFloor.y * PARAMS.BLOCKWIDTH, greenHouseFloor.count));
     }
 
     // ------------------------------------------------------------
