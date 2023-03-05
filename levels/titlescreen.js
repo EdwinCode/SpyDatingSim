@@ -67,7 +67,7 @@ class TitleScreen {
 
             // draw black rectangle
             setBlackStroke(ctx);
-            ctx.fillRect(90, 40, 500, 90);
+            ctx.fillRect(80, 30, 520, 105);
 
             // title text
             setWhiteStroke(ctx);
