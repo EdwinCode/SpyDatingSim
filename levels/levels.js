@@ -254,13 +254,13 @@ let levelOneFurniture = {
     rugsHorizontal: [
         {x: 424, y: -192, count: 4, color: "Dark Blue"},
         {x: 424, y: -182, count: 4, color: "Dark Blue"},
-        {x: 450, y: -101, count: 5, color: "Orange"},
-        {x: 450, y: -91, count: 5, color: "Orange"}
+        {x: 450, y: -101, count: 5, color: "Dark Blue"},
+        {x: 450, y: -91, count: 5, color: "Dark Blue"}
     ],
 
     rugsVertical: [
-        {x: 419, y: -160, count: 5, color: "Red"},
-        {x: 429, y: -160, count: 5, color: "Red"}
+        //{x: 419, y: -160, count: 5, color: "Dark Blue"},
+        //{x: 429, y: -160, count: 5, color: "Dark Blue"}
     ],
 
     rugsSquare: [
