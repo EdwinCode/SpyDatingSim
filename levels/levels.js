@@ -251,6 +251,23 @@ let levelOneFurniture = {
         //{x: -18.25, y: -344}
     ],
 
+    rugsHorizontal: [
+        {x: 424, y: -192, count: 4, color: "Dark Blue"},
+        {x: 424, y: -182, count: 4, color: "Dark Blue"},
+        {x: 450, y: -101, count: 5, color: "Orange"},
+        {x: 450, y: -91, count: 5, color: "Orange"}
+    ],
+
+    rugsVertical: [
+        {x: 419, y: -160, count: 5, color: "Red"},
+        {x: 429, y: -160, count: 5, color: "Red"}
+    ],
+
+    rugsSquare: [
+        {x: -248, y: -448, count: 25, color: "Grey"},
+        //{x: -248, y: 200, count: 25, color: "Grey"}
+    ],
+
     // ------------------------ GARAGE FURNITURE -------------------
 
     garageDoor : [
@@ -353,7 +370,7 @@ let levelOneFurniture = {
         // upper left room section
         {x: -50, y: -175},
         // lower right room section
-        {x: -200, y: -45}
+        {x: -195, y: -45}
     ],
 
     patioBench : [
@@ -416,6 +433,17 @@ let levelOneFurniture = {
         {x: -22, y: 93}
     ],
 
+    greenHousePot: [
+        {x: -89, y: 98, color: "Red"}
+    ],
+
+    roses: [
+        {x: -91, y: 82, color: "Red"}
+    ],
+
+    pottedRose: [
+        {x: -120, y: 98, potColor: "Red", roseColor: "Red"}
+    ],
 
 
     // ------------------------ KITCHEN FURNITURE -------------------
@@ -685,7 +713,7 @@ let levelOneFurniture = {
         // lower left room section
         //{x: -167, y: -22},
         {x: -245, y: -90},
-        {x: -167, y: -90},
+        {x: -157, y: -90},
         // bathroom area
         {x: 335, y: -200},
         {x: 260, y: -185},
@@ -697,8 +725,8 @@ let levelOneFurniture = {
         // upper right section
         {x: -108, y: -170},
         // lower left section
-        {x: -218, y: -82},
-        {x: -192, y: -82},
+        {x: -213, y: -82},
+        {x: -185, y: -82},
         // behind greenhouse window
         {x: -210, y: 10},
         {x: -180, y: 10},
