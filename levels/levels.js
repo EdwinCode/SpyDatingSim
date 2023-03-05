@@ -281,6 +281,15 @@ let levelOneFurniture = {
         //{x: -93, y: 240, count: 2}
     ],
 
+    greenHouseTable : [
+        {x: -93, y: 50},
+        {x: -22, y: 50}
+    ],
+
+    tablePlant : [
+        {x: -88, y: 50}
+    ],
+
     // ------------------------ KITCHEN FURNITURE -------------------
 
     kitchenSet: [
