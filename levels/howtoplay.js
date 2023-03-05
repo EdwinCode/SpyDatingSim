@@ -63,11 +63,27 @@ class HowToPlay {
         ctx.strokeRect(42, 295, 40, 40);
         ctx.strokeRect(103, 295, 40, 40);
         ctx.fillText(" s , \u2193  Move Down", 40, 320);
-        ctx.strokeRect(72, 340, 40, 40);
-        ctx.fillText(" e    Interact", 70, 365);
-        ctx.strokeRect(42, 385, 100, 40);
-        ctx.fillText(" shift  Run", 40, 412);
+        ctx.strokeRect(42, 340, 100, 40);
+        ctx.fillText(" shift  Run", 40, 365);
 
+        // interaction
+        ctx.textAlign = "left";
+        ctx.font = "Bold 30px Courier";
+        ctx.fillText("INTERACTION:", 408, 140);
+
+        ctx.font = "Bold 25px Courier";
+        ctx.lineWidth = 2;
+        ctx.strokeRect(410, 160, 40, 40);
+        ctx.fillText(" e    Interact", 408, 185);
+        ctx.fillText("Clicking the ", 408, 233);
+        ctx.fillText("above button will", 408, 263);
+        ctx.fillText("open a chatbox.", 408, 293);
+        ctx.fillText("To close a", 408, 323);
+        ctx.fillText("chatbox, use your", 408, 353);
+        ctx.fillText("mouse and click", 408, 383);
+        ctx.fillText("the close button.", 408, 413);
+
+        // hud
         ctx.font = "Bold 30px Courier";
         ctx.fillText("IN-GAME HUD:", 40, 470);
 
