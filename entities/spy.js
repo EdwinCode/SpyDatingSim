@@ -35,6 +35,9 @@ class Spy {
         this.fridgeInteract = false;
         this.monitorInteract = false;
 
+        //ITEMS
+        this.toolboxInteract = false
+
 
         // use for decision tree
         this.game.chatState = 0;
@@ -81,7 +84,7 @@ class Spy {
 
     updateBB() {
         this.lastBB = this.BB;
-        this.BB = new BoundingBox(this.x + 2, this.y + 64, this.width - 2, this.height - 64);
+        this.BB = new BoundingBox(this.x, this.y + 16 * PARAMS.BLOCKWIDTH, this.width - PARAMS.BLOCKWIDTH, this.height - 16 * PARAMS.BLOCKWIDTH);
 
     };
 
@@ -234,17 +237,47 @@ class Spy {
                 }
             }
 
+            if (entity instanceof Toolbox) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                    that.toolboxInteract = true;
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
+
+                        that.text = loadText(that.game.currLvl, "toolbox", that.game.chatState);
+                        that.image = loadImage(that.game.currLvl, "toolbox", that.game.chatState);
+                        that.game.chatState = that.updateState(that.game.currLvl, "toolbox", that.game.chatState);
+
+                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/blackbox.png");
+
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
+
+                        //TO PAUSE THE GAME
+                        Chatbox.OPEN = true;
+
+                        if (that.game.chatState > 2) {
+                            flashlightDisplay = true;
+                        }
+                    }
+                } else {
+                    that.toolboxInteract = false;
+                }
+
+            }
+
             //
             // INTERACTIONS
             //
 
             // trigger cutscene
-            if (that.game.currLvl.label === "Phase 1-1" && that.game.chatState === 4 && that.chatbox.setVisible === false) {
+            if (that.game.currLvl.label === "Phase 1-1" && that.game.chatState === 7 && that.chatbox.setVisible === false) {
                 that.game.camera.loadLevel(levelOneCutscene);
             }
 
             // win game
-            if (that.game.currLvl.label === "Phase 1-2" && that.game.chatState === 4 && that.chatbox.setVisible === false) {
+            if (that.game.currLvl.label === "Phase 1-2" && that.game.chatState === 7 && that.chatbox.setVisible === false) {
                 that.game.camera.loadLevel(winScreen);
             }
 
@@ -560,6 +593,7 @@ class Spy {
                 }
             }
 
+
             that.updateBB();
         });
 
@@ -575,7 +609,7 @@ class Spy {
         }
         // interact message
         if (this.stephInteract || this.billionaireInteract || this.richieInteract || this.kitchenWorkerInteract || this.gardenerInteract || this.guardInteract
-            || this.carMechanicInteract || this.billionaireStatueInteract || this.fridgeInteract || this.monitorInteract) {
+            || this.carMechanicInteract || this.billionaireStatueInteract || this.fridgeInteract || this.monitorInteract || this.toolboxInteract) {
             setBlackStroke(ctx);
             ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
             ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
@@ -597,6 +631,8 @@ class Spy {
             else if(this.fridgeInteract) interactPersonText = "Fridge"
             else if(this.monitorInteract) interactPersonText = "Monitor"
 
+            //items
+            else if(this.toolboxInteract) interactPersonText = "Toolbox"
 
             ctx.fillText(interactPersonText, PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 30);
         }
@@ -639,7 +675,6 @@ class Spy {
 
         // billionaire
         else if (entity === "billionaire") {
-            console.log("billionaire");
             if (level.billionaire[chatState].stateIncr === true) {
                 return chatState + 1;
             } else {
@@ -707,6 +742,17 @@ class Spy {
         // monitor
         else if (entity === "monitor") {
             if (level.monitor[chatState].stateIncr === true) {
+                return chatState + 1;
+            } else {
+                return chatState;
+            }
+        }
+
+        //ITEMS
+
+        // toolbox
+        else if (entity === "toolbox") {
+            if (level.toolbox[chatState].stateIncr === true) {
                 return chatState + 1;
             } else {
                 return chatState;

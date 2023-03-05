@@ -9,6 +9,7 @@ ASSET_MANAGER.queueDownload("./sprites/entities/billionaire.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/stephanie.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/richie.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/darkness.png");
+ASSET_MANAGER.queueDownload("./sprites/entities/darknessLighter.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/guard.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/stephanie_portraits.png");
 ASSET_MANAGER.queueDownload("./sprites/entities/richie_portraits.png");
@@ -31,6 +32,7 @@ ASSET_MANAGER.queueDownload("./sprites/suitcase.png");
 
 // item icons
 ASSET_MANAGER.queueDownload("./sprites/casefile_icon.jpg");
+ASSET_MANAGER.queueDownload("./sprites/flashlight.png");
 
 //cutscenes
 ASSET_MANAGER.queueDownload("./sprites/cutscenes/intro.png");
@@ -39,6 +41,7 @@ ASSET_MANAGER.queueDownload("./sprites/casefileUpdated.png");
 
 //furniture
 ASSET_MANAGER.queueDownload("./sprites/furniture/House_Tileset.png");
+ASSET_MANAGER.queueDownload("./sprites/furniture/toolbox.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/furniture.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/cars.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/billionaire_statue.png");
@@ -54,8 +57,11 @@ ASSET_MANAGER.queueDownload("./sprites/furniture/cars.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/flooring.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/marblefloor.png");
 
-//NOT CURRENTLY USED
-ASSET_MANAGER.queueDownload("./sprites/furniture/floorAndWall.png");
+ASSET_MANAGER.queueDownload("./sprites/furniture/PlantPots.png");
+ASSET_MANAGER.queueDownload("./sprites/furniture/Roses.png");
+ASSET_MANAGER.queueDownload("./sprites/furniture/Floorings.png")
+
+
 
 ASSET_MANAGER.downloadAll(() => {
 	const canvas = document.getElementById("gameWorld");

@@ -251,6 +251,23 @@ let levelOneFurniture = {
         //{x: -18.25, y: -344}
     ],
 
+    rugsHorizontal: [
+        {x: 424, y: -192, count: 4, color: "Dark Blue"},
+        {x: 424, y: -182, count: 4, color: "Dark Blue"},
+        {x: 450, y: -101, count: 5, color: "Orange"},
+        {x: 450, y: -91, count: 5, color: "Orange"}
+    ],
+
+    rugsVertical: [
+        {x: 419, y: -160, count: 5, color: "Red"},
+        {x: 429, y: -160, count: 5, color: "Red"}
+    ],
+
+    rugsSquare: [
+        {x: -248, y: -448, count: 25, color: "Grey"},
+        //{x: -248, y: 200, count: 25, color: "Grey"}
+    ],
+
 
 
     // ------------------------ GARAGE FURNITURE -------------------
@@ -272,6 +289,16 @@ let levelOneFurniture = {
         {x: -230, y: -290}
     ],
 
+
+
+    toolbox : [
+        {x: -36, y: -444},
+    ],
+
+    shelf : [
+        {x: -43, y: -440},
+
+    ],
 
 
     // ------------------------ OFFICE FURNITURE -------------------
@@ -338,7 +365,7 @@ let levelOneFurniture = {
         // upper left room section
         {x: -50, y: -175},
         // lower right room section
-        {x: -200, y: -45}
+        {x: -195, y: -45}
     ],
 
     patioBench : [
@@ -402,6 +429,17 @@ let levelOneFurniture = {
         {x: -22, y: 93}
     ],
 
+    greenHousePot: [
+        {x: -89, y: 98, color: "Red"}
+    ],
+
+    roses: [
+        {x: -91, y: 82, color: "Red"}
+    ],
+
+    pottedRose: [
+        {x: -120, y: 98, potColor: "Red", roseColor: "Red"}
+    ],
 
 
     // ------------------------ KITCHEN FURNITURE -------------------
@@ -682,7 +720,7 @@ let levelOneFurniture = {
         // lower left room section
         //{x: -167, y: -22},
         {x: -245, y: -90},
-        {x: -167, y: -90},
+        {x: -157, y: -90},
         // bathroom area
         {x: 335, y: -200},
         {x: 260, y: -185},
@@ -695,8 +733,8 @@ let levelOneFurniture = {
         // upper right section
         {x: -108, y: -170},
         // lower left section
-        {x: -218, y: -82},
-        {x: -192, y: -82},
+        {x: -213, y: -82},
+        {x: -185, y: -82},
         // behind greenhouse window
         {x: -210, y: 10},
         {x: -180, y: 10},
@@ -797,25 +835,25 @@ let levelOne1 = {
             state: 1,
             portraitNumber: 0,
             stateIncr: false},
-        {message: "Look in the Entrance room for a special item. The Entrance room is south of the Lounge room," +
-                "which is where you started.",
+        {message: "Talk to Richie. He is also dating Mr. Billionaire. I know I like to gossip, but Richie " +
+                "has no filter...",
             state: 2,
             portraitNumber: 0,
             stateIncr: false},
-        {message: "Talk to Richie. He is also dating Mr. Billionaire. I know I like to gossip, but Richie " +
-                "has no filter...",
+        {message: "Keep getting to know the other contestants, that's what Mr. Billionaire wanted.",
             state: 3,
             portraitNumber: 0,
             stateIncr: false},
-        {message: "Look in the Office for a special item. The Office is north of the Lounge.",
+        {message: "Keep getting to know the other contestants, that's what Mr. Billionaire wanted.",
             state: 4,
             portraitNumber: 0,
             stateIncr: false},
-        {message: "Look in the Garage for a special item. The Garage is west of the Office.",
+        {message: "Keep getting to know the other contestants, that's what Mr. Billionaire wanted.",
             state: 5,
             portraitNumber: 0,
             stateIncr: false},
-        {message: "Someone is going to give a toast. Go back to them to hear it.",
+        {message: "Someone is going to give a toast. Go back to them to hear it. " +
+                "And if you haven't found any extra tools, you might want to take another look around the mansion.",
             state: 6,
             portraitNumber: 0,
             stateIncr: false}
@@ -872,7 +910,7 @@ let levelOne1 = {
         { message: "I don't think there is any reason for me not to get a rose tonight.",
             state: 3,
             portraitNumber: 0,
-            stateIncr: false},
+            stateIncr: true},
         { message: "I think I'm like really starting to fall in love...",
             state: 4,
             portraitNumber: 0,
@@ -903,15 +941,15 @@ let levelOne1 = {
         { message: "Then again, maybe that water does wonders for the skin...",
             state: 3,
             portraitNumber: 0,
-            stateIncr: false},
+            stateIncr: true},
         { message: "I'm practicing my best \"Can I steal you for a sec?\"",
             state: 4,
             portraitNumber: 0,
-            stateIncr: false},
+            stateIncr: true},
         { message: "What drama is happening that I can just sit and watch?",
             state: 5,
             portraitNumber: 0,
-            stateIncr: false},
+            stateIncr: true},
         { message: "I'm practicing my best \"Can I steal you for a sec?\"",
             state: 6,
             portraitNumber: 0,
@@ -1138,7 +1176,38 @@ let levelOne1 = {
     ],
 
 
-    // add furniture interactions
+    //ITEMS
+    toolbox: [
+        { message: "There seems to be a lot of cool things in this toolbox.",
+            state: 0,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "Maybe something could be useful here for later.",
+            state: 1,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "Gotta keep looking in this, there's a lot of nice tools in here.",
+            state: 2,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "You found a flashlight!",
+            state: 3,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "You found a flashlight!",
+            state: 4,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "You found a flashlight!",
+            state: 5,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "You found a flashlight!",
+            state: 6,
+            portraitNumber: 0,
+            stateIncr: false},
+    ],
+
     // sneakers: if state == 2 then stateIncr = true
     // cape: if state == 4 then stateIncr = true
     // flashlight: if state == 5 then stateIncr = true
@@ -1269,10 +1338,6 @@ let introCutscene = {
 
 let levelOneCutscene = {
     label: "level one"
-};
-
-let levelOnePart2Cutscene = {
-    label: "level one part 2"
 };
 
 let loseScreen = {

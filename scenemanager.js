@@ -73,12 +73,6 @@ class Scenemanager {
             this.game.addEntity(new LevelOneCutscene(this.game));
         }
 
-        // level one cutscene
-        if (this.currentLevel === levelOnePart2Cutscene) {
-            this.clearEntities();
-            this.game.addEntity(new LevelOnePart2Cutscene(this.game));
-        }
-
         // level one, part 2
         if (this.currentLevel === levelOne2) {
             this.clearEntities();

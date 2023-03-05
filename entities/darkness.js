@@ -5,9 +5,13 @@ class Darkness {
         this.dWidth = PARAMS.CANVAS_WIDTH;
         this.dHeight = PARAMS.CANVAS_HEIGHT;
 
-        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/darkness.png")
+        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/darkness.png");
 
     };
+
+    brightenDarkness() {
+        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/darknessLighter.png");
+    }
 
     update() {
 
