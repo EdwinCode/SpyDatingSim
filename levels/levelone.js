@@ -466,6 +466,13 @@ function setUpLevelOneFurniture(game, level) {
 
     // -----------------------------------------------------------------
 
+    // ------------------------ GARAGE FURNITURE -------------------
+
+    for (let i = 0; i < this.level.garageDoor.length; i++) {
+        let garageDoor = this.level.garageDoor[i];
+        this.game.addEntity(new GarageDoor(this.game, garageDoor.x * PARAMS.BLOCKWIDTH, garageDoor.y * PARAMS.BLOCKWIDTH));
+    }
+
     // ------------------------ PATIO FURNITURE -------------------
 
     for (let i = 0; i < this.level.trellis.length; i++) {

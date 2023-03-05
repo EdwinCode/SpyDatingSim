@@ -36,7 +36,8 @@ let levelOneFurniture = {
         {x: 4.5, y: -480, count: 8},
         {x: 257, y: -480, count: 8},
 
-        {x: -248, y: -480, count: 8},
+        //garage wall
+        //{x: -248, y: -480, count: 8},
 
         // green house bottom walls
         {x: -248, y: 240, count: 1},
@@ -84,6 +85,12 @@ let levelOneFurniture = {
 
         //{x: -18.25, y: -368},
         //{x: -18.25, y: -344}
+    ],
+
+    // ------------------------ GARAGE FURNITURE -------------------
+
+    garageDoor : [
+        {x: -248, y: -480},
     ],
 
     // ------------------------ OFFICE FURNITURE -------------------
@@ -196,7 +203,7 @@ let levelOneFurniture = {
         {x: -109, y: -148},
         {x: -16, y: -148},
         // lower left room section
-        {x: -167, y: -22},
+        //{x: -167, y: -22},
         {x: -245, y: -90},
         {x: -167, y: -90}
     ],
@@ -219,8 +226,6 @@ let levelOneFurniture = {
         // behind greenhouse window
         {x: -210, y: 10},
         {x: -180, y: 10}
-        //{x: -245, y: -80},
-        //{x: -165, y: -80}
 
     ],
 

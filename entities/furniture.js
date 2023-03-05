@@ -105,6 +105,21 @@ class LongWoodenPatternedTable extends Furniture {
 // GREEN HOUSE | ENTRANCE | BEDROOM
 
 // --------------------- GARAGE FURNITURE -------------------------------
+
+class GarageDoor extends Furniture {
+    constructor(game, x, y) {
+        super(game, "./sprites/furniture/garagedoor.png", 0, 0, 768, 151, x, y, 768, 151);
+        this.BB = new BoundingBox(this.x, this.y,248 * PARAMS.BLOCKWIDTH,32 * PARAMS.BLOCKWIDTH);
+    };
+
+    update() {};
+
+    draw(ctx) {
+        ctx.drawImage(this.spritesheet, 0, 0, 768, 151, this.x - this.game.camera.x, this.y - this.game.camera.y, 248 * PARAMS.BLOCKWIDTH, 32 * PARAMS.BLOCKWIDTH);
+        super.draw(ctx);
+    };
+};
+
 class BlackCar extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/Cars.png",  6, 3, 61, 20, x, y, 488, 160);
