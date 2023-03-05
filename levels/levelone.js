@@ -597,6 +597,16 @@ function setUpLevelOneFurniture(game, level) {
 
     // ------------------------ GREEN HOUSE FURNITURE -------------------
 
+    for (let i = 0; i < this.level.tablePlant.length; i++) {
+        let tablePlant = this.level.tablePlant[i];
+        this.game.addEntity(new RowEightPlantTwo(this.game, tablePlant.x * PARAMS.BLOCKWIDTH, tablePlant.y * PARAMS.BLOCKWIDTH));
+    }
+
+    for (let i = 0; i < this.level.greenHouseTable.length; i++) {
+        let greenHouseTable = this.level.greenHouseTable[i];
+        this.game.addEntity(new GreenHouseTable(this.game, greenHouseTable.x * PARAMS.BLOCKWIDTH, greenHouseTable.y * PARAMS.BLOCKWIDTH));
+    }
+
     // same as patio floor
     for (let i = 0; i < this.level.greenHouseFloor.length; i++) {
         let greenHouseFloor = this.level.greenHouseFloor[i];
