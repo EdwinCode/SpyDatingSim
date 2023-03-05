@@ -268,8 +268,9 @@ let levelOneFurniture = {
         //{x: -248, y: 200, count: 25, color: "Grey"}
     ],
 
-    // ------------------------ GARAGE FURNITURE -------------------
 
+
+    // ------------------------ GARAGE FURNITURE -------------------
     garageDoor : [
         {x: -248, y: -480}
     ],
@@ -288,6 +289,8 @@ let levelOneFurniture = {
         {x: -230, y: -290}
     ],
 
+
+
     toolbox : [
         {x: -36, y: -444},
     ],
@@ -299,7 +302,6 @@ let levelOneFurniture = {
 
 
     // ------------------------ OFFICE FURNITURE -------------------
-
     wideBlueMonitor: [
         {x: 103, y: -472},
         {x: 133, y: -472}
@@ -324,16 +326,9 @@ let levelOneFurniture = {
         {x: 177, y: -335},
     ],
 
-    redStool: [
-        {x: 155, y: -284},
-        {x: 175, y: -265},
-        {x: 200, y: -265},
-        {x: 216, y: -284},
 
-    ],
 
     // ------------------------ PATIO FURNITURE -------------------
-
     patioFloor : [
         {x: -248, y: -208, count: 25},
         {x: -248, y: -198, count: 25},
@@ -395,8 +390,9 @@ let levelOneFurniture = {
         {x: -80, y: -170}
     ],
 
-    // ------------------------ GREENHOUSE FURNITURE -------------------
 
+
+    // ------------------------ GREENHOUSE FURNITURE -------------------
     greenHouseFloor : [
         {x: -248, y: 32, count: 25},
         {x: -248, y: 42, count: 25},
@@ -638,7 +634,7 @@ let levelOneFurniture = {
 
     // ------------------------ BEDROOM FURNITURE -------------------
     bigWhiteBed: [
-        {x: 407, y: 156}
+        {x: 415, y: 160}
     ],
 
     bedroomMirror: [
@@ -647,15 +643,14 @@ let levelOneFurniture = {
     ],
 
     wardrobes: [
-        //{x: 415, y: 6},
-        //{x: 477, y: 6}
+        // closet in bathroom
         {x: 261, y: -78},
-        {x: 318, y: -78}
+        {x: 318, y: -78},
     ],
 
     smallBlueTable: [
-        {x: 380, y: 170},
-        {x: 465, y: 170}
+        //{x: 380, y: 170},
+        //{x: 465, y: 170}
     ],
 
 
@@ -682,25 +677,20 @@ let levelOneFurniture = {
         {x: 228, y: -475},
 
         //bedroom
+        // top
         {x: 257, y: 6},
         {x: 280, y: 6},
         {x: 303, y: 6},
-        {x: 326, y: 6}
+        {x: 326, y: 6},
+        // bottom
+        {x: 257, y: 160},
+        {x: 280, y: 160},
+        {x: 303, y: 160},
+        {x: 326, y: 160}
     ],
 
     beds: [
         {x: 445.5, y: -126}
-    ],
-
-    darkTable : [
-        {x: 428, y: -55}
-    ],
-
-    smallDarkTable : [
-        // bathroom area
-        {x: 296, y: -165},
-        {x: 296, y: -190},
-        {x: 260, y: -135}
     ],
 
     // small tree plant
@@ -722,6 +712,7 @@ let levelOneFurniture = {
 
     // small potted plant
     plantTwo : [
+        // patio
         // upper right section
         {x: -108, y: -170},
         // lower left section
@@ -732,6 +723,10 @@ let levelOneFurniture = {
         {x: -180, y: 10},
         // out front of bathroom on table
         {x: 438, y: -62},
+        // bedroom by pink painting
+        {x: 483, y: 18},
+        // bedroom by bookshelves
+        {x: 299, y: 62},
         // green house on table
         {x: -88, y: 50},
         // bathroom area
@@ -747,18 +742,59 @@ let levelOneFurniture = {
     ],
 
     standardChair : [
+        // bathroom area
         {x: 260, y: -205},
-        {x: 260, y: -160}
+        {x: 260, y: -160},
+        // bedroom by bookshelves
+        {x: 260, y: 70}
+    ],
+
+    darkTable : [
+        {x: 428, y: -55}
+    ],
+
+    smallDarkTable : [
+        // bathroom area
+        {x: 296, y: -165},
+        {x: 296, y: -190},
+        {x: 260, y: -135},
+        // bedroom by pink painting
+        {x: 420, y: 25},
+        {x: 480, y: 25},
+        // bedroom by bookshelves
+        {x: 296, y: 70},
+        {x: 260, y: 100},
+        // bedroom by bed
+        {x: 395, y: 173},
+        {x: 470, y: 173},
+        {x: 260, y: 212},
     ],
 
     lamp: [
-        // bedroom
-        {x: 384, y: 160},
-        {x: 469, y: 160},
+        // bedroom by bed
+        {x: 396, y: 160},
+        {x: 471, y: 160},
+        // bedroom by pink painting
+        {x: 421, y: 12},
+        // bedroom by bookshelves
+        {x: 261, y: 88},
         // bathroom area
         {x: 261, y: -148}
-    ]
+    ],
+
+    redStool: [
+        // office
+        {x: 155, y: -284},
+        {x: 175, y: -265},
+        {x: 200, y: -265},
+        {x: 216, y: -284},
+
+        // bedroom
+
+    ],
 }
+
+
 
 let levelOne1 = {
     label: "Phase 1-1",
