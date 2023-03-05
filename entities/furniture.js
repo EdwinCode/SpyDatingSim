@@ -800,7 +800,21 @@ class GreenHouseWindow extends Furniture {
         }
         super.draw(ctx);
     };
-};
+}
+
+class GreenHouseTable extends Furniture {
+    constructor(game, x, y) {
+        super(game, "./sprites/furniture/furniture.png",  596, 26, 16, 24, x, y, 16, 24);
+        this.BB = new BoundingBox(this.x, this.y,20 * PARAMS.BLOCKWIDTH,25 * PARAMS.BLOCKWIDTH);
+    };
+
+    update() {};
+
+    draw(ctx) {
+        ctx.drawImage(this.spritesheet, 596, 26, 16, 24, this.x - this.game.camera.x, this.y - this.game.camera.y, 20 * PARAMS.BLOCKWIDTH, 30 * PARAMS.BLOCKWIDTH);
+        super.draw(ctx);
+    };
+}
 
 //
 // --------------------- ENTRANCE FURNITURE -------------------------------
