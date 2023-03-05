@@ -21,7 +21,6 @@ class Guard{
         ///
 
         //direction
-
         if (this.movement === 0) { //stationary
             // do nothing
         } else if (this.movement === 2) { //up-down
