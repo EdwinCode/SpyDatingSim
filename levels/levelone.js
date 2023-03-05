@@ -512,7 +512,14 @@ function setUpLevelOneFurniture(game, level) {
 
     for (let i = 0; i < this.level.greenHouseWindow.length; i++) {
         let greenHouseWindow = this.level.greenHouseWindow[i];
-        this.game.addEntity(new GreenHouseWindow(this.game, greenHouseWindow.x * PARAMS.BLOCKWIDTH, greenHouseWindow.y * PARAMS.BLOCKWIDTH, greenHouseWindow.count));
+        this.game.addEntity(new MansionWindow(this.game, greenHouseWindow.x * PARAMS.BLOCKWIDTH, greenHouseWindow.y * PARAMS.BLOCKWIDTH, greenHouseWindow.count));
+    }
+
+    // ------------------------ ENTRANCE FURNITURE -------------------
+
+    for (let i = 0; i < this.level.entranceWindow.length; i++) {
+        let entranceWindow = this.level.entranceWindow[i];
+        this.game.addEntity(new MansionWindow(this.game, entranceWindow.x * PARAMS.BLOCKWIDTH, entranceWindow.y * PARAMS.BLOCKWIDTH, entranceWindow.count));
     }
 
     // ------------------------------------------------------------
@@ -523,22 +530,34 @@ function setUpLevelOneFurniture(game, level) {
 
     // ------------------------------------------------------------
 
-    //plain wall
-    for (let i = 0; i < this.level.plainWalls.length; i++) {
-        let plainWall = this.level.plainWalls[i];
-        this.game.addEntity(new PlainWall(this.game, plainWall.x * PARAMS.BLOCKWIDTH, plainWall.y * PARAMS.BLOCKWIDTH, plainWall.count));
+    // walls in doorways
+    for (let i = 0; i < this.level.doorWallsLeft.length; i++) {
+        let doorWallsLeft = this.level.doorWallsLeft[i];
+        this.game.addEntity(new DoorWallLeft(this.game, doorWallsLeft.x * PARAMS.BLOCKWIDTH, doorWallsLeft.y * PARAMS.BLOCKWIDTH));
     }
 
-    //side wall left
+    // walls in doorways
+    for (let i = 0; i < this.level.doorWallsRight.length; i++) {
+        let doorWallsRight = this.level.doorWallsRight[i];
+        this.game.addEntity(new DoorWallRight(this.game, doorWallsRight.x * PARAMS.BLOCKWIDTH, doorWallsRight.y * PARAMS.BLOCKWIDTH));
+    }
+
+    // side wall left
     for (let i = 0; i < this.level.sideWallLefts.length; i++) {
         let sideWallLeft = this.level.sideWallLefts[i];
         this.game.addEntity(new SideWallLeft(this.game, sideWallLeft.x * PARAMS.BLOCKWIDTH, sideWallLeft.y * PARAMS.BLOCKWIDTH, sideWallLeft.count));
     }
 
-    //side wall right
+    // side wall right
     for (let i = 0; i < this.level.sideWallRights.length; i++) {
         let sideWallRight = this.level.sideWallRights[i];
         this.game.addEntity(new SideWallRight(this.game, sideWallRight.x * PARAMS.BLOCKWIDTH, sideWallRight.y * PARAMS.BLOCKWIDTH, sideWallRight.count));
+    }
+
+    // plain wall
+    for (let i = 0; i < this.level.plainWalls.length; i++) {
+        let plainWall = this.level.plainWalls[i];
+        this.game.addEntity(new PlainWall(this.game, plainWall.x * PARAMS.BLOCKWIDTH, plainWall.y * PARAMS.BLOCKWIDTH, plainWall.count));
     }
 
     // ------------------------------------------------------------
@@ -564,6 +583,18 @@ function setUpLevelOneFurniture(game, level) {
     let camaH = this.cama.dHeight;
     this.cama.sneakerBB = new BoundingBox(camaX - camaW / 2, camaY - camaH / 2, camaW * 2, camaH * 2);
 */
+    // ------------------------ FLOOR -------------------
+
+    for (let i = 0; i < this.level.marbleFloor.length; i++) {
+        let marbleFloor = this.level.marbleFloor[i];
+        this.game.addEntity(new MarbleFloor(this.game, marbleFloor.x * PARAMS.BLOCKWIDTH, marbleFloor.y * PARAMS.BLOCKWIDTH, marbleFloor.count));
+    }
+
+    for (let i = 0; i < this.level.woodFloor.length; i++) {
+        let woodFloor = this.level.woodFloor[i];
+        this.game.addEntity(new WoodFloor(this.game, woodFloor.x * PARAMS.BLOCKWIDTH, woodFloor.y * PARAMS.BLOCKWIDTH, woodFloor.count));
+    }
+
     // ------------------------ PATIO FURNITURE -------------------
 
     for (let i = 0; i < this.level.plantOne.length; i++) {

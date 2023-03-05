@@ -51,12 +51,11 @@ ASSET_MANAGER.queueDownload("./sprites/furniture/window.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/garagedoor.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/cars.png");
 
+ASSET_MANAGER.queueDownload("./sprites/furniture/flooring.png");
+ASSET_MANAGER.queueDownload("./sprites/furniture/marblefloor.png");
+
 //NOT CURRENTLY USED
 ASSET_MANAGER.queueDownload("./sprites/furniture/floorAndWall.png");
-
-
-
-
 
 ASSET_MANAGER.downloadAll(() => {
 	const canvas = document.getElementById("gameWorld");
