@@ -282,7 +282,7 @@ class CasefileUpdatedChatbox {
         ctx.font = "18px Courier";
         ctx.fillRect(380, 300, 260, 200);
         setBlackStroke(ctx);
-        ctx.fillText("NEXT OBJECT:", 387, 160);
+        ctx.fillText("NEXT OBJECTIVE:", 387, 160);
         ctx.fillText("Roam the mansion and", 387, 185);
         ctx.fillText("search for clues when", 387, 200);
         ctx.fillText("it is dark and the", 387, 215);
