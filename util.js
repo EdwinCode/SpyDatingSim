@@ -176,7 +176,11 @@ function loadText(level, entity, chatState) {
     //ITEMS
     // toolbox
     else if (entity === "toolbox") {
-        return level.toolbox[chatState].message;
+        if (flashlightDisplay === true) {
+            return "This is where you found the flashlight."
+        } else {
+            return level.toolbox[chatState].message;
+        }
     }
 };
 

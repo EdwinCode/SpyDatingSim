@@ -257,7 +257,7 @@ class Spy {
                         //TO PAUSE THE GAME
                         Chatbox.OPEN = true;
 
-                        if (that.game.chatState === 2) {
+                        if (that.game.chatState > 2) {
                             flashlightDisplay = true;
                         }
                     }
@@ -272,12 +272,12 @@ class Spy {
             //
 
             // trigger cutscene
-            if (that.game.currLvl.label === "Phase 1-1" && that.game.chatState === 4 && that.chatbox.setVisible === false) {
+            if (that.game.currLvl.label === "Phase 1-1" && that.game.chatState === 7 && that.chatbox.setVisible === false) {
                 that.game.camera.loadLevel(levelOneCutscene);
             }
 
             // win game
-            if (that.game.currLvl.label === "Phase 1-2" && that.game.chatState === 4 && that.chatbox.setVisible === false) {
+            if (that.game.currLvl.label === "Phase 1-2" && that.game.chatState === 7 && that.chatbox.setVisible === false) {
                 that.game.camera.loadLevel(winScreen);
             }
 
@@ -608,6 +608,7 @@ class Spy {
     };
 
     updateState(level, entity, chatState) {
+        console.log("state:" + chatState);
         // stephanie
         if (entity === "stephanie") {
             if (level.stephanie[chatState].stateIncr === true) {
