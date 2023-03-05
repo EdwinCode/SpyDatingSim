@@ -398,7 +398,6 @@ class Fridge extends Furniture {
     };
 }
 
-
 class KitchenCounterLeft extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/furniture.png",  340, 204, 16, 16, x, y, 128, 128);
@@ -511,6 +510,19 @@ class TanChairDown extends Furniture {
     };
 }
 
+class KitchenTable extends Furniture {
+    constructor(game, x, y) {
+        super(game, "./sprites/furniture/furniture.png",  374, 85, 32, 16, x, y, 32, 16);
+        this.BB = new BoundingBox(this.x, this.y,150 * PARAMS.BLOCKWIDTH,24 * PARAMS.BLOCKWIDTH);
+    };
+
+    update() {};
+
+    draw(ctx) {
+        ctx.drawImage(this.spritesheet, 374, 85, 32, 16, this.x - this.game.camera.x, this.y - this.game.camera.y, 150 * PARAMS.BLOCKWIDTH, 28 * PARAMS.BLOCKWIDTH);
+        super.draw(ctx);
+    };
+}
 
 
 // --------------------- PATIO FURNITURE -------------------------------

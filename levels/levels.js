@@ -460,21 +460,25 @@ let levelOneFurniture = {
     ],
 
     tanChairRight: [
-        {x: 316, y: -322},
+        {x: 325, y: -326},
     ],
 
     tanChairUp: [
-        {x: 348, y: -297},
-        {x: 388, y: -297},
-        {x: 428, y: -297},
-        {x: 468, y: -297},
+        {x: 345, y: -315},
+        {x: 385, y: -315},
+        {x: 425, y: -315},
+        {x: 465, y: -315},
     ],
 
     tanChairDown: [
-        {x: 348, y: -343},
-        {x: 388, y: -343},
-        {x: 428, y: -343},
-        {x: 468, y: -343},
+        {x: 345, y: -343},
+        {x: 385, y: -343},
+        {x: 425, y: -343},
+        {x: 465, y: -343},
+    ],
+
+    kitchenTable : [
+        {x: 335, y: -330}
     ],
 
 
@@ -623,16 +627,8 @@ let levelOneFurniture = {
 
     // ------------ Multiple Rooms ---------------------
     longWoodenPatternedTables: [
-
         //office
         {x: 174, y: -290},
-
-        //kitchen
-        {x: 335, y: -320},
-        {x: 375, y: -320},
-
-        {x: 415, y: -320},
-        {x: 455, y: -320},
     ],
 
     bookshelves: [
