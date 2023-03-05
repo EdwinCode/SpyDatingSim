@@ -813,7 +813,107 @@ class GreenHouseTable extends Furniture {
     };
 }
 
+class GreenHousePot extends Furniture {
+    constructor(game, x, y, color) {
+        super(game, "./sprites/furniture/PlantPots.png",  8, 8, 160, 160, x, y, 160, 160);
+        Object.assign(this, {color});
+        this.BB = new BoundingBox(this.x, this.y,10 * PARAMS.BLOCKWIDTH,10 * PARAMS.BLOCKWIDTH);
+    };
 
+    update() {};
+
+    draw(ctx) {
+        this.xOffset = 0;
+        this.yOffset = 0;
+        if(this.color === "Brown") {
+            this.xOffset += 0;
+            this.yOffset += 0;
+        } else if (this.color === "Black") {
+            this.xOffset += 168;
+            this.yOffset += 0;
+        } else if (this.color === "Purple") {
+            this.xOffset += 2 * 168;
+            this.yOffset += 0;
+        } else if (this.color === "Yellow") {
+            this.xOffset += 3 * 168;
+            this.yOffset += 0;
+        } else if(this.color === "Blue") {
+            this.xOffset += 0;
+            this.yOffset += 168;
+        } else if (this.color === "Pink") {
+            this.xOffset += 168;
+            this.yOffset += 168;
+        } else if (this.color === "Red") {
+            this.xOffset += 2 * 168;
+            this.yOffset += 168;
+        } else if (this.color === "Green") {
+            this.xOffset += 3 * 168;
+            this.yOffset += 168;
+        }
+        ctx.drawImage(this.spritesheet, 8 + this.xOffset, 8 + this.yOffset, 160, 160, this.x - this.game.camera.x, this.y - this.game.camera.y, 10 * PARAMS.BLOCKWIDTH, 10 * PARAMS.BLOCKWIDTH);
+        super.draw(ctx);
+    };
+}
+
+class Rose extends Furniture {
+    constructor(game, x, y, color) {
+        super(game, "./sprites/furniture/Roses.png",  8, 8, 240, 288, x, y, 240, 288);
+        Object.assign(this, {color});
+        //this.BB = new BoundingBox(this.x, this.y,15 * PARAMS.BLOCKWIDTH,18 * PARAMS.BLOCKWIDTH);
+    };
+
+    update() {};
+
+    draw(ctx) {
+        this.xOffset = 0;
+        this.yOffset = 0;
+        if(this.color === "Red") {
+            this.xOffset += 0;
+            this.yOffset += 0;
+        } else if (this.color === "Dark Blue") {
+            this.xOffset += 248;
+            this.yOffset += 0;
+        } else if (this.color === "Pink") {
+            this.xOffset += 2 * 248;
+            this.yOffset += 0;
+        } else if (this.color === "Green") {
+            this.xOffset += 3 * 248;
+            this.yOffset += 0;
+        } else if(this.color === "Orange") {
+            this.xOffset += 0;
+            this.yOffset += 296;
+        } else if (this.color === "Light Blue") {
+            this.xOffset += 248;
+            this.yOffset += 296;
+        } else if (this.color === "Yellow") {
+            this.xOffset += 2 * 248;
+            this.yOffset += 296;
+        } else if (this.color === "White") {
+            this.xOffset += 3 * 248;
+            this.yOffset += 296;
+        }
+        ctx.drawImage(this.spritesheet, 8 + this.xOffset, 8 + this.yOffset, 240, 288, this.x - this.game.camera.x, this.y - this.game.camera.y, 15 * PARAMS.BLOCKWIDTH, 18 * PARAMS.BLOCKWIDTH);
+        //super.draw(ctx);
+    };
+}
+
+class PottedRose extends Furniture {
+    constructor(game, x, y, potColor, roseColor) {
+        super(game, "./sprites/furniture/Roses.png",  8, 8, 240, 288, x, y, 240, 288);
+        Object.assign(this, {potColor, roseColor});
+        this.Pot = new GreenHousePot(game, x, y, potColor);
+        this.Rose = new Rose(game, x - 2 * PARAMS.BLOCKWIDTH, y - 16 * PARAMS.BLOCKWIDTH, roseColor);
+        this.BB = new BoundingBox(this.x, this.y - 4 * PARAMS.BLOCKWIDTH,10 * PARAMS.BLOCKWIDTH,14 * PARAMS.BLOCKWIDTH);
+    };
+
+    update() {};
+
+    draw(ctx) {
+        this.Rose.draw(ctx);
+        this.Pot.draw(ctx);
+        super.draw(ctx);
+    };
+}
 
 // --------------------- ENTRANCE FURNITURE -------------------------------
 class BigCubePainting extends Furniture {
