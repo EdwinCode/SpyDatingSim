@@ -4,6 +4,13 @@ let levelOneFurniture = {
     plainWalls: [
         // Start at x = 4.5 because the Room 1 left wall starts at 0 and a left wall takes up 4.5 BLOCKWIDTHS so 0 + 4.5 = 4.5.
 
+        // office top wall
+        {x: 4.5, y: -480, count: 8},
+
+        // office bottom wall
+        {x: 4.5, y: -240, count: 3},
+        {x: 159.5, y:-240, count: 3},
+
         // entrance top wall
         {x: 4.5, y: 0, count: 3},
         {x: 159.5, y: 0, count: 3},
@@ -13,20 +20,19 @@ let levelOneFurniture = {
         {x: 98, y: 240, count: 2},
         {x: 222, y: 240, count: 1},
 
-        // office top wall
-        {x: 4.5, y: -480, count: 8},
-
-        // office bottom wall
-        {x: 4.5, y: -240, count: 3},
-        {x: 159.5, y:-240, count: 3},
-        //{x: 4.5, y: 240, count: 8},
-
         // kitchen top wall
         {x: 257, y: -480, count: 8},
 
-        // kitchen bottom wall
+        // Room row 1 col 2
         {x: 257, y: -240, count: 3},
         {x: 412, y: -240, count: 3},
+
+        // closet within room
+        {x: 256, y: -80, count: 3},
+
+        // bathroom within room
+        {x: 443, y: -150, count: 2},
+        {x: 412, y: -80, count: 2},
 
         // bedroom top wall
         {x: 257, y: 0, count: 3},
@@ -63,7 +69,7 @@ let levelOneFurniture = {
         {x: -252.5, y: -480, count: 15},
 
         // bathroom inner walls
-        //{x: -252.5, y: -480, count: 2}
+        {x: 412, y: -240, count: 10}
     ],
 
     sideWallRights: [ // Count makes them grow downwards
@@ -85,7 +91,11 @@ let levelOneFurniture = {
         // left side of mansion
         {x: 0, y: -390},
         {x: 0, y: -150},
-        {x: 0, y: 90}
+        {x: 0, y: 90},
+
+        // bathroom door
+        //{x: 412, y: -80, count: 10}
+
     ],
 
     doorWallsRight : [
@@ -426,8 +436,9 @@ let levelOneFurniture = {
         {x: -88, y: 50}
     ],
 
-    // ------------------------ KITCHEN FURNITURE -------------------
 
+
+    // ------------------------ KITCHEN FURNITURE -------------------
     kitchenSet: [
         {x: 354, y: -481}
     ],
@@ -500,8 +511,9 @@ let levelOneFurniture = {
         {x: 468, y: -343},
     ],
 
-    // ------------------------ LOUNGE FURNITURE -------------------
 
+
+    // ------------------------ LOUNGE FURNITURE -------------------
     piano: [
         {x: 30, y: -66}
     ],
@@ -539,48 +551,33 @@ let levelOneFurniture = {
     ],
 
 
-    // ------------------------ BATHROOM FURNITURE -------------------
 
+    // ------------------------ BATHROOM FURNITURE -------------------
     shower: [
-        {x: 427, y: -70},
-        {x: 452, y: -70},
-        {x: 477, y: -70}
+        {x: 430, y: -235}
     ],
 
     toilet: [
-        {x: 282, y: -57}
+        {x: 482, y: -215}
     ],
 
     bathtub: [
-        {x: 405, y: -142},
-        {x: 321, y: -142}
+        //{x: 456, y: -175}
     ],
 
     bathroomSink: [
-        // left side
-        {x: 261, y: -215},
-        {x: 306, y: -215},
-
-        // right side
-        {x: 415, y: -215},
-        {x: 462, y: -215}
+        {x: 454, y: -128}
     ],
 
     bathroomMirror: [
-        //left side
-        {x: 257, y: -235},
-        {x: 287, y: -235},
-        {x: 318, y: -235},
-
-        //right side
-        {x: 412, y: -235},
-        {x: 443, y: -235},
-        {x: 473, y: -235}
+        {x: 458, y: -145}
     ],
 
     trashcan: [
-        {x: 262, y: -50}
+        {x: 465, y: -212}
     ],
+
+
 
     // ------------------------ ENTRANCE FURNITURE -------------------
     entranceWindow : [
