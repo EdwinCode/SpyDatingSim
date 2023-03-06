@@ -246,7 +246,7 @@ class CasefileUpdatedChatbox {
         ctx.textAlign = "center";
 
         if (this.firstTime) {
-            ctx.fillText("A New Item...", PARAMS.CANVAS_WIDTH / 2, 50);
+            ctx.fillText("An Updated Item...", PARAMS.CANVAS_WIDTH / 2, 50);
             ctx.fillText("This will be in your items bag.", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 50);
         }
 

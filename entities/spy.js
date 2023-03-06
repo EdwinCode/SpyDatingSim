@@ -821,6 +821,8 @@ class Spy {
             if (level.waterTank[chatState].stateIncr === true) {
                 if (clueOneDisplay === false) {
                     return chatState + 1;
+                } else {
+                    return chatState;
                 }
             } else {
                 return chatState;
@@ -832,6 +834,8 @@ class Spy {
             if (level.greyCar[chatState].stateIncr === true) {
                 if (clueTwoDisplay === false) {
                     return chatState + 1;
+                } else {
+                    return chatState;
                 }
             } else {
                 return chatState;
@@ -843,6 +847,8 @@ class Spy {
             if (level.paintingTwo[chatState].stateIncr === true) {
                 if (clueThreeDisplay === false) {
                     return chatState + 1;
+                } else {
+                    return chatState;
                 }
             } else {
                 return chatState;
