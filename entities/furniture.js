@@ -60,7 +60,7 @@ class DoorWallRight extends Furniture {
     constructor(game, x, y, count) {
         super(game, "./sprites/furniture/House_Tileset.png", 727, 32, 36, 90, x, y, 36, 90);
         Object.assign(this, {count});
-        this.BB = new BoundingBox(this.x, this.y, 4.5 * PARAMS.BLOCKWIDTH, 20 * PARAMS.BLOCKWIDTH);
+        this.BB = new BoundingBox(this.x, this.y, 4.5 * PARAMS.BLOCKWIDTH, 28 * PARAMS.BLOCKWIDTH);
     };
 
     update() {};
