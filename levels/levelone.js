@@ -686,6 +686,20 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new PottedRose(this.game, pottedRose.x * PARAMS.BLOCKWIDTH, pottedRose.y * PARAMS.BLOCKWIDTH, pottedRose.potColor, pottedRose.roseColor));
     }
 
+    for (let i = 0; i < this.level.pottedRoseColumn.length; i++) {
+        let pottedRose = this.level.pottedRoseColumn[i];
+        for (let j = 0; j < pottedRose.count; j++) {
+            this.game.addEntity(new PottedRose(this.game, pottedRose.x * PARAMS.BLOCKWIDTH, pottedRose.y * PARAMS.BLOCKWIDTH + j * (40 * PARAMS.BLOCKWIDTH), pottedRose.potColor, pottedRose.roseColor));
+        }
+    }
+
+    for (let i = 0; i < this.level.pottedRoseRow.length; i++) {
+        let pottedRose = this.level.pottedRoseRow[i];
+        for (let j = 0; j < pottedRose.count; j++) {
+            this.game.addEntity(new PottedRose(this.game, pottedRose.x * PARAMS.BLOCKWIDTH + j * (30 * PARAMS.BLOCKWIDTH), pottedRose.y * PARAMS.BLOCKWIDTH, pottedRose.potColor, pottedRose.roseColor));
+        }
+    }
+
     for (let i = 0; i < this.level.greenHousePot.length; i++) {
         let greenHousePot = this.level.greenHousePot[i];
         this.game.addEntity(new GreenHousePot(this.game, greenHousePot.x * PARAMS.BLOCKWIDTH, greenHousePot.y * PARAMS.BLOCKWIDTH, greenHousePot.color));

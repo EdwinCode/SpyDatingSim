@@ -444,17 +444,34 @@ let levelOneFurniture = {
     ],
 
     greenHousePot: [
-        {x: -89, y: 98, color: "Red"}
+        {x: -89, y: 110, color: "Brown"},
+        {x: -14, y: 50, color: "Yellow"}
     ],
 
     roses: [
-        {x: -91, y: 82, color: "Red"}
+        {x: -90, y: 58, color: "Dark Blue"},
+        {x: -86, y: 47, color: "Pink"},
+        {x: -22, y: 105, color: "Yellow"},
+        {x: -14, y: 97, color: "Orange"},
+        {x: -20, y: 86, color: "Green"},
     ],
 
     pottedRose: [
-        {x: -120, y: 98, potColor: "Red", roseColor: "Red"}
+        {x: -89, y: 98, potColor: "Red", roseColor: "Red"},
+        {x: -19, y: 68, potColor: "Purple", roseColor: "White"},
     ],
 
+    pottedRoseColumn: [
+        {x: -240, y: 60, potColor: "Pink", roseColor: "Green", count: 6},
+        {x: -210, y: 60, potColor: "Purple", roseColor: "White", count: 6},
+        {x: -180, y: 60, potColor: "Yellow", roseColor: "Light Blue", count: 6},
+    ],
+
+    pottedRoseRow: [
+        {x: -150, y: 180, potColor: "Blue", roseColor: "Yellow", count: 5},
+        {x: -150, y: 220, potColor: "Green", roseColor: "Pink", count: 5},
+        {x: -150, y: 260, potColor: "Black", roseColor: "Orange", count: 5},
+    ],
 
     // ------------------------ KITCHEN FURNITURE -------------------
     kitchenSet: [
@@ -759,7 +776,7 @@ let levelOneFurniture = {
         // bedroom by bookshelves
         {x: 299, y: 62},
         // green house on table
-        {x: -88, y: 50},
+        //{x: -88, y: 50},
         // bathroom area
         {x: 336, y: -165}
     ],
