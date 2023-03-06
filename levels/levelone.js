@@ -126,7 +126,7 @@ class Level1Part2 {
         // 1 = left-right, 2 = up-down
 
         //entrance
-        this.game.addEntity(new Guard(this.game, 229 * PARAMS.BLOCKWIDTH, 70 * PARAMS.BLOCKWIDTH, 2));
+        this.game.addEntity(new Guard(this.game, 185 * PARAMS.BLOCKWIDTH, 70 * PARAMS.BLOCKWIDTH, 2));
         this.game.addEntity(new Guard(this.game, 70 * PARAMS.BLOCKWIDTH, 200 * PARAMS.BLOCKWIDTH, 1));
 
         //lounge
@@ -136,23 +136,27 @@ class Level1Part2 {
         this.game.addEntity(new Guard(this.game, 230 * PARAMS.BLOCKWIDTH, -180 * PARAMS.BLOCKWIDTH, 2));
 
         //green house
-        this.game.addEntity(new Guard(this.game, -23 * PARAMS.BLOCKWIDTH, 70 * PARAMS.BLOCKWIDTH, 2));
+        this.game.addEntity(new Guard(this.game, -60 * PARAMS.BLOCKWIDTH, 48 * PARAMS.BLOCKWIDTH, 2));
 
         //patio
         this.game.addEntity(new Guard(this.game, -190 * PARAMS.BLOCKWIDTH, -32 * PARAMS.BLOCKWIDTH, 1));
-        this.game.addEntity(new Guard(this.game, -190 * PARAMS.BLOCKWIDTH, -218 * PARAMS.BLOCKWIDTH, 1));
+        this.game.addEntity(new Guard(this.game, -190 * PARAMS.BLOCKWIDTH, -225 * PARAMS.BLOCKWIDTH, 1));
 
         //garage
         this.game.addEntity(new Guard(this.game, -20 * PARAMS.BLOCKWIDTH, -410 * PARAMS.BLOCKWIDTH, 2));
 
         //office
+        this.game.addEntity(new Guard(this.game, 69 * PARAMS.BLOCKWIDTH, -400 * PARAMS.BLOCKWIDTH, 2));
         this.game.addEntity(new Guard(this.game, 230 * PARAMS.BLOCKWIDTH, -410 * PARAMS.BLOCKWIDTH, 2));
 
         //kitchen
         this.game.addEntity(new Guard(this.game, 310 * PARAMS.BLOCKWIDTH, -275 * PARAMS.BLOCKWIDTH, 1));
 
         //bedroom
-        this.game.addEntity(new Guard(this.game, 315 * PARAMS.BLOCKWIDTH, 40 * PARAMS.BLOCKWIDTH, 1));
+        this.game.addEntity(new Guard(this.game, 326 * PARAMS.BLOCKWIDTH, 120 * PARAMS.BLOCKWIDTH, 1));
+
+        //bathroom
+        this.game.addEntity(new Guard(this.game, 360 * PARAMS.BLOCKWIDTH, -175 * PARAMS.BLOCKWIDTH, 2));
 
 
     };
