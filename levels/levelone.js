@@ -662,7 +662,11 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new Rug(this.game, rug.x * PARAMS.BLOCKWIDTH, rug.y * PARAMS.BLOCKWIDTH, rug.count, rug.color, "vertical"));
     }
 
-
+    // grow both to the right and downward (so in a square and count is width/height)
+    for (let i = 0; i < this.level.rugsSquare.length; i++) {
+        let rug = this.level.rugsSquare[i];
+        this.game.addEntity(new Rug(this.game, rug.x * PARAMS.BLOCKWIDTH, rug.y * PARAMS.BLOCKWIDTH, rug.count, rug.color, "square"));
+    }
 
     // ------------------------ PATIO FURNITURE -------------------
     for (let i = 0; i < this.level.patioBench.length; i++) {
@@ -683,6 +687,35 @@ function setUpLevelOneFurniture(game, level) {
 
 
     // ------------------------ GREEN HOUSE FURNITURE -------------------
+    for (let i = 0; i < this.level.pottedRose.length; i++) {
+        let pottedRose = this.level.pottedRose[i];
+        this.game.addEntity(new PottedRose(this.game, pottedRose.x * PARAMS.BLOCKWIDTH, pottedRose.y * PARAMS.BLOCKWIDTH, pottedRose.potColor, pottedRose.roseColor));
+    }
+
+    for (let i = 0; i < this.level.pottedRoseColumn.length; i++) {
+        let pottedRose = this.level.pottedRoseColumn[i];
+        for (let j = 0; j < pottedRose.count; j++) {
+            this.game.addEntity(new PottedRose(this.game, pottedRose.x * PARAMS.BLOCKWIDTH, pottedRose.y * PARAMS.BLOCKWIDTH + j * (40 * PARAMS.BLOCKWIDTH), pottedRose.potColor, pottedRose.roseColor));
+        }
+    }
+
+    for (let i = 0; i < this.level.pottedRoseRow.length; i++) {
+        let pottedRose = this.level.pottedRoseRow[i];
+        for (let j = 0; j < pottedRose.count; j++) {
+            this.game.addEntity(new PottedRose(this.game, pottedRose.x * PARAMS.BLOCKWIDTH + j * (30 * PARAMS.BLOCKWIDTH), pottedRose.y * PARAMS.BLOCKWIDTH, pottedRose.potColor, pottedRose.roseColor));
+        }
+    }
+
+    for (let i = 0; i < this.level.greenHousePot.length; i++) {
+        let greenHousePot = this.level.greenHousePot[i];
+        this.game.addEntity(new GreenHousePot(this.game, greenHousePot.x * PARAMS.BLOCKWIDTH, greenHousePot.y * PARAMS.BLOCKWIDTH, greenHousePot.color));
+    }
+
+    for (let i = 0; i < this.level.roses.length; i++) {
+        let rose = this.level.roses[i];
+        this.game.addEntity(new Rose(this.game, rose.x * PARAMS.BLOCKWIDTH, rose.y * PARAMS.BLOCKWIDTH, rose.color));
+    }
+
     for (let i = 0; i < this.level.greenHouseTable.length; i++) {
         let greenHouseTable = this.level.greenHouseTable[i];
         this.game.addEntity(new GreenHouseTable(this.game, greenHouseTable.x * PARAMS.BLOCKWIDTH, greenHouseTable.y * PARAMS.BLOCKWIDTH));
@@ -713,8 +746,8 @@ function setUpLevelOneFurniture(game, level) {
     }
 
     // grow both to the right and downward (so in a square and count is width/height)
-    for (let i = 0; i < this.level.rugsSquare.length; i++) {
-        let rug = this.level.rugsSquare[i];
+    for (let i = 0; i < this.level.garageBackground.length; i++) {
+        let rug = this.level.garageBackground[i];
         this.game.addEntity(new Rug(this.game, rug.x * PARAMS.BLOCKWIDTH, rug.y * PARAMS.BLOCKWIDTH, rug.count, rug.color, "square"));
     }
 
