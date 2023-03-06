@@ -266,7 +266,9 @@ let levelOneFurniture = {
         {x: -23, y: -110, count: 5, color: "Light Blue"},
         {x: -23, y: -100, count: 5, color: "Light Blue"},
         {x: 398, y: 228, count: 10, color: "Tan"},
-        {x: 114.5, y: 229, count: 3, color: "Brown"},
+        {x: 398, y: 238, count: 10, color: "Tan"},
+        {x: 398, y: 248, count: 10, color: "Tan"},
+        {x: 109.5, y: 230, count: 4, color: "Brown"},
     ],
 
     rugsVertical: [
