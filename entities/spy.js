@@ -382,9 +382,13 @@ class Spy {
             // reset variable
             that.hideChat = true;
 
+            // Richie
             if (entity instanceof Richie) {
                 if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+
+                    that.noInteract = false;
                     that.richieInteract = true;
+
                     if (that.game.interact && that.hideChat) {
                         that.game.interact = false;
                         that.hideChat = false;
@@ -406,12 +410,17 @@ class Spy {
                     }
                 } else {
                     that.richieInteract = false;
+                    that.noInteract = true;
                 }
             }
 
+            // Billionaire
             else if (entity instanceof Billionaire) {
                 if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+
+                    that.noInteract = false;
                     that.billionaireInteract = true;
+
                     if (that.game.interact && that.hideChat) {
                         that.game.interact = false;
                         that.hideChat = false;
@@ -431,12 +440,17 @@ class Spy {
                     }
                 } else {
                     that.billionaireInteract = false;
+                    that.noInteract = true;
                 }
             }
 
+            // Stephanie
             else if (entity instanceof Stephanie) {
                 if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+
+                    that.noInteract = false;
                     that.stephInteract = true;
+
                     if (that.game.interact && that.hideChat) {
                         that.game.interact = false;
                         that.hideChat = false;
@@ -459,12 +473,17 @@ class Spy {
                     }
                 } else {
                     that.stephInteract = false;
+                    that.noInteract = true;
                 }
             }
 
+            // NPC kitchen
             else if (entity instanceof KitchenWorker) {
                 if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+
+                    that.noInteract = false;
                     that.kitchenWorkerInteract = true;
+
                     if (that.game.interact && that.hideChat) {
                         that.game.interact = false;
                         that.hideChat = false;
@@ -484,12 +503,17 @@ class Spy {
                     }
                 } else {
                     that.kitchenWorkerInteract = false;
+                    that.noInteract = true;
                 }
             }
 
+            // NPC garden
             else if (entity instanceof Gardener) {
                 if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+
+                    that.noInteract = false;
                     that.gardenerInteract = true;
+
                     if (that.game.interact && that.hideChat) {
                         that.game.interact = false;
                         that.hideChat = false;
@@ -509,13 +533,18 @@ class Spy {
                     }
                 } else {
                     that.gardenerInteract = false;
+                    that.noInteract = true;
                 }
             }
 
+            // NPC guard
             else if (entity instanceof Guard) {
                 if (that.game.currLvl === levelOne1) {
                     if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+
+                        that.noInteract = false;
                         that.guardInteract = true;
+
                         if (that.game.interact && that.hideChat) {
                             that.game.interact = false;
                             that.hideChat = false;
@@ -533,7 +562,9 @@ class Spy {
                             //TO PAUSE THE GAME
                             Chatbox.OPEN = true;
                         }
-                    } else {
+                    }
+                    // add extra check since there are multiple guards
+                    else if (that.noInteract) {
                         that.guardInteract = false;
                     }
                 }
@@ -541,7 +572,10 @@ class Spy {
 
             else if (entity instanceof CarMechanic) {
                 if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+
+                    that.noInteract = false;
                     that.carMechanicInteract = true;
+
                     if (that.game.interact && that.hideChat) {
                         that.game.interact = false;
                         that.hideChat = false;
@@ -561,15 +595,18 @@ class Spy {
                     }
                 } else {
                     that.carMechanicInteract = false;
+                    that.noInteract = true;
                 }
             }
 
 
             // ----------- OBJECT INTERACTIONS -------------------
-
             else if (entity instanceof BillionaireStatue) {
                 if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+
+                    that.noInteract = false;
                     that.billionaireStatueInteract = true;
+
                     if (that.game.interact && that.hideChat) {
                         that.game.interact = false;
                         that.hideChat = false;
@@ -589,13 +626,17 @@ class Spy {
                     }
                 } else {
                     that.billionaireStatueInteract = false;
+                    that.noInteract = true;
                 }
 
             }
 
             else if (entity instanceof Fridge) {
                 if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+
+                    that.noInteract = false;
                     that.fridgeInteract = true;
+
                     if (that.game.interact && that.hideChat) {
                         that.game.interact = false;
                         that.hideChat = false;
@@ -615,13 +656,17 @@ class Spy {
                     }
                 } else {
                     that.fridgeInteract = false;
+                    that.noInteract = true;
                 }
 
             }
 
             else if (entity instanceof WideBlueMonitor) {
                 if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+
+                    that.noInteract = false;
                     that.monitorInteract = true;
+
                     if (that.game.interact && that.hideChat) {
                         that.game.interact = false;
                         that.hideChat = false;
@@ -639,10 +684,11 @@ class Spy {
                         //TO PAUSE THE GAME
                         Chatbox.OPEN = true;
                     }
-                } else {
+                }
+                // add extra check since there are multiple monitors
+                if (that.noInteract) {
                     that.monitorInteract = false;
                 }
-
             }
 
 
