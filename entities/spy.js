@@ -662,7 +662,7 @@ class Spy {
         // interact message
         if (this.stephInteract || this.billionaireInteract || this.richieInteract || this.kitchenWorkerInteract || this.gardenerInteract || this.guardInteract
             || this.carMechanicInteract || this.billionaireStatueInteract || this.fridgeInteract || this.monitorInteract || this.toolboxInteract
-            || this.greyCarInteract) {
+            || this.greyCarInteract || this.waterTankInteract || this.paintingTwoInteract) {
             setBlackStroke(ctx);
             ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
             ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 - 85, PARAMS.CANVAS_HEIGHT - 55, 170,40);
@@ -687,6 +687,8 @@ class Spy {
             //items
             else if(this.toolboxInteract) interactText = "Toolbox"
             else if(this.greyCarInteract) interactText = "Grey Car"
+            else if(this.waterTankInteract) interactText = "Water Tank"
+            else if(this.paintingTwoInteract) interactText = "Painting"
 
             ctx.fillText(interactText, PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 30);
         }
@@ -802,7 +804,7 @@ class Spy {
             }
         }
 
-        //ITEMS
+        // ------------------------------ ITEMS -----------------------------
 
         // toolbox
         else if (entity === "toolbox") {

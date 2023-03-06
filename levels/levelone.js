@@ -116,11 +116,11 @@ class Level1Part2 {
         this.hud.setText("Phase 2");
         this.hud.setTextColor("white");
 
-        // darkness
-        this.game.addEntity(this.darkness);
-
         //spy
         this.game.addEntity(this.spyCharacter);
+
+        // darkness
+        this.game.addEntity(this.darkness);
 
         // guards
         // 1 = left-right, 2 = up-down
