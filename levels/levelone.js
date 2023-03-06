@@ -656,7 +656,11 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new Rug(this.game, rug.x * PARAMS.BLOCKWIDTH, rug.y * PARAMS.BLOCKWIDTH, rug.count, rug.color, "vertical"));
     }
 
-
+    // grow both to the right and downward (so in a square and count is width/height)
+    for (let i = 0; i < this.level.rugsSquare.length; i++) {
+        let rug = this.level.rugsSquare[i];
+        this.game.addEntity(new Rug(this.game, rug.x * PARAMS.BLOCKWIDTH, rug.y * PARAMS.BLOCKWIDTH, rug.count, rug.color, "square"));
+    }
 
     // ------------------------ PATIO FURNITURE -------------------
     for (let i = 0; i < this.level.patioBench.length; i++) {
@@ -722,8 +726,8 @@ function setUpLevelOneFurniture(game, level) {
     }
 
     // grow both to the right and downward (so in a square and count is width/height)
-    for (let i = 0; i < this.level.rugsSquare.length; i++) {
-        let rug = this.level.rugsSquare[i];
+    for (let i = 0; i < this.level.garageBackground.length; i++) {
+        let rug = this.level.garageBackground[i];
         this.game.addEntity(new Rug(this.game, rug.x * PARAMS.BLOCKWIDTH, rug.y * PARAMS.BLOCKWIDTH, rug.count, rug.color, "square"));
     }
 

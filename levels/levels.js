@@ -255,15 +255,31 @@ let levelOneFurniture = {
         {x: 424, y: -192, count: 4, color: "Dark Blue"},
         {x: 424, y: -182, count: 4, color: "Dark Blue"},
         {x: 450, y: -101, count: 5, color: "Dark Blue"},
-        {x: 450, y: -91, count: 5, color: "Dark Blue"}
+        {x: 450, y: -91, count: 5, color: "Dark Blue"},
+        {x: -23, y: 130, count: 5, color: "Green"},
+        {x: -23, y: 140, count: 5, color: "Green"},
+        {x: 264, y: -32, count: 8, color: "Tan"},
+        {x: 264, y: -22, count: 8, color: "Tan"},
+        {x: 264, y: -12, count: 8, color: "Tan"},
+        {x: 230, y: 130, count: 5, color: "Green"},
+        {x: 230, y: 140, count: 5, color: "Green"},
+        {x: -23, y: -110, count: 5, color: "Light Blue"},
+        {x: -23, y: -100, count: 5, color: "Light Blue"},
+        {x: 398, y: 228, count: 10, color: "Tan"},
+        {x: 114.5, y: 229, count: 3, color: "Brown"},
     ],
 
     rugsVertical: [
-        //{x: 419, y: -160, count: 5, color: "Dark Blue"},
-        //{x: 429, y: -160, count: 5, color: "Dark Blue"}
+        {x: 419, y: -160, count: 5, color: "Dark Blue"},
+        {x: 429, y: -160, count: 5, color: "Dark Blue"}
     ],
 
     rugsSquare: [
+        {x: 100, y: 80, count: 5, color: "Red"},
+        {x: 100, y: 130, count: 5, color: "Red"},
+    ],
+
+    garageBackground: [
         {x: -248, y: -448, count: 25, color: "Grey"},
         //{x: -248, y: 200, count: 25, color: "Grey"}
     ],
