@@ -294,9 +294,8 @@ class CasefileUpdatedChatbox {
         ctx.fillText("and the butler’s hints", 387, 335);
         ctx.fillText("to find three pieces of", 387, 350);
         ctx.fillText("evidence. When you find", 387, 365);
-        ctx.fillText("the final clue, the", 387, 380);
-        ctx.fillText("patent, your mission", 387, 395);
-        ctx.fillText("will be complete.", 387, 410);
+        ctx.fillText("all three, your mission", 387, 380);
+        ctx.fillText("will be complete.", 387, 395);
         ctx.fillText("Good luck, Agent Spy,", 387, 425);
         ctx.fillText("and remember to watch", 387, 440);
         ctx.fillText("out for those pesky", 387, 455);

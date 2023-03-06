@@ -5,12 +5,16 @@ class Itemsbag {
         // items bounding boxes
         // to be added to
         this.casefileBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
-        this.flashlightBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 3 + 50, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
+        this.flashlightBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 3 + 53, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
+        this.roseBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
+
+        this.clueOneBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
+        this.clueTwoBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 3 + 53, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
+        this.clueThreeBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
+
+        // NOT CURRENTLY USED
         this.sneakerBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
         this.capeBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 6 - 3, 525,120,40);
-        this.clueOneBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
-        this.clueTwoBB = new BoundingBox(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
-        this.clueThreeBB = new BoundingBox((3 * PARAMS.CANVAS_WIDTH) / 4, PARAMS.CANVAS_HEIGHT / 2 + 140,120,40);
 //
         // other bounding boxes
         this.exitBB = new BoundingBox(550, 605, 100, 50);
@@ -87,6 +91,8 @@ class Itemsbag {
                 this.clickClueThree = false;
             }
 
+            // --------------- NOT CURRENTLY IN USE ---------------
+
             // show sneaker
             // if (this.mouseBB.collide(this.sneakerBB)) {
             //     this.clickCase = false
@@ -97,15 +103,17 @@ class Itemsbag {
             //     this.clickClueThree = false;
             // }
 
-            // show cape
-            if (this.mouseBB.collide(this.capeBB)) {
-                this.clickCase = false;
-                this.clickSneaker = false;
-                this.clickCape = true;
-                this.clickClueOne = false;
-                this.clickClueTwo = false;
-                this.clickClueThree = false;
-            }
+            // // show cape
+            // if (this.mouseBB.collide(this.capeBB)) {
+            //     this.clickCase = false;
+            //     this.clickSneaker = false;
+            //     this.clickCape = true;
+            //     this.clickClueOne = false;
+            //     this.clickClueTwo = false;
+            //     this.clickClueThree = false;
+            // }
+
+            // ------------------------------
 
             // show clue one
             if (this.mouseBB.collide(this.clueOneBB)) {
@@ -172,11 +180,11 @@ class Itemsbag {
         // column 1
         ctx.strokeRect(PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
         ctx.strokeRect(PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
-        ctx.strokeRect(PARAMS.CANVAS_WIDTH / 6 - 3, 525,120,40);
+        //ctx.strokeRect(PARAMS.CANVAS_WIDTH / 6 - 3, 525,120,40);
         // column 2
         ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 - 60, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
         ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 - 60, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
-        ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 - 60, 525,120,40);
+        //ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 - 60, 525,120,40);
         // column 3
         ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
         ctx.strokeRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
@@ -187,11 +195,11 @@ class Itemsbag {
         // column 1
         ctx.fillRect(PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
         ctx.fillRect(PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
-        ctx.fillRect(PARAMS.CANVAS_WIDTH / 6 - 3, 525,120,40);
+        // ctx.fillRect(PARAMS.CANVAS_WIDTH / 6 - 3, 525,120,40);
         // column 2
         ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 - 60, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
         ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 - 60, PARAMS.CANVAS_HEIGHT / 2 + 114,120,40);
-        ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 - 60, 525,120,40);
+        //ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 - 60, 525,120,40);
 
         // column 3
         ctx.fillRect(PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 40,120,40);
@@ -215,6 +223,27 @@ class Itemsbag {
         // reset text color
         setBlackStroke(ctx);
         ctx.textAlign = "left";
+
+
+        //bounding box
+        PARAMS.DEBUG = document.getElementById("debug").checked;
+        if (PARAMS.DEBUG) {
+            ctx.lineWidth = 4;
+            ctx.strokeStyle = 'Orange';
+            ctx.strokeRect(this.casefileBB.x, this.casefileBB.y, this.casefileBB.width, this.casefileBB.height);
+            ctx.strokeStyle = 'Yellow';
+            ctx.strokeRect(this.flashlightBB.x, this.flashlightBB.y, this.flashlightBB.width, this.flashlightBB.height);
+            ctx.strokeStyle = 'Red';
+            ctx.strokeRect(this.roseBB.x, this.roseBB.y, this.roseBB.width, this.roseBB.height);
+            ctx.strokeStyle = 'Blue';
+            ctx.strokeRect(this.clueOneBB.x, this.clueOneBB.y, this.clueOneBB.width, this.clueOneBB.height);
+            ctx.strokeStyle = 'Green';
+            ctx.strokeRect(this.clueTwoBB.x, this.clueTwoBB.y, this.clueTwoBB.width, this.clueTwoBB.height);
+            ctx.strokeStyle = 'Purple';
+            ctx.strokeRect(this.clueThreeBB.x, this.clueThreeBB.y, this.clueThreeBB.width, this.clueThreeBB.height);
+
+        }
+
     };
 
     setViewItemBox(ctx, image, x, y, scaleX, scaleY) {
@@ -264,9 +293,12 @@ class Itemsbag {
     //
 
     // ITEMS
-    // case file    flashlight    clue two
-    // sneakers     rose          clue three
-    // cape         clue one
+    // case file    flashlight   rose
+    // clue one     clue two     clue three
+
+    //NOT CURRENTLY IN USE
+    // sneakers cape
+
     drawItems(ctx) {
         // add items according to booleans
         ctx.textAlign = "center";
@@ -295,57 +327,6 @@ class Itemsbag {
         } else {
             ctx.fillText("---", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 65);
         }
-
-        // reset text color
-        setWhiteStroke(ctx);
-
-        // SNEAKERS
-        if (sneakerDisplay) {
-            if (this.mouseBB.collide(this.sneakerBB)) {
-                setRedStroke(ctx);
-            }
-            ctx.fillText("Sneakers", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);
-
-            if (this.clickSneaker) {
-                this.setItemBlurbBox(ctx, "You have chosen the sneakers! Wearing these will allow you " +
-                    "the ability to run without having to press the 'shift' key.   Use the direction keys " +
-                    "to move with the new applied run velocity.             Be aware that the 'shift' key " +
-                    "will be disabled if you are wearing sneakers. So, you can't go any faster than running. " +
-                    "To take off the sneakers, click the 'apply' button again.");
-                this.setViewItemBox(ctx, null);  // show sneaker img
-                this.setButton(ctx, "APPLY");
-            }
-        } else {
-            ctx.fillText("---", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);
-        }
-
-        // reset text color
-        setWhiteStroke(ctx);
-
-        // CAPE
-        if (capeDisplay) {
-            if (this.mouseBB.collide(this.capeBB)) {
-                setRedStroke(ctx);
-            }
-            ctx.fillText("Cape", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 210);
-
-            if (this.clickCape) {
-                this.setItemBlurbBox(ctx, "You have chosen the cape! Wearing this item will help you evade " +
-                    "the guards. You will not be visible. So, if you are within the sight of a guard, you won't " +
-                    "have to worry about being seen and caught. However, just because you're invisible doesn't mean " +
-                    "you can't bump into things! So, you can still be caught if you collide with a guard.       " +
-                    "Click the 'apply' button to take the cape on and off.");
-                this.setViewItemBox(ctx, "");  // show cape img
-                this.setButton(ctx, "APPLY");
-            }
-        } else {
-            ctx.fillText("---", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 210);
-        }
-
-
-        //
-        // COL TWO ITEMS 4-6
-        //
 
         // reset text color
         setWhiteStroke(ctx);
@@ -380,15 +361,20 @@ class Itemsbag {
             if (this.mouseBB.collide(this.roseBB)) {
                 setRedStroke(ctx);
             }
-            ctx.fillText("Rose", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 65);
+            ctx.fillText("Rose", PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 65);
 
             if (this.clickClueTwo) {
                 this.setItemBlurbBox(ctx, "You have chosen the rose!");
                 this.setViewItemBox(ctx, "");  // show rose
             }
         } else {
-            ctx.fillText("---", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 140);
+            ctx.fillText("---", PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 65);
         }
+
+
+        //
+        // COL TWO ITEMS 4-6
+        //
 
         // reset text color
         setWhiteStroke(ctx);
@@ -398,24 +384,21 @@ class Itemsbag {
             if (this.mouseBB.collide(this.clueOneBB)) {
                 setRedStroke(ctx);
             }
-            ctx.fillText("Clue One", PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 65);
+            ctx.fillText("Clue One", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);
 
             if (this.clickClueOne) {
-                this.setItemBlurbBox(ctx, "You have chosen the lighter fluid! This is your first found clue. " +
-                    "                                           It was hidden and disguised as water...strange. Even " +
-                    "though, this is a weird clue, it still doesn't prove Mr. Billionaire did the crime.             " +
-                    "                             There are more clues to be found, so get back out there, Agent Spy!");
-                let img = ASSET_MANAGER.getAsset("./sprites/water_tank.png");
-                this.setViewItemBox(ctx, img, PARAMS.CANVAS_WIDTH / 16, PARAMS.CANVAS_WIDTH / 8, 7.5 * 12.8, 7.5 * 33.5);
+                this.setItemBlurbBox(ctx, "You have chosen the lighter fluid! This is one of your clues. " +
+                    "                                                It was hidden and disguised as water...strange. Even " +
+                    "though, this is a weird clue, it still doesn't completely prove Mr. Billionaire did the crime.             " +
+                    "              Make sure to get find all 3 clues, so get back out there, Agent Spy!");
+                let img = ASSET_MANAGER.getAsset("./sprites/furniture/water_tank.png");
+                this.setViewItemBox(ctx, img, PARAMS.CANVAS_WIDTH / 6, PARAMS.CANVAS_WIDTH / 12, 7 * 12.8, 7 * 33.5);
+                this.setButton(ctx, "VIEW");
 
             }
         } else {
-            ctx.fillText("---", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 210);
+            ctx.fillText("---", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);
         }
-
-        //
-        // COL THREE ITEMS 7-8
-        //
 
         // reset text color
         setWhiteStroke(ctx);
@@ -425,17 +408,20 @@ class Itemsbag {
             if (this.mouseBB.collide(this.clueTwoBB)) {
                 setRedStroke(ctx);
             }
-            ctx.fillText("Clue Two", PARAMS.CANVAS_WIDTH / 6 - 3, PARAMS.CANVAS_HEIGHT / 2 + 65);
+            ctx.fillText("Clue Two", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 140);
 
             if (this.clickClueTwo) {
-                this.setItemBlurbBox(ctx, "GPS");
+                this.setItemBlurbBox(ctx, "You have chosen the GPS! This is one of your clues. " +
+                    "                                                        It was hidden in one of Mr. Billionaire's cars." +
+                    " This is a great clue, but it still doesn't completely prove Mr. Billionaire did the crime.             " +
+                    "                                 Make sure to get find all 3 clues, so get back out there, Agent Spy!");
 
                 let img = ASSET_MANAGER.getAsset("./sprites/gps.png");
-                this.setViewItemBox(ctx, img, PARAMS.CANVAS_WIDTH / 16, PARAMS.CANVAS_WIDTH / 8, 7.5 * 12.8, 7.5 * 33.5);
-
+                this.setViewItemBox(ctx, img, PARAMS.CANVAS_WIDTH / 14, PARAMS.CANVAS_WIDTH / 12, 1.5 * 128, 1.5 * 128);
+                this.setButton(ctx, "VIEW");
             }
         } else {
-            ctx.fillText("---", (3 * PARAMS.CANVAS_WIDTH) / 4, PARAMS.CANVAS_HEIGHT / 2 + 65);
+            ctx.fillText("---", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 140);
         }
 
         // reset text color
@@ -446,17 +432,78 @@ class Itemsbag {
             if (this.mouseBB.collide(this.clueThreeBB)) {
                 setRedStroke(ctx);
             }
-            ctx.fillText("Clue Three", (3 * PARAMS.CANVAS_WIDTH) / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);
+            ctx.fillText("Clue Three", PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);
 
-            if (this.clickClueTwo) {
-                this.setItemBlurbBox(ctx, "Patent");
+            if (this.clickClueThree) {
+                this.setItemBlurbBox(ctx, "You have chosen the stolen patent! This is one of your clues. " +
+                    "                                                It was hidden in a safe behind that painting " +
+                    "in Mr. Billionaire's bedroom. " +
+                    "This is an amazing clue, but it still doesn't completely prove Mr. Billionaire did the crime.  " +
+                    "                                           Make sure to get find all 3 clues, so get back out there, Agent Spy!");
 
                 let img = ASSET_MANAGER.getAsset("./sprites/patent.png");
-                this.setViewItemBox(ctx, img, PARAMS.CANVAS_WIDTH / 16, PARAMS.CANVAS_WIDTH / 8, 7.5 * 12.8, 7.5 * 33.5);
-
+                this.setViewItemBox(ctx, img, PARAMS.CANVAS_WIDTH / 27, PARAMS.CANVAS_WIDTH / 27, 293, 300);
+                this.setButton(ctx, "VIEW");
             }
         } else {
-            ctx.fillText("---", (3 * PARAMS.CANVAS_WIDTH) / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);
+            ctx.fillText("---", PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);
         }
+
+        // reset text color
+        setWhiteStroke(ctx);
+
+        //
+        // COL THREE ITEMS 7-8
+        //
+
+
+        //  --------------------- NOT CURRENTLY USED -----------------------
+        // reset text color
+        //setWhiteStroke(ctx);
+
+        // SNEAKERS
+        // if (sneakerDisplay) {
+        //     if (this.mouseBB.collide(this.sneakerBB)) {
+        //         setRedStroke(ctx);
+        //     }
+        //     ctx.fillText("Sneakers", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);
+        //
+        //     if (this.clickSneaker) {
+        //         this.setItemBlurbBox(ctx, "You have chosen the sneakers! Wearing these will allow you " +
+        //             "the ability to run without having to press the 'shift' key.   Use the direction keys " +
+        //             "to move with the new applied run velocity.             Be aware that the 'shift' key " +
+        //             "will be disabled if you are wearing sneakers. So, you can't go any faster than running. " +
+        //             "To take off the sneakers, click the 'apply' button again.");
+        //         this.setViewItemBox(ctx, null);  // show sneaker img
+        //         this.setButton(ctx, "APPLY");
+        //     }
+        // } else {
+        //     ctx.fillText("---", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);
+        // }
+        //
+        // // reset text color
+        // setWhiteStroke(ctx);
+
+        // CAPE
+        // if (capeDisplay) {
+        //     if (this.mouseBB.collide(this.capeBB)) {
+        //         setRedStroke(ctx);
+        //     }
+        //     ctx.fillText("Cape", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 210);
+        //
+        //     if (this.clickCape) {
+        //         this.setItemBlurbBox(ctx, "You have chosen the cape! Wearing this item will help you evade " +
+        //             "the guards. You will not be visible. So, if you are within the sight of a guard, you won't " +
+        //             "have to worry about being seen and caught. However, just because you're invisible doesn't mean " +
+        //             "you can't bump into things! So, you can still be caught if you collide with a guard.       " +
+        //             "Click the 'apply' button to take the cape on and off.");
+        //         this.setViewItemBox(ctx, "");  // show cape img
+        //         this.setButton(ctx, "APPLY");
+        //     }
+        // } else {
+        //     ctx.fillText("---", PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 210);
+        // }
+
+        //  --------------------- -----------------------
     };
 };
