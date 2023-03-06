@@ -183,6 +183,8 @@ class Spy {
 
                 // LOSE GAME if collide with Guard
                 else if (entity instanceof Guard) {
+                    PARAMS.IMMUNITY = document.getElementById("immunity").checked;
+
                     //guards are harmless
                     if (that.game.currLvl === levelOne1) {
                         if(that.lastBB.bottom - 5 * PARAMS.BLOCKWIDTH <= entity.BB.top && that.game.down){ // from above
@@ -198,6 +200,8 @@ class Spy {
                             that.x = entity.BB.left - that.width;
                         }
                         that.updateBB();
+                    } else if (PARAMS.IMMUNITY) {
+                        // do nothing
                     } else {
                         that.game.camera.loadLevel(loseScreen);
                     }
@@ -214,8 +218,13 @@ class Spy {
             // collide with guard sight
             if (entity.sightBB && that.BB.collide(entity.sightBB)) {
                 if (entity instanceof Guard) {
+
+                    PARAMS.IMMUNITY = document.getElementById("immunity").checked;
+
                     //guards are harmless
                     if (that.game.currLvl === levelOne1) {
+                        // do nothing
+                    } else if (PARAMS.IMMUNITY) {
                         // do nothing
                     } else {
                         entity.spottedSpy();

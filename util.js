@@ -55,6 +55,7 @@ const PARAMS = {
     DEBUG: true,
     SKIPPHASE1: true,
     SKIPINTRO: true,
+    IMMUNITY: true,
     SCALE: 0.5,
     BITWIDTH: 8
 };
