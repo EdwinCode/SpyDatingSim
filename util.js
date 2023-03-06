@@ -154,7 +154,14 @@ function loadText(level, entity, chatState) {
 
     // butler
     else if (entity === "butler") {
-        return level.butler[chatState].message;
+        if (clueOneDisplay === false) {
+            return "I've heard Richie complain about the water. Have you seen anything with water in it? You might want to check there."
+        } else if (clueTwoDisplay === false) {
+            return "I've heard the Car Mechanic was supposed to not touch one of the cars for some reason."
+        } else if (clueThreeDisplay === false) {
+            return "I've heard Mr. Billionaire likes to keep his very valuable items hidden away somewhere in his bedroom."
+        }
+        //return level.butler[chatState].message;
     }
 
     // ---------- OBJECTS -------------
