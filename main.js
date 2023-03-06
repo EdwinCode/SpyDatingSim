@@ -35,6 +35,7 @@ ASSET_MANAGER.queueDownload("./sprites/casefile_icon.jpg");
 ASSET_MANAGER.queueDownload("./sprites/flashlight.png");
 ASSET_MANAGER.queueDownload("./sprites/gps.png");
 ASSET_MANAGER.queueDownload("./sprites/patent.png");
+ASSET_MANAGER.queueDownload("./sprites/rose.png");
 
 //cutscenes
 ASSET_MANAGER.queueDownload("./sprites/cutscenes/intro.png");

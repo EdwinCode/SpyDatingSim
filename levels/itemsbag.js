@@ -47,14 +47,8 @@ class Itemsbag {
                     }
                 }
 
-                else if (this.clickSneaker) {
-                    // apply sneaker if not applied
-                    // remove sneaker application if applied
-                }
+                else if (this.clickRose) {
 
-                else if (this.clickCape) {
-                    // apply sneaker if not applied
-                    // remove sneaker application if applied
                 }
 
                 else if (this.clickClueOne) {
@@ -68,27 +62,101 @@ class Itemsbag {
                 else if (this.clickClueThree) {
 
                 }
+
+                // NOT USED
+                else if (this.clickSneaker) {
+                    // apply sneaker if not applied
+                    // remove sneaker application if applied
+                }
+
+                else if (this.clickCape) {
+                    // apply sneaker if not applied
+                    // remove sneaker application if applied
+                }
             }
 
             // show casefile
             if (this.mouseBB.collide(this.casefileBB)) {
                 this.clickCase = true;
-                this.clickSneaker = false;
-                this.clickCape = false;
+                this.clickFlashlight = false;
+                this.clickRose = false;
                 this.clickClueOne = false;
                 this.clickClueTwo = false;
                 this.clickClueThree = false;
+
+                //NOT USED
+                this.clickSneaker = false;
+                this.clickCape = false;
             }
 
             // show flashlight
             if (this.mouseBB.collide(this.flashlightBB)) {
-                this.clickCase = false
+                this.clickCase = false;
                 this.clickFlashlight = true;
-                this.clickSneaker = false;
-                this.clickCape = false;
+                this.clickRose = false;
                 this.clickClueOne = false;
                 this.clickClueTwo = false;
                 this.clickClueThree = false;
+
+                //NOT USED
+                this.clickSneaker = false;
+                this.clickCape = false;
+            }
+
+            // show rose
+            if (this.mouseBB.collide(this.roseBB)) {
+                this.clickCase = false;
+                this.clickFlashlight = false;
+                this.clickRose = true;
+                this.clickClueOne = false;
+                this.clickClueTwo = false;
+                this.clickClueThree = false;
+
+                //NOT USED
+                this.clickSneaker = false;
+                this.clickCape = false;
+            }
+
+            // show clue one
+            if (this.mouseBB.collide(this.clueOneBB)) {
+                this.clickCase = false;
+                this.clickFlashlight = false;
+                this.clickRose = false;
+                this.clickClueOne = true;
+                this.clickClueTwo = false;
+                this.clickClueThree = false;
+
+                //NOT USED
+                this.clickSneaker = false;
+                this.clickCape = false;
+            }
+
+            // show clue two
+            if (this.mouseBB.collide(this.clueTwoBB)) {
+                this.clickCase = false;
+                this.clickFlashlight = false;
+                this.clickRose = false;
+                this.clickClueOne = false;
+                this.clickClueTwo = true;
+                this.clickClueThree = false;
+
+                //NOT USED
+                this.clickSneaker = false;
+                this.clickCape = false;
+            }
+
+            // show clue three
+            if (this.mouseBB.collide(this.clueThreeBB)) {
+                this.clickCase = false;
+                this.clickFlashlight = false;
+                this.clickRose = false;
+                this.clickClueOne = false;
+                this.clickClueTwo = false;
+                this.clickClueThree = true;
+
+                //NOT USED
+                this.clickSneaker = false;
+                this.clickCape = false;
             }
 
             // --------------- NOT CURRENTLY IN USE ---------------
@@ -114,36 +182,6 @@ class Itemsbag {
             // }
 
             // ------------------------------
-
-            // show clue one
-            if (this.mouseBB.collide(this.clueOneBB)) {
-                this.clickCase = false;
-                this.clickSneaker = false;
-                this.clickCape = false;
-                this.clickClueOne = true;
-                this.clickClueTwo = false;
-                this.clickClueThree = false;
-            }
-
-            // show clue two
-            if (this.mouseBB.collide(this.clueTwoBB)) {
-                this.clickCase = false;
-                this.clickSneaker = false;
-                this.clickCape = false;
-                this.clickClueOne = false;
-                this.clickClueTwo = true;
-                this.clickClueThree = false;
-            }
-
-            // show clue three
-            if (this.mouseBB.collide(this.clueThreeBB)) {
-                this.clickCase = false;
-                this.clickSneaker = false;
-                this.clickCape = false;
-                this.clickClueOne = false;
-                this.clickClueTwo = false;
-                this.clickClueThree = true;
-            }
 
             // close out of the items bag
             if (this.mouseBB.collide(this.exitBB)) {
@@ -363,9 +401,15 @@ class Itemsbag {
             }
             ctx.fillText("Rose", PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 65);
 
-            if (this.clickClueTwo) {
-                this.setItemBlurbBox(ctx, "You have chosen the rose!");
-                this.setViewItemBox(ctx, "");  // show rose
+            if (this.clickRose) {
+                this.setItemBlurbBox(ctx, "You have chosen the rose!" +
+                    "                               This is the rose given to you by Mr. Billionaire after the first rose ceremony." +
+                    " This shows that your undercover work is top notch." +
+                    "                                                  Keep up the good work Agent Spy!");
+
+                let img = ASSET_MANAGER.getAsset("./sprites/rose.png");
+                this.setViewItemBox(ctx, img, PARAMS.CANVAS_WIDTH / 10, PARAMS.CANVAS_WIDTH / 16, 180, 260);
+                this.setButton(ctx, "VIEW");
             }
         } else {
             ctx.fillText("---", PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 65);

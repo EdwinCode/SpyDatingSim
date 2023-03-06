@@ -19,6 +19,7 @@ class LevelOneCutscene {
                 if (this.slideNum === 5) {
                     this.game.camera.clearEntities();
                     this.game.camera.loadLevel(levelOne2);
+                    roseDisplay = true;
                 } else {
                     this.slideNum++;
                 }
