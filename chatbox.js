@@ -149,8 +149,13 @@ class CasefileChatbox {
             // exit chat box
             if (this.mouseBB.collide(this.exitBB)) {
                 caseFileDisplay = true;
-                //this.game.phase2Timer.time = this.game.savedTime;
                 this.removeFromWorld = true;
+
+                // queue music on first time exit;
+                if (this.firstTime && this.game.currLvl.music) {
+                    ASSET_MANAGER.pauseBackgroundMusic();
+                    ASSET_MANAGER.playAsset(this.game.currLvl.music);
+                }
             }
 
             this.game.click = null;
@@ -400,6 +405,8 @@ class EndingChatbox {
             if (this.mouseBB.collide(this.exitBB)) {
                 this.removeFromWorld = true;
                 this.game.phase2Timer.time = this.game.savedTime;
+                ASSET_MANAGER.pauseBackgroundMusic();
+                ASSET_MANAGER.playAsset("./music/MissionImpossible.mp3");
             }
 
             this.game.click = null;

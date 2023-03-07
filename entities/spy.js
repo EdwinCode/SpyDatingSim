@@ -206,6 +206,7 @@ class Spy {
                     } else if (PARAMS.IMMUNITY) {
                         // do nothing
                     } else {
+                        ASSET_MANAGER.pauseBackgroundMusic();
                         that.game.camera.loadLevel(loseScreen);
                     }
                 }
@@ -249,6 +250,7 @@ class Spy {
                         if (that.game.interact && that.hideChat) {
 
                             // WIN game
+                            ASSET_MANAGER.pauseBackgroundMusic();
                             that.game.camera.loadLevel(endingPart1Cutscene);
                             that.game.savedTime = that.game.phase2Timer.time;
 
@@ -422,6 +424,7 @@ class Spy {
 
                 // trigger cutscene
                 if (that.game.currLvl.label === "Phase 1-1" && that.game.chatState === 7 && that.chatbox.setVisible === false) {
+                    ASSET_MANAGER.pauseBackgroundMusic();
                     that.game.camera.loadLevel(levelOneCutscene);
                 }
 
