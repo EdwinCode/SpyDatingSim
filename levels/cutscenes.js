@@ -148,7 +148,7 @@ class LevelOneCutscene {
             wrapText(ctx, bText, 340, 480, PARAMS.CANVAS_WIDTH / 2);
         }
     };
-};
+}
 
 
 class IntroCutscene {
@@ -499,7 +499,7 @@ class EndingPart1Cutscene {
 
         }
     };
-};
+}
 
 class EndingPart2Cutscene {
     constructor(game) {

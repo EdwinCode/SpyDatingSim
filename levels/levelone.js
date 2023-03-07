@@ -86,7 +86,7 @@ class Level1Part1 {
     draw(ctx) {
         // method not used but declaration is necessary for game engine
     };
-};
+}
 
 class Level1Part2 {
     constructor(game, hud, darkness, level, spyCharacter) {
@@ -185,7 +185,7 @@ class Level1Part2 {
     draw(ctx) {
         // method not used but declaration is necessary for game engine
     };
-};
+}
 
 
 // set up for level one furniture so we dont have to duplicate it again
