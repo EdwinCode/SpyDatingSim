@@ -727,7 +727,7 @@ class CeremonyRiser extends Furniture {
     constructor(game, x, y, count) {
         super(game, "./sprites/furniture/furniture.png", 510, 0, 16, 16, x, y, 16, 16);
         this.count = count;
-        this.BB = new BoundingBox(this.x, this.y,16 * PARAMS.BLOCKWIDTH,14 * PARAMS.BLOCKWIDTH);
+        this.BB = new BoundingBox(this.x, this.y,this.count * (15 * PARAMS.BLOCKWIDTH),12 * PARAMS.BLOCKWIDTH);
     };
 
     update() {};
@@ -799,7 +799,7 @@ class LoungeTable extends Furniture {
 class RoseTable extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/furniture.png", 510, 120, 12, 23, x, y, 12, 23);
-        this.BB = new BoundingBox(this.x, this.y,13 * PARAMS.BLOCKWIDTH,20 * PARAMS.BLOCKWIDTH);
+        this.BB = new BoundingBox(this.x, this.y - 18,13 * PARAMS.BLOCKWIDTH,22 * PARAMS.BLOCKWIDTH);
     };
 
     update() {};
