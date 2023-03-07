@@ -47,4 +47,4 @@ class IngameTimer {
         ctx.fillText(this.time, 100, 605);
 
     };
-};
+}
