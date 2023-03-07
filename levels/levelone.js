@@ -10,6 +10,8 @@ class Level1Part1 {
     };
 
     setUpLevel() {
+        // Pause previous music. Start music playing.
+
         // casefile chatbox
         let caseFile = new CasefileChatbox(this.game);
         caseFile.firstTime = true;
@@ -101,6 +103,7 @@ class Level1Part2 {
     };
 
     setUpLevel() {
+        // Pause previous music. Start new music playing after.
 
         // casefile chatbox
         let casefileUpdated = new CasefileUpdatedChatbox(this.game);
