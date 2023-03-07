@@ -1416,6 +1416,7 @@ class Lamp extends Furniture {
 
 
 // PAINTINGS
+// green painting
 class PaintingOne extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/furniture.png", 595, 256, 32, 32, x, y, 595, 256);
@@ -1428,6 +1429,7 @@ class PaintingOne extends Furniture {
     };
 }
 
+// pink painting
 class PaintingTwo extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/furniture.png", 561, 256, 32, 32, x, y, 31 * PARAMS.BLOCKWIDTH, 31 * PARAMS.BLOCKWIDTH);
@@ -1441,24 +1443,10 @@ class PaintingTwo extends Furniture {
         if (PARAMS.DEBUG) {
             ctx.strokeStyle = 'green';
             ctx.strokeRect(this.interactBB.x - this.game.camera.x, this.interactBB.y - this.game.camera.y, this.interactBB.width, this.interactBB.height);
-
         }
     };
 }
 
-class PaintingThree extends Furniture {
-    constructor(game, x, y) {
-        super(game, "./sprites/furniture/furniture.png", 578, 221, 32, 16, x, y, 32, 16);
-        this.BB = new BoundingBox(this.x, this.y,67 * PARAMS.BLOCKWIDTH,31 * PARAMS.BLOCKWIDTH);
-    };
-
-    update() {};
-
-    draw(ctx) {
-        ctx.drawImage(this.spritesheet, 578, 221, 32, 16, this.x - this.game.camera.x, this.y - this.game.camera.y, 67 * PARAMS.BLOCKWIDTH, 31 * PARAMS.BLOCKWIDTH);
-        super.draw(ctx);
-    };
-}
 
 
 // PLANTS
