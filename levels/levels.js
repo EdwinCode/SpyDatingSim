@@ -650,11 +650,6 @@ let levelOneFurniture = {
         {x: 412, y: 20, count: 2}
     ],
 
-    whiteDividerHoriz : [
-        // queen bed
-        {x: 257, y: 160, count: 3}
-    ],
-
     // Queen Bed
     queenBed : [
         {x: 286, y: 170}
@@ -674,21 +669,7 @@ let levelOneFurniture = {
     // plant one
     // bookshelves
     // small dark table
-
-
-
-    // bigWhiteBed: [
-    //     {x: 422, y: 175}
-    // ],
-    // smallBlueTable: [
-    //     //{x: 380, y: 170},
-    //     //{x: 465, y: 170}
-    // ],
-
-    // wide dark camo
-    // paintingThree : [
-    //     {x: 414, y: 160}
-    // ],
+    // white divider horiz
 
 
 
@@ -716,37 +697,37 @@ let levelOneFurniture = {
 
 
 
-    tanSofa: [
-        // {x: 40, y: -220},
-        // {x: 178, y: -220}
-    ],
-
-    orangePatternedTable: [
-        //{x: 40, y: -190},
-        //{x: 178, y: -190}
-    ],
-
-    pacManGame: [
-        //{x: 186, y: -70},
-        //{x: 208, y: -70},
-        //{x: 230, y: -70}
-    ],
-
-    bigCouches: [
-        // {x: 42, y: -161},
-        // {x: 180, y: -161}
-    ],
-
-    chairRights: [
-        //{x: 21, y: -188},
-        //{x: 159, y: -188}
-    ],
-
-    chairLefts: [
-        //{x: 83, y: -188},
-        // x = 96 + 174
-        //{x: 220, y: -188}
-    ],
+    // tanSofa: [
+    //     {x: 40, y: -220},
+    //     {x: 178, y: -220}
+    // ],
+    //
+    // orangePatternedTable: [
+    //     {x: 40, y: -190},
+    //     {x: 178, y: -190}
+    // ],
+    //
+    // pacManGame: [
+    //     {x: 186, y: -70},
+    //     {x: 208, y: -70},
+    //     {x: 230, y: -70}
+    // ],
+    //
+    // bigCouches: [
+    //     {x: 42, y: -161},
+    //     {x: 180, y: -161}
+    // ],
+    //
+    // chairRights: [
+    //     {x: 21, y: -188},
+    //     {x: 159, y: -188}
+    // ],
+    //
+    // chairLefts: [
+    //     {x: 83, y: -188},
+    //     x = 96 + 174
+    //     {x: 220, y: -188}
+    // ],
 
 
 
@@ -757,18 +738,13 @@ let levelOneFurniture = {
         {x: 179, y: -471}
     ],
 
-    gamerPC: [
-        //{x: 80, y: -460},
-        // {x: 161, y: -460},
-    ],
-
-    blackHandleChairUp: [
-        //{x: 106, y: -430},
-        //{x: 136, y: -430},
+    flatscreenTV : [
+        {x: 184, y: -310}
     ],
 
     squareOfficeDesk : [
-        {x: 32, y: -274}
+        {x: 32, y: -274},
+        {x: 188, y: -274}
     ],
 
     officeDesk: [
@@ -783,7 +759,10 @@ let levelOneFurniture = {
         {x: 184, y: -453},
         // by whiteboards
         {x: 38, y: -264},
-        {x: 50, y: -264}
+        {x: 50, y: -264},
+        // by TV
+        {x: 194, y: -264},
+        {x: 206, y: -264}
     ],
 
     sidewaysOfficeChair : [
@@ -801,35 +780,22 @@ let levelOneFurniture = {
 
 
     // ------------ Multiple Rooms ---------------------
-    longWoodenPatternedTables: [
-        //office
-        //{x: 174, y: -290},
-    ],
-
     bookshelves: [
-        //office
-        //top
+        //office along desks
         {x: 23, y: -475},
         {x: 85, y: -475},
         {x: 147, y: -475},
         {x: 209, y: -475},
-        // by whiteboard
+        // office by whiteboard
         {x: 72, y: -320},
-
-        //bedroom
-        // top
+        //office by TV
+        {x: 160, y: -320},
+        {x: 228, y: -320},
+        // bedroom top left corner
         {x: 257, y: 6},
         {x: 280, y: 6},
         {x: 303, y: 6},
         {x: 326, y: 6},
-        // bottom
-        // {x: 257, y: 160},
-        // {x: 280, y: 160},
-        // {x: 303, y: 160},
-        // {x: 326, y: 160},
-        // by bed
-        // {x: 390, y: 160},
-        // {x: 481, y: 160}
     ],
 
     beds: [
@@ -931,19 +897,28 @@ let levelOneFurniture = {
         {x: 261, y: -148}
     ],
 
-    redStool: [
+    whiteDividerHoriz : [
+        // bedroom queen bed
+        {x: 257, y: 160, count: 3},
         // office
-        // {x: 155, y: -284},
-        // {x: 175, y: -265},
-        // {x: 200, y: -265},
-        // {x: 216, y: -284},
-
-        // bedroom
-        // {x: 420, y: 60},
-        // {x: 420, y: 100},
-        // {x: 470, y: 60},
-        // {x: 470, y: 100}
+        {x: 35, y: -405, count: 2},
+        //{x: 100, y: -405, count: 1},
+        {x: 160, y: -405, count: 2}
     ],
+
+    // redStool: [
+    //     office
+    //     {x: 155, y: -284},
+    //     {x: 175, y: -265},
+    //     {x: 200, y: -265},
+    //     {x: 216, y: -284},
+    //
+    //     bedroom
+    //     {x: 420, y: 60},
+    //     {x: 420, y: 100},
+    //     {x: 470, y: 60},
+    //     {x: 470, y: 100}
+    // ],
 }
 
 
