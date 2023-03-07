@@ -282,7 +282,10 @@ let levelOneFurniture = {
 
     rugsVertical: [
         {x: 419, y: -160, count: 5, color: "Dark Blue"},
-        {x: 429, y: -160, count: 5, color: "Dark Blue"}
+        {x: 429, y: -160, count: 5, color: "Dark Blue"},
+        // rose ceremony area
+        {x: 196, y: -195, count: 5, color: "Red"},
+        {x: 206, y: -195, count: 5, color: "Red"}
     ],
 
     rugsSquare: [
@@ -445,7 +448,8 @@ let levelOneFurniture = {
         {x: -22, y: 105, color: "Yellow"},
         {x: -14, y: 97, color: "Orange"},
         {x: -20, y: 86, color: "Green"},
-        {x: 199, y: -149, color: "Red"},
+        // on rose ceremony table
+        {x: 199, y: -155, color: "Red"},
     ],
 
     pottedRose: [
@@ -722,19 +726,8 @@ let levelOneFurniture = {
 
 
     // ------------------------ OFFICE FURNITURE -------------------
-    wideBlueMonitor: [
-        {x: 55, y: -471},
-        {x: 117, y: -471},
-        {x: 179, y: -471}
-    ],
-
     flatscreenTV : [
         {x: 184, y: -310}
-    ],
-
-    squareOfficeDesk : [
-        {x: 32, y: -274},
-        {x: 188, y: -274}
     ],
 
     officeDesk: [
@@ -762,9 +755,20 @@ let levelOneFurniture = {
         {x: 20, y: -272}
     ],
 
+    squareOfficeDesk : [
+        {x: 32, y: -274},
+        {x: 188, y: -274}
+    ],
+
     whiteBoard: [
         {x: 4.5, y: -320},
         {x: 38, y: -320}
+    ],
+
+    wideBlueMonitor: [
+        {x: 55, y: -471},
+        {x: 117, y: -471},
+        {x: 179, y: -471}
     ],
 
 
