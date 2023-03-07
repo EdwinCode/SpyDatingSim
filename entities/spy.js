@@ -429,6 +429,7 @@ class Spy {
 
                 // trigger cutscene
                 if (that.game.currLvl.label === "Phase 1-1" && that.game.chatState === 7 && that.chatbox.setVisible === false) {
+                    ASSET_MANAGER.pauseBackgroundMusic();
                     that.game.camera.loadLevel(levelOneCutscene);
                 }
 

@@ -65,8 +65,10 @@ ASSET_MANAGER.queueDownload("./sprites/furniture/PlantPots.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/Roses.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/Floorings.png");
 
-// ASSET_MANAGER.queueDownload("./music/backgroundMusic.mp3");
+ASSET_MANAGER.queueDownload("./music/jazz.mp3");
 ASSET_MANAGER.queueDownload("./music/PinkPanther.mp3");
+ASSET_MANAGER.queueDownload("./music/MissionImpossible.mp3");
+
 
 ASSET_MANAGER.downloadAll(() => {
 	const canvas = document.getElementById("gameWorld");
