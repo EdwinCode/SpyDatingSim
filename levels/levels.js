@@ -575,6 +575,7 @@ let levelOneFurniture = {
     ],
 
 
+
     // ------------------------ ENTRANCE FURNITURE -------------------
     door: [
         {x: 114, y: 240}
@@ -625,30 +626,69 @@ let levelOneFurniture = {
 
 
 
-    // ------------------------ BEDROOM FURNITURE -------------------
-    bigWhiteBed: [
-        {x: 422, y: 175}
-    ],
-
+    // ------------------------ BEDROOM CLOSET FURNITURE -------------------
+    // in closet
     bedroomMirror: [
-        //{x: 450, y: 3}
         {x: 293, y: -78}
     ],
 
     wardrobes: [
-        // closet in bathroom
         {x: 261, y: -78},
-        {x: 318, y: -78},
+        {x: 318, y: -78}
     ],
 
-    smallBlueTable: [
-        //{x: 380, y: 170},
-        //{x: 465, y: 170}
+
+
+    // ------------------------ BEDROOM FURNITURE -------------------
+    // white divider wall
+    whiteDividerVert : [
+        // queen bed
+        {x: 340, y: 160, count: 2},
+        // twin beds
+        {x: 412, y: 160, count: 2},
+        {x: 412, y: 90, count: 2},
+        {x: 412, y: 20, count: 2}
     ],
 
-    paintingThree : [
-        {x: 414, y: 160}
+    whiteDividerHoriz : [
+        // queen bed
+        {x: 257, y: 160, count: 3}
     ],
+
+    // Queen Bed
+    queenBed : [
+        {x: 286, y: 170}
+    ],
+
+    // Twin Bed
+    twinBed : [
+        {x: 435, y: 25},
+        {x: 435, y: 90},
+        {x: 435, y: 160},
+        {x: 472, y: 25},
+        {x: 472, y: 90},
+        {x: 472, y: 160}
+    ],
+
+    // other items (in multiple rooms section below)
+    // plant one
+    // bookshelves
+    // small dark table
+
+
+
+    // bigWhiteBed: [
+    //     {x: 422, y: 175}
+    // ],
+    // smallBlueTable: [
+    //     //{x: 380, y: 170},
+    //     //{x: 465, y: 170}
+    // ],
+
+    // wide dark camo
+    // paintingThree : [
+    //     {x: 414, y: 160}
+    // ],
 
 
 
@@ -727,6 +767,10 @@ let levelOneFurniture = {
         //{x: 136, y: -430},
     ],
 
+    squareOfficeDesk : [
+        {x: 32, y: -274}
+    ],
+
     officeDesk: [
         {x: 52, y: -460},
         {x: 114, y: -460},
@@ -734,17 +778,24 @@ let levelOneFurniture = {
     ],
 
     officeChair : [
+        // top
         {x: 60, y: -453},
-        //{x: 122, y: -430},
-        {x: 184, y: -453}
+        {x: 184, y: -453},
+        // by whiteboards
+        {x: 38, y: -264},
+        {x: 50, y: -264}
     ],
 
     sidewaysOfficeChair : [
-        {x: 120, y: -450}
+        // top
+        {x: 120, y: -450},
+        // by whiteboards
+        {x: 20, y: -272}
     ],
 
     whiteBoard: [
-        //{x: 177, y: -335},
+        {x: 4.5, y: -320},
+        {x: 38, y: -320}
     ],
 
 
@@ -757,10 +808,13 @@ let levelOneFurniture = {
 
     bookshelves: [
         //office
+        //top
         {x: 23, y: -475},
         {x: 85, y: -475},
         {x: 147, y: -475},
         {x: 209, y: -475},
+        // by whiteboard
+        {x: 72, y: -320},
 
         //bedroom
         // top
@@ -769,13 +823,13 @@ let levelOneFurniture = {
         {x: 303, y: 6},
         {x: 326, y: 6},
         // bottom
-        {x: 257, y: 160},
-        {x: 280, y: 160},
-        {x: 303, y: 160},
-        {x: 326, y: 160},
+        // {x: 257, y: 160},
+        // {x: 280, y: 160},
+        // {x: 303, y: 160},
+        // {x: 326, y: 160},
         // by bed
-        {x: 390, y: 160},
-        {x: 481, y: 160}
+        // {x: 390, y: 160},
+        // {x: 481, y: 160}
     ],
 
     beds: [
@@ -799,15 +853,21 @@ let levelOneFurniture = {
         {x: 335, y: -140},
         // office
         {x: 8, y: -455},
-        {x: 237, y: -455}
+        {x: 237, y: -455},
+        // bedroom by queen bed
+        {x: 266, y: 165},
+        {x: 323, y: 165},
+        // bedroom by twin beds
+        {x: 420, y: 25},
+        {x: 420, y: 90},
+        {x: 420, y: 160}
     ],
 
     // small potted plant
     plantTwo : [
-        // patio
-        // upper right section
+        // patio upper right section
         {x: -108, y: -170},
-        // lower left section
+        // patio lower left section
         {x: -213, y: -82},
         {x: -185, y: -82},
         // behind greenhouse window
@@ -815,12 +875,8 @@ let levelOneFurniture = {
         {x: -180, y: 10},
         // out front of bathroom on table
         {x: 438, y: -62},
-        // bedroom by pink painting
-        {x: 483, y: 18},
         // bedroom by bookshelves
         {x: 299, y: 62},
-        // green house on table
-        //{x: -88, y: 50},
         // bathroom area
         {x: 336, y: -165}
     ],
@@ -832,7 +888,10 @@ let levelOneFurniture = {
 
     // pink
     paintingTwo : [
-        {x: 443, y: 0}
+        // bedroom
+        {x: 443, y: 0},
+        // lounge
+        {x: 36, y: -240}
     ],
 
     standardChair : [
@@ -852,25 +911,20 @@ let levelOneFurniture = {
         {x: 296, y: -165},
         {x: 296, y: -190},
         {x: 260, y: -135},
-        // bedroom by pink painting
-        {x: 420, y: 25},
-        {x: 480, y: 25},
         // bedroom by bookshelves
         {x: 296, y: 70},
         {x: 260, y: 100},
-        // bedroom by bed
-        {x: 394, y: 193},
-        {x: 485, y: 193},
-        // by bottom bookshelf nook
-        {x: 260, y: 212},
+        // bedroom by twin beds
+        {x: 489, y: 25},
+        {x: 489, y: 90},
+        {x: 489, y: 160},
+        {x: 452, y: 25},
+        {x: 452, y: 90},
+        {x: 452, y: 160}
     ],
 
     lamp: [
-        // bedroom by bed
-        {x: 396, y: 180},
-        {x: 487, y: 180},
-        // bedroom by pink painting
-        {x: 421, y: 12},
+        // bedroom by twin beds
         // bedroom by bookshelves
         {x: 261, y: 88},
         // bathroom area
@@ -885,10 +939,10 @@ let levelOneFurniture = {
         // {x: 216, y: -284},
 
         // bedroom
-        {x: 420, y: 60},
-        {x: 420, y: 100},
-        {x: 470, y: 60},
-        {x: 470, y: 100}
+        // {x: 420, y: 60},
+        // {x: 420, y: 100},
+        // {x: 470, y: 60},
+        // {x: 470, y: 100}
     ],
 }
 
