@@ -347,6 +347,12 @@ function setUpLevelOneFurniture(game, level) {
 
     // side table
 
+
+    for (let i = 0; i < this.level.roses.length; i++) {
+        let rose = this.level.roses[i];
+        this.game.addEntity(new Rose(this.game, rose.x * PARAMS.BLOCKWIDTH, rose.y * PARAMS.BLOCKWIDTH, rose.color));
+    }
+
     // rose table
     for (let i = 0; i < this.level.roseTable.length; i++) {
         let roseTable = this.level.roseTable[i];
@@ -776,10 +782,6 @@ function setUpLevelOneFurniture(game, level) {
         this.game.addEntity(new GreenHousePot(this.game, greenHousePot.x * PARAMS.BLOCKWIDTH, greenHousePot.y * PARAMS.BLOCKWIDTH, greenHousePot.color));
     }
 
-    for (let i = 0; i < this.level.roses.length; i++) {
-        let rose = this.level.roses[i];
-        this.game.addEntity(new Rose(this.game, rose.x * PARAMS.BLOCKWIDTH, rose.y * PARAMS.BLOCKWIDTH, rose.color));
-    }
 
     for (let i = 0; i < this.level.greenHouseTable.length; i++) {
         let greenHouseTable = this.level.greenHouseTable[i];
