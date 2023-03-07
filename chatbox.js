@@ -127,7 +127,7 @@ class Chatbox {
             wrapText(ctx, this.text, this.chatboxX + 195, this.chatboxY + 30, 490);
         }
     };
-};
+}
 
 class CasefileChatbox {
     constructor(game) {
@@ -210,7 +210,7 @@ class CasefileChatbox {
         ctx.fillText("EXIT", 603, 542);
         ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
     };
-};
+}
 
 class CasefileUpdatedChatbox {
     constructor(game) {
@@ -315,10 +315,6 @@ class CasefileUpdatedChatbox {
         ctx.fillText("out for those pesky", 387, 500);
         ctx.fillText("guards.\n", 387, 515);
 
-
-
-
-
         // exit button
         setBlackStroke(ctx);
         if (this.mouseBB.collide(this.exitBB)) {
@@ -331,7 +327,7 @@ class CasefileUpdatedChatbox {
         ctx.fillText("EXIT", 603, 542);
         ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
     };
-};
+}
 
 class ItemsChatbox {
     constructor(game, spritesheet, sx, sy, sw, sh, x, y, dWidth, dHeight) {
@@ -386,7 +382,7 @@ class ItemsChatbox {
         ctx.fillText("EXIT", 603, 542);
         ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
     };
-};
+}
 
 class EndingChatbox {
     constructor(game) {
@@ -431,8 +427,6 @@ class EndingChatbox {
         ctx.fillText("Get to the front door and escape.", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT/2 + 30);
         ctx.fillText("Good luck Agent Spy!", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT/2 + 60);
 
-
-
         // exit button
         setWhiteStroke(ctx);
         if (this.mouseBB.collide(this.exitBB)) {
@@ -445,4 +439,4 @@ class EndingChatbox {
         ctx.fillText("EXIT", 603, 542);
         ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
     };
-};
+}
