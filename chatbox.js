@@ -347,7 +347,9 @@ class ItemsChatbox {
 
             // exit chat box
             if (this.mouseBB.collide(this.exitBB)) {
-                this.game.phase2Timer.time = this.game.savedTime;
+                if (this.game.currLvl === levelOne2) {
+                    this.game.phase2Timer.time = this.game.savedTime;
+                }
                 this.removeFromWorld = true;
             }
 
