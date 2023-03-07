@@ -300,6 +300,7 @@ class Spy {
                             //TO PAUSE THE GAME
                             Chatbox.OPEN = true;
 
+
                             if (that.game.chatState > 2) {
                                 //Flashlight chatbox
                                 if (!flashlightDisplay) {
@@ -730,6 +731,7 @@ class Spy {
 
                             //TO PAUSE THE GAME
                             Chatbox.OPEN = true;
+
                         }
                     }
                     // add extra check since there are multiple monitors
