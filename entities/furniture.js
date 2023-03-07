@@ -723,6 +723,23 @@ class GreenPatioChairRight extends Furniture {
 
 
 // --------------------- LOUNGE/ROSE CEREMONY FURNITURE -------------------------------
+class CeremonyRiser extends Furniture {
+    constructor(game, x, y, count) {
+        super(game, "./sprites/furniture/furniture.png", 510, 0, 16, 16, x, y, 16, 16);
+        this.count = count;
+        this.BB = new BoundingBox(this.x, this.y,16 * PARAMS.BLOCKWIDTH,14 * PARAMS.BLOCKWIDTH);
+    };
+
+    update() {};
+
+    draw(ctx) {
+        for (let i = 0; i < this.count; i++) {
+            ctx.drawImage(this.spritesheet, 510, 0, 16, 16, this.x + i * (15 * PARAMS.BLOCKWIDTH) - this.game.camera.x, this.y - this.game.camera.y, 16 * PARAMS.BLOCKWIDTH, 16 * PARAMS.BLOCKWIDTH);
+        }
+        super.draw(ctx);
+    };
+}
+
 class Piano extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/furniture.png", 255, 23, 32, 27, x, y, 256, 216);
@@ -737,106 +754,78 @@ class Piano extends Furniture {
     };
 }
 
-class CeremonyRiser extends Furniture {
-    constructor(game, x, y, count) {
-        super(game, "./sprites/furniture/furniture.png", 510, 0, 16, 16, x, y, 16, 16);
-        this.count = count;
-        this.BB = new BoundingBox(this.x, this.y,16 * PARAMS.BLOCKWIDTH,14 * PARAMS.BLOCKWIDTH);
+class LoungeCouchSide extends Furniture {
+    constructor(game, x, y) {
+        super(game, "./sprites/furniture/furniture.png", 274, 206, 11, 14, x, y, 11, 14);
+        this.BB = new BoundingBox(this.x, this.y,11 * PARAMS.BLOCKWIDTH,10 * PARAMS.BLOCKWIDTH);
     };
 
     update() {};
 
     draw(ctx) {
-        for (let i = 0; i < this.count; i++) {
-            ctx.drawImage(this.spritesheet, 510, 0, 16, 16, this.x + i * (16 * PARAMS.BLOCKWIDTH) - this.game.camera.x, this.y - this.game.camera.y, 16 * PARAMS.BLOCKWIDTH, 16 * PARAMS.BLOCKWIDTH);
-        }
+        ctx.drawImage(this.spritesheet, 274, 206, 11, 14, this.x - this.game.camera.x, this.y - this.game.camera.y, 13 * PARAMS.BLOCKWIDTH, 16 * PARAMS.BLOCKWIDTH);
         super.draw(ctx);
     };
 }
 
-/*class TanSofa extends Furniture {
+class LoungeCouchDown extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/furniture.png", 34, 85, 32, 16, x, y, 256, 128);
-        this.BB = new BoundingBox(this.x, this.y,40 * PARAMS.BLOCKWIDTH,24 * PARAMS.BLOCKWIDTH);
+        super(game, "./sprites/furniture/furniture.png", 274, 240, 11, 14, x, y, 11, 14);
+        this.BB = new BoundingBox(this.x, this.y,11 * PARAMS.BLOCKWIDTH,10 * PARAMS.BLOCKWIDTH);
     };
 
     update() {};
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 34, 85, 32, 16, this.x - this.game.camera.x, this.y - this.game.camera.y, 40 * PARAMS.BLOCKWIDTH, 24 * PARAMS.BLOCKWIDTH);
+        ctx.drawImage(this.spritesheet, 274, 240, 11, 14, this.x - this.game.camera.x, this.y - this.game.camera.y, 13 * PARAMS.BLOCKWIDTH, 16 * PARAMS.BLOCKWIDTH);
         super.draw(ctx);
     };
 }
 
-class OrangePatternedTable extends Furniture {
+class LoungeTable extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/furniture.png", 170, 170, 32, 16, x, y, 256, 128);
-        this.BB = new BoundingBox(this.x, this.y,40 * PARAMS.BLOCKWIDTH,24 * PARAMS.BLOCKWIDTH);
+        super(game, "./sprites/furniture/furniture.png", 255, 23, 32, 27, x, y, 256, 216);
+        this.BB = new BoundingBox(this.x, this.y,40 * PARAMS.BLOCKWIDTH,35 * PARAMS.BLOCKWIDTH);
     };
 
     update() {};
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 170, 170, 32, 16, this.x - this.game.camera.x, this.y - this.game.camera.y, 40 * PARAMS.BLOCKWIDTH, 24 * PARAMS.BLOCKWIDTH);
+        ctx.drawImage(this.spritesheet, 255, 23, 32, 27, this.x - this.game.camera.x, this.y - this.game.camera.y, 40 * PARAMS.BLOCKWIDTH, 35 * PARAMS.BLOCKWIDTH);
         super.draw(ctx);
     };
 }
 
-class PacManGame extends Furniture {
+class RoseTable extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/furniture.png", 51, 188, 16, 32, x, y, 128, 256);
-        this.BB = new BoundingBox(this.x, this.y,20 * PARAMS.BLOCKWIDTH,36 * PARAMS.BLOCKWIDTH);
+        super(game, "./sprites/furniture/furniture.png", 510, 120, 12, 23, x, y, 12, 23);
+        this.BB = new BoundingBox(this.x, this.y,13 * PARAMS.BLOCKWIDTH,20 * PARAMS.BLOCKWIDTH);
     };
 
     update() {};
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 51, 188, 16, 32, this.x - this.game.camera.x, this.y - this.game.camera.y, 20 * PARAMS.BLOCKWIDTH, 36 * PARAMS.BLOCKWIDTH);
+        ctx.drawImage(this.spritesheet, 510, 120, 12, 23, this.x - this.game.camera.x, this.y - this.game.camera.y, 12 * PARAMS.BLOCKWIDTH, 23 * PARAMS.BLOCKWIDTH);
         super.draw(ctx);
     };
 }
 
-class BigCouch extends Furniture {
+class Bar extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/House_Tileset.png", 768, 408, 256, 104, x, y, 256, 104);
-        this.BB = new BoundingBox(this.x, this.y, 36 * PARAMS.BLOCKWIDTH, 17 * PARAMS.BLOCKWIDTH);
+        super(game, "./sprites/furniture/furniture.png", 255, 23, 32, 27, x, y, 256, 216);
+        this.BB = new BoundingBox(this.x, this.y,40 * PARAMS.BLOCKWIDTH,35 * PARAMS.BLOCKWIDTH);
     };
 
     update() {};
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 768, 408, 256, 104, this.x - this.game.camera.x, this.y - this.game.camera.y, 36 * PARAMS.BLOCKWIDTH, 17 * PARAMS.BLOCKWIDTH);
+        ctx.drawImage(this.spritesheet, 255, 23, 32, 27, this.x - this.game.camera.x, this.y - this.game.camera.y, 40 * PARAMS.BLOCKWIDTH, 35 * PARAMS.BLOCKWIDTH);
         super.draw(ctx);
     };
 }
 
-class ChairRight extends Furniture {
-    constructor(game, x, y) {
-        super(game, "./sprites/furniture/House_Tileset.png", 520, 384, 112, 128, x, y, 112, 128);
-        this.BB = new BoundingBox(this.x, this.y, 17 * PARAMS.BLOCKWIDTH, 19 * PARAMS.BLOCKWIDTH);
-    };
 
-    update() {};
 
-    draw(ctx) {
-        ctx.drawImage(this.spritesheet, 520, 384, 112, 128, this.x - this.game.camera.x, this.y - this.game.camera.y, 17 * PARAMS.BLOCKWIDTH, 19 * PARAMS.BLOCKWIDTH);
-        super.draw(ctx);
-    };
-}
-
-class ChairLeft extends Furniture {
-    constructor(game, x, y) {
-        super(game, "./sprites/furniture/House_Tileset.png", 520, 256, 112, 128, x, y, 112, 128);
-        this.BB = new BoundingBox(this.x, this.y, 17 * PARAMS.BLOCKWIDTH, 19 * PARAMS.BLOCKWIDTH);
-    };
-
-    update() {};
-
-    draw(ctx) {
-        ctx.drawImage(this.spritesheet, 520, 256, 112, 128, this.x - this.game.camera.x, this.y - this.game.camera.y, 17 * PARAMS.BLOCKWIDTH, 19 * PARAMS.BLOCKWIDTH);
-        super.draw(ctx);
-    };
-}*/
 
 
 

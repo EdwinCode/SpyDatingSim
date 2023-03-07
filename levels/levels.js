@@ -675,11 +675,19 @@ let levelOneFurniture = {
 
     // ------------------------ LOUNGE FURNITURE -------------------
     piano: [
-        {x: 180, y: -66}
+        {x: 160, y: -80}
     ],
 
-    woodCouch : [
+    loungeCouchSide : [
+        {x: 4.5, y: -140},
+        {x: 4.5, y: -160},
+        {x: 4.5, y: -180},
+    ],
 
+    loungeCouchDown : [
+        {x: 20, y: -190},
+        {x: 40, y: -190},
+        {x: 60, y: -190}
     ],
 
     loungeSideTable : [
@@ -688,46 +696,12 @@ let levelOneFurniture = {
 
     // add skinny red rug that leads from risers to rose table
     ceremonyRisers : [
-        {x: 160, y: -210, count: 10}
+        {x: 160, y: -210, count: 6}
     ],
 
     roseTable : [
-
+        {x: 200, y: -150}
     ],
-
-
-
-    // tanSofa: [
-    //     {x: 40, y: -220},
-    //     {x: 178, y: -220}
-    // ],
-    //
-    // orangePatternedTable: [
-    //     {x: 40, y: -190},
-    //     {x: 178, y: -190}
-    // ],
-    //
-    // pacManGame: [
-    //     {x: 186, y: -70},
-    //     {x: 208, y: -70},
-    //     {x: 230, y: -70}
-    // ],
-    //
-    // bigCouches: [
-    //     {x: 42, y: -161},
-    //     {x: 180, y: -161}
-    // ],
-    //
-    // chairRights: [
-    //     {x: 21, y: -188},
-    //     {x: 159, y: -188}
-    // ],
-    //
-    // chairLefts: [
-    //     {x: 83, y: -188},
-    //     x = 96 + 174
-    //     {x: 220, y: -188}
-    // ],
 
 
 
