@@ -850,14 +850,14 @@ class LoungeCouchDown extends Furniture {
 
 class LoungeTable extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/furniture.png", 255, 23, 32, 27, x, y, 256, 216);
-        this.BB = new BoundingBox(this.x, this.y,40 * PARAMS.BLOCKWIDTH,35 * PARAMS.BLOCKWIDTH);
+        super(game, "./sprites/furniture/furniture.png", 306, 70, 32, 14, x, y, 32, 14);
+        this.BB = new BoundingBox(this.x, this.y,38 * PARAMS.BLOCKWIDTH,15 * PARAMS.BLOCKWIDTH);
     };
 
     update() {};
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 255, 23, 32, 27, this.x - this.game.camera.x, this.y - this.game.camera.y, 40 * PARAMS.BLOCKWIDTH, 35 * PARAMS.BLOCKWIDTH);
+        ctx.drawImage(this.spritesheet, 306, 70, 32, 14, this.x - this.game.camera.x, this.y - this.game.camera.y, 38 * PARAMS.BLOCKWIDTH, 20 * PARAMS.BLOCKWIDTH);
         super.draw(ctx);
     };
 }
