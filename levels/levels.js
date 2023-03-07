@@ -914,6 +914,9 @@ let levelOneFurniture = {
 
 
 let levelOne1 = {
+    // make a music folder and name the audio as seen below
+    //music: "./music/backgroundMusic.mp3",
+
     label: "Phase 1-1",
 
     //NPC PORTRAIT NUMBERS
@@ -1309,6 +1312,8 @@ let levelOne1 = {
 
 
 let levelOne2 = {
+    music: "./music/PinkPanther.mp3",
+
     label: "Phase 1-2",
 
     butler: [
