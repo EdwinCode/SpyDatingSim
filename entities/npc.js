@@ -21,7 +21,7 @@ class NPC {
     };
 
     updateInteractionBB() {
-        this.interactBB = new BoundingBox(this.x - this.dWidth / 4, this.y - this.dHeight / 4, this.dWidth * 1.5, this.dHeight * 1.5);
+        this.interactBB = new BoundingBox(this.x - this.dWidth / 2, this.y - this.dHeight / 2, this.dWidth * 2, this.dHeight * 2);
     };
 
 
@@ -164,6 +164,8 @@ class NPC {
 }
 
 
+
+//---------------------------------MAIN CHARACTERS-----------------------------------------
 class Billionaire extends NPC{
     constructor(game, x, y) {
         super(game, "./sprites/entities/billionaire.png", x, y, 16 * PARAMS.BLOCKWIDTH, 29 * PARAMS.BLOCKWIDTH);
@@ -221,10 +223,9 @@ class Richie extends NPC{
     };
 };
 
-//
-// OTHER NPCS
-//
 
+
+//---------------------------------STAFF CHARACTERS-----------------------------------------
 class KitchenWorker extends NPC{
     constructor(game, x, y) {
         super(game, "./sprites/entities/kitchen_worker.png", x, y, 16 * PARAMS.BLOCKWIDTH, 29 * PARAMS.BLOCKWIDTH);
@@ -322,6 +323,47 @@ class NightGhost extends NPC{
 };
 
 class Butler extends NPC{
+    constructor(game, x, y) {
+        super(game, "./sprites/entities/richie.png", x, y, 16 * PARAMS.BLOCKWIDTH, 29 * PARAMS.BLOCKWIDTH);
+
+        this.loadAnimations();
+    };
+
+
+    loadAnimations() {
+        // walking animation
+        // 0 = down, 1 = up, 2 = left, 3 = right
+        this.animations[0] = new Animator(this.spritesheet, 8, 8, 128, 208, 4, 0.3);
+        this.animations[1] = new Animator(this.spritesheet, 8, 212, 128, 208, 4, 0.3);
+        this.animations[2] = new Animator(this.spritesheet, 8, 420, 110, 208, 4, 0.3);
+        this.animations[3] = new Animator(this.spritesheet, 8, 628, 110, 208, 4, 0.3);
+
+    };
+};
+
+
+
+//---------------------------------PRODUCTION CREW CHARACTERS-----------------------------------------
+class CameraMan extends NPC{
+    constructor(game, x, y) {
+        super(game, "./sprites/entities/richie.png", x, y, 16 * PARAMS.BLOCKWIDTH, 29 * PARAMS.BLOCKWIDTH);
+
+        this.loadAnimations();
+    };
+
+
+    loadAnimations() {
+        // walking animation
+        // 0 = down, 1 = up, 2 = left, 3 = right
+        this.animations[0] = new Animator(this.spritesheet, 8, 8, 128, 208, 4, 0.3);
+        this.animations[1] = new Animator(this.spritesheet, 8, 212, 128, 208, 4, 0.3);
+        this.animations[2] = new Animator(this.spritesheet, 8, 420, 110, 208, 4, 0.3);
+        this.animations[3] = new Animator(this.spritesheet, 8, 628, 110, 208, 4, 0.3);
+
+    };
+};
+
+class BoomMicNPC extends NPC{
     constructor(game, x, y) {
         super(game, "./sprites/entities/richie.png", x, y, 16 * PARAMS.BLOCKWIDTH, 29 * PARAMS.BLOCKWIDTH);
 
