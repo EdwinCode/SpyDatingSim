@@ -70,10 +70,10 @@ class Guard{
         //if going up and down
         else if (this.movement === 2) {
             if (this.direction === 0) {
-                this.sightBB = new BoundingBox(this.x, this.y + this.guardH, this.guardW, (this.guardH * 3.5) - this.guardH * 1.5);
+                this.sightBB = new BoundingBox(this.x, this.y + this.guardH, this.guardW, (this.guardH * 3.5) - this.guardH * 2);
 
             } else {
-                this.sightBB = new BoundingBox(this.x, this.y - ((this.guardH * 3.5) - this.guardH * 1.5), this.guardW, (this.guardH * 3.5) - this.guardH * 1.5);
+                this.sightBB = new BoundingBox(this.x, this.y - ((this.guardH * 3.5) - this.guardH * 2), this.guardW, (this.guardH * 3.5) - this.guardH * 2);
             }
         }
         //if going left and right
@@ -185,9 +185,9 @@ class Guard{
                 //Middle
                 ctx.moveTo((this.sightBB.x + this.guardW/2) - this.game.camera.x, this.sightBB.y + this.sightBB.height - this.game.camera.y);
                 //left
-                ctx.lineTo(this.sightBB.x - this.game.camera.x, this.sightBB.y + this.guardH*0.5 - this.game.camera.y);
+                ctx.lineTo(this.sightBB.x - this.game.camera.x, this.sightBB.y - this.game.camera.y);
                 //right
-                ctx.lineTo((this.sightBB.x + this.guardW) - this.game.camera.x, this.sightBB.y + this.guardH*0.5 - this.game.camera.y);
+                ctx.lineTo((this.sightBB.x + this.guardW) - this.game.camera.x, this.sightBB.y- this.game.camera.y);
 
 
             }
@@ -200,9 +200,9 @@ class Guard{
                 //Middle
                 ctx.moveTo(this.sightBB.x - this.game.camera.x, this.sightBB.y + this.sightBB.height/2 - this.game.camera.y);
                 //left
-                ctx.lineTo(this.sightBB.x + this.guardW*2.5 - this.game.camera.x, this.sightBB.y - this.game.camera.y);
+                ctx.lineTo(this.sightBB.x + this.sightBB.width - this.game.camera.x, this.sightBB.y - this.game.camera.y);
                 //right
-                ctx.lineTo(this.sightBB.x + this.guardW*2.5 - this.game.camera.x, this.sightBB.y + this.sightBB.height - this.game.camera.y);
+                ctx.lineTo(this.sightBB.x + this.sightBB.width - this.game.camera.x, this.sightBB.y + this.sightBB.height - this.game.camera.y);
 
 
             } else {

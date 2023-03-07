@@ -86,6 +86,18 @@ class Scenemanager {
             this.game.addEntity(new Level1Part2(this.game, this.hud, this.darkness, this.currentLevelFurniture, this.spyCharacter));
         }
 
+        // ending part 1 cutscene
+        if (this.currentLevel === endingPart1Cutscene) {
+            this.clearEntities();
+            this.game.addEntity(new EndingPart1Cutscene(this.game));
+        }
+
+        // ending part 2 cutscene
+        if (this.currentLevel === endingPart2Cutscene) {
+            this.clearEntities();
+            this.game.addEntity(new EndingPart2Cutscene(this.game));
+        }
+
     };
 
     update() {

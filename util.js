@@ -55,6 +55,7 @@ const PARAMS = {
     DEBUG: true,
     SKIPPHASE1: true,
     SKIPINTRO: true,
+    IMMUNITY: true,
     SCALE: 0.5,
     BITWIDTH: 8
 };
@@ -153,7 +154,19 @@ function loadText(level, entity, chatState) {
 
     // butler
     else if (entity === "butler") {
-        return level.butler[chatState].message;
+        if (this.game.currLvl === levelOne2) {
+            if (clueOneDisplay === false) {
+                return "I've heard Richie complain about the water. Have you seen anything with water in it? You might want to check there."
+            } else if (clueTwoDisplay === false) {
+                return "I've heard the Car Mechanic was supposed to not touch one of the cars for some reason."
+            } else if (clueThreeDisplay === false) {
+                return "I've heard Mr. Billionaire likes to keep his very valuable items hidden away somewhere in his bedroom."
+            } else {
+                return level.butler[chatState].message;
+            }
+        } else {
+            return level.butler[chatState].message;
+        }
     }
 
     // ---------- OBJECTS -------------
@@ -180,6 +193,32 @@ function loadText(level, entity, chatState) {
             return "This is where you found the flashlight."
         } else {
             return level.toolbox[chatState].message;
+        }
+    }
+
+    // 3 pieces of evidence
+
+    else if (entity === "waterTank") {
+        if (clueOneDisplay === true) {
+            return "This is where you found the lighter fluid."
+        } else {
+            return level.waterTank[chatState].message;
+        }
+    }
+
+    else if (entity === "greyCar") {
+        if (clueTwoDisplay === true) {
+            return "This is where you found the gps."
+        } else {
+            return level.greyCar[chatState].message;
+        }
+    }
+
+    else if (entity === "paintingTwo") {
+        if (clueThreeDisplay === true) {
+            return "This is where you found the patent."
+        } else {
+            return level.paintingTwo[chatState].message;
         }
     }
 };
@@ -246,6 +285,20 @@ function loadImage(level, entity, chatState) {
     // toolbox
     else if (entity === "toolbox") {
         return level.toolbox[chatState].portraitNumber;
+    }
+
+    // 3 pieces of evidence
+
+    else if (entity === "waterTank") {
+        return level.waterTank[chatState].portraitNumber;
+    }
+
+    else if (entity === "greyCar") {
+        return level.greyCar[chatState].portraitNumber;
+    }
+
+    else if (entity === "paintingTwo") {
+        return level.paintingTwo[chatState].portraitNumber;
     }
 
 }

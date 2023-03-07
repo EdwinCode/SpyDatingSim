@@ -303,7 +303,7 @@ let levelOneFurniture = {
 
     ],
 
-    grayCar : [
+    greyCar : [
         {x: -230, y: -290}
     ],
 
@@ -314,32 +314,6 @@ let levelOneFurniture = {
     shelf : [
         {x: -43, y: -440},
 
-    ],
-
-
-    // ------------------------ OFFICE FURNITURE -------------------
-    wideBlueMonitor: [
-        {x: 103, y: -472},
-        {x: 133, y: -472}
-    ],
-
-    gamerPC: [
-        {x: 80, y: -460},
-        {x: 161, y: -460},
-    ],
-
-    blackHandleChairUp: [
-        {x: 106, y: -430},
-        {x: 136, y: -430},
-    ],
-
-    officeDesk: [
-        {x: 100, y: -460},
-        {x: 130, y: -460}
-    ],
-
-    whiteBoard: [
-        {x: 177, y: -335},
     ],
 
 
@@ -475,9 +449,15 @@ let levelOneFurniture = {
         {x: -150, y: 260, potColor: "Black", roseColor: "Orange", count: 5},
     ],
 
+
+
     // ------------------------ KITCHEN FURNITURE -------------------
     kitchenSet: [
         {x: 354, y: -481}
+    ],
+
+    waterTank: [
+        {x: 485, y: -405}
     ],
 
     fridge: [
@@ -568,44 +548,6 @@ let levelOneFurniture = {
     ],
 
 
-    // ------------------------ LOUNGE FURNITURE -------------------
-    piano: [
-        {x: 30, y: -66}
-    ],
-
-    tanSofa: [
-        {x: 40, y: -220},
-        {x: 178, y: -220}
-    ],
-
-    orangePatternedTable: [
-        {x: 40, y: -190},
-        {x: 178, y: -190}
-    ],
-
-    pacManGame: [
-        {x: 186, y: -70},
-        {x: 208, y: -70},
-        {x: 230, y: -70}
-    ],
-
-    bigCouches: [
-        {x: 42, y: -161},
-        {x: 180, y: -161}
-    ],
-
-    chairRights: [
-        {x: 21, y: -188},
-        {x: 159, y: -188}
-    ],
-
-    chairLefts: [
-        {x: 83, y: -188},
-        // x = 96 + 174
-        {x: 220, y: -188}
-    ],
-
-
 
     // ------------------------ BATHROOM FURNITURE -------------------
     shower: [
@@ -631,6 +573,7 @@ let levelOneFurniture = {
     trashcan: [
         {x: 465, y: -212}
     ],
+
 
 
     // ------------------------ ENTRANCE FURNITURE -------------------
@@ -683,60 +626,176 @@ let levelOneFurniture = {
 
 
 
-    // ------------------------ BEDROOM FURNITURE -------------------
-    bigWhiteBed: [
-        {x: 422, y: 175}
-    ],
-
+    // ------------------------ BEDROOM CLOSET FURNITURE -------------------
+    // in closet
     bedroomMirror: [
-        //{x: 450, y: 3}
         {x: 293, y: -78}
     ],
 
     wardrobes: [
-        // closet in bathroom
         {x: 261, y: -78},
-        {x: 318, y: -78},
+        {x: 318, y: -78}
     ],
 
-    smallBlueTable: [
-        //{x: 380, y: 170},
-        //{x: 465, y: 170}
+
+
+    // ------------------------ BEDROOM FURNITURE -------------------
+    // white divider wall
+    whiteDividerVert : [
+        // queen bed
+        {x: 340, y: 160, count: 2},
+        // twin beds
+        {x: 412, y: 160, count: 2},
+        {x: 412, y: 90, count: 2},
+        {x: 412, y: 20, count: 2}
     ],
 
-    paintingThree : [
-        {x: 414, y: 160}
+    // Queen Bed
+    queenBed : [
+        {x: 286, y: 170}
+    ],
+
+    // Twin Bed
+    twinBed : [
+        {x: 435, y: 25},
+        {x: 435, y: 90},
+        {x: 435, y: 160},
+        {x: 472, y: 25},
+        {x: 472, y: 90},
+        {x: 472, y: 160}
+    ],
+
+    // other items (in multiple rooms section below)
+    // plant one
+    // bookshelves
+    // small dark table
+    // white divider horiz
+
+
+
+    // ------------------------ LOUNGE FURNITURE -------------------
+    piano: [
+        {x: 180, y: -66}
+    ],
+
+    woodCouch : [
+
+    ],
+
+    loungeSideTable : [
+
+    ],
+
+    // add skinny red rug that leads from risers to rose table
+    ceremonyRisers : [
+        {x: 160, y: -210, count: 10}
+    ],
+
+    roseTable : [
+
+    ],
+
+
+
+    // tanSofa: [
+    //     {x: 40, y: -220},
+    //     {x: 178, y: -220}
+    // ],
+    //
+    // orangePatternedTable: [
+    //     {x: 40, y: -190},
+    //     {x: 178, y: -190}
+    // ],
+    //
+    // pacManGame: [
+    //     {x: 186, y: -70},
+    //     {x: 208, y: -70},
+    //     {x: 230, y: -70}
+    // ],
+    //
+    // bigCouches: [
+    //     {x: 42, y: -161},
+    //     {x: 180, y: -161}
+    // ],
+    //
+    // chairRights: [
+    //     {x: 21, y: -188},
+    //     {x: 159, y: -188}
+    // ],
+    //
+    // chairLefts: [
+    //     {x: 83, y: -188},
+    //     x = 96 + 174
+    //     {x: 220, y: -188}
+    // ],
+
+
+
+    // ------------------------ OFFICE FURNITURE -------------------
+    wideBlueMonitor: [
+        {x: 55, y: -471},
+        {x: 117, y: -471},
+        {x: 179, y: -471}
+    ],
+
+    flatscreenTV : [
+        {x: 184, y: -310}
+    ],
+
+    squareOfficeDesk : [
+        {x: 32, y: -274},
+        {x: 188, y: -274}
+    ],
+
+    officeDesk: [
+        {x: 52, y: -460},
+        {x: 114, y: -460},
+        {x: 176, y: -460}
+    ],
+
+    officeChair : [
+        // top
+        {x: 60, y: -453},
+        {x: 184, y: -453},
+        // by whiteboards
+        {x: 38, y: -264},
+        {x: 50, y: -264},
+        // by TV
+        {x: 194, y: -264},
+        {x: 206, y: -264}
+    ],
+
+    sidewaysOfficeChair : [
+        // top
+        {x: 120, y: -450},
+        // by whiteboards
+        {x: 20, y: -272}
+    ],
+
+    whiteBoard: [
+        {x: 4.5, y: -320},
+        {x: 38, y: -320}
     ],
 
 
 
     // ------------ Multiple Rooms ---------------------
-    longWoodenPatternedTables: [
-        //office
-        {x: 174, y: -290},
-    ],
-
     bookshelves: [
-        //office
-        {x: 4.5, y: -475},
-        {x: 25, y: -475},
-        {x: 208, y: -475},
-        {x: 228, y: -475},
-
-        //bedroom
-        // top
+        //office along desks
+        {x: 23, y: -475},
+        {x: 85, y: -475},
+        {x: 147, y: -475},
+        {x: 209, y: -475},
+        // office by whiteboard
+        {x: 72, y: -320},
+        //office by TV
+        {x: 160, y: -320},
+        {x: 228, y: -320},
+        // bedroom top left corner
         {x: 257, y: 6},
         {x: 280, y: 6},
         {x: 303, y: 6},
         {x: 326, y: 6},
-        // bottom
-        {x: 257, y: 160},
-        {x: 280, y: 160},
-        {x: 303, y: 160},
-        {x: 326, y: 160},
-        // by bed
-        {x: 390, y: 160},
-        {x: 481, y: 160}
     ],
 
     beds: [
@@ -758,14 +817,23 @@ let levelOneFurniture = {
         {x: 335, y: -200},
         {x: 260, y: -185},
         {x: 335, y: -140},
+        // office
+        {x: 8, y: -455},
+        {x: 237, y: -455},
+        // bedroom by queen bed
+        {x: 266, y: 165},
+        {x: 323, y: 165},
+        // bedroom by twin beds
+        {x: 420, y: 25},
+        {x: 420, y: 90},
+        {x: 420, y: 160}
     ],
 
     // small potted plant
     plantTwo : [
-        // patio
-        // upper right section
+        // patio upper right section
         {x: -108, y: -170},
-        // lower left section
+        // patio lower left section
         {x: -213, y: -82},
         {x: -185, y: -82},
         // behind greenhouse window
@@ -773,12 +841,8 @@ let levelOneFurniture = {
         {x: -180, y: 10},
         // out front of bathroom on table
         {x: 438, y: -62},
-        // bedroom by pink painting
-        {x: 483, y: 18},
         // bedroom by bookshelves
         {x: 299, y: 62},
-        // green house on table
-        //{x: -88, y: 50},
         // bathroom area
         {x: 336, y: -165}
     ],
@@ -790,7 +854,10 @@ let levelOneFurniture = {
 
     // pink
     paintingTwo : [
-        {x: 443, y: 0}
+        // bedroom
+        {x: 443, y: 0},
+        // lounge
+        {x: 36, y: -240}
     ],
 
     standardChair : [
@@ -810,44 +877,48 @@ let levelOneFurniture = {
         {x: 296, y: -165},
         {x: 296, y: -190},
         {x: 260, y: -135},
-        // bedroom by pink painting
-        {x: 420, y: 25},
-        {x: 480, y: 25},
         // bedroom by bookshelves
         {x: 296, y: 70},
         {x: 260, y: 100},
-        // bedroom by bed
-        {x: 394, y: 193},
-        {x: 485, y: 193},
-        // by bottom bookshelf nook
-        {x: 260, y: 212},
+        // bedroom by twin beds
+        {x: 489, y: 25},
+        {x: 489, y: 90},
+        {x: 489, y: 160},
+        {x: 452, y: 25},
+        {x: 452, y: 90},
+        {x: 452, y: 160}
     ],
 
     lamp: [
-        // bedroom by bed
-        {x: 396, y: 180},
-        {x: 487, y: 180},
-        // bedroom by pink painting
-        {x: 421, y: 12},
+        // bedroom by twin beds
         // bedroom by bookshelves
         {x: 261, y: 88},
         // bathroom area
         {x: 261, y: -148}
     ],
 
-    redStool: [
+    whiteDividerHoriz : [
+        // bedroom queen bed
+        {x: 257, y: 160, count: 3},
         // office
-        {x: 155, y: -284},
-        {x: 175, y: -265},
-        {x: 200, y: -265},
-        {x: 216, y: -284},
-
-        // bedroom
-        {x: 420, y: 60},
-        {x: 420, y: 100},
-        {x: 470, y: 60},
-        {x: 470, y: 100}
+        {x: 35, y: -405, count: 2},
+        //{x: 100, y: -405, count: 1},
+        {x: 160, y: -405, count: 2}
     ],
+
+    // redStool: [
+    //     office
+    //     {x: 155, y: -284},
+    //     {x: 175, y: -265},
+    //     {x: 200, y: -265},
+    //     {x: 216, y: -284},
+    //
+    //     bedroom
+    //     {x: 420, y: 60},
+    //     {x: 420, y: 100},
+    //     {x: 470, y: 60},
+    //     {x: 470, y: 100}
+    // ],
 }
 
 
@@ -1251,18 +1322,18 @@ let levelOne2 = {
     label: "Phase 1-2",
 
     butler: [
-        {message: "Look in the trashcan.",
+        {message: "I've heard Richie complain about the water. Have you seen anything with water in it? You might want to check there.",
             state: 0,
             stateIncr: false},
-        {message: "Look at the table surfaces.",
+        {message: "I've heard the Car Mechanic was supposed to not touch one of the cars for some reason.",
             state: 1,
             stateIncr: false},
-        {message: "Look in the cabinets near the wet table.",
+        {message: "I've heard Mr. Billionaire likes to keep his very valuable items hidden away somewhere in his bedroom.",
             state: 2,
             stateIncr: false},
-        {message: "Look in the cabinets near the wet table.",
+        {message: "The front door is located at the bottom of the Entrance room where you started. You better get there quick!",
             state: 3,
-            stateIncr: false}
+            stateIncr: false},
     ],
 
 
@@ -1280,22 +1351,6 @@ let levelOne2 = {
             state: 2,
             portraitNumber: 0,
             stateIncr: false},
-        { message: "He wasn't kidding on how much he enjoys wine.",
-            state: 3,
-            portraitNumber: 0,
-            stateIncr: false},
-        { message: "He wasn't kidding on how much he enjoys wine.",
-            state: 4,
-            portraitNumber: 0,
-            stateIncr: false},
-        { message: "He wasn't kidding on how much he enjoys wine.",
-            state: 5,
-            portraitNumber: 0,
-            stateIncr: false},
-        { message: "He wasn't kidding on how much he enjoys wine.",
-            state: 6,
-            portraitNumber: 0,
-            stateIncr: false},
     ],
 
     fridge: [
@@ -1309,22 +1364,6 @@ let levelOne2 = {
             stateIncr: false},
         { message: "They probably wouldn't notice if you took something as a snack...",
             state: 2,
-            portraitNumber: 0,
-            stateIncr: false},
-        { message: "They probably wouldn't notice if you took something as a snack...",
-            state: 3,
-            portraitNumber: 0,
-            stateIncr: false},
-        { message: "They probably wouldn't notice if you took something as a snack...",
-            state: 4,
-            portraitNumber: 0,
-            stateIncr: false},
-        { message: "They probably wouldn't notice if you took something as a snack...",
-            state: 5,
-            portraitNumber: 0,
-            stateIncr: false},
-        { message: "They probably wouldn't notice if you took something as a snack...",
-            state: 6,
             portraitNumber: 0,
             stateIncr: false},
     ],
@@ -1342,22 +1381,53 @@ let levelOne2 = {
             state: 2,
             portraitNumber: 0,
             stateIncr: false},
-        { message: "There seems to be League of Legends installed on this computer...",
-            state: 3,
+    ],
+
+
+    //ITEMS
+    greyCar: [
+        { message: "You have found a Gps on a car in the garage that proves Mr.Billionaire was at the scene of the crime!",
+            state: 0,
             portraitNumber: 0,
-            stateIncr: false},
-        { message: "There seems to be League of Legends installed on this computer...",
-            state: 4,
+            stateIncr: true},
+        { message: "You have found a Gps on a car in the garage that proves Mr.Billionaire was at the scene of the crime!",
+            state: 1,
             portraitNumber: 0,
-            stateIncr: false},
-        { message: "There seems to be League of Legends installed on this computer...",
-            state: 5,
+            stateIncr: true},
+        { message: "You have found a Gps on a car in the garage that proves Mr.Billionaire was at the scene of the crime!",
+            state: 2,
             portraitNumber: 0,
-            stateIncr: false},
-        { message: "There seems to be League of Legends installed on this computer...",
-            state: 6,
+            stateIncr: true},
+    ],
+
+    waterTank: [
+        { message: "You have found lighter fluid disguised as water!",
+            state: 0,
             portraitNumber: 0,
-            stateIncr: false},
+            stateIncr: true},
+        { message: "You have found lighter fluid disguised as water!",
+            state: 1,
+            portraitNumber: 0,
+            stateIncr: true},
+        { message: "You have found lighter fluid disguised as water!",
+            state: 2,
+            portraitNumber: 0,
+            stateIncr: true},
+    ],
+
+    paintingTwo: [
+        { message: "You have found the stolen patent!",
+            state: 0,
+            portraitNumber: 0,
+            stateIncr: true},
+        { message: "You have found the stolen patent!",
+            state: 1,
+            portraitNumber: 0,
+            stateIncr: true},
+        { message: "You have found the stolen patent!",
+            state: 2,
+            portraitNumber: 0,
+            stateIncr: true},
     ],
 };
 
@@ -1371,6 +1441,14 @@ let introCutscene = {
 
 let levelOneCutscene = {
     label: "level one"
+};
+
+let endingPart1Cutscene = {
+    label: "ending part 1"
+};
+
+let endingPart2Cutscene = {
+    label: "ending part 2"
 };
 
 let loseScreen = {
