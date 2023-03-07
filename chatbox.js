@@ -129,7 +129,7 @@ class CasefileChatbox {
     constructor(game) {
         this.game = game;
 
-        this.firstTime = false;
+        this.firstTime = true;
 
         // image that looks like a case file
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/casefile.png");
@@ -146,6 +146,7 @@ class CasefileChatbox {
             if (this.mouseBB.collide(this.exitBB)) {
                 caseFileDisplay = true;
                 this.removeFromWorld = true;
+                this.firstTime = false;
             }
 
             this.game.click = null;
@@ -165,7 +166,7 @@ class CasefileChatbox {
 
         if (this.firstTime) {
             ctx.fillText("A New Item...", PARAMS.CANVAS_WIDTH / 2, 50);
-            ctx.fillText("This dossier will be in your items bag.", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 50);
+            ctx.fillText("This will be in your items bag.", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 50);
         }
 
         // casefile
@@ -211,7 +212,7 @@ class CasefileUpdatedChatbox {
     constructor(game) {
         this.game = game;
 
-        this.firstTime = false;
+        this.firstTime = true;
 
         // image that looks like a case file
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/casefileUpdated.png");
@@ -228,6 +229,7 @@ class CasefileUpdatedChatbox {
             if (this.mouseBB.collide(this.exitBB)) {
                 caseFileDisplay = true;
                 this.removeFromWorld = true;
+                this.firstTime = false;
             }
 
             this.game.click = null;
@@ -306,6 +308,62 @@ class CasefileUpdatedChatbox {
 
         // exit button
         setBlackStroke(ctx);
+        if (this.mouseBB.collide(this.exitBB)) {
+            setRedStroke(ctx);
+        }
+
+        ctx.lineWidth = 2;
+        ctx.textAlign = "center";
+        ctx.font = "Bold 25px Courier";
+        ctx.fillText("EXIT", 603, 542);
+        ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
+    };
+};
+
+class ItemsChatbox {
+    constructor(game, spritesheet, sx, sy, sw, sh, x, y, dWidth, dHeight) {
+        Object.assign(this, {game, spritesheet, sx, sy, sw, sh, x, y, dWidth, dHeight});
+
+        this.firstTime = true;
+
+        this.mouseBB = new BoundingBox(0, 0, 1, 1);
+        this.exitBB = new BoundingBox(565, 520, 75, 30);
+    };
+
+    update() {
+        if (this.game.click) {
+            this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y, 1, 1);
+
+            // exit chat box
+            if (this.mouseBB.collide(this.exitBB)) {
+                this.removeFromWorld = true;
+                this.firstTime = false;
+            }
+
+            this.game.click = null;
+        }
+
+        // update mouse area
+        if (this.game.mouse) {
+            this.mouseBB = new BoundingBox(this.game.mouse.x, this.game.mouse.y, 1, 1);
+        }
+    };
+
+    draw(ctx) {
+        setBlackStroke(ctx);
+        ctx.fillRect(0,0,PARAMS.CANVAS_WIDTH,PARAMS.CANVAS_HEIGHT);
+        setWhiteStroke(ctx);
+        ctx.textAlign = "center";
+
+        if (this.firstTime) {
+            ctx.fillText("A New Item...", PARAMS.CANVAS_WIDTH / 2, 50);
+            ctx.fillText("This will be in your items bag.", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 50);
+        }
+
+        ctx.drawImage(this.spritesheet, this.sx, this.sy, this.sw, this.sh, this.x, this.y, this.dWidth, this.dHeight);
+
+        // exit button
+        setWhiteStroke(ctx);
         if (this.mouseBB.collide(this.exitBB)) {
             setRedStroke(ctx);
         }

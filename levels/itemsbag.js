@@ -436,7 +436,7 @@ class Itemsbag {
                     "though, this is a weird clue, it still doesn't completely prove Mr. Billionaire did the crime.             " +
                     "              Make sure to get find all 3 clues, so get back out there, Agent Spy!");
                 let img = ASSET_MANAGER.getAsset("./sprites/furniture/water_tank.png");
-                this.setViewItemBox(ctx, img, PARAMS.CANVAS_WIDTH / 6, PARAMS.CANVAS_WIDTH / 12, 7 * 12.8, 7 * 33.5);
+                this.setViewItemBox(ctx, img, PARAMS.CANVAS_WIDTH / 5, PARAMS.CANVAS_WIDTH / 12, 7 * 12.8, 7 * 33.5);
                 this.setButton(ctx, "VIEW");
 
             }

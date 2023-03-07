@@ -12,7 +12,6 @@ class Level1Part1 {
     setUpLevel() {
         // casefile chatbox
         let caseFile = new CasefileChatbox(this.game);
-        caseFile.firstTime = true;
         this.game.addEntityToTop(caseFile);
 
 
@@ -104,8 +103,11 @@ class Level1Part2 {
 
         // casefile chatbox
         let casefileUpdated = new CasefileUpdatedChatbox(this.game);
-        casefileUpdated.firstTime = true;
         this.game.addEntityToTop(casefileUpdated);
+
+        //rose chatbox
+        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/rose.png");
+        this.game.addEntityToTop(new ItemsChatbox(this.game, this.spritesheet, 0, 0, 1800, 2600, PARAMS.CANVAS_WIDTH / 3, PARAMS.CANVAS_WIDTH / 4, 45 * PARAMS.BLOCKWIDTH, 65 * PARAMS.BLOCKWIDTH));
 
         // Timer
         this.ingameTimer = new IngameTimer(this.game);

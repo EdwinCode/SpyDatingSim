@@ -271,7 +271,10 @@ class Spy {
 
                         if (that.game.chatState > 2) {
                             flashlightDisplay = true;
+                            //Flashlight chatbox
+                            that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/flashlight.png"), 0, 0, 612, 272, PARAMS.CANVAS_WIDTH / 3.5, PARAMS.CANVAS_WIDTH / 3, 76.5 * PARAMS.BLOCKWIDTH, 34 * PARAMS.BLOCKWIDTH));
                         }
+
                     }
                 } else {
                     that.toolboxInteract = false;
@@ -301,6 +304,9 @@ class Spy {
                             Chatbox.OPEN = true;
 
                             clueOneDisplay = true;
+                            //clueone chatbox
+                            that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/furniture/water_tank.png"), 18, 4, 198, 529, PARAMS.CANVAS_WIDTH / 2.5, PARAMS.CANVAS_WIDTH / 6.5,  132, 352.66));
+
                         }
                     } else {
                         that.waterTankInteract = false;
@@ -329,6 +335,9 @@ class Spy {
                             Chatbox.OPEN = true;
 
                             clueTwoDisplay = true;
+                            //cluetwo chatbox
+                            that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/gps.png"), 0, 0, 128, 128, PARAMS.CANVAS_WIDTH / 3.5, PARAMS.CANVAS_WIDTH / 5,  256, 256));
+
                         }
                     } else {
                         that.greyCarInteract = false;
@@ -357,6 +366,9 @@ class Spy {
                             Chatbox.OPEN = true;
 
                             clueThreeDisplay = true;
+                            //cluethree chatbox
+                            that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/patent.png"), 0, 0, 293, 300, PARAMS.CANVAS_WIDTH / 3.5, PARAMS.CANVAS_WIDTH / 5,  293, 300));
+
                         }
                     } else {
                         that.paintingTwoInteract = false;
