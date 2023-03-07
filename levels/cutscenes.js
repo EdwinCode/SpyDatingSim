@@ -467,7 +467,7 @@ class EndingPart1Cutscene {
             // richie
             ctx.drawImage(rSprite, 36, 628, this.imageW, this.imageH, 530, 240, this.dWidth, this.dHeight);
 
-            let sText = "The contestants were shocked when they heard the news.         \"I really thought he could be the one.\"    - Stephanie";
+            let sText = "The contestants were shocked when they heard the news.         \"I really like thought he could be like the one.\"            - Stephanie";
             wrapText(ctx, sText, 20, 270, PARAMS.CANVAS_WIDTH / 2);
 
         }
@@ -486,7 +486,7 @@ class EndingPart1Cutscene {
             // richie
             ctx.drawImage(rSprite, 36, 628, this.imageW, this.imageH, 530, 240, this.dWidth, this.dHeight);
 
-            let sText = "The contestants were shocked when they heard the news.         \"I really thought he could be the one.\"    - Stephanie";
+            let sText = "The contestants were shocked when they heard the news.         \"I really like thought he could be like the one.\"            - Stephanie";
             wrapText(ctx, sText, 20, 270, PARAMS.CANVAS_WIDTH / 2);
 
             // steph

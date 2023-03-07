@@ -864,15 +864,16 @@ let levelOneFurniture = {
 
     // green
     paintingOne : [
-        {x: 288, y: -240}
+        //bathroom
+        {x: 288, y: -240},
+        // lounge
+        {x: 36, y: -240}
     ],
 
     // pink
     paintingTwo : [
         // bedroom
         {x: 443, y: 0},
-        // lounge
-        {x: 36, y: -240}
     ],
 
     standardChair : [
@@ -939,6 +940,9 @@ let levelOneFurniture = {
 
 
 let levelOne1 = {
+    // make a music folder and name the audio as seen below
+    //music: "./music/backgroundMusic.mp3",
+
     label: "Phase 1-1",
 
     //NPC PORTRAIT NUMBERS
@@ -1297,15 +1301,15 @@ let levelOne1 = {
 
     //ITEMS
     toolbox: [
-        { message: "There seems to be a lot of cool things in this toolbox.",
+        { message: "You found a flashlight!",
             state: 0,
             portraitNumber: 0,
             stateIncr: false},
-        { message: "Maybe something could be useful here for later.",
+        { message: "You found a flashlight!",
             state: 1,
             portraitNumber: 0,
             stateIncr: false},
-        { message: "Gotta keep looking in this, there's a lot of nice tools in here.",
+        { message: "You found a flashlight!",
             state: 2,
             portraitNumber: 0,
             stateIncr: false},
@@ -1334,6 +1338,8 @@ let levelOne1 = {
 
 
 let levelOne2 = {
+    music: "./music/PinkPanther.mp3",
+
     label: "Phase 1-2",
 
     butler: [

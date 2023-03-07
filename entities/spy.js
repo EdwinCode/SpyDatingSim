@@ -303,13 +303,12 @@ class Spy {
                             Chatbox.OPEN = true;
 
 
-                            if (that.game.chatState > 2) {
-                                //Flashlight chatbox
-                                if (!flashlightDisplay) {
-                                    that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/flashlight.png"), 0, 0, 612, 272, PARAMS.CANVAS_WIDTH / 3.5, PARAMS.CANVAS_WIDTH / 3, 76.5 * PARAMS.BLOCKWIDTH, 34 * PARAMS.BLOCKWIDTH));
-                                }
-                                flashlightDisplay = true;
+                            //Flashlight chatbox
+                            if (!flashlightDisplay) {
+                                that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/flashlight.png"), 0, 0, 612, 272, PARAMS.CANVAS_WIDTH / 3.5, PARAMS.CANVAS_WIDTH / 3, 76.5 * PARAMS.BLOCKWIDTH, 34 * PARAMS.BLOCKWIDTH));
                             }
+                            flashlightDisplay = true;
+
 
                         }
                     } else {

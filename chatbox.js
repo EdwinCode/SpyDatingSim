@@ -234,6 +234,11 @@ class CasefileUpdatedChatbox {
                 this.game.phase2Timer.time = this.game.savedTime;
                 caseFileDisplay = true;
                 this.removeFromWorld = true;
+                // queue music on first time exit;
+                if (this.firstTime && this.game.currLvl.music) {
+                    ASSET_MANAGER.pauseBackgroundMusic();
+                    ASSET_MANAGER.playAsset(this.game.currLvl.music);
+                }
             }
 
             this.game.click = null;
@@ -342,7 +347,9 @@ class ItemsChatbox {
 
             // exit chat box
             if (this.mouseBB.collide(this.exitBB)) {
-                this.game.phase2Timer.time = this.game.savedTime;
+                if (this.game.currLvl === levelOne2) {
+                    this.game.phase2Timer.time = this.game.savedTime;
+                }
                 this.removeFromWorld = true;
             }
 
