@@ -129,7 +129,7 @@ class CasefileChatbox {
     constructor(game) {
         this.game = game;
 
-        this.firstTime = true;
+        this.firstTime = false;
 
         // image that looks like a case file
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/casefile.png");
@@ -146,7 +146,6 @@ class CasefileChatbox {
             if (this.mouseBB.collide(this.exitBB)) {
                 caseFileDisplay = true;
                 this.removeFromWorld = true;
-                this.firstTime = false;
             }
 
             this.game.click = null;
@@ -212,7 +211,7 @@ class CasefileUpdatedChatbox {
     constructor(game) {
         this.game = game;
 
-        this.firstTime = true;
+        this.firstTime = false;
 
         // image that looks like a case file
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/casefileUpdated.png");
@@ -229,7 +228,6 @@ class CasefileUpdatedChatbox {
             if (this.mouseBB.collide(this.exitBB)) {
                 caseFileDisplay = true;
                 this.removeFromWorld = true;
-                this.firstTime = false;
             }
 
             this.game.click = null;
@@ -324,8 +322,6 @@ class ItemsChatbox {
     constructor(game, spritesheet, sx, sy, sw, sh, x, y, dWidth, dHeight) {
         Object.assign(this, {game, spritesheet, sx, sy, sw, sh, x, y, dWidth, dHeight});
 
-        this.firstTime = true;
-
         this.mouseBB = new BoundingBox(0, 0, 1, 1);
         this.exitBB = new BoundingBox(565, 520, 75, 30);
     };
@@ -355,10 +351,9 @@ class ItemsChatbox {
         setWhiteStroke(ctx);
         ctx.textAlign = "center";
 
-        if (this.firstTime) {
-            ctx.fillText("A New Item...", PARAMS.CANVAS_WIDTH / 2, 50);
-            ctx.fillText("This will be in your items bag.", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 50);
-        }
+        ctx.fillText("A New Item...", PARAMS.CANVAS_WIDTH / 2, 50);
+        ctx.fillText("This will be in your items bag.", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT - 50);
+
 
         ctx.drawImage(this.spritesheet, this.sx, this.sy, this.sw, this.sh, this.x, this.y, this.dWidth, this.dHeight);
 

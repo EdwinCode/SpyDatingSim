@@ -409,7 +409,7 @@ class Itemsbag {
 
                 let img = ASSET_MANAGER.getAsset("./sprites/rose.png");
                 this.setViewItemBox(ctx, img, PARAMS.CANVAS_WIDTH / 10, PARAMS.CANVAS_WIDTH / 16, 180, 260);
-                this.setButton(ctx, "VIEW");
+                ctx.textAlign = "center";
             }
         } else {
             ctx.fillText("---", PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 65);
@@ -437,7 +437,7 @@ class Itemsbag {
                     "              Make sure to get find all 3 clues, so get back out there, Agent Spy!");
                 let img = ASSET_MANAGER.getAsset("./sprites/furniture/water_tank.png");
                 this.setViewItemBox(ctx, img, PARAMS.CANVAS_WIDTH / 5, PARAMS.CANVAS_WIDTH / 12, 7 * 12.8, 7 * 33.5);
-                this.setButton(ctx, "VIEW");
+                ctx.textAlign = "center";
 
             }
         } else {
@@ -462,7 +462,7 @@ class Itemsbag {
 
                 let img = ASSET_MANAGER.getAsset("./sprites/gps.png");
                 this.setViewItemBox(ctx, img, PARAMS.CANVAS_WIDTH / 14, PARAMS.CANVAS_WIDTH / 12, 1.5 * 128, 1.5 * 128);
-                this.setButton(ctx, "VIEW");
+                ctx.textAlign = "center";
             }
         } else {
             ctx.fillText("---", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2 + 140);
@@ -487,7 +487,7 @@ class Itemsbag {
 
                 let img = ASSET_MANAGER.getAsset("./sprites/patent.png");
                 this.setViewItemBox(ctx, img, PARAMS.CANVAS_WIDTH / 27, PARAMS.CANVAS_WIDTH / 27, 293, 300);
-                this.setButton(ctx, "VIEW");
+                ctx.textAlign = "center";
             }
         } else {
             ctx.fillText("---", PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 4, PARAMS.CANVAS_HEIGHT / 2 + 140);

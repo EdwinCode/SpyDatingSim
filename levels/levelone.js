@@ -12,6 +12,7 @@ class Level1Part1 {
     setUpLevel() {
         // casefile chatbox
         let caseFile = new CasefileChatbox(this.game);
+        caseFile.firstTime = true;
         this.game.addEntityToTop(caseFile);
 
 
@@ -103,6 +104,7 @@ class Level1Part2 {
 
         // casefile chatbox
         let casefileUpdated = new CasefileUpdatedChatbox(this.game);
+        casefileUpdated.firstTime = true;
         this.game.addEntityToTop(casefileUpdated);
 
         //rose chatbox
