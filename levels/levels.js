@@ -1280,15 +1280,15 @@ let levelOne1 = {
 
     //ITEMS
     toolbox: [
-        { message: "There seems to be a lot of cool things in this toolbox.",
+        { message: "You found a flashlight!",
             state: 0,
             portraitNumber: 0,
             stateIncr: false},
-        { message: "Maybe something could be useful here for later.",
+        { message: "You found a flashlight!",
             state: 1,
             portraitNumber: 0,
             stateIncr: false},
-        { message: "Gotta keep looking in this, there's a lot of nice tools in here.",
+        { message: "You found a flashlight!",
             state: 2,
             portraitNumber: 0,
             stateIncr: false},
