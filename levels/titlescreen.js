@@ -166,4 +166,4 @@ class TitleScreen {
             ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
         }
     };
-};
+}

@@ -50,4 +50,4 @@ class WinScreen {
         ctx.fillText("NEW GAME", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2);
         ctx.strokeRect(this.newgameBB.left, this.newgameBB.top, this.newgameBB.width, this.newgameBB.height);
     };
-};
+}
