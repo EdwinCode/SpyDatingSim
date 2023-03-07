@@ -149,7 +149,7 @@ class CasefileChatbox {
             // exit chat box
             if (this.mouseBB.collide(this.exitBB)) {
                 caseFileDisplay = true;
-                this.game.phase2Timer.time = this.game.savedTime;
+                //this.game.phase2Timer.time = this.game.savedTime;
                 this.removeFromWorld = true;
             }
 

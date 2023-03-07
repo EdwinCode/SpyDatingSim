@@ -45,7 +45,9 @@ class HUD {
             else if (this.mouseBB.collide(this.itemsBagBB)) {
                 this.itemsBag = new Itemsbag(this.game);
                 this.game.addEntityToTop(this.itemsBag);
-                this.game.savedTime = this.game.phase2Timer.time;
+                if (this.game.camera.currentLevel === levelOne2) {
+                    this.game.savedTime = this.game.phase2Timer.time;
+                }
             }
             // reset user click
             this.game.click = null;
