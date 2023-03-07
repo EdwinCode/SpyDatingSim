@@ -919,7 +919,7 @@ let levelOneFurniture = {
 
 
 let levelOne1 = {
-    music: "./music/jazz.mp3",
+    music: "./music/Jazz.mp3",
 
     label: "Phase 1-1",
 
