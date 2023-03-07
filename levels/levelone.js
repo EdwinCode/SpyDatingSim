@@ -319,7 +319,6 @@ function setUpLevelOneFurniture(game, level) {
     }
 
 
-
     // ------------------------ LOUNGE FURNITURE -------------------
     //piano
     for (let i = 0; i < this.level.piano.length; i++) {
@@ -790,8 +789,30 @@ function setUpLevelOneFurniture(game, level) {
 
 
 
-    // ------------------------ FLOOR -------------------
+    // ------------------------ LOUNGE FURNITURE -------------------
+    // barCounterVert
+    for (let i = 0; i < this.level.barCounterVert.length; i++) {
+        let barCounterVert = this.level.barCounterVert[i];
+        this.game.addEntity(new BarCounterVert(this.game, barCounterVert.x * PARAMS.BLOCKWIDTH, barCounterVert.y * PARAMS.BLOCKWIDTH));
+    }
 
+    // barCounterL
+    for (let i = 0; i < this.level.barCounterL.length; i++) {
+        let barCounterL = this.level.barCounterL[i];
+        this.game.addEntity(new BarCounterL(this.game, barCounterL.x * PARAMS.BLOCKWIDTH, barCounterL.y * PARAMS.BLOCKWIDTH));
+    }
+
+    // barCounterR
+    for (let i = 0; i < this.level.barCounterR.length; i++) {
+        let barCounterR = this.level.barCounterR[i];
+        this.game.addEntity(new BarCounterR(this.game, barCounterR.x * PARAMS.BLOCKWIDTH, barCounterR.y * PARAMS.BLOCKWIDTH));
+    }
+
+    // barCounterMiddle
+    for (let i = 0; i < this.level.barCounterMiddle.length; i++) {
+        let barCounterMiddle = this.level.barCounterMiddle[i];
+        this.game.addEntity(new BarCounterMiddle(this.game, barCounterMiddle.x * PARAMS.BLOCKWIDTH, barCounterMiddle.y * PARAMS.BLOCKWIDTH, barCounterMiddle.count));
+    }
 
 
 

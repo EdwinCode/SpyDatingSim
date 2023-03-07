@@ -722,6 +722,68 @@ class GreenPatioChairRight extends Furniture {
 
 
 
+// --------------------- LOUNGE/BAR FURNITURE -------------------------------
+class BarCounterL extends Furniture {
+    constructor(game, x, y) {
+        super(game, "./sprites/furniture/furniture.png",  340, 204, 16, 16, x, y, 16, 16);
+        this.BB = new BoundingBox(this.x, this.y,25 * PARAMS.BLOCKWIDTH,25 * PARAMS.BLOCKWIDTH);
+    };
+
+    update() {};
+
+    draw(ctx) {
+        ctx.drawImage(this.spritesheet, 340, 204, 16, 16, this.x - this.game.camera.x, this.y - this.game.camera.y, 25 * PARAMS.BLOCKWIDTH, 25 * PARAMS.BLOCKWIDTH);
+        super.draw(ctx);
+    };
+}
+
+class BarCounterR extends Furniture {
+    constructor(game, x, y) {
+        super(game, "./sprites/furniture/furniture.png",  357, 204, 16, 16, x, y, 16, 16);
+        this.BB = new BoundingBox(this.x, this.y,25 * PARAMS.BLOCKWIDTH,25 * PARAMS.BLOCKWIDTH);
+    };
+
+    update() {};
+
+    draw(ctx) {
+        ctx.drawImage(this.spritesheet, 357, 204, 16, 16, this.x - this.game.camera.x, this.y - this.game.camera.y, 25 * PARAMS.BLOCKWIDTH, 25 * PARAMS.BLOCKWIDTH);
+        super.draw(ctx);
+    };
+}
+
+class BarCounterVert extends Furniture {
+    constructor(game, x, y) {
+        super(game, "./sprites/furniture/furniture.png",  357, 222, 16, 16, x, y, 16, 15);
+        this.BB = new BoundingBox(this.x, this.y,25 * PARAMS.BLOCKWIDTH, 25 * PARAMS.BLOCKWIDTH);
+    };
+
+    update() {};
+
+    draw(ctx) {
+        ctx.drawImage(this.spritesheet, 357, 222, 16, 15, this.x - this.game.camera.x, this.y - this.game.camera.y, 25 * PARAMS.BLOCKWIDTH, 25 * PARAMS.BLOCKWIDTH);
+        super.draw(ctx);
+    };
+}
+
+class BarCounterMiddle extends Furniture {
+    constructor(game, x, y, count) {
+        super(game, "./sprites/furniture/furniture.png",  357, 238, 16, 16, x, y, 16, 16);
+        this.count = count;
+        this.BB = new BoundingBox(this.x, this.y,this.count * (25 * PARAMS.BLOCKWIDTH),25 * PARAMS.BLOCKWIDTH);
+    };
+
+    update() {};
+
+    draw(ctx) {
+        for (let i = 0; i < this.count; i++) {
+            ctx.drawImage(this.spritesheet, 357, 238, 16, 16, this.x + i * (25 * PARAMS.BLOCKWIDTH) - this.game.camera.x, this.y - this.game.camera.y, 25 * PARAMS.BLOCKWIDTH, 25 * PARAMS.BLOCKWIDTH);
+        }
+        super.draw(ctx);
+    };
+}
+
+
+
 // --------------------- LOUNGE/ROSE CEREMONY FURNITURE -------------------------------
 class CeremonyRiser extends Furniture {
     constructor(game, x, y, count) {
