@@ -161,6 +161,8 @@ function loadText(level, entity, chatState) {
                 return "I've heard the Car Mechanic was supposed to not touch one of the cars for some reason."
             } else if (clueThreeDisplay === false) {
                 return "I've heard Mr. Billionaire likes to keep his very valuable items hidden away somewhere in his bedroom."
+            } else {
+                return level.butler[chatState].message;
             }
         } else {
             return level.butler[chatState].message;

@@ -24,7 +24,7 @@ class Furniture {
 // WALLS, WINDOWS, and DOORS
 class Door extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/door.png", 26, 17, 194, 221, x, y, 1552, 1768);
+        super(game, "./sprites/furniture/door.png", 26, 17, 194, 221, x, y, 31 * PARAMS.BLOCKWIDTH, 31 * PARAMS.BLOCKWIDTH);
         //this.BB = new BoundingBox(this.x, this.y,31 * PARAMS.BLOCKWIDTH,31 * PARAMS.BLOCKWIDTH);
     };
 
@@ -33,6 +33,13 @@ class Door extends Furniture {
     draw(ctx) {
         ctx.drawImage(this.spritesheet, 26, 17, 194, 221, this.x - this.game.camera.x, this.y - this.game.camera.y, 31 * PARAMS.BLOCKWIDTH, 31 * PARAMS.BLOCKWIDTH);
         //super.draw(ctx);
+
+        PARAMS.DEBUG = document.getElementById("debug").checked;
+        if (PARAMS.DEBUG) {
+            ctx.strokeStyle = 'green';
+            ctx.strokeRect(this.interactBB.x - this.game.camera.x, this.interactBB.y - this.game.camera.y, this.interactBB.width, this.interactBB.height);
+
+        }
     };
 }
 

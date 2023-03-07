@@ -61,6 +61,10 @@ class Chatbox {
                this.imageX = 0;
                this.imageY = 0;
                Chatbox.OPEN = false;
+
+               if (clueOneDisplay && clueTwoDisplay && clueThreeDisplay && !this.isButler) {
+                   this.game.addEntityToTop(new EndingChatbox(this.game));
+               }
             }
             this.game.click = null;
         }
@@ -356,6 +360,65 @@ class ItemsChatbox {
 
 
         ctx.drawImage(this.spritesheet, this.sx, this.sy, this.sw, this.sh, this.x, this.y, this.dWidth, this.dHeight);
+
+        // exit button
+        setWhiteStroke(ctx);
+        if (this.mouseBB.collide(this.exitBB)) {
+            setRedStroke(ctx);
+        }
+
+        ctx.lineWidth = 2;
+        ctx.textAlign = "center";
+        ctx.font = "Bold 25px Courier";
+        ctx.fillText("EXIT", 603, 542);
+        ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
+    };
+};
+
+class EndingChatbox {
+    constructor(game) {
+        Object.assign(this, {game});
+
+        this.mouseBB = new BoundingBox(0, 0, 1, 1);
+        this.exitBB = new BoundingBox(565, 520, 75, 30);
+    };
+
+    update() {
+        if (this.game.click) {
+            this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y, 1, 1);
+
+            // exit chat box
+            if (this.mouseBB.collide(this.exitBB)) {
+                this.removeFromWorld = true;
+                this.firstTime = false;
+            }
+
+            this.game.click = null;
+        }
+
+        // update mouse area
+        if (this.game.mouse) {
+            this.mouseBB = new BoundingBox(this.game.mouse.x, this.game.mouse.y, 1, 1);
+        }
+    };
+
+    draw(ctx) {
+        setBlackStroke(ctx);
+        ctx.fillRect(0,0,PARAMS.CANVAS_WIDTH,PARAMS.CANVAS_HEIGHT);
+        setWhiteStroke(ctx);
+
+        ctx.textAlign = "center";
+
+        ctx.fillText("You have found all three clues to use", PARAMS.CANVAS_WIDTH / 2, 80);
+        ctx.fillText("as pieces of evidence", PARAMS.CANVAS_WIDTH / 2, 110);
+        ctx.fillText("against Mr. Billionaire!", PARAMS.CANVAS_WIDTH / 2, 140);
+
+
+        ctx.fillText("Your final task is to get out of there.", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT/2);
+        ctx.fillText("Get to the front door and escape.", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT/2 + 30);
+        ctx.fillText("Good luck Agent Spy!", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT/2 + 60);
+
+
 
         // exit button
         setWhiteStroke(ctx);

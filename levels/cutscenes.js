@@ -609,7 +609,7 @@ class EndingPart2Cutscene {
 
             let sText = "Also from the investigation, it was found that Mr. Billionaire's Dad ended up being involved in the crime. Because of this," +
                     "the mansion became rightfully Kent's. He made sure all the staff got sufficient raises." +
-                    " He became quite good friends with Alfred, who was finally able to retire thanks to Kent.";
+                    " He became quite good friends with Alfred the butler, who was finally able to retire thanks to Kent.";
             wrapText(ctx, sText, PARAMS.CANVAS_WIDTH / 2 - PARAMS.CANVAS_WIDTH / 6, 220, PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6);
 
 
@@ -627,11 +627,12 @@ class EndingPart2Cutscene {
 
             let sText = "Also from the investigation, it was found that Mr. Billionaire's Dad ended up being involved in the crime. Because of this," +
                 "the mansion became rightfully Kent's. He made sure all the staff got sufficient raises." +
-                " He became quite good friends with Alfred, who was finally able to retire thanks to Kent.";
+                " He became quite good friends with Alfred the butler, who was finally able to retire thanks to Kent.";
             wrapText(ctx, sText, PARAMS.CANVAS_WIDTH / 2 - PARAMS.CANVAS_WIDTH / 6, 220, PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6);
 
+            ctx.textAlign = "center";
             let rText = "It has been an honor working with you, now on to your next mission Agent Spy!";
-            wrapText(ctx, rText, PARAMS.CANVAS_WIDTH / 6, 530, PARAMS.CANVAS_WIDTH / 2 +  PARAMS.CANVAS_WIDTH / 6);
+            wrapText(ctx, rText, PARAMS.CANVAS_WIDTH / 2, 530, PARAMS.CANVAS_WIDTH / 2 +  PARAMS.CANVAS_WIDTH / 6);
 
         }
     };

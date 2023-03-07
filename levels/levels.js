@@ -1264,6 +1264,9 @@ let levelOne2 = {
         {message: "I've heard Mr. Billionaire likes to keep his very valuable items hidden away somewhere in his bedroom.",
             state: 2,
             stateIncr: false},
+        {message: "The front door is located at the bottom of the Entrance room where you started. You better get there quick!",
+            state: 3,
+            stateIncr: false},
     ],
 
 
