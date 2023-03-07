@@ -332,7 +332,7 @@ function checkForSkippedParts(game) {
         this.game.camera.currentLevel = levelOneCutscene;
         this.game.currLvl = levelOneCutscene;
 
-        this.game.camera.loadLevel(endingPart1Cutscene);
+        this.game.camera.loadLevel(levelOneCutscene);
         document.getElementById("skipPhaseOne").checked = false;
     }
 }

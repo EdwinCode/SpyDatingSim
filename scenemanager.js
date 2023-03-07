@@ -104,7 +104,18 @@ class Scenemanager {
         // }
     };
 
+    updateAudio() {
+        var mute = document.getElementById("mute").checked;
+        var volume = document.getElementById("volume").value;
+
+        ASSET_MANAGER.muteAudio(mute);
+        ASSET_MANAGER.adjustVolume(volume);
+
+    };
+
     update() {
+
+        this.updateAudio();
 
         let midpointX = PARAMS.CANVAS_WIDTH  / 2 - this.spyCharacter.width / 2;
         this.x = this.spyCharacter.x - midpointX;
