@@ -76,17 +76,17 @@ const getDistance = (p1, p2) => {
 function setBlackStroke(ctx) {
     ctx.strokeStyle = "black";
     ctx.fillStyle = "black";
-};
+}
 
 function setRedStroke(ctx) {
     ctx.strokeStyle = "rgb(139,0,0)";
     ctx.fillStyle = "rgb(139,0,0)";
-};
+}
 
 function setWhiteStroke(ctx) {
     ctx.strokeStyle = "white";
     ctx.fillStyle = "white";
-};
+}
 
 function wrapText(ctx, text, textLocationX, textLocationY, maxWidth) {
     let lineHeight = 20;
@@ -221,7 +221,7 @@ function loadText(level, entity, chatState) {
             return level.paintingTwo[chatState].message;
         }
     }
-};
+}
 
 function loadImage(level, entity, chatState) {
     // stephanie
