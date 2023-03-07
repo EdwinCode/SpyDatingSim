@@ -265,10 +265,19 @@ let levelOneFurniture = {
         {x: 230, y: 140, count: 5, color: "Green"},
         {x: -23, y: -110, count: 5, color: "Light Blue"},
         {x: -23, y: -100, count: 5, color: "Light Blue"},
-        {x: 398, y: 228, count: 10, color: "Tan"},
-        {x: 398, y: 238, count: 10, color: "Tan"},
-        {x: 398, y: 248, count: 10, color: "Tan"},
+        // {x: 398, y: 228, count: 10, color: "Tan"},
+        // {x: 398, y: 238, count: 10, color: "Tan"},
+        // {x: 398, y: 248, count: 10, color: "Tan"},
         {x: 109.5, y: 230, count: 4, color: "Brown"},
+        {x: 276, y: 203, count: 5, color: "Green"},
+        {x: 276, y: 213, count: 5, color: "Green"},
+        {x: 276, y: 223, count: 5, color: "Green"},
+        {x: 14.5, y: -278, count: 6, color: "Hodgepodge"},
+        {x: 14.5, y: -268, count: 6, color: "Hodgepodge"},
+        {x: 14.5, y: -258, count: 6, color: "Hodgepodge"},
+        {x: 180.5, y: -278, count: 5, color: "Hodgepodge"},
+        {x: 180.5, y: -268, count: 5, color: "Hodgepodge"},
+        {x: 180.5, y: -258, count: 5, color: "Hodgepodge"},
     ],
 
     rugsVertical: [
@@ -279,6 +288,12 @@ let levelOneFurniture = {
     rugsSquare: [
         {x: 100, y: 80, count: 5, color: "Red"},
         {x: 100, y: 130, count: 5, color: "Red"},
+        {x: 433.5, y: 55, count: 2, color: "Green"},
+        {x: 469.5, y: 55, count: 2, color: "Green"},
+        {x: 433.5, y: 120, count: 2, color: "Green"},
+        {x: 469.5, y: 120, count: 2, color: "Green"},
+        {x: 433.5, y: 190, count: 2, color: "Green"},
+        {x: 469.5, y: 190, count: 2, color: "Green"},
     ],
 
     garageBackground: [
@@ -430,6 +445,7 @@ let levelOneFurniture = {
         {x: -22, y: 105, color: "Yellow"},
         {x: -14, y: 97, color: "Orange"},
         {x: -20, y: 86, color: "Green"},
+        {x: 199, y: -149, color: "Red"},
     ],
 
     pottedRose: [
@@ -899,6 +915,9 @@ let levelOneFurniture = {
 
 
 let levelOne1 = {
+    // make a music folder and name the audio as seen below
+    //music: "./music/backgroundMusic.mp3",
+
     label: "Phase 1-1",
 
     //NPC PORTRAIT NUMBERS
@@ -1294,6 +1313,8 @@ let levelOne1 = {
 
 
 let levelOne2 = {
+    music: "./music/PinkPanther.mp3",
+
     label: "Phase 1-2",
 
     butler: [

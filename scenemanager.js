@@ -98,6 +98,10 @@ class Scenemanager {
             this.game.addEntity(new EndingPart2Cutscene(this.game));
         }
 
+        // if (level.music) {
+        //     ASSET_MANAGER.pauseBackgroundMusic();
+        //     ASSET_MANAGER.playAsset(level.music);
+        // }
     };
 
     update() {
