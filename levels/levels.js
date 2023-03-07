@@ -282,7 +282,10 @@ let levelOneFurniture = {
 
     rugsVertical: [
         {x: 419, y: -160, count: 5, color: "Dark Blue"},
-        {x: 429, y: -160, count: 5, color: "Dark Blue"}
+        {x: 429, y: -160, count: 5, color: "Dark Blue"},
+        // rose ceremony area
+        {x: 196, y: -195, count: 5, color: "Red"},
+        {x: 206, y: -195, count: 5, color: "Red"}
     ],
 
     rugsSquare: [
@@ -445,7 +448,8 @@ let levelOneFurniture = {
         {x: -22, y: 105, color: "Yellow"},
         {x: -14, y: 97, color: "Orange"},
         {x: -20, y: 86, color: "Green"},
-        {x: 199, y: -149, color: "Red"},
+        // on rose ceremony table
+        {x: 199, y: -155, color: "Red"},
     ],
 
     pottedRose: [
@@ -690,8 +694,27 @@ let levelOneFurniture = {
 
 
     // ------------------------ LOUNGE FURNITURE -------------------
+    barCounterL : [
+        {x: 4.5, y: -80}
+    ],
+
+    barCounterR : [
+        {x: 73, y: -80},
+        {x: 73, y: -10},
+    ],
+
+    barCounterVert : [
+        {x: 73, y: -71}
+    ],
+
+    barCounterMiddle : [
+        {x: 29.5, y: -80, count: 2}
+    ],
+
+
+    // ------------------------ LOUNGE FURNITURE -------------------
     piano: [
-        {x: 160, y: -80}
+        {x: 175, y: -80}
     ],
 
     loungeCouchSide : [
@@ -722,19 +745,8 @@ let levelOneFurniture = {
 
 
     // ------------------------ OFFICE FURNITURE -------------------
-    wideBlueMonitor: [
-        {x: 55, y: -471},
-        {x: 117, y: -471},
-        {x: 179, y: -471}
-    ],
-
     flatscreenTV : [
         {x: 184, y: -310}
-    ],
-
-    squareOfficeDesk : [
-        {x: 32, y: -274},
-        {x: 188, y: -274}
     ],
 
     officeDesk: [
@@ -762,9 +774,20 @@ let levelOneFurniture = {
         {x: 20, y: -272}
     ],
 
+    squareOfficeDesk : [
+        {x: 32, y: -274},
+        {x: 188, y: -274}
+    ],
+
     whiteBoard: [
         {x: 4.5, y: -320},
         {x: 38, y: -320}
+    ],
+
+    wideBlueMonitor: [
+        {x: 55, y: -471},
+        {x: 117, y: -471},
+        {x: 179, y: -471}
     ],
 
 
@@ -794,13 +817,11 @@ let levelOneFurniture = {
 
     // small tree plant
     plantOne : [
-        // patio
-        // upper right room section
+        // patio upper right room section
         {x: -109, y: -200},
         {x: -109, y: -148},
         {x: -16, y: -148},
-        // lower left room section
-        //{x: -167, y: -22},
+        // patio lower left room section
         {x: -245, y: -90},
         {x: -157, y: -90},
         // bathroom area
@@ -816,7 +837,11 @@ let levelOneFurniture = {
         // bedroom by twin beds
         {x: 420, y: 25},
         {x: 420, y: 90},
-        {x: 420, y: 160}
+        {x: 420, y: 160},
+        // lounge
+        {x: 235, y: -25},
+        {x: 235, y: -52},
+        {x: 235, y: -80}
     ],
 
     // small potted plant
