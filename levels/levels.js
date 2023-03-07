@@ -1373,6 +1373,14 @@ let levelOneCutscene = {
     label: "level one"
 };
 
+let endingPart1Cutscene = {
+    label: "ending part 1"
+};
+
+let endingPart2Cutscene = {
+    label: "ending part 2"
+};
+
 let loseScreen = {
     label: "lose screen"
 };

@@ -362,3 +362,277 @@ class IntroCutscene {
         }
     };
 }
+
+class EndingPart1Cutscene {
+    constructor(game) {
+        this.game = game;
+
+        this.x = 0;
+        this.y = 0;
+
+        this.mouseBB = new BoundingBox(0,0,1,1);
+        this.nextBB = new BoundingBox(602 - 50,660 - 45,100,50);
+        this.slideNum = 1;
+    };
+
+    update() {
+        // if user clicks on exit button then go to level one
+        if (this.game.click) {
+            this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y,1,1);
+
+            if (this.mouseBB.collide(this.nextBB)) {
+                if (this.slideNum === 4) {
+                    this.game.camera.clearEntities();
+                    this.game.camera.loadLevel(endingPart2Cutscene);
+                } else {
+                    this.slideNum++;
+                }
+            }
+            this.game.click = null;
+        }
+
+        // update location of mouse pointer
+        if (this.game.mouse) {
+            this.mouseBB = new BoundingBox(this.game.mouse.x, this.game.mouse.y,1,1);
+        }
+
+        //Checks for Skip Intro and Skip Phase 1 checkboxes
+        checkForSkippedParts(this.game);
+    };
+
+    draw(ctx) {
+        // black box to cover screen
+        //ctx.strokeRect(0, 0, this.game.canvas.width, this.game.canvas.height);
+        setBlackStroke(ctx);
+        ctx.fillRect(0, 0, PARAMS.CANVAS_WIDTH, PARAMS.CANVAS_HEIGHT);
+
+        // white on black background
+        setWhiteStroke(ctx);
+
+        // dialog and images
+        this.drawCutscene(ctx, this.slideNum);
+
+        // exit button
+        if (this.mouseBB.collide(this.nextBB)) {
+            setRedStroke(ctx);
+        }
+        ctx.lineWidth = 6;
+        ctx.textAlign = "center";
+        ctx.font = "Bold 35px Courier";
+        ctx.fillText("NEXT", 602, 650);
+        ctx.strokeRect(this.nextBB.left, this.nextBB.top, this.nextBB.width, this.nextBB.height);
+    };
+
+    drawCutscene(ctx, slideNum) {
+        ctx.font = "Bold 25px Courier";
+        ctx.textAlign = "left";
+
+        let bSprite = ASSET_MANAGER.getAsset("./sprites/entities/billionaire_portraits.png");
+        let sSprite = ASSET_MANAGER.getAsset("./sprites/entities/stephanie_portraits.png");
+        let rSprite = ASSET_MANAGER.getAsset("./sprites/entities/richie_portraits.png");
+
+        this.imageX = 340;
+        this.imageY = 16;
+
+        // original pic width and height
+        this.imageW = 294;
+        this.imageH = 294;
+
+        // Draw width and height
+        this.dWidth = 32 * PARAMS.BLOCKWIDTH;
+        this.dHeight = 32 * PARAMS.BLOCKWIDTH;
+
+        if (slideNum === 1) {
+            ctx.fillText("With the 3 pieces of evidence you found,", 50, 20);
+            ctx.fillText("your mission was complete", 160, 45);
+
+        }
+
+        else if (slideNum === 2) {
+            ctx.fillText("With the 3 pieces of evidence you found,", 50, 20);
+            ctx.fillText("your mission was complete", 160, 45);
+
+            // billionaire portrait
+            ctx.drawImage(bSprite, 340, 320, this.imageW, this.imageH, 20, 80, this.dWidth, this.dHeight);
+            let bText = "Mr. Billionaire was arrested on charges for arson and theft. Not even his father could bail him out of that one.";
+            wrapText(ctx, bText, PARAMS.CANVAS_WIDTH / 2, 90, PARAMS.CANVAS_WIDTH / 2);
+
+        }
+
+        else if (slideNum === 3) {
+            ctx.fillText("With the 3 pieces of evidence you found,", 50, 20);
+            ctx.fillText("your mission was complete", 160, 45);
+
+            // billionaire portrait
+            ctx.drawImage(bSprite, 340, 320, this.imageW, this.imageH, 20, 80, this.dWidth, this.dHeight);
+            let bText = "Mr. Billionaire was arrested on charges for arson and theft. Not even his father could bail him out of that one.";
+            wrapText(ctx, bText, PARAMS.CANVAS_WIDTH / 2, 90, PARAMS.CANVAS_WIDTH / 2);
+
+            // steph
+            ctx.drawImage(sSprite, 36, 628, this.imageW, this.imageH, 370, 240, this.dWidth, this.dHeight);
+            // richie
+            ctx.drawImage(rSprite, 36, 628, this.imageW, this.imageH, 530, 240, this.dWidth, this.dHeight);
+
+            let sText = "The contestants were shocked when they heard the news.         \"I really thought he could be the one.\"    - Stephanie";
+            wrapText(ctx, sText, 20, 270, PARAMS.CANVAS_WIDTH / 2);
+
+        }
+
+        else if (slideNum === 4) {
+            ctx.fillText("With the 3 pieces of evidence you found,", 50, 20);
+            ctx.fillText("your mission was complete", 160, 45);
+
+            // billionaire portrait
+            ctx.drawImage(bSprite, 340, 320, this.imageW, this.imageH, 20, 80, this.dWidth, this.dHeight);
+            let bText = "Mr. Billionaire was arrested on charges for arson and theft. Not even his father could bail him out of that one.";
+            wrapText(ctx, bText, PARAMS.CANVAS_WIDTH / 2, 90, PARAMS.CANVAS_WIDTH / 2);
+
+            // steph
+            ctx.drawImage(sSprite, 36, 628, this.imageW, this.imageH, 370, 240, this.dWidth, this.dHeight);
+            // richie
+            ctx.drawImage(rSprite, 36, 628, this.imageW, this.imageH, 530, 240, this.dWidth, this.dHeight);
+
+            let sText = "The contestants were shocked when they heard the news.         \"I really thought he could be the one.\"    - Stephanie";
+            wrapText(ctx, sText, 20, 270, PARAMS.CANVAS_WIDTH / 2);
+
+            // steph
+            ctx.drawImage(sSprite, this.imageX, this.imageY, this.imageW, this.imageH, 20, 420, this.dWidth, this.dHeight);
+            // richie
+            ctx.drawImage(rSprite, this.imageX, this.imageY, this.imageW, this.imageH, 180, 420, this.dWidth, this.dHeight);
+
+            let rText = "Surprisingly, Stephanie and Richie bonded so much from this whole experience that they ended up getting together.";
+            wrapText(ctx, rText, PARAMS.CANVAS_WIDTH / 2, 440, PARAMS.CANVAS_WIDTH / 2);
+
+        }
+    };
+};
+
+class EndingPart2Cutscene {
+    constructor(game) {
+        this.game = game;
+
+        this.x = 0;
+        this.y = 0;
+
+        this.mouseBB = new BoundingBox(0, 0, 1, 1);
+        this.nextBB = new BoundingBox(602 - 50, 660 - 45, 100, 50);
+        this.slideNum = 1;
+    };
+
+    update() {
+        // if user clicks on exit button then go to level one
+        if (this.game.click) {
+            this.mouseBB = new BoundingBox(this.game.click.x, this.game.click.y, 1, 1);
+
+            if (this.mouseBB.collide(this.nextBB)) {
+                if (this.slideNum === 3) {
+                    this.game.camera.clearEntities();
+                    this.game.camera.loadLevel(winScreen);
+                } else {
+                    this.slideNum++;
+                }
+            }
+            this.game.click = null;
+        }
+
+        // update location of mouse pointer
+        if (this.game.mouse) {
+            this.mouseBB = new BoundingBox(this.game.mouse.x, this.game.mouse.y, 1, 1);
+        }
+
+        //Checks for Skip Intro and Skip Phase 1 checkboxes
+        checkForSkippedParts(this.game);
+    };
+
+    draw(ctx) {
+        // black box to cover screen
+        //ctx.strokeRect(0, 0, this.game.canvas.width, this.game.canvas.height);
+        setBlackStroke(ctx);
+        ctx.fillRect(0, 0, PARAMS.CANVAS_WIDTH, PARAMS.CANVAS_HEIGHT);
+
+        // white on black background
+        setWhiteStroke(ctx);
+
+        // dialog and images
+        this.drawCutscene(ctx, this.slideNum);
+
+        // exit button
+        if (this.mouseBB.collide(this.nextBB)) {
+            setRedStroke(ctx);
+        }
+        ctx.lineWidth = 6;
+        ctx.textAlign = "center";
+        ctx.font = "Bold 35px Courier";
+        ctx.fillText("NEXT", 602, 650);
+        ctx.strokeRect(this.nextBB.left, this.nextBB.top, this.nextBB.width, this.nextBB.height);
+    };
+
+    drawCutscene(ctx, slideNum) {
+        ctx.font = "Bold 25px Courier";
+        ctx.textAlign = "left";
+
+        let cSprite = ASSET_MANAGER.getAsset("./sprites/entities/car_mechanic_portraits.png");
+        let kSprite = ASSET_MANAGER.getAsset("./sprites/entities/kitchen_worker_portraits.png");
+        let gSprite = ASSET_MANAGER.getAsset("./sprites/entities/gardener_portraits.png");
+
+        this.imageX = 340;
+        this.imageY = 16;
+
+        // original pic width and height
+        this.imageW = 294;
+        this.imageH = 294;
+
+        // Draw width and height
+        this.dWidth = 32 * PARAMS.BLOCKWIDTH;
+        this.dHeight = 32 * PARAMS.BLOCKWIDTH;
+
+        if (slideNum === 1) {
+            // car mechanic portrait
+            ctx.drawImage(cSprite, 32, 16, this.imageW, this.imageH, 530, 20, this.dWidth, this.dHeight);
+            let bText = "With the investigation into Mr. Billionaire's life, it turns out the car mechanic, Kent, was actually Mr. Billionaire's uncle. " +
+                "Looking closer, you can definitely see the family resemblance.";
+            wrapText(ctx, bText, 20, 30, PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6);
+
+
+        } else if (slideNum === 2) {
+
+            // car mechanic portrait
+            ctx.drawImage(cSprite, 32, 16, this.imageW, this.imageH, 530, 20, this.dWidth, this.dHeight);
+            let bText = "With the investigation into Mr. Billionaire's life, it turns out the car mechanic, Kent, was actually Mr. Billionaire's uncle. " +
+                "Looking closer, you can definitely see the family resemblance.";
+            wrapText(ctx, bText, 20, 30, PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6);
+
+            //kitchen worker
+            ctx.drawImage(kSprite, this.imageX, this.imageY, this.imageW, this.imageH, 20, 190, this.dWidth, this.dHeight);
+            //gardener
+            ctx.drawImage(gSprite, this.imageX, this.imageY, this.imageW, this.imageH, 20, 330, this.dWidth, this.dHeight);
+
+            let sText = "Also from the investigation, it was found that Mr. Billionaire's Dad ended up being involved in the crime. Because of this," +
+                    "the mansion became rightfully Kent's. He made sure all the staff got sufficient raises." +
+                    " He became quite good friends with Alfred, who was finally able to retire thanks to Kent.";
+            wrapText(ctx, sText, PARAMS.CANVAS_WIDTH / 2 - PARAMS.CANVAS_WIDTH / 6, 220, PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6);
+
+
+        } else if (slideNum === 3) {
+            // car mechanic portrait
+            ctx.drawImage(cSprite, 32, 16, this.imageW, this.imageH, 530, 20, this.dWidth, this.dHeight);
+            let bText = "With the investigation into Mr. Billionaire's life, it turns out the car mechanic, Kent, was actually Mr. Billionaire's uncle. " +
+                "Looking closer, you can definitely see the family resemblance.";
+            wrapText(ctx, bText, 20, 30, PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6);
+
+            //kitchen worker
+            ctx.drawImage(kSprite, this.imageX, this.imageY, this.imageW, this.imageH, 20, 190, this.dWidth, this.dHeight);
+            //gardener
+            ctx.drawImage(gSprite, this.imageX, this.imageY, this.imageW, this.imageH, 20, 330, this.dWidth, this.dHeight);
+
+            let sText = "Also from the investigation, it was found that Mr. Billionaire's Dad ended up being involved in the crime. Because of this," +
+                "the mansion became rightfully Kent's. He made sure all the staff got sufficient raises." +
+                " He became quite good friends with Alfred, who was finally able to retire thanks to Kent.";
+            wrapText(ctx, sText, PARAMS.CANVAS_WIDTH / 2 - PARAMS.CANVAS_WIDTH / 6, 220, PARAMS.CANVAS_WIDTH / 2 + PARAMS.CANVAS_WIDTH / 6);
+
+            let rText = "It has been an honor working with you, now on to your next mission Agent Spy!";
+            wrapText(ctx, rText, PARAMS.CANVAS_WIDTH / 6, 530, PARAMS.CANVAS_WIDTH / 2 +  PARAMS.CANVAS_WIDTH / 6);
+
+        }
+    };
+}
