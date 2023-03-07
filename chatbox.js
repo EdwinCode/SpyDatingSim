@@ -149,6 +149,7 @@ class CasefileChatbox {
             // exit chat box
             if (this.mouseBB.collide(this.exitBB)) {
                 caseFileDisplay = true;
+                this.game.phase2Timer.time = this.game.savedTime;
                 this.removeFromWorld = true;
             }
 
@@ -230,6 +231,7 @@ class CasefileUpdatedChatbox {
 
             // exit chat box
             if (this.mouseBB.collide(this.exitBB)) {
+                this.game.phase2Timer.time = this.game.savedTime;
                 caseFileDisplay = true;
                 this.removeFromWorld = true;
             }
@@ -340,8 +342,8 @@ class ItemsChatbox {
 
             // exit chat box
             if (this.mouseBB.collide(this.exitBB)) {
+                this.game.phase2Timer.time = this.game.savedTime;
                 this.removeFromWorld = true;
-                this.firstTime = false;
             }
 
             this.game.click = null;
@@ -394,7 +396,7 @@ class EndingChatbox {
             // exit chat box
             if (this.mouseBB.collide(this.exitBB)) {
                 this.removeFromWorld = true;
-                this.firstTime = false;
+                this.game.phase2Timer.time = this.game.savedTime;
             }
 
             this.game.click = null;

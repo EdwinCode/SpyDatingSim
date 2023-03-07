@@ -185,6 +185,7 @@ class Itemsbag {
 
             // close out of the items bag
             if (this.mouseBB.collide(this.exitBB)) {
+                this.game.phase2Timer.time = this.game.savedTime;
                 this.removeFromWorld = true;
             }
 

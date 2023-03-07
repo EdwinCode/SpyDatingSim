@@ -16,6 +16,7 @@ class WinScreen {
             if (this.mouseBB.collide(this.newgameBB)) {
                 this.game.camera.loadLevel(titleScreen);
                 this.game.male = false;
+                resetDisplays();
             }
             // reset user click
             this.game.click = null;

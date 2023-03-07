@@ -342,11 +342,21 @@ function checkForSkippedParts(game) {
 //
 
 let caseFileDisplay = false;
-let sneakerDisplay = false;
-let capeDisplay = false;
 let flashlightDisplay = false;
 let roseDisplay = false;
-let TBD = false;
 let clueOneDisplay = false;
 let clueTwoDisplay = false;
 let clueThreeDisplay = false;
+
+//NOT USED
+let sneakerDisplay = false;
+let capeDisplay = false;
+
+function resetDisplays () {
+    caseFileDisplay = false;
+    flashlightDisplay = false;
+    roseDisplay = false;
+    clueOneDisplay = false;
+    clueTwoDisplay = false;
+    clueThreeDisplay = false;
+}
