@@ -102,6 +102,11 @@ class Level1Part2 {
 
     setUpLevel() {
 
+        // Timer
+        this.ingameTimer = new IngameTimer(this.game);
+        this.game.addEntity(this.ingameTimer);
+        this.game.phase2Timer = this.ingameTimer;
+
         // casefile chatbox
         let casefileUpdated = new CasefileUpdatedChatbox(this.game);
         casefileUpdated.firstTime = true;
@@ -110,10 +115,7 @@ class Level1Part2 {
         //rose chatbox
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/rose.png");
         this.game.addEntityToTop(new ItemsChatbox(this.game, this.spritesheet, 0, 0, 1800, 2600, PARAMS.CANVAS_WIDTH / 3, PARAMS.CANVAS_WIDTH / 4, 45 * PARAMS.BLOCKWIDTH, 65 * PARAMS.BLOCKWIDTH));
-
-        // Timer
-        this.ingameTimer = new IngameTimer(this.game);
-        this.game.addEntity(this.ingameTimer);
+        this.game.savedTime = this.game.phase2Timer.time;
 
         // HUD
         this.game.addEntity(this.hud);

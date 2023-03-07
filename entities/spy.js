@@ -250,6 +250,8 @@ class Spy {
 
                             // WIN game
                             that.game.camera.loadLevel(endingPart1Cutscene);
+                            that.game.savedTime = that.game.phase2Timer.time;
+
 
                             // that.game.interact = false;
                             // that.hideChat = false;
@@ -341,6 +343,7 @@ class Spy {
                                 //clueone chatbox
                                 if (!clueOneDisplay) {
                                     that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/furniture/water_tank.png"), 18, 4, 198, 529, PARAMS.CANVAS_WIDTH / 2.5, PARAMS.CANVAS_WIDTH / 6.5, 132, 352.66));
+                                    that.game.savedTime = that.game.phase2Timer.time;
                                 }
                                 clueOneDisplay = true;
                             }
@@ -374,6 +377,7 @@ class Spy {
                                 //cluetwo chatbox
                                 if (!clueTwoDisplay) {
                                     that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/gps.png"), 0, 0, 128, 128, PARAMS.CANVAS_WIDTH / 3.5, PARAMS.CANVAS_WIDTH / 5, 256, 256));
+                                    that.game.savedTime = that.game.phase2Timer.time;
                                 }
                                 clueTwoDisplay = true;
                             }
@@ -406,6 +410,7 @@ class Spy {
                                 //cluethree chatbox
                                 if (!clueThreeDisplay) {
                                     that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/patent.png"), 0, 0, 293, 300, PARAMS.CANVAS_WIDTH / 3.5, PARAMS.CANVAS_WIDTH / 5, 293, 300));
+                                    that.game.savedTime = that.game.phase2Timer.time;
                                 }
                                 clueThreeDisplay = true;
 
