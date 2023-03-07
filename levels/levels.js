@@ -317,32 +317,6 @@ let levelOneFurniture = {
     ],
 
 
-    // ------------------------ OFFICE FURNITURE -------------------
-    wideBlueMonitor: [
-        {x: 103, y: -472},
-        {x: 133, y: -472}
-    ],
-
-    gamerPC: [
-        {x: 80, y: -460},
-        {x: 161, y: -460},
-    ],
-
-    blackHandleChairUp: [
-        {x: 106, y: -430},
-        {x: 136, y: -430},
-    ],
-
-    officeDesk: [
-        {x: 100, y: -460},
-        {x: 130, y: -460}
-    ],
-
-    whiteBoard: [
-        {x: 177, y: -335},
-    ],
-
-
 
     // ------------------------ PATIO FURNITURE -------------------
     patioFloor : [
@@ -475,6 +449,8 @@ let levelOneFurniture = {
         {x: -150, y: 260, potColor: "Black", roseColor: "Orange", count: 5},
     ],
 
+
+
     // ------------------------ KITCHEN FURNITURE -------------------
     kitchenSet: [
         {x: 354, y: -481}
@@ -569,44 +545,6 @@ let levelOneFurniture = {
         {x: 389, y: -318},
         {x: 429, y: -318},
         {x: 469, y: -318}
-    ],
-
-
-    // ------------------------ LOUNGE FURNITURE -------------------
-    piano: [
-        {x: 30, y: -66}
-    ],
-
-    tanSofa: [
-        {x: 40, y: -220},
-        {x: 178, y: -220}
-    ],
-
-    orangePatternedTable: [
-        {x: 40, y: -190},
-        {x: 178, y: -190}
-    ],
-
-    pacManGame: [
-        {x: 186, y: -70},
-        {x: 208, y: -70},
-        {x: 230, y: -70}
-    ],
-
-    bigCouches: [
-        {x: 42, y: -161},
-        {x: 180, y: -161}
-    ],
-
-    chairRights: [
-        {x: 21, y: -188},
-        {x: 159, y: -188}
-    ],
-
-    chairLefts: [
-        {x: 83, y: -188},
-        // x = 96 + 174
-        {x: 220, y: -188}
     ],
 
 
@@ -714,18 +652,115 @@ let levelOneFurniture = {
 
 
 
+    // ------------------------ LOUNGE FURNITURE -------------------
+    piano: [
+        {x: 180, y: -66}
+    ],
+
+    woodCouch : [
+
+    ],
+
+    loungeSideTable : [
+
+    ],
+
+    // add skinny red rug that leads from risers to rose table
+    ceremonyRisers : [
+        {x: 160, y: -210, count: 10}
+    ],
+
+    roseTable : [
+
+    ],
+
+
+
+    tanSofa: [
+        // {x: 40, y: -220},
+        // {x: 178, y: -220}
+    ],
+
+    orangePatternedTable: [
+        //{x: 40, y: -190},
+        //{x: 178, y: -190}
+    ],
+
+    pacManGame: [
+        //{x: 186, y: -70},
+        //{x: 208, y: -70},
+        //{x: 230, y: -70}
+    ],
+
+    bigCouches: [
+        // {x: 42, y: -161},
+        // {x: 180, y: -161}
+    ],
+
+    chairRights: [
+        //{x: 21, y: -188},
+        //{x: 159, y: -188}
+    ],
+
+    chairLefts: [
+        //{x: 83, y: -188},
+        // x = 96 + 174
+        //{x: 220, y: -188}
+    ],
+
+
+
+    // ------------------------ OFFICE FURNITURE -------------------
+    wideBlueMonitor: [
+        {x: 55, y: -471},
+        {x: 117, y: -471},
+        {x: 179, y: -471}
+    ],
+
+    gamerPC: [
+        //{x: 80, y: -460},
+        // {x: 161, y: -460},
+    ],
+
+    blackHandleChairUp: [
+        //{x: 106, y: -430},
+        //{x: 136, y: -430},
+    ],
+
+    officeDesk: [
+        {x: 52, y: -460},
+        {x: 114, y: -460},
+        {x: 176, y: -460}
+    ],
+
+    officeChair : [
+        {x: 60, y: -453},
+        //{x: 122, y: -430},
+        {x: 184, y: -453}
+    ],
+
+    sidewaysOfficeChair : [
+        {x: 120, y: -450}
+    ],
+
+    whiteBoard: [
+        //{x: 177, y: -335},
+    ],
+
+
+
     // ------------ Multiple Rooms ---------------------
     longWoodenPatternedTables: [
         //office
-        {x: 174, y: -290},
+        //{x: 174, y: -290},
     ],
 
     bookshelves: [
         //office
-        {x: 4.5, y: -475},
-        {x: 25, y: -475},
-        {x: 208, y: -475},
-        {x: 228, y: -475},
+        {x: 23, y: -475},
+        {x: 85, y: -475},
+        {x: 147, y: -475},
+        {x: 209, y: -475},
 
         //bedroom
         // top
@@ -762,6 +797,9 @@ let levelOneFurniture = {
         {x: 335, y: -200},
         {x: 260, y: -185},
         {x: 335, y: -140},
+        // office
+        {x: 8, y: -455},
+        {x: 237, y: -455}
     ],
 
     // small potted plant
@@ -841,10 +879,10 @@ let levelOneFurniture = {
 
     redStool: [
         // office
-        {x: 155, y: -284},
-        {x: 175, y: -265},
-        {x: 200, y: -265},
-        {x: 216, y: -284},
+        // {x: 155, y: -284},
+        // {x: 175, y: -265},
+        // {x: 200, y: -265},
+        // {x: 216, y: -284},
 
         // bedroom
         {x: 420, y: 60},

@@ -197,28 +197,40 @@ function setUpLevelOneFurniture(game, level) {
     }
 
     //gamerPC
-    for (let i = 0; i < this.level.gamerPC.length; i++) {
-        let gamerPC = this.level.gamerPC[i];
-        this.game.addEntity(new GamerPC(this.game, gamerPC.x * PARAMS.BLOCKWIDTH, gamerPC.y * PARAMS.BLOCKWIDTH));
-    }
+    // for (let i = 0; i < this.level.gamerPC.length; i++) {
+    //     let gamerPC = this.level.gamerPC[i];
+    //     this.game.addEntity(new GamerPC(this.game, gamerPC.x * PARAMS.BLOCKWIDTH, gamerPC.y * PARAMS.BLOCKWIDTH));
+    // }
 
     //blackHandleChairUp
-    for (let i = 0; i < this.level.blackHandleChairUp.length; i++) {
-        let blackHandleChairUp = this.level.blackHandleChairUp[i];
-        this.game.addEntity(new BlackHandleChairUp(this.game, blackHandleChairUp.x * PARAMS.BLOCKWIDTH, blackHandleChairUp.y * PARAMS.BLOCKWIDTH));
+    // for (let i = 0; i < this.level.blackHandleChairUp.length; i++) {
+    //     let blackHandleChairUp = this.level.blackHandleChairUp[i];
+    //     this.game.addEntity(new BlackHandleChairUp(this.game, blackHandleChairUp.x * PARAMS.BLOCKWIDTH, blackHandleChairUp.y * PARAMS.BLOCKWIDTH));
+    // }
+
+    // sideways office chair
+    for (let i = 0; i < this.level.sidewaysOfficeChair.length; i++) {
+        let sidewaysOfficeChair = this.level.sidewaysOfficeChair[i];
+        this.game.addEntity(new SideOfficeChair(this.game, sidewaysOfficeChair.x * PARAMS.BLOCKWIDTH, sidewaysOfficeChair.y * PARAMS.BLOCKWIDTH));
     }
 
-    //officeDesk
+    // office chair
+    for (let i = 0; i < this.level.officeChair.length; i++) {
+        let officeChair = this.level.officeChair[i];
+        this.game.addEntity(new OfficeChair(this.game, officeChair.x * PARAMS.BLOCKWIDTH, officeChair.y * PARAMS.BLOCKWIDTH));
+    }
+
+    // office desk
     for (let i = 0; i < this.level.officeDesk.length; i++) {
         let officeDesk = this.level.officeDesk[i];
         this.game.addEntity(new OfficeDesk(this.game, officeDesk.x * PARAMS.BLOCKWIDTH, officeDesk.y * PARAMS.BLOCKWIDTH));
     }
 
     //whiteBoard
-    for (let i = 0; i < this.level.whiteBoard.length; i++) {
-        let whiteBoard = this.level.whiteBoard[i];
-        this.game.addEntity(new WhiteBoard(this.game, whiteBoard.x * PARAMS.BLOCKWIDTH, whiteBoard.y * PARAMS.BLOCKWIDTH));
-    }
+    // for (let i = 0; i < this.level.whiteBoard.length; i++) {
+    //     let whiteBoard = this.level.whiteBoard[i];
+    //     this.game.addEntity(new WhiteBoard(this.game, whiteBoard.x * PARAMS.BLOCKWIDTH, whiteBoard.y * PARAMS.BLOCKWIDTH));
+    // }
 
     //redStool
     for (let i = 0; i < this.level.redStool.length; i++) {
@@ -321,40 +333,40 @@ function setUpLevelOneFurniture(game, level) {
     }
 
     //tanSofa
-    for (let i = 0; i < this.level.tanSofa.length; i++) {
-        let tanSofa = this.level.tanSofa[i];
-        this.game.addEntity(new TanSofa(this.game, tanSofa.x * PARAMS.BLOCKWIDTH, tanSofa.y * PARAMS.BLOCKWIDTH));
-    }
+    // for (let i = 0; i < this.level.tanSofa.length; i++) {
+    //     let tanSofa = this.level.tanSofa[i];
+    //     this.game.addEntity(new TanSofa(this.game, tanSofa.x * PARAMS.BLOCKWIDTH, tanSofa.y * PARAMS.BLOCKWIDTH));
+    // }
 
     //orangePatternedTable
-    for (let i = 0; i < this.level.orangePatternedTable.length; i++) {
-        let orangePatternedTable = this.level.orangePatternedTable[i];
-        this.game.addEntity(new OrangePatternedTable(this.game, orangePatternedTable.x * PARAMS.BLOCKWIDTH, orangePatternedTable.y * PARAMS.BLOCKWIDTH));
-    }
+    // for (let i = 0; i < this.level.orangePatternedTable.length; i++) {
+    //     let orangePatternedTable = this.level.orangePatternedTable[i];
+    //     this.game.addEntity(new OrangePatternedTable(this.game, orangePatternedTable.x * PARAMS.BLOCKWIDTH, orangePatternedTable.y * PARAMS.BLOCKWIDTH));
+    // }
 
     //pacManGame
-    for (let i = 0; i < this.level.pacManGame.length; i++) {
-        let pacManGame = this.level.pacManGame[i];
-        this.game.addEntity(new PacManGame(this.game, pacManGame.x * PARAMS.BLOCKWIDTH, pacManGame.y * PARAMS.BLOCKWIDTH));
-    }
+    // for (let i = 0; i < this.level.pacManGame.length; i++) {
+    //     let pacManGame = this.level.pacManGame[i];
+    //     this.game.addEntity(new PacManGame(this.game, pacManGame.x * PARAMS.BLOCKWIDTH, pacManGame.y * PARAMS.BLOCKWIDTH));
+    // }
 
-    //big couch
-    for (let i = 0; i < this.level.bigCouches.length; i++) {
-        let couch = this.level.bigCouches[i];
-        this.game.addEntity(new BigCouch(this.game, couch.x * PARAMS.BLOCKWIDTH, couch.y * PARAMS.BLOCKWIDTH));
-    }
+    // //big couch
+    // for (let i = 0; i < this.level.bigCouches.length; i++) {
+    //     let couch = this.level.bigCouches[i];
+    //     this.game.addEntity(new BigCouch(this.game, couch.x * PARAMS.BLOCKWIDTH, couch.y * PARAMS.BLOCKWIDTH));
+    // }
 
     //chair right
-    for (let i = 0; i < this.level.chairRights.length; i++) {
-        let chairRight = this.level.chairRights[i];
-        this.game.addEntity(new ChairRight(this.game, chairRight.x * PARAMS.BLOCKWIDTH, chairRight.y * PARAMS.BLOCKWIDTH));
-    }
+    // for (let i = 0; i < this.level.chairRights.length; i++) {
+    //     let chairRight = this.level.chairRights[i];
+    //     this.game.addEntity(new ChairRight(this.game, chairRight.x * PARAMS.BLOCKWIDTH, chairRight.y * PARAMS.BLOCKWIDTH));
+    // }
 
     //chair left
-    for (let i = 0; i < this.level.chairLefts.length; i++) {
-        let chairLeft = this.level.chairLefts[i];
-        this.game.addEntity(new ChairLeft(this.game, chairLeft.x * PARAMS.BLOCKWIDTH, chairLeft.y * PARAMS.BLOCKWIDTH));
-    }
+    // for (let i = 0; i < this.level.chairLefts.length; i++) {
+    //     let chairLeft = this.level.chairLefts[i];
+    //     this.game.addEntity(new ChairLeft(this.game, chairLeft.x * PARAMS.BLOCKWIDTH, chairLeft.y * PARAMS.BLOCKWIDTH));
+    // }
 
 
 
@@ -641,20 +653,19 @@ function setUpLevelOneFurniture(game, level) {
     // ------------------------------------------------------------
 
     //big rug
-    for (let i = 0; i < this.level.bigRugs.length; i++) {
-        let rug = this.level.bigRugs[i];
-        this.game.addEntity(new BigRug(this.game, rug.x * PARAMS.BLOCKWIDTH, rug.y * PARAMS.BLOCKWIDTH));
-    }
+    // for (let i = 0; i < this.level.bigRugs.length; i++) {
+    //     let rug = this.level.bigRugs[i];
+    //     this.game.addEntity(new BigRug(this.game, rug.x * PARAMS.BLOCKWIDTH, rug.y * PARAMS.BLOCKWIDTH));
+    // }
 
     // bed with win condition
-    /*this.cama = new Bed(this.game, 500 * PARAMS.BLOCKWIDTH, 220 * PARAMS.BLOCKWIDTH);
-    this.game.addEntity(this.cama);
-    let camaX = this.cama.x;
-    let camaY = this.cama.y;
-    let camaW = this.cama.dWidth;
-    let camaH = this.cama.dHeight;
-    this.cama.sneakerBB = new BoundingBox(camaX - camaW / 2, camaY - camaH / 2, camaW * 2, camaH * 2);
-*/
+    // this.cama = new Bed(this.game, 500 * PARAMS.BLOCKWIDTH, 220 * PARAMS.BLOCKWIDTH);
+    // this.game.addEntity(this.cama);
+    // let camaX = this.cama.x;
+    // let camaY = this.cama.y;
+    // let camaW = this.cama.dWidth;
+    // let camaH = this.cama.dHeight;
+    // this.cama.sneakerBB = new BoundingBox(camaX - camaW / 2, camaY - camaH / 2, camaW * 2, camaH * 2);
 
 
 
@@ -676,6 +687,8 @@ function setUpLevelOneFurniture(game, level) {
         let rug = this.level.rugsSquare[i];
         this.game.addEntity(new Rug(this.game, rug.x * PARAMS.BLOCKWIDTH, rug.y * PARAMS.BLOCKWIDTH, rug.count, rug.color, "square"));
     }
+
+
 
     // ------------------------ PATIO FURNITURE -------------------
     for (let i = 0; i < this.level.patioBench.length; i++) {
@@ -729,6 +742,11 @@ function setUpLevelOneFurniture(game, level) {
         let greenHouseTable = this.level.greenHouseTable[i];
         this.game.addEntity(new GreenHouseTable(this.game, greenHouseTable.x * PARAMS.BLOCKWIDTH, greenHouseTable.y * PARAMS.BLOCKWIDTH));
     }
+
+
+
+    // ------------------------ FLOOR -------------------
+
 
 
 
