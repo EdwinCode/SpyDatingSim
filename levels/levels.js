@@ -823,15 +823,16 @@ let levelOneFurniture = {
 
     // green
     paintingOne : [
-        {x: 288, y: -240}
+        //bathroom
+        {x: 288, y: -240},
+        // lounge
+        {x: 36, y: -240}
     ],
 
     // pink
     paintingTwo : [
         // bedroom
         {x: 443, y: 0},
-        // lounge
-        {x: 36, y: -240}
     ],
 
     standardChair : [
