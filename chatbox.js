@@ -291,19 +291,23 @@ class CasefileUpdatedChatbox {
         ctx.fillText("mansion is quiet. Be", 387, 230);
         ctx.fillText("quick when searching.", 387, 245);
         ctx.fillText("Nighttime is shorter", 387, 260);
-        ctx.fillText("than you think, Use", 387, 275);
+        ctx.fillText("than you think. Use", 387, 275);
         ctx.fillText("special items, clues", 387, 290);
         ctx.fillText("gathered from your", 387, 305);
         ctx.fillText("previous interactions,", 387, 320);
         ctx.fillText("and the butler’s hints", 387, 335);
         ctx.fillText("to find three pieces of", 387, 350);
         ctx.fillText("evidence. When you find", 387, 365);
-        ctx.fillText("all three, your mission", 387, 380);
-        ctx.fillText("will be complete.", 387, 395);
-        ctx.fillText("Good luck, Agent Spy,", 387, 425);
-        ctx.fillText("and remember to watch", 387, 440);
-        ctx.fillText("out for those pesky", 387, 455);
-        ctx.fillText("guards.\n", 387, 470);
+        ctx.fillText("all three, make your", 387, 380);
+        ctx.fillText("way to the front door", 387, 395);
+        ctx.fillText("to escape. Then your", 387, 410);
+        ctx.fillText("mission will be", 387, 425);
+        ctx.fillText("complete.", 387, 440);
+        ctx.fillText("Good luck, Agent Spy, ", 387, 470);
+        ctx.fillText("and remember to watch", 387, 485);
+        ctx.fillText("out for those pesky", 387, 500);
+        ctx.fillText("guards.\n", 387, 515);
+
 
 
 
