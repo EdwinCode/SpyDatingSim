@@ -960,7 +960,7 @@ let levelOne1 = {
             state: 5,
             portraitNumber: 0,
             stateIncr: false},
-        { message: "*annoying clinging of silverware on a glass* I'd like to give a toast. " +
+        { message: "*annoying clinking of silverware on a glass* I'd like to give a toast. " +
                 "Welcome to my mansion! I know we'll have a great time. Later, I'll be handing " +
                 "out the first impression rose. *wink* Let the sparks ignite!",
             state: 6,
