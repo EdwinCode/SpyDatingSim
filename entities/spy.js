@@ -314,7 +314,6 @@ class Spy {
                     } else {
                         that.toolboxInteract = false;
                     }
-
                 }
 
                 if (that.game.camera.currentLevel === levelOne2) {
@@ -349,7 +348,6 @@ class Spy {
                         } else {
                             that.waterTankInteract = false;
                         }
-
                     }
 
                     if (entity instanceof GreyCar) {
@@ -383,7 +381,6 @@ class Spy {
                         } else {
                             that.greyCarInteract = false;
                         }
-
                     }
 
                     if (entity instanceof PaintingTwo) {
@@ -412,12 +409,10 @@ class Spy {
                                     that.game.savedTime = that.game.phase2Timer.time;
                                 }
                                 clueThreeDisplay = true;
-
                             }
                         } else {
                             that.paintingTwoInteract = false;
                         }
-
                     }
                 }
 
