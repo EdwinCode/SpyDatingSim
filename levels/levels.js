@@ -927,8 +927,7 @@ let levelOneFurniture = {
 
 
 let levelOne1 = {
-    // make a music folder and name the audio as seen below
-    //music: "./music/backgroundMusic.mp3",
+    music: "./music/Jazz.mp3",
 
     label: "Phase 1-1",
 

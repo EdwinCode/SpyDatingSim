@@ -66,8 +66,10 @@ ASSET_MANAGER.queueDownload("./sprites/furniture/PlantPots.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/Roses.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/Floorings.png");
 
-// ASSET_MANAGER.queueDownload("./music/backgroundMusic.mp3");
+ASSET_MANAGER.queueDownload("./music/Jazz.mp3");
 ASSET_MANAGER.queueDownload("./music/PinkPanther.mp3");
+ASSET_MANAGER.queueDownload("./music/MissionImpossible.mp3");
+
 
 ASSET_MANAGER.downloadAll(() => {
 	const canvas = document.getElementById("gameWorld");
@@ -76,6 +78,7 @@ ASSET_MANAGER.downloadAll(() => {
 	ctx.imageSmoothingEnabled = false;
 
 	ASSET_MANAGER.autoRepeat("./music/PinkPanther.mp3");
+	ASSET_MANAGER.autoRepeat("./music/Jazz.mp3");
 
 	PARAMS.BLOCKWIDTH = PARAMS.BITWIDTH * PARAMS.SCALE;
 	PARAMS.CANVAS_WIDTH = canvas.width;
