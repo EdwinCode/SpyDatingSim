@@ -51,6 +51,7 @@ ASSET_MANAGER.queueDownload("./sprites/furniture/billionaire_statue.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/door.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/shoes.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/water_tank.png");
+ASSET_MANAGER.queueDownload("./sprites/furniture/drinks.png");
 
 ASSET_MANAGER.queueDownload("./sprites/furniture/trellis.png");
 ASSET_MANAGER.queueDownload("./sprites/furniture/window.png");

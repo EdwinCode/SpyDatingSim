@@ -769,6 +769,23 @@ class BarCounterMiddle extends Furniture {
     };
 }
 
+class BarDrinks extends Furniture {
+    constructor(game, x, y, count) {
+        super(game, "./sprites/furniture/drinks.png",  0, 0, 549, 324, x, y, 549, 324);
+        this.count = count;
+        this.BB = new BoundingBox(this.x, this.y,this.count * (30 * PARAMS.BLOCKWIDTH),12 * PARAMS.BLOCKWIDTH);
+    };
+
+    update() {};
+
+    draw(ctx) {
+        for (let i = 0; i < this.count; i++) {
+            ctx.drawImage(this.spritesheet, 0, 0, 549, 324, this.x + i * (40 * PARAMS.BLOCKWIDTH) - this.game.camera.x, this.y - this.game.camera.y, 15 * PARAMS.BLOCKWIDTH, 12 * PARAMS.BLOCKWIDTH);
+        }
+        super.draw(ctx);
+    };
+}
+
 
 
 // --------------------- LOUNGE/ROSE CEREMONY FURNITURE -------------------------------
@@ -858,23 +875,6 @@ class RoseTable extends Furniture {
         super.draw(ctx);
     };
 }
-
-class Bar extends Furniture {
-    constructor(game, x, y) {
-        super(game, "./sprites/furniture/furniture.png", 255, 23, 32, 27, x, y, 256, 216);
-        this.BB = new BoundingBox(this.x, this.y,40 * PARAMS.BLOCKWIDTH,35 * PARAMS.BLOCKWIDTH);
-    };
-
-    update() {};
-
-    draw(ctx) {
-        ctx.drawImage(this.spritesheet, 255, 23, 32, 27, this.x - this.game.camera.x, this.y - this.game.camera.y, 40 * PARAMS.BLOCKWIDTH, 35 * PARAMS.BLOCKWIDTH);
-        super.draw(ctx);
-    };
-}
-
-
-
 
 
 
@@ -1323,7 +1323,6 @@ class WhiteDividerHoriz extends Furniture {
 // --------------------- MULTIPLE ROOMS FURNITURE -------------------------------
 // Sections are in alphabetical order: shelf, chairs, lamp, paintings, plants, rug, tables
 
-
 // SHELF
 class Bookshelf extends Furniture {
     constructor(game, x, y) {
@@ -1385,22 +1384,6 @@ class Lamp extends Furniture {
         super.draw(ctx);
     };
 }
-
-// unused bed
-/*class Bed extends Furniture {
-    constructor(game, x, y) {
-        super(game, "./sprites/furniture/House_Tileset.png", 1024, 272, 128, 240, x, y, 128, 240);
-        this.BB = new BoundingBox(this.x, this.y, 16 * PARAMS.BLOCKWIDTH, 30 * PARAMS.BLOCKWIDTH);
-    };
-
-    update() {};
-
-    draw(ctx) {
-        ctx.drawImage(this.spritesheet, 1024, 272, 128, 240, this.x - this.game.camera.x, this.y - this.game.camera.y, 16 * PARAMS.BLOCKWIDTH, 30 * PARAMS.BLOCKWIDTH);
-        super.draw(ctx);
-    };
-}*/
-
 
 // PAINTINGS
 // green painting
