@@ -183,7 +183,7 @@ class Billionaire extends NPC{
         this.animations[3] = new Animator(this.spritesheet, 0, 720, 120, 232, 4, 0.3);
 
     };
-};
+}
 
 class Stephanie extends NPC{
     constructor(game, x, y) {
@@ -202,7 +202,7 @@ class Stephanie extends NPC{
         this.animations[3] = new Animator(this.spritesheet, 8, 628, 144, 208, 4, 0.3);
 
     };
-};
+}
 
 class Richie extends NPC{
     constructor(game, x, y) {
@@ -221,7 +221,7 @@ class Richie extends NPC{
         this.animations[3] = new Animator(this.spritesheet, 8, 628, 110, 208, 4, 0.3);
 
     };
-};
+}
 
 
 
@@ -243,7 +243,7 @@ class KitchenWorker extends NPC{
         this.animations[3] = new Animator(this.spritesheet, 8, 628, 118, 208, 4, 0.3);
 
     };
-};
+}
 
 class CarMechanic extends NPC{
     constructor(game, x, y) {
@@ -262,7 +262,7 @@ class CarMechanic extends NPC{
         this.animations[3] = new Animator(this.spritesheet, 0, 700, 128, 234, 4, 0.3);
 
     };
-};
+}
 
 class Gardener extends NPC{
     constructor(game, x, y) {
@@ -281,7 +281,7 @@ class Gardener extends NPC{
         this.animations[3] = new Animator(this.spritesheet, 0, 581, 112, 195, 4, 0.3);
 
     };
-};
+}
 
 class Maid extends NPC{
     constructor(game, x, y) {
@@ -300,7 +300,7 @@ class Maid extends NPC{
         this.animations[3] = new Animator(this.spritesheet, 8, 628, 110, 208, 4, 0.3);
 
     };
-};
+}
 
 
 class NightGhost extends NPC{
@@ -320,7 +320,7 @@ class NightGhost extends NPC{
         this.animations[3] = new Animator(this.spritesheet, 8, 628, 110, 208, 4, 0.3);
 
     };
-};
+}
 
 class Butler extends NPC{
     constructor(game, x, y) {
@@ -339,7 +339,7 @@ class Butler extends NPC{
         this.animations[3] = new Animator(this.spritesheet, 8, 628, 110, 208, 4, 0.3);
 
     };
-};
+}
 
 
 
@@ -361,7 +361,7 @@ class CameraMan extends NPC{
         this.animations[3] = new Animator(this.spritesheet, 8, 628, 110, 208, 4, 0.3);
 
     };
-};
+}
 
 class BoomMicNPC extends NPC{
     constructor(game, x, y) {
@@ -380,4 +380,4 @@ class BoomMicNPC extends NPC{
         this.animations[3] = new Animator(this.spritesheet, 8, 628, 110, 208, 4, 0.3);
 
     };
-};
+}

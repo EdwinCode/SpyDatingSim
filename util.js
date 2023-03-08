@@ -76,17 +76,17 @@ const getDistance = (p1, p2) => {
 function setBlackStroke(ctx) {
     ctx.strokeStyle = "black";
     ctx.fillStyle = "black";
-};
+}
 
 function setRedStroke(ctx) {
     ctx.strokeStyle = "rgb(139,0,0)";
     ctx.fillStyle = "rgb(139,0,0)";
-};
+}
 
 function setWhiteStroke(ctx) {
     ctx.strokeStyle = "white";
     ctx.fillStyle = "white";
-};
+}
 
 function wrapText(ctx, text, textLocationX, textLocationY, maxWidth) {
     let lineHeight = 20;
@@ -186,6 +186,11 @@ function loadText(level, entity, chatState) {
         return level.monitor[chatState].message;
     }
 
+    // roseTable
+    else if (entity === "roseTable") {
+        return level.roseTable[chatState].message;
+    }
+
     //ITEMS
     // toolbox
     else if (entity === "toolbox") {
@@ -221,7 +226,7 @@ function loadText(level, entity, chatState) {
             return level.paintingTwo[chatState].message;
         }
     }
-};
+}
 
 function loadImage(level, entity, chatState) {
     // stephanie
@@ -279,6 +284,11 @@ function loadImage(level, entity, chatState) {
     // monitor
     else if (entity === "monitor") {
         return level.monitor[chatState].portraitNumber;
+    }
+
+    // roseTable
+    else if (entity === "roseTable") {
+        return level.roseTable[chatState].portraitNumber;
     }
 
     //ITEMS

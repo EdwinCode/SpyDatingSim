@@ -2,9 +2,6 @@ class HowToPlay {
     constructor(game) {
         this.game = game;
 
-        this.player1 = ASSET_MANAGER.getAsset("./sprites/entities/girluser.png");
-        this.player2 = ASSET_MANAGER.getAsset("./sprites/entities/boyuser.png");
-
         this.butlerIcon = ASSET_MANAGER.getAsset("./sprites/alfred.png");
         this.suitcase = ASSET_MANAGER.getAsset("./sprites/suitcase.png");
 
@@ -109,4 +106,4 @@ class HowToPlay {
         ctx.fillText("EXIT", 600, 640);
         ctx.strokeRect(this.exitBB.left, this.exitBB.top, this.exitBB.width, this.exitBB.height);
     };
-};
+}

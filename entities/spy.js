@@ -34,6 +34,7 @@ class Spy {
         this.billionaireStatueInteract = false;
         this.fridgeInteract = false;
         this.monitorInteract = false;
+        this.roseTableInteract = false;
 
         //ENDING INTERACTION
         this.doorInteract = false;
@@ -85,13 +86,11 @@ class Spy {
         this.animations[2][1] = new Animator(this.spritesheet, 0, 0, 128, 208, 4, 0.2);
         this.animations[2][2] = new Animator(this.spritesheet, 0, 432, 120, 208, 4, 0.2);
         this.animations[2][3] = new Animator(this.spritesheet, 0, 216, 120, 208, 4, 0.2);
-
     };
 
     updateBB() {
         this.lastBB = this.BB;
         this.BB = new BoundingBox(this.x, this.y + 16 * PARAMS.BLOCKWIDTH, this.width - PARAMS.BLOCKWIDTH, this.height - 16 * PARAMS.BLOCKWIDTH);
-
     };
 
     update() {
@@ -153,7 +152,6 @@ class Spy {
                         this.state = 0; // idle
                     }
                 }
-
             } else {
                 // Do nothing
             }
@@ -162,7 +160,7 @@ class Spy {
         //Update position
         this.updateBB();
 
-        //collision
+        //--------------------COLLISION----------------------------------------------------
         var that = this;
         this.game.entities.forEach(function (entity) {
             //if the entity has a bounding box and we collided with it
@@ -304,19 +302,16 @@ class Spy {
                             //TO PAUSE THE GAME
                             Chatbox.OPEN = true;
 
-
                             //Flashlight chatbox
                             if (!flashlightDisplay) {
                                 that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/flashlight.png"), 0, 0, 612, 272, PARAMS.CANVAS_WIDTH / 3.5, PARAMS.CANVAS_WIDTH / 3, 76.5 * PARAMS.BLOCKWIDTH, 34 * PARAMS.BLOCKWIDTH));
                             }
+
                             flashlightDisplay = true;
-
-
                         }
                     } else {
                         that.toolboxInteract = false;
                     }
-
                 }
 
                 if (that.game.camera.currentLevel === levelOne2) {
@@ -340,18 +335,17 @@ class Spy {
                                 //TO PAUSE THE GAME
                                 Chatbox.OPEN = true;
 
-
                                 //clueone chatbox
                                 if (!clueOneDisplay) {
                                     that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/furniture/water_tank.png"), 18, 4, 198, 529, PARAMS.CANVAS_WIDTH / 2.5, PARAMS.CANVAS_WIDTH / 6.5, 132, 352.66));
                                     that.game.savedTime = that.game.phase2Timer.time;
                                 }
+
                                 clueOneDisplay = true;
                             }
                         } else {
                             that.waterTankInteract = false;
                         }
-
                     }
 
                     if (entity instanceof GreyCar) {
@@ -374,18 +368,17 @@ class Spy {
                                 //TO PAUSE THE GAME
                                 Chatbox.OPEN = true;
 
-
                                 //cluetwo chatbox
                                 if (!clueTwoDisplay) {
                                     that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/gps.png"), 0, 0, 128, 128, PARAMS.CANVAS_WIDTH / 3.5, PARAMS.CANVAS_WIDTH / 5, 256, 256));
                                     that.game.savedTime = that.game.phase2Timer.time;
                                 }
+
                                 clueTwoDisplay = true;
                             }
                         } else {
                             that.greyCarInteract = false;
                         }
-
                     }
 
                     if (entity instanceof PaintingTwo) {
@@ -413,20 +406,20 @@ class Spy {
                                     that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/patent.png"), 0, 0, 293, 300, PARAMS.CANVAS_WIDTH / 3.5, PARAMS.CANVAS_WIDTH / 5, 293, 300));
                                     that.game.savedTime = that.game.phase2Timer.time;
                                 }
-                                clueThreeDisplay = true;
 
+                                clueThreeDisplay = true;
                             }
                         } else {
                             that.paintingTwoInteract = false;
                         }
-
                     }
                 }
 
-                //
-                // INTERACTIONS
-                //
 
+
+                // ---------------------------------------------------
+                // ----------- NPC INTERACTIONS ----------------------
+                // ---------------------------------------------------
                 // trigger cutscene
                 if (that.game.currLvl.label === "Phase 1-1" && that.game.chatState === 7 && that.chatbox.setVisible === false) {
                     ASSET_MANAGER.pauseBackgroundMusic();
@@ -458,7 +451,6 @@ class Spy {
                             that.game.chatState = that.updateState(that.game.currLvl, "richie", that.game.chatState);
 
                             that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/richie_portraits.png");
-
 
                             that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
                             that.game.addEntityToTop(that.chatbox);
@@ -536,7 +528,7 @@ class Spy {
                     }
                 }
 
-                // NPC kitchen
+                // NPC kitchen worker
                 else if (entity instanceof KitchenWorker) {
                     if (entity.interactBB && that.BB.collide(entity.interactBB)) {
 
@@ -566,7 +558,7 @@ class Spy {
                     }
                 }
 
-                // NPC garden
+                // NPC gardener
                 else if (entity instanceof Gardener) {
                     if (entity.interactBB && that.BB.collide(entity.interactBB)) {
 
@@ -627,7 +619,10 @@ class Spy {
                             that.guardInteract = false;
                         }
                     }
-                } else if (entity instanceof CarMechanic) {
+                }
+
+                // NPC Car Mechanic
+                else if (entity instanceof CarMechanic) {
                     if (entity.interactBB && that.BB.collide(entity.interactBB)) {
 
                         that.noInteract = false;
@@ -657,9 +652,10 @@ class Spy {
                 }
 
 
+
+                // ---------------------------------------------------
                 // ----------- OBJECT INTERACTIONS -------------------
-
-
+                // ---------------------------------------------------
                 else if (entity instanceof BillionaireStatue) {
                     if (entity.interactBB && that.BB.collide(entity.interactBB)) {
 
@@ -746,8 +742,39 @@ class Spy {
                         that.monitorInteract = false;
                     }
                 }
-            }
 
+                else if (entity instanceof RoseTable) {
+                    console.log("rose instance");
+                    if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+
+                        that.noInteract = false;
+                        that.roseTableInteract = true;
+                        console.log("rose interact");
+
+                        if (that.game.interact && that.hideChat) {
+                            that.game.interact = false;
+                            that.hideChat = false;
+
+                            that.text = loadText(that.game.currLvl, "roseTable", that.game.chatState);
+                            that.image = loadImage(that.game.currLvl, "roseTable", that.game.chatState);
+                            that.game.chatState = that.updateState(that.game.currLvl, "roseTable", that.game.chatState);
+
+                            that.spritesheet = ASSET_MANAGER.getAsset("./sprites/blackbox.png");
+
+                            that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, true);
+                            that.game.addEntityToTop(that.chatbox);
+                            that.chatbox.setVisible = true;
+
+                            //TO PAUSE THE GAME
+                            Chatbox.OPEN = true;
+
+                        }
+                    } else {
+                        that.roseTableInteract = false;
+                        that.noInteract = true;
+                    }
+                }
+            }
 
             that.updateBB();
         });
@@ -778,9 +805,10 @@ class Spy {
         }
 
         // interact message
-        if (this.stephInteract || this.billionaireInteract || this.richieInteract || this.kitchenWorkerInteract || this.gardenerInteract || this.guardInteract
-            || this.carMechanicInteract || this.billionaireStatueInteract || this.fridgeInteract || this.monitorInteract || this.toolboxInteract
-            || this.greyCarInteract || this.waterTankInteract || this.paintingTwoInteract) {
+        if (this.stephInteract || this.billionaireInteract || this.richieInteract || this.kitchenWorkerInteract ||
+            this.gardenerInteract || this.guardInteract || this.carMechanicInteract || this.billionaireStatueInteract ||
+            this.fridgeInteract || this.monitorInteract || this.toolboxInteract || this.greyCarInteract ||
+            this.waterTankInteract || this.paintingTwoInteract || this.roseTableInteract) {
 
             if (!(clueOneDisplay && clueTwoDisplay && clueThreeDisplay)) {
 
@@ -804,6 +832,7 @@ class Spy {
                 else if (this.billionaireStatueInteract) interactText = "Statue";
                 else if (this.fridgeInteract) interactText = "Fridge";
                 else if (this.monitorInteract) interactText = "Monitor";
+                else if (this.roseTableInteract) interactText = "Bachelor Rose Table"
 
                 //items
                 else if (this.toolboxInteract) interactText = "Toolbox";
@@ -897,8 +926,8 @@ class Spy {
         }
 
 
-        // ------------- OBJECT INTERACTIONS ------------
 
+        // ------------- OBJECT INTERACTIONS ------------
         // billionaire statue
         else if (entity === "billionaireStatue") {
             if (level.billionaireStatue[chatState].stateIncr === true) {
@@ -926,8 +955,18 @@ class Spy {
             }
         }
 
-        // ------------------------------ ITEMS -----------------------------
+        //rose table
+        else if (entity === "roseTable") {
+            if (level.monitor[chatState].stateIncr === true) {
+                return chatState + 1;
+            } else {
+                return chatState;
+            }
+        }
 
+
+
+        // ------------------------------ ITEMS -----------------------------
         // toolbox
         else if (entity === "toolbox") {
             if (level.toolbox[chatState].stateIncr === true) {
@@ -979,4 +1018,4 @@ class Spy {
             }
         }
     };
-};
+}

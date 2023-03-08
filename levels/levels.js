@@ -231,26 +231,6 @@ let levelOneFurniture = {
         {x: 488, y: 251, count: 1}
     ],
 
-    bigRugs: [
-        //{x: 234.25, y: 112},
-        //{x: 234.25, y: 136},
-
-        //{x: 234.25, y: -128},
-        //{x: 234.25, y: -104},
-
-        //{x: 234.25, y:-368},
-        //{x: 234.25, y:-344},
-
-        //{x: -18.25, y: 112},
-        //{x: -18.25, y: 136},
-
-        //{x: -18.25, y: -128},
-        //{x: -18.25, y: -104},
-
-        //{x: -18.25, y: -368},
-        //{x: -18.25, y: -344}
-    ],
-
     rugsHorizontal: [
         {x: 424, y: -192, count: 4, color: "Dark Blue"},
         {x: 424, y: -182, count: 4, color: "Dark Blue"},
@@ -265,9 +245,6 @@ let levelOneFurniture = {
         {x: 230, y: 140, count: 5, color: "Green"},
         {x: -23, y: -110, count: 5, color: "Light Blue"},
         {x: -23, y: -100, count: 5, color: "Light Blue"},
-        // {x: 398, y: 228, count: 10, color: "Tan"},
-        // {x: 398, y: 238, count: 10, color: "Tan"},
-        // {x: 398, y: 248, count: 10, color: "Tan"},
         {x: 109.5, y: 230, count: 4, color: "Brown"},
         {x: 276, y: 203, count: 5, color: "Green"},
         {x: 276, y: 213, count: 5, color: "Green"},
@@ -278,6 +255,11 @@ let levelOneFurniture = {
         {x: 180.5, y: -278, count: 5, color: "Hodgepodge"},
         {x: 180.5, y: -268, count: 5, color: "Hodgepodge"},
         {x: 180.5, y: -258, count: 5, color: "Hodgepodge"},
+        // loungeRug
+        {x: 20, y: -170, count: 6, color: "Red"},
+        {x: 20, y: -160, count: 6, color: "Red"},
+        {x: 20, y: -150, count: 6, color: "Red"},
+        {x: 20, y: -140, count: 6, color: "Red"}
     ],
 
     rugsVertical: [
@@ -694,16 +676,41 @@ let levelOneFurniture = {
 
 
     // ------------------------ LOUNGE FURNITURE -------------------
-    piano: [
-        {x: 160, y: -80}
+    barDrinks : [
+        {x: 10, y: -85, count: 2}
     ],
 
+    barCounterL : [
+        {x: 4.5, y: -80}
+    ],
+
+    barCounterR : [
+        {x: 73, y: -80},
+        {x: 73, y: -10},
+    ],
+
+    barCounterVert : [
+        {x: 73, y: -71}
+    ],
+
+    barCounterMiddle : [
+        {x: 29.5, y: -80, count: 2}
+    ],
+
+
+    // ------------------------ LOUNGE FURNITURE -------------------
+    piano: [
+        {x: 175, y: -80}
+    ],
+
+    // actually chairs
     loungeCouchSide : [
         {x: 4.5, y: -140},
         {x: 4.5, y: -160},
         {x: 4.5, y: -180},
     ],
 
+    // actually chairs
     loungeCouchDown : [
         {x: 20, y: -190},
         {x: 40, y: -190},
@@ -711,10 +718,9 @@ let levelOneFurniture = {
     ],
 
     loungeSideTable : [
-
+        {x: 31, y: -160}
     ],
 
-    // add skinny red rug that leads from risers to rose table
     ceremonyRisers : [
         {x: 160, y: -210, count: 6}
     ],
@@ -798,13 +804,11 @@ let levelOneFurniture = {
 
     // small tree plant
     plantOne : [
-        // patio
-        // upper right room section
+        // patio upper right room section
         {x: -109, y: -200},
         {x: -109, y: -148},
         {x: -16, y: -148},
-        // lower left room section
-        //{x: -167, y: -22},
+        // patio lower left room section
         {x: -245, y: -90},
         {x: -157, y: -90},
         // bathroom area
@@ -820,7 +824,11 @@ let levelOneFurniture = {
         // bedroom by twin beds
         {x: 420, y: 25},
         {x: 420, y: 90},
-        {x: 420, y: 160}
+        {x: 420, y: 160},
+        // lounge
+        {x: 235, y: -25},
+        {x: 235, y: -52},
+        {x: 235, y: -80}
     ],
 
     // small potted plant
@@ -1271,6 +1279,37 @@ let levelOne1 = {
             portraitNumber: 0,
             stateIncr: false},
         { message: "There seems to be League of Legends installed on this computer...",
+            state: 6,
+            portraitNumber: 0,
+            stateIncr: false},
+    ],
+
+    roseTable: [
+        { message: "A rose",
+            state: 0,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "A rose",
+            state: 1,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "A rose",
+            state: 2,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "A rose",
+            state: 3,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "A rose",
+            state: 4,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "A rose",
+            state: 5,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "A rose",
             state: 6,
             portraitNumber: 0,
             stateIncr: false},

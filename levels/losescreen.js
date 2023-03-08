@@ -50,4 +50,4 @@ class LoseScreen {
         ctx.fillText("RESTART", PARAMS.CANVAS_WIDTH / 2, PARAMS.CANVAS_HEIGHT / 2);
         ctx.strokeRect(this.restartBB.left, this.restartBB.top, this.restartBB.width, this.restartBB.height);
     };
-};
+}

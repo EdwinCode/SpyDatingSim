@@ -78,6 +78,13 @@ class LevelOneCutscene {
         this.dWidth = 32 * PARAMS.BLOCKWIDTH;
         this.dHeight = 32 * PARAMS.BLOCKWIDTH;
 
+        // text
+        let bText = "Hello, everyone! This is our first rose ceremony together. The person who I feel the " +
+            "greatest spark with will receive this rose.";
+        let sText = "Roses are like so romantic! Especially red ones...reminds me of like burning passion.";
+        let rText = "Eek! *repositions himself to show his best \"come hither\" expression*";
+
+        // slides
         if (slideNum === 1) {
             ctx.fillText("Some time after Mr. Billionaire's toast...", 20, 20);
         }
@@ -86,9 +93,7 @@ class LevelOneCutscene {
             ctx.fillText("Some time after Mr. Billionaire's toast...", 20, 20);
 
             // billionaire portrait
-            ctx.drawImage(bSprite, this.imageX, this.imageY, this.imageW, this.imageH, 20, 60, this.dWidth, this.dHeight);
-            let bText = "Hello, everyone! This is our first rose ceremony together. The person who I feel the " +
-                "greatest spark with will receive this rose.";
+            ctx.drawImage(bSprite, this.imageX, this.imageY, this.imageW, this.imageH, 95, 45, this.dWidth, this.dHeight);
             wrapText(ctx, bText, PARAMS.CANVAS_WIDTH / 2, 60, PARAMS.CANVAS_WIDTH / 2)
         }
 
@@ -96,14 +101,11 @@ class LevelOneCutscene {
             ctx.fillText("Some time after Mr. Billionaire's toast...", 20, 20);
 
             // billionaire portrait
-            ctx.drawImage(bSprite, this.imageX, this.imageY, this.imageW, this.imageH, 20, 60, this.dWidth, this.dHeight);
-            let bText = "Hello, everyone! This is our first rose ceremony together. The person who I feel the " +
-                "greatest spark with will receive this rose.";
+            ctx.drawImage(bSprite, this.imageX, this.imageY, this.imageW, this.imageH, 95, 45, this.dWidth, this.dHeight);
             wrapText(ctx, bText, PARAMS.CANVAS_WIDTH / 2, 60, PARAMS.CANVAS_WIDTH / 2);
 
             // steph
-            ctx.drawImage(sSprite, this.imageX, this.imageY, this.imageW, this.imageH, 20, 200, this.dWidth, this.dHeight);
-            let sText = "Roses are so romantic! Especially red ones...reminds me of burning passion.";
+            ctx.drawImage(sSprite, this.imageX, this.imageY, this.imageW, this.imageH, 95, 185, this.dWidth, this.dHeight);
             wrapText(ctx, sText, PARAMS.CANVAS_WIDTH / 2, 220, PARAMS.CANVAS_WIDTH / 2);
         }
 
@@ -111,20 +113,16 @@ class LevelOneCutscene {
             ctx.fillText("Some time after Mr. Billionaire's toast...", 20, 20);
 
             // billionaire portrait
-            ctx.drawImage(bSprite, this.imageX, this.imageY, this.imageW, this.imageH, 20, 60, this.dWidth, this.dHeight);
-            let bText = "Hello, everyone! This is our first rose ceremony together. The person who I feel the " +
-                "greatest spark with will receive this rose.";
+            ctx.drawImage(bSprite, this.imageX, this.imageY, this.imageW, this.imageH, 95, 45, this.dWidth, this.dHeight);
             wrapText(ctx, bText, PARAMS.CANVAS_WIDTH / 2, 60, PARAMS.CANVAS_WIDTH / 2);
 
             // steph
-            ctx.drawImage(sSprite, this.imageX, this.imageY, this.imageW, this.imageH, 20, 200, this.dWidth, this.dHeight);
-            let sText = "Roses are so romantic! Especially red ones...reminds me of burning passion.";
+            ctx.drawImage(sSprite, this.imageX, this.imageY, this.imageW, this.imageH, 95, 185, this.dWidth, this.dHeight);
             wrapText(ctx, sText, PARAMS.CANVAS_WIDTH / 2, 220, PARAMS.CANVAS_WIDTH / 2);
 
             // richie
-            ctx.drawImage(rSprite, this.imageX, this.imageY, this.imageW, this.imageH, PARAMS.CANVAS_WIDTH / 6, 310, this.dWidth, this.dHeight);
-            let rText = "Eek! *repositions himself to show his best \"come hither\" expression*";
-            wrapText(ctx, rText, PARAMS.CANVAS_WIDTH / 2, 340, PARAMS.CANVAS_WIDTH / 2);
+            ctx.drawImage(rSprite, this.imageX, this.imageY, this.imageW, this.imageH, 95, 325, this.dWidth, this.dHeight);
+            wrapText(ctx, rText, PARAMS.CANVAS_WIDTH / 2, 360, PARAMS.CANVAS_WIDTH / 2);
 
         }
 
@@ -132,29 +130,25 @@ class LevelOneCutscene {
             ctx.fillText("Some time after Mr. Billionaire's toast...", 20, 20);
 
             // billionaire portrait
-            ctx.drawImage(bSprite, this.imageX, this.imageY, this.imageW, this.imageH, 20, 60, this.dWidth, this.dHeight);
-            let bText = "Hello, everyone! This is our first rose ceremony together. The person who I feel the " +
-                "greatest spark with will receive this rose.";
+            ctx.drawImage(bSprite, this.imageX, this.imageY, this.imageW, this.imageH, 95, 45, this.dWidth, this.dHeight);
             wrapText(ctx, bText, PARAMS.CANVAS_WIDTH / 2, 60, PARAMS.CANVAS_WIDTH / 2);
 
             // steph
-            ctx.drawImage(sSprite, this.imageX, this.imageY, this.imageW, this.imageH, 20, 200, this.dWidth, this.dHeight);
-            let sText = "Roses are so romantic! Especially red ones...reminds me of burning passion.";
+            ctx.drawImage(sSprite, this.imageX, this.imageY, this.imageW, this.imageH, 95, 185, this.dWidth, this.dHeight);
             wrapText(ctx, sText, PARAMS.CANVAS_WIDTH / 2, 220, PARAMS.CANVAS_WIDTH / 2);
 
             // richie
-            ctx.drawImage(rSprite, this.imageX, this.imageY, this.imageW, this.imageH, PARAMS.CANVAS_WIDTH / 6, 310, this.dWidth, this.dHeight);
-            let rText = "Eek! *repositions himself to show his best \"come hither\" expression*";
-            wrapText(ctx, rText, PARAMS.CANVAS_WIDTH / 2, 340, PARAMS.CANVAS_WIDTH / 2);
+            ctx.drawImage(rSprite, this.imageX, this.imageY, this.imageW, this.imageH, 95, 325, this.dWidth, this.dHeight);
+            wrapText(ctx, rText, PARAMS.CANVAS_WIDTH / 2, 360, PARAMS.CANVAS_WIDTH / 2);
 
             // billionaire
-            ctx.drawImage(bSprite, 32, 16, this.imageW, this.imageH, (2 * PARAMS.CANVAS_WIDTH) / 3, 455, this.dWidth, this.dHeight);
+            ctx.drawImage(bSprite, 32, 16, this.imageW, this.imageH, 95, 465, this.dWidth, this.dHeight);
             bText = "*makes eye contact with...you!*     Meeting you today has lit a fire in my soul, and I feel it burning " +
                 "bright. Will you accept this rose?";
-            wrapText(ctx, bText, 20, 460, PARAMS.CANVAS_WIDTH / 2);
+            wrapText(ctx, bText, 340, 480, PARAMS.CANVAS_WIDTH / 2);
         }
     };
-};
+}
 
 
 class IntroCutscene {
@@ -505,7 +499,7 @@ class EndingPart1Cutscene {
 
         }
     };
-};
+}
 
 class EndingPart2Cutscene {
     constructor(game) {
