@@ -865,16 +865,52 @@ class LoungeTable extends Furniture {
 class RoseTable extends Furniture {
     constructor(game, x, y) {
         super(game, "./sprites/furniture/furniture.png", 510, 120, 12, 23, x, y, 12, 23);
-        this.BB = new BoundingBox(this.x, this.y - 18,13 * PARAMS.BLOCKWIDTH,22 * PARAMS.BLOCKWIDTH);
+        this.BB = new BoundingBox(this.x, this.y - 18,12 * PARAMS.BLOCKWIDTH,22 * PARAMS.BLOCKWIDTH);
     };
 
     update() {};
 
+    updateInteractionBB() {
+        super.updateInteractionBB();
+        this.interactBB = new BoundingBox(this.x - 35, this.y - 70, this.dWidth * 10, this.dHeight * 10);
+    }
+
     draw(ctx) {
         ctx.drawImage(this.spritesheet, 510, 120, 12, 23, this.x - this.game.camera.x, this.y - this.game.camera.y, 12 * PARAMS.BLOCKWIDTH, 23 * PARAMS.BLOCKWIDTH);
         super.draw(ctx);
+
+        PARAMS.DEBUG = document.getElementById("debug").checked;
+        if (PARAMS.DEBUG) {
+            ctx.strokeStyle = 'green';
+            ctx.strokeRect(this.interactBB.x - this.game.camera.x, this.interactBB.y - this.game.camera.y, this.interactBB.width, this.interactBB.height);
+        }
     };
 }
+
+// class WideBlueMonitor extends Furniture {
+//     constructor(game, x, y) {
+//         super(game, "./sprites/furniture/furniture.png",  158, 138, 22, 14, x, y, 22 * PARAMS.BLOCKWIDTH, 14 * PARAMS.BLOCKWIDTH);
+//         this.BB = new BoundingBox(this.x, this.y,22 * PARAMS.BLOCKWIDTH,14 * PARAMS.BLOCKWIDTH);
+//     };
+//
+//     update() {};
+//
+//     updateInteractionBB() {
+//         super.updateInteractionBB();
+//         this.interactBB = new BoundingBox(this.x, this.y, this.dWidth, 3 * this.dHeight);
+//     }
+//
+//     draw(ctx) {
+//         ctx.drawImage(this.spritesheet, 158, 138, 22, 14, this.x - this.game.camera.x, this.y - this.game.camera.y, 22 * PARAMS.BLOCKWIDTH, 14 * PARAMS.BLOCKWIDTH);
+//         super.draw(ctx);
+//
+//         PARAMS.DEBUG = document.getElementById("debug").checked;
+//         if (PARAMS.DEBUG) {
+//             ctx.strokeStyle = 'green';
+//             ctx.strokeRect(this.interactBB.x - this.game.camera.x, this.interactBB.y - this.game.camera.y, this.interactBB.width, this.interactBB.height);
+//         }
+//     };
+// }
 
 
 

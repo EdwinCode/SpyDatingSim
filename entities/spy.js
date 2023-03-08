@@ -34,6 +34,7 @@ class Spy {
         this.billionaireStatueInteract = false;
         this.fridgeInteract = false;
         this.monitorInteract = false;
+        this.roseTableInteract = false;
 
         //ENDING INTERACTION
         this.doorInteract = false;
@@ -85,13 +86,11 @@ class Spy {
         this.animations[2][1] = new Animator(this.spritesheet, 0, 0, 128, 208, 4, 0.2);
         this.animations[2][2] = new Animator(this.spritesheet, 0, 432, 120, 208, 4, 0.2);
         this.animations[2][3] = new Animator(this.spritesheet, 0, 216, 120, 208, 4, 0.2);
-
     };
 
     updateBB() {
         this.lastBB = this.BB;
         this.BB = new BoundingBox(this.x, this.y + 16 * PARAMS.BLOCKWIDTH, this.width - PARAMS.BLOCKWIDTH, this.height - 16 * PARAMS.BLOCKWIDTH);
-
     };
 
     update() {
@@ -153,7 +152,6 @@ class Spy {
                         this.state = 0; // idle
                     }
                 }
-
             } else {
                 // Do nothing
             }
@@ -162,7 +160,7 @@ class Spy {
         //Update position
         this.updateBB();
 
-        //collision
+        //--------------------COLLISION----------------------------------------------------
         var that = this;
         this.game.entities.forEach(function (entity) {
             //if the entity has a bounding box and we collided with it
@@ -415,10 +413,11 @@ class Spy {
                     }
                 }
 
-                //
-                // INTERACTIONS
-                //
 
+
+                // ---------------------------------------------------
+                // ----------- NPC INTERACTIONS ----------------------
+                // ---------------------------------------------------
                 // trigger cutscene
                 if (that.game.currLvl.label === "Phase 1-1" && that.game.chatState === 7 && that.chatbox.setVisible === false) {
                     that.game.camera.loadLevel(levelOneCutscene);
@@ -650,6 +649,7 @@ class Spy {
                 }
 
 
+
                 // ---------------------------------------------------
                 // ----------- OBJECT INTERACTIONS -------------------
                 // ---------------------------------------------------
@@ -739,8 +739,35 @@ class Spy {
                         that.monitorInteract = false;
                     }
                 }
-            }
+            } else if (entity instanceof RoseTable) {
+                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
 
+                    that.noInteract = false;
+                    that.roseTableInteract = true;
+
+                    if (that.game.interact && that.hideChat) {
+                        that.game.interact = false;
+                        that.hideChat = false;
+
+                        that.text = loadText(that.game.currLvl, "rose table", that.game.chatState);
+                        that.image = loadImage(that.game.currLvl, "rose table", that.game.chatState);
+                        //that.game.chatState = that.updateState(that.game.currLvl, "rose table", that.game.chatState);
+
+                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/blackbox.png");
+
+                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, true);
+                        that.game.addEntityToTop(that.chatbox);
+                        that.chatbox.setVisible = true;
+
+                        //TO PAUSE THE GAME
+                        Chatbox.OPEN = true;
+
+                    }
+                } else {
+                    that.roseTableInteract = false;
+                    that.noInteract = true;
+                }
+            }
 
             that.updateBB();
         });
@@ -771,9 +798,10 @@ class Spy {
         }
 
         // interact message
-        if (this.stephInteract || this.billionaireInteract || this.richieInteract || this.kitchenWorkerInteract || this.gardenerInteract || this.guardInteract
-            || this.carMechanicInteract || this.billionaireStatueInteract || this.fridgeInteract || this.monitorInteract || this.toolboxInteract
-            || this.greyCarInteract || this.waterTankInteract || this.paintingTwoInteract) {
+        if (this.stephInteract || this.billionaireInteract || this.richieInteract || this.kitchenWorkerInteract ||
+            this.gardenerInteract || this.guardInteract || this.carMechanicInteract || this.billionaireStatueInteract ||
+            this.fridgeInteract || this.monitorInteract || this.toolboxInteract || this.greyCarInteract ||
+            this.waterTankInteract || this.paintingTwoInteract || this.roseTableInteract) {
 
             if (!(clueOneDisplay && clueTwoDisplay && clueThreeDisplay)) {
 
@@ -797,6 +825,7 @@ class Spy {
                 else if (this.billionaireStatueInteract) interactText = "Statue";
                 else if (this.fridgeInteract) interactText = "Fridge";
                 else if (this.monitorInteract) interactText = "Monitor";
+                else if (this.roseTableInteract) interactText = "Bachelor Rose Table"
 
                 //items
                 else if (this.toolboxInteract) interactText = "Toolbox";
@@ -890,8 +919,8 @@ class Spy {
         }
 
 
-        // ------------- OBJECT INTERACTIONS ------------
 
+        // ------------- OBJECT INTERACTIONS ------------
         // billionaire statue
         else if (entity === "billionaireStatue") {
             if (level.billionaireStatue[chatState].stateIncr === true) {
@@ -919,8 +948,18 @@ class Spy {
             }
         }
 
-        // ------------------------------ ITEMS -----------------------------
+        // rose table
+        // else if (entity === "rose table") {
+        //     if (level.monitor[chatState].stateIncr === true) {
+        //         return chatState + 1;
+        //     } else {
+        //         return chatState;
+        //     }
+        // }
 
+
+
+        // ------------------------------ ITEMS -----------------------------
         // toolbox
         else if (entity === "toolbox") {
             if (level.toolbox[chatState].stateIncr === true) {
