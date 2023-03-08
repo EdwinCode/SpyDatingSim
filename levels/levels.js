@@ -1390,6 +1390,37 @@ let levelOne2 = {
             stateIncr: false},
     ],
 
+    toolbox: [
+        { message: "You found a flashlight!",
+            state: 0,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "You found a flashlight!",
+            state: 1,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "You found a flashlight!",
+            state: 2,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "You found a flashlight!",
+            state: 3,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "You found a flashlight!",
+            state: 4,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "You found a flashlight!",
+            state: 5,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "You found a flashlight!",
+            state: 6,
+            portraitNumber: 0,
+            stateIncr: false},
+    ],
+
 
     //ITEMS
     greyCar: [
