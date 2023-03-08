@@ -748,37 +748,37 @@ class Spy {
                     }
                 }
 
-                else if (entity instanceof RoseTable) {
-                    console.log("rose instance");
-                    if (entity.interactBB && that.BB.collide(entity.interactBB)) {
-
-                        that.noInteract = false;
-                        that.roseTableInteract = true;
-                        console.log("rose interact");
-
-                        if (that.game.interact && that.hideChat) {
-                            that.game.interact = false;
-                            that.hideChat = false;
-
-                            that.text = loadText(that.game.currLvl, "roseTable", that.game.chatState);
-                            that.image = loadImage(that.game.currLvl, "roseTable", that.game.chatState);
-                            that.game.chatState = that.updateState(that.game.currLvl, "roseTable", that.game.chatState);
-
-                            that.spritesheet = ASSET_MANAGER.getAsset("./sprites/blackbox.png");
-
-                            that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, true);
-                            that.game.addEntityToTop(that.chatbox);
-                            that.chatbox.setVisible = true;
-
-                            //TO PAUSE THE GAME
-                            Chatbox.OPEN = true;
-
-                        }
-                    } else {
-                        that.roseTableInteract = false;
-                        that.noInteract = true;
-                    }
-                }
+                // else if (entity instanceof RoseTable) {
+                //     console.log("rose instance");
+                //     if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                //
+                //         that.noInteract = false;
+                //         that.roseTableInteract = true;
+                //         console.log("rose interact");
+                //
+                //         if (that.game.interact && that.hideChat) {
+                //             that.game.interact = false;
+                //             that.hideChat = false;
+                //
+                //             that.text = loadText(that.game.currLvl, "roseTable", that.game.chatState);
+                //             that.image = loadImage(that.game.currLvl, "roseTable", that.game.chatState);
+                //             that.game.chatState = that.updateState(that.game.currLvl, "roseTable", that.game.chatState);
+                //
+                //             that.spritesheet = ASSET_MANAGER.getAsset("./sprites/blackbox.png");
+                //
+                //             that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, true);
+                //             that.game.addEntityToTop(that.chatbox);
+                //             that.chatbox.setVisible = true;
+                //
+                //             //TO PAUSE THE GAME
+                //             Chatbox.OPEN = true;
+                //
+                //         }
+                //     } else {
+                //         that.roseTableInteract = false;
+                //         that.noInteract = true;
+                //     }
+                // }
             }
 
             that.updateBB();
