@@ -302,14 +302,12 @@ class Spy {
                             //TO PAUSE THE GAME
                             Chatbox.OPEN = true;
 
-
                             //Flashlight chatbox
                             if (!flashlightDisplay) {
                                 that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/flashlight.png"), 0, 0, 612, 272, PARAMS.CANVAS_WIDTH / 3.5, PARAMS.CANVAS_WIDTH / 3, 76.5 * PARAMS.BLOCKWIDTH, 34 * PARAMS.BLOCKWIDTH));
                             }
+
                             flashlightDisplay = true;
-
-
                         }
                     } else {
                         that.toolboxInteract = false;
@@ -337,12 +335,12 @@ class Spy {
                                 //TO PAUSE THE GAME
                                 Chatbox.OPEN = true;
 
-
                                 //clueone chatbox
                                 if (!clueOneDisplay) {
                                     that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/furniture/water_tank.png"), 18, 4, 198, 529, PARAMS.CANVAS_WIDTH / 2.5, PARAMS.CANVAS_WIDTH / 6.5, 132, 352.66));
                                     that.game.savedTime = that.game.phase2Timer.time;
                                 }
+
                                 clueOneDisplay = true;
                             }
                         } else {
@@ -370,12 +368,12 @@ class Spy {
                                 //TO PAUSE THE GAME
                                 Chatbox.OPEN = true;
 
-
                                 //cluetwo chatbox
                                 if (!clueTwoDisplay) {
                                     that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/gps.png"), 0, 0, 128, 128, PARAMS.CANVAS_WIDTH / 3.5, PARAMS.CANVAS_WIDTH / 5, 256, 256));
                                     that.game.savedTime = that.game.phase2Timer.time;
                                 }
+
                                 clueTwoDisplay = true;
                             }
                         } else {
@@ -408,6 +406,7 @@ class Spy {
                                     that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/patent.png"), 0, 0, 293, 300, PARAMS.CANVAS_WIDTH / 3.5, PARAMS.CANVAS_WIDTH / 5, 293, 300));
                                     that.game.savedTime = that.game.phase2Timer.time;
                                 }
+
                                 clueThreeDisplay = true;
                             }
                         } else {
@@ -450,7 +449,6 @@ class Spy {
                             that.game.chatState = that.updateState(that.game.currLvl, "richie", that.game.chatState);
 
                             that.spritesheet = ASSET_MANAGER.getAsset("./sprites/entities/richie_portraits.png");
-
 
                             that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, false);
                             that.game.addEntityToTop(that.chatbox);
@@ -528,7 +526,7 @@ class Spy {
                     }
                 }
 
-                // NPC kitchen
+                // NPC kitchen worker
                 else if (entity instanceof KitchenWorker) {
                     if (entity.interactBB && that.BB.collide(entity.interactBB)) {
 
@@ -558,7 +556,7 @@ class Spy {
                     }
                 }
 
-                // NPC garden
+                // NPC gardener
                 else if (entity instanceof Gardener) {
                     if (entity.interactBB && that.BB.collide(entity.interactBB)) {
 
@@ -619,7 +617,10 @@ class Spy {
                             that.guardInteract = false;
                         }
                     }
-                } else if (entity instanceof CarMechanic) {
+                }
+
+                // NPC Car Mechanic
+                else if (entity instanceof CarMechanic) {
                     if (entity.interactBB && that.BB.collide(entity.interactBB)) {
 
                         that.noInteract = false;
@@ -649,9 +650,9 @@ class Spy {
                 }
 
 
+                // ---------------------------------------------------
                 // ----------- OBJECT INTERACTIONS -------------------
-
-
+                // ---------------------------------------------------
                 else if (entity instanceof BillionaireStatue) {
                     if (entity.interactBB && that.BB.collide(entity.interactBB)) {
 
