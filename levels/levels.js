@@ -245,9 +245,6 @@ let levelOneFurniture = {
         {x: 230, y: 140, count: 5, color: "Green"},
         {x: -23, y: -110, count: 5, color: "Light Blue"},
         {x: -23, y: -100, count: 5, color: "Light Blue"},
-        // {x: 398, y: 228, count: 10, color: "Tan"},
-        // {x: 398, y: 238, count: 10, color: "Tan"},
-        // {x: 398, y: 248, count: 10, color: "Tan"},
         {x: 109.5, y: 230, count: 4, color: "Brown"},
         {x: 276, y: 203, count: 5, color: "Green"},
         {x: 276, y: 213, count: 5, color: "Green"},
@@ -258,6 +255,11 @@ let levelOneFurniture = {
         {x: 180.5, y: -278, count: 5, color: "Hodgepodge"},
         {x: 180.5, y: -268, count: 5, color: "Hodgepodge"},
         {x: 180.5, y: -258, count: 5, color: "Hodgepodge"},
+        // loungeRug
+        {x: 20, y: -170, count: 6, color: "Red"},
+        {x: 20, y: -160, count: 6, color: "Red"},
+        {x: 20, y: -150, count: 6, color: "Red"},
+        {x: 20, y: -140, count: 6, color: "Red"}
     ],
 
     rugsVertical: [
@@ -701,12 +703,14 @@ let levelOneFurniture = {
         {x: 175, y: -80}
     ],
 
+    // actually chairs
     loungeCouchSide : [
         {x: 4.5, y: -140},
         {x: 4.5, y: -160},
         {x: 4.5, y: -180},
     ],
 
+    // actually chairs
     loungeCouchDown : [
         {x: 20, y: -190},
         {x: 40, y: -190},
@@ -714,10 +718,9 @@ let levelOneFurniture = {
     ],
 
     loungeSideTable : [
-
+        {x: 31, y: -160}
     ],
 
-    // add skinny red rug that leads from risers to rose table
     ceremonyRisers : [
         {x: 160, y: -210, count: 6}
     ],

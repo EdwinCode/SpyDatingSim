@@ -345,6 +345,10 @@ function setUpLevelOneFurniture(game, level) {
     }
 
     // side table
+    for (let i = 0; i < this.level.loungeSideTable.length; i++) {
+        let loungeSideTable = this.level.loungeSideTable[i];
+        this.game.addEntity(new LoungeTable(this.game, loungeSideTable.x * PARAMS.BLOCKWIDTH, loungeSideTable.y * PARAMS.BLOCKWIDTH));
+    }
 
     // rose for rose table
     for (let i = 0; i < this.level.roses.length; i++) {
