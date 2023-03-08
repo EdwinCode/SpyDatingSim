@@ -285,7 +285,7 @@ class Spy {
                 if (entity instanceof Toolbox) {
                     if (entity.interactBB && that.BB.collide(entity.interactBB)) {
                         that.toolboxInteract = true;
-                        if (that.game.interact && that.hideChat) {
+                        if (that.game.interact && that.hideChat && that.game.currLvl === levelOne1) {
                             that.game.interact = false;
                             that.hideChat = false;
 
