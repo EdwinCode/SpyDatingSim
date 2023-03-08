@@ -864,16 +864,16 @@ class LoungeTable extends Furniture {
 
 class RoseTable extends Furniture {
     constructor(game, x, y) {
-        super(game, "./sprites/furniture/furniture.png", 510, 120, 12, 23, x, y, 12, 23);
+        super(game, "./sprites/furniture/furniture.png", 510, 120, 12, 23, x, y, 12 * PARAMS.BLOCKWIDTH, 23 * PARAMS.BLOCKWIDTH);
         this.BB = new BoundingBox(this.x, this.y - 18,12 * PARAMS.BLOCKWIDTH,22 * PARAMS.BLOCKWIDTH);
     };
 
     update() {};
 
-    updateInteractionBB() {
-        super.updateInteractionBB();
-        this.interactBB = new BoundingBox(this.x - 35, this.y - 70, this.dWidth * 10, this.dHeight * 10);
-    }
+    // updateInteractionBB() {
+    //     super.updateInteractionBB();
+    //     this.interactBB = new BoundingBox(this.x - 35, this.y - 70, this.dWidth * 10, this.dHeight * 10);
+    // }
 
     draw(ctx) {
         ctx.drawImage(this.spritesheet, 510, 120, 12, 23, this.x - this.game.camera.x, this.y - this.game.camera.y, 12 * PARAMS.BLOCKWIDTH, 23 * PARAMS.BLOCKWIDTH);
