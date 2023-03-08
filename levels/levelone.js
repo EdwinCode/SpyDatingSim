@@ -15,6 +15,7 @@ class Level1Part1 {
         // casefile chatbox
         let caseFile = new CasefileChatbox(this.game);
         caseFile.firstTime = true;
+        ASSET_MANAGER.playAsset("./sound_effects/treasure.mp3");
         this.game.addEntityToTop(caseFile);
 
 
@@ -117,6 +118,7 @@ class Level1Part2 {
 
         //rose chatbox
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/rose.png");
+        ASSET_MANAGER.playAsset("./sound_effects/treasure.mp3");
         this.game.addEntityToTop(new ItemsChatbox(this.game, this.spritesheet, 0, 0, 1800, 2600, PARAMS.CANVAS_WIDTH / 3, PARAMS.CANVAS_WIDTH / 4, 45 * PARAMS.BLOCKWIDTH, 65 * PARAMS.BLOCKWIDTH));
         this.game.savedTime = this.game.phase2Timer.time;
 

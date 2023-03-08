@@ -304,6 +304,7 @@ class Spy {
 
                             //Flashlight chatbox
                             if (!flashlightDisplay) {
+                                ASSET_MANAGER.playAsset("./sound_effects/treasure.mp3");
                                 that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/flashlight.png"), 0, 0, 612, 272, PARAMS.CANVAS_WIDTH / 3.5, PARAMS.CANVAS_WIDTH / 3, 76.5 * PARAMS.BLOCKWIDTH, 34 * PARAMS.BLOCKWIDTH));
                             }
 
@@ -337,6 +338,7 @@ class Spy {
 
                                 //clueone chatbox
                                 if (!clueOneDisplay) {
+                                    ASSET_MANAGER.playAsset("./sound_effects/treasure.mp3");
                                     that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/furniture/water_tank.png"), 18, 4, 198, 529, PARAMS.CANVAS_WIDTH / 2.5, PARAMS.CANVAS_WIDTH / 6.5, 132, 352.66));
                                     that.game.savedTime = that.game.phase2Timer.time;
                                 }
@@ -370,6 +372,7 @@ class Spy {
 
                                 //cluetwo chatbox
                                 if (!clueTwoDisplay) {
+                                    ASSET_MANAGER.playAsset("./sound_effects/treasure.mp3");
                                     that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/gps.png"), 0, 0, 128, 128, PARAMS.CANVAS_WIDTH / 3.5, PARAMS.CANVAS_WIDTH / 5, 256, 256));
                                     that.game.savedTime = that.game.phase2Timer.time;
                                 }
@@ -403,6 +406,7 @@ class Spy {
 
                                 //cluethree chatbox
                                 if (!clueThreeDisplay) {
+                                    ASSET_MANAGER.playAsset("./sound_effects/treasure.mp3");
                                     that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/patent.png"), 0, 0, 293, 300, PARAMS.CANVAS_WIDTH / 3.5, PARAMS.CANVAS_WIDTH / 5, 293, 300));
                                     that.game.savedTime = that.game.phase2Timer.time;
                                 }
