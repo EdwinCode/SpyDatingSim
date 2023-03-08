@@ -70,6 +70,7 @@ ASSET_MANAGER.queueDownload("./sprites/furniture/Floorings.png");
 ASSET_MANAGER.queueDownload("./music/Jazz.mp3");
 ASSET_MANAGER.queueDownload("./music/PinkPanther.mp3");
 ASSET_MANAGER.queueDownload("./music/MissionImpossible.mp3");
+ASSET_MANAGER.queueDownload("./music/cutscene.mp3");
 
 //sound effects
 ASSET_MANAGER.queueDownload("./sound_effects/treasure.mp3");

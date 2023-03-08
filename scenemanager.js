@@ -89,6 +89,7 @@ class Scenemanager {
         // ending part 1 cutscene
         if (this.currentLevel === endingPart1Cutscene) {
             this.clearEntities();
+            ASSET_MANAGER.playAsset("./music/cutscene.mp3");
             this.game.addEntity(new EndingPart1Cutscene(this.game));
         }
 
