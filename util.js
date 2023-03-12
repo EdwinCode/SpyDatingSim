@@ -341,7 +341,8 @@ function checkForSkippedParts(game) {
     if (PARAMS.SKIPPHASE1) {
         this.game.camera.currentLevel = levelOneCutscene;
         this.game.currLvl = levelOneCutscene;
-
+        ASSET_MANAGER.pauseBackgroundMusic();
+        ASSET_MANAGER.playAsset("./music/cutscene.mp3");
         this.game.camera.loadLevel(levelOneCutscene);
         document.getElementById("skipPhaseOne").checked = false;
     }

@@ -18,6 +18,7 @@ class LevelOneCutscene {
             if (this.mouseBB.collide(this.nextBB)) {
                 if (this.slideNum === 5) {
                     this.game.camera.clearEntities();
+                    ASSET_MANAGER.pauseBackgroundMusic();
                     this.game.camera.loadLevel(levelOne2);
                     roseDisplay = true;
                 } else {

@@ -14,6 +14,7 @@ class WinScreen {
 
             // restart game
             if (this.mouseBB.collide(this.newgameBB)) {
+                ASSET_MANAGER.pauseBackgroundMusic();
                 this.game.camera.loadLevel(titleScreen);
                 this.game.male = false;
                 resetDisplays();

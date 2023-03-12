@@ -927,8 +927,7 @@ let levelOneFurniture = {
 
 
 let levelOne1 = {
-    // make a music folder and name the audio as seen below
-    //music: "./music/backgroundMusic.mp3",
+    music: "./music/Jazz.mp3",
 
     label: "Phase 1-1",
 
@@ -1418,6 +1417,37 @@ let levelOne2 = {
             stateIncr: false},
         { message: "There seems to be League of Legends installed on this computer...",
             state: 2,
+            portraitNumber: 0,
+            stateIncr: false},
+    ],
+
+    toolbox: [
+        { message: "You found a flashlight!",
+            state: 0,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "You found a flashlight!",
+            state: 1,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "You found a flashlight!",
+            state: 2,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "You found a flashlight!",
+            state: 3,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "You found a flashlight!",
+            state: 4,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "You found a flashlight!",
+            state: 5,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "You found a flashlight!",
+            state: 6,
             portraitNumber: 0,
             stateIncr: false},
     ],

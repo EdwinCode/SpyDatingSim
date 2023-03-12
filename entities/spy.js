@@ -204,6 +204,7 @@ class Spy {
                     } else if (PARAMS.IMMUNITY) {
                         // do nothing
                     } else {
+                        ASSET_MANAGER.pauseBackgroundMusic();
                         that.game.camera.loadLevel(loseScreen);
                     }
                 }
@@ -247,6 +248,7 @@ class Spy {
                         if (that.game.interact && that.hideChat) {
 
                             // WIN game
+                            ASSET_MANAGER.pauseBackgroundMusic();
                             that.game.camera.loadLevel(endingPart1Cutscene);
                             that.game.savedTime = that.game.phase2Timer.time;
 
@@ -283,7 +285,7 @@ class Spy {
                 if (entity instanceof Toolbox) {
                     if (entity.interactBB && that.BB.collide(entity.interactBB)) {
                         that.toolboxInteract = true;
-                        if (that.game.interact && that.hideChat) {
+                        if (that.game.interact && that.hideChat && that.game.currLvl === levelOne1) {
                             that.game.interact = false;
                             that.hideChat = false;
 
@@ -302,6 +304,7 @@ class Spy {
 
                             //Flashlight chatbox
                             if (!flashlightDisplay) {
+                                ASSET_MANAGER.playAsset("./sound_effects/treasure.mp3");
                                 that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/flashlight.png"), 0, 0, 612, 272, PARAMS.CANVAS_WIDTH / 3.5, PARAMS.CANVAS_WIDTH / 3, 76.5 * PARAMS.BLOCKWIDTH, 34 * PARAMS.BLOCKWIDTH));
                             }
 
@@ -335,6 +338,7 @@ class Spy {
 
                                 //clueone chatbox
                                 if (!clueOneDisplay) {
+                                    ASSET_MANAGER.playAsset("./sound_effects/treasure.mp3");
                                     that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/furniture/water_tank.png"), 18, 4, 198, 529, PARAMS.CANVAS_WIDTH / 2.5, PARAMS.CANVAS_WIDTH / 6.5, 132, 352.66));
                                     that.game.savedTime = that.game.phase2Timer.time;
                                 }
@@ -368,6 +372,7 @@ class Spy {
 
                                 //cluetwo chatbox
                                 if (!clueTwoDisplay) {
+                                    ASSET_MANAGER.playAsset("./sound_effects/treasure.mp3");
                                     that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/gps.png"), 0, 0, 128, 128, PARAMS.CANVAS_WIDTH / 3.5, PARAMS.CANVAS_WIDTH / 5, 256, 256));
                                     that.game.savedTime = that.game.phase2Timer.time;
                                 }
@@ -401,6 +406,7 @@ class Spy {
 
                                 //cluethree chatbox
                                 if (!clueThreeDisplay) {
+                                    ASSET_MANAGER.playAsset("./sound_effects/treasure.mp3");
                                     that.game.addEntityToTop(new ItemsChatbox(that.game, ASSET_MANAGER.getAsset("./sprites/patent.png"), 0, 0, 293, 300, PARAMS.CANVAS_WIDTH / 3.5, PARAMS.CANVAS_WIDTH / 5, 293, 300));
                                     that.game.savedTime = that.game.phase2Timer.time;
                                 }
@@ -420,6 +426,8 @@ class Spy {
                 // ---------------------------------------------------
                 // trigger cutscene
                 if (that.game.currLvl.label === "Phase 1-1" && that.game.chatState === 7 && that.chatbox.setVisible === false) {
+                    ASSET_MANAGER.pauseBackgroundMusic();
+                    ASSET_MANAGER.playAsset("./music/cutscene.mp3");
                     that.game.camera.loadLevel(levelOneCutscene);
                 }
 
@@ -740,37 +748,37 @@ class Spy {
                     }
                 }
 
-                else if (entity instanceof RoseTable) {
-                    console.log("rose instance");
-                    if (entity.interactBB && that.BB.collide(entity.interactBB)) {
-
-                        that.noInteract = false;
-                        that.roseTableInteract = true;
-                        console.log("rose interact");
-
-                        if (that.game.interact && that.hideChat) {
-                            that.game.interact = false;
-                            that.hideChat = false;
-
-                            that.text = loadText(that.game.currLvl, "roseTable", that.game.chatState);
-                            that.image = loadImage(that.game.currLvl, "roseTable", that.game.chatState);
-                            that.game.chatState = that.updateState(that.game.currLvl, "roseTable", that.game.chatState);
-
-                            that.spritesheet = ASSET_MANAGER.getAsset("./sprites/blackbox.png");
-
-                            that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, true);
-                            that.game.addEntityToTop(that.chatbox);
-                            that.chatbox.setVisible = true;
-
-                            //TO PAUSE THE GAME
-                            Chatbox.OPEN = true;
-
-                        }
-                    } else {
-                        that.roseTableInteract = false;
-                        that.noInteract = true;
-                    }
-                }
+                // else if (entity instanceof RoseTable) {
+                //     console.log("rose instance");
+                //     if (entity.interactBB && that.BB.collide(entity.interactBB)) {
+                //
+                //         that.noInteract = false;
+                //         that.roseTableInteract = true;
+                //         console.log("rose interact");
+                //
+                //         if (that.game.interact && that.hideChat) {
+                //             that.game.interact = false;
+                //             that.hideChat = false;
+                //
+                //             that.text = loadText(that.game.currLvl, "roseTable", that.game.chatState);
+                //             that.image = loadImage(that.game.currLvl, "roseTable", that.game.chatState);
+                //             that.game.chatState = that.updateState(that.game.currLvl, "roseTable", that.game.chatState);
+                //
+                //             that.spritesheet = ASSET_MANAGER.getAsset("./sprites/blackbox.png");
+                //
+                //             that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, true);
+                //             that.game.addEntityToTop(that.chatbox);
+                //             that.chatbox.setVisible = true;
+                //
+                //             //TO PAUSE THE GAME
+                //             Chatbox.OPEN = true;
+                //
+                //         }
+                //     } else {
+                //         that.roseTableInteract = false;
+                //         that.noInteract = true;
+                //     }
+                // }
             }
 
             that.updateBB();
