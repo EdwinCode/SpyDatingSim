@@ -739,33 +739,37 @@ class Spy {
                         that.monitorInteract = false;
                     }
                 }
-            } else if (entity instanceof RoseTable) {
-                if (entity.interactBB && that.BB.collide(entity.interactBB)) {
 
-                    that.noInteract = false;
-                    that.roseTableInteract = true;
+                else if (entity instanceof RoseTable) {
+                    console.log("rose instance");
+                    if (entity.interactBB && that.BB.collide(entity.interactBB)) {
 
-                    if (that.game.interact && that.hideChat) {
-                        that.game.interact = false;
-                        that.hideChat = false;
+                        that.noInteract = false;
+                        that.roseTableInteract = true;
+                        console.log("rose interact");
 
-                        that.text = loadText(that.game.currLvl, "rose table", that.game.chatState);
-                        that.image = loadImage(that.game.currLvl, "rose table", that.game.chatState);
-                        //that.game.chatState = that.updateState(that.game.currLvl, "rose table", that.game.chatState);
+                        if (that.game.interact && that.hideChat) {
+                            that.game.interact = false;
+                            that.hideChat = false;
 
-                        that.spritesheet = ASSET_MANAGER.getAsset("./sprites/blackbox.png");
+                            that.text = loadText(that.game.currLvl, "roseTable", that.game.chatState);
+                            that.image = loadImage(that.game.currLvl, "roseTable", that.game.chatState);
+                            that.game.chatState = that.updateState(that.game.currLvl, "roseTable", that.game.chatState);
 
-                        that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, true);
-                        that.game.addEntityToTop(that.chatbox);
-                        that.chatbox.setVisible = true;
+                            that.spritesheet = ASSET_MANAGER.getAsset("./sprites/blackbox.png");
 
-                        //TO PAUSE THE GAME
-                        Chatbox.OPEN = true;
+                            that.chatbox = new Chatbox(that.game, that.text, that.image, that.spritesheet, true);
+                            that.game.addEntityToTop(that.chatbox);
+                            that.chatbox.setVisible = true;
 
+                            //TO PAUSE THE GAME
+                            Chatbox.OPEN = true;
+
+                        }
+                    } else {
+                        that.roseTableInteract = false;
+                        that.noInteract = true;
                     }
-                } else {
-                    that.roseTableInteract = false;
-                    that.noInteract = true;
                 }
             }
 
@@ -948,14 +952,14 @@ class Spy {
             }
         }
 
-        // rose table
-        // else if (entity === "rose table") {
-        //     if (level.monitor[chatState].stateIncr === true) {
-        //         return chatState + 1;
-        //     } else {
-        //         return chatState;
-        //     }
-        // }
+        //rose table
+        else if (entity === "roseTable") {
+            if (level.monitor[chatState].stateIncr === true) {
+                return chatState + 1;
+            } else {
+                return chatState;
+            }
+        }
 
 
 

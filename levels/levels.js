@@ -1285,6 +1285,37 @@ let levelOne1 = {
             stateIncr: false},
     ],
 
+    roseTable: [
+        { message: "A rose",
+            state: 0,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "A rose",
+            state: 1,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "A rose",
+            state: 2,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "A rose",
+            state: 3,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "A rose",
+            state: 4,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "A rose",
+            state: 5,
+            portraitNumber: 0,
+            stateIncr: false},
+        { message: "A rose",
+            state: 6,
+            portraitNumber: 0,
+            stateIncr: false},
+    ],
+
 
     //ITEMS
     toolbox: [

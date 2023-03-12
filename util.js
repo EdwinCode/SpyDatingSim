@@ -186,6 +186,11 @@ function loadText(level, entity, chatState) {
         return level.monitor[chatState].message;
     }
 
+    // roseTable
+    else if (entity === "roseTable") {
+        return level.roseTable[chatState].message;
+    }
+
     //ITEMS
     // toolbox
     else if (entity === "toolbox") {
@@ -279,6 +284,11 @@ function loadImage(level, entity, chatState) {
     // monitor
     else if (entity === "monitor") {
         return level.monitor[chatState].portraitNumber;
+    }
+
+    // roseTable
+    else if (entity === "roseTable") {
+        return level.roseTable[chatState].portraitNumber;
     }
 
     //ITEMS
